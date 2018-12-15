@@ -1,0 +1,42 @@
+Package: JSmediation
+Version: 0.0.0.9000
+Title: Mediation Analysis Using Joint Significance
+Authors@R: c(
+    person("Cédric", "Batailler", email = "cedric.batailler@gmail.com", role = c("aut", "cre")),
+    person("Dominique", "Muller", role = "aut"),
+    person("Vincent", "Yzerbyt", role = "aut"),
+    person("Charles", "Judd", role = "aut"),
+    person("Arnold", "Ho", role = "dtc"),
+    person("Nour", "Kteily", role = "dtc"),
+    person("Jacqueline", "Chen", role = "dtc"),
+    person("Simone", "Dohle", role = "dtc"),
+    person("Michael", "Siegrist", role = "dtc")
+    )
+Description: A set of helper functions to conduct joint-significance tests for 
+  mediation analysis.
+License: MIT + file LICENSE
+Encoding: UTF-8
+LazyData: true
+ByteCompile: true
+Roxygen: list(markdown = TRUE)
+RoxygenNote: 6.1.0
+Depends: R (>= 2.10)
+URL: https://github.com/cedricbatailler/JSmediation
+BugReports: https://github.com/cedricbatailler/JSmediation/issues
+Imports: 
+    rlang (>= 0.1.2),
+    dplyr,
+    magrittr,
+    purrr,
+    glue,
+    broom,
+    tibble,
+    stats,
+    MASS,
+    data.table
+Suggests: 
+    knitr,
+    rmarkdown,
+    testthat,
+    covr
+VignetteBuilder: knitr

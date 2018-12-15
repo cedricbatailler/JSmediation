@@ -1,0 +1,177 @@
+---
+title: "Mediation analysis with JSmediation"
+author: "Cédric Batailler"
+date: "`r Sys.Date()`"
+output: rmarkdown::html_vignette
+vignette: >
+  %\VignetteIndexEntry{mediation analysis with JSmediation}
+  %\VignetteEngine{knitr::rmarkdown}
+  %\VignetteEncoding{UTF-8}
+---
+
+```{r setup, include = FALSE}
+knitr::opts_chunk$set(
+  collapse = TRUE,
+  comment = "#>"
+)
+```
+
+# Simple mediation
+
+`JSmediation` offers helpers to conduct a joint significant mediation test. 
+With this package, you can type a mediation model the way you think it, 
+`JSmediation` dealing with fitting underlying models.
+
+In this vignette, we will conduct ajoint-significicant test for a simple 
+mediation scenario.
+
+We will use a data set from Ho, Kteily and Chen (2017). In this experiment, 
+authors hypothised that presenting a text stating that Black-White biracials 
+were discriminated would lead Black participants to associate Black-White 
+biracials more with their lower status parent group than their higher status 
+parent group, according to the rule of hypodescent. In this experiment, the 
+authors tested if this effect was mediated by the sense of linked fate between 
+discriminated Black-White participants and Black participants. This data set 
+is shipped with the `JSmediation` and is called `ho_et_al`.
+
+First, we will load the `JSmediation` package in our environnement so we can use
+its functions.
+
+```{r}
+library(JSmediation)
+```
+
+Now that `JSmediation` is attached, we can load its function, including the 
+`ho_et_al` data set.
+
+```{r}
+head(ho_et_al)
+```
+
+The first thing we can see in this data set is that the `condition` variable is
+coded as text something that JSmediation doesn't support. The first step  will 
+be to build a new variable which will represent the discrimination
+condition with a contrast code. To do so, we will use the `build_contrast` 
+function.
+
+```{r}
+ho_et_al$condition_c <- build_contrast(ho_et_al$condition,
+                                         "Low discrimination",
+                                         "High discrimination")
+
+head(ho_et_al)
+```
+
+Now that we have a data frame we can use for the analysis, we will use the 
+`mdt_simple` function to fit a simple mediation model. Note that any model 
+`JSmediation` support is implemented in a `mdt_*` function.
+
+```{r}
+my_model <- 
+  mdt_simple(ho_et_al,
+             IV = condition_c,
+             DV = hypodescent,
+             M  = linkedfate)
+```
+
+We now have an object of class `mediation_model`, we can now wether our data 
+support a simple mediation. 
+
+Before looking into the results, we will check for OLS assumptions because 
+underlying models used in a joint significant test are actually linear models.
+
+We will extract one model and plot diagnostic plots using the `plot` method for 
+object of class `lm`. To do so, we will use the `extract_model` method. To use
+this function, we will use the `step` argument which allow us to ask for a 
+specific model. Note that `step` allow name of model as well as integer value
+to be requested.
+
+```{r}
+model_1 <- extract_model(my_model, step = "X -> M")
+
+plot(model_1, ask = FALSE)
+```
+
+We will do the same thing for the two other models mdt_simple has fitted.
+
+```{r}
+model_2 <- extract_model(my_model, step = 2)
+
+plot(model_2, ask = FALSE)
+```
+
+```{r}
+model_3 <- extract_model(my_model, step = 3)
+
+plot(model_3, ask = FALSE)
+```
+
+It appears that none of the fitted models violate OLS assumptions.
+
+Note that, alternatively, we could have used `extract_models` method to get back
+a list of `lm` objects instead of multiple single `lm` objects.
+
+Now that we check for our assumptions, we can interpret our model. To do
+so, we just have to call for `my_model`. The structure of objects of class
+`mediation_model` is rather complex but there is a `print` method for these
+objects. The `print` method is implicitly called one called for the `my_model`
+object.
+
+```{r, render="asis"}
+my_model
+```
+
+In this summary, both a and b paths are significant, we could conclude that 
+the indirect effect of discrimination on hypodesscent by linked fate is 
+significant according to the joint significant test. 
+
+We could choose to compute the Monte Carlo moderation index using `add_index` 
+function. This functions adds the indrect effect to the `mediation_model` 
+object which is print directly.
+
+```{r}
+add_index(my_model)
+```
+
+Following this mediation analys, one could write the following to report the
+joint significant mediation test:
+
+> First, we tested examined if  discrimination condition (low vs. high) had an
+> effect on hypodescent. This analysis revealed a significant effect, 
+> _t_(822) = 2.13, _p_ = .034.
+>
+> We then examined our hypothesis of interest, namely, that linked fate 
+> mediated the effect of discrimination on hypodescent. To do so, we 
+> conducted a joint significant test (Yzerbyt et al., 2018). This analysis
+> revealed a significant effect of discrimination condition on linked fate,
+> _t_(822) = 9.10, _p_ < .001, and a significant effect of linked fate on 
+> hypodescent while controlling for discrimination condition, 
+> _t_(821) = 5.75, _p_ < .001. The effect of discrimination condition on 
+> hypodescent after controlling for linked fate was no longer significant, 
+> _t_(821) = 0.33, _p_ = .742.
+> Consistantly with this analysis, the Monte Carlo confidence interval for the
+> indirect effect did not contain 0, CI<sub>95%</sub> [0.0889; 0.208].
+
+# Miscellaneous
+
+Note that `JSmediation` contains some helper function to ease mediation 
+analysis.
+
+`display_models` print a summary of each `lm` object fitted during the joint 
+significant test.
+
+```{r}
+display_models(my_model)
+```
+
+
+`extract_tidy_models` returns a data frame containing models summary 
+information.
+
+```{r}
+extract_tidy_models(my_model)
+```
+
+# References 
+
+Ho, A. K., Kteily, N. S., & Chen, J. M. (2017). “You’re one of us”: Black Americans’ use of hypodescent and its association with egalitarianism. _Journal of Personality and Social Psychology_, _113_(5), 753‑768. doi:10.1037/pspi0000107

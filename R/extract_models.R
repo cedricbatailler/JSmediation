@@ -1,0 +1,125 @@
+#' @title Extract models from a mediation_model object
+#'
+#' @description When conducting a joint significant test, different models are
+#'   fitted to the data. This function helps you access the models that have
+#'   been used in an object of class \code{mediation_model}.
+#'
+#' @seealso \code{\link{extract_model}} to access a specific model used for
+#'   joint-significance test as a data frame.
+#'
+#' @param mediation_model An object of class \code{mediation_model}.
+#'
+#' @seealso \code{\link{extract_models}} to access a single model which has been
+#'   used for joint-significance test.
+#'
+#' @return A list of \code{lm} objects.
+#'
+#' @examples
+#' data(ho_et_al)
+#' ho_et_al$condition_c <- build_contrast(ho_et_al$condition,
+#'                                        "Low discrimination",
+#'                                        "High discrimination")
+#' my_model <-
+#'   mdt_simple(data = ho_et_al,
+#'              IV = condition_c,
+#'              DV = hypodescent,
+#'              M = linkedfate)
+#'
+#' extract_models(my_model)
+#'
+#' @export
+
+extract_models <- function(mediation_model) {
+  UseMethod("extract_models")
+}
+
+#' @export
+
+extract_models.mediation_model <- function(mediation_model) {
+    purrr::pluck(mediation_model, "js_models")
+}
+
+#' @title Extract a single model from a mediation_model object
+#'
+#' @description When conducting a joint significant test, different models are
+#'   fitted to the data. This function helps you access the models that have
+#'   been used in an object of class \code{mediation_model}.
+#'
+#' @seealso \code{\link{extract_models}} to access a list of every models used
+#'   for joint-significance test.
+#'
+#' @param mediation_model An object of class \code{mediation_model}.
+#' @param step An integer or a string corresponding to the model to extract.
+#'
+#' @return Either a list of \code{lm} objects or an \code{lm} object.
+#'
+#' @examples
+#' data(ho_et_al)
+#' ho_et_al$condition_c <- build_contrast(ho_et_al$condition,
+#'                                        "Low discrimination",
+#'                                        "High discrimination")
+#' my_model <-
+#'   mdt_simple(data = ho_et_al,
+#'              IV = condition_c,
+#'              DV = hypodescent,
+#'              M = linkedfate)
+#'
+#' extract_model(my_model, step = "X -> M")
+#'
+#' @export
+
+extract_model <- function(mediation_model, step = NULL) {
+  UseMethod("extract_model")
+}
+
+#' @export
+
+extract_model.mediation_model <- function(mediation_model, step = NULL) {
+  if (is.null(step)) {
+    error_message <-
+      "You forgot to specify the `step` argument.
+    Did you mean to use extract_models() instead?"
+
+    stop(call. = FALSE, error_message)
+  }
+  else {
+    purrr::pluck(mediation_model, "js_models", step)
+  }
+}
+
+#' @title Extract models from a mediation object as a data frame
+#'
+#' @description When conducting a joint significant test, different models are
+#' fitted to the data. This function helps you access the models that have been
+#' used in an object of class \code{mediation_model}.
+#'
+#' @param mediation_model An object of class \code{mediation_model}.
+#'
+#' @return A data frame with models information.
+#'
+#' @examples
+#' data(ho_et_al)
+#' ho_et_al$condition_c <- build_contrast(ho_et_al$condition,
+#'                                        "Low discrimination",
+#'                                        "High discrimination")
+#' my_model <-
+#'   mdt_simple(data = ho_et_al,
+#'              IV = condition_c,
+#'              DV = hypodescent,
+#'              M = linkedfate)
+#'
+#' extract_tidy_models(my_model)
+#' 
+#' @export
+
+extract_tidy_models <- function(mediation_model) {
+  UseMethod("extract_tidy_models")
+}
+
+#' @export
+
+extract_tidy_models.mediation_model <- function(mediation_model) {
+  purrr::pluck(mediation_model, "js_models") %>%
+    purrr::map_df(~broom::tidy(.x), .id = "model")
+
+}

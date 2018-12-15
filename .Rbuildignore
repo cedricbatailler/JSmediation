@@ -1,0 +1,9 @@
+^codecov\.yml$
+^JSmediation\.Rproj$
+^\.Rproj\.user$
+^LICENSE\.md$
+^data-raw$
+^\.travis\.yml$
+man-roxygen
+^README\.Rmd$
+^CODE_OF_CONDUCT\.md$
