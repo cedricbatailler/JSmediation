@@ -132,6 +132,11 @@ conclude that there is a mediation pattern.
 
 ### References
 
+Yzerbyt, V., Muller, D., Batailler, C., & Judd, C. M. (2018). New
+recommendations for testing indirect effects in mediational models: The
+need to report and test component paths. *Journal of Personality and
+Social Psychology*, *115*(6), 929–943. doi: 10.1037/pspa0000132
+
 Ho, A. K., Kteily, N. S., & Chen, J. M. (2017). “You’re one of us”:
 Black Americans’ use of hypodescent and its association with
 egalitarianism. *Journal of Personality and Social Psychology*,
