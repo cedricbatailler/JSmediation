@@ -70,10 +70,10 @@
 #'   in Treatment Evaluations. \emph{Evaluation Review}, \emph{5}(5), 602‑619.
 #'   doi: 10.1177/0193841X8100500502
 #'
-#'   Yzerbyt, V., Muller, D., Batailler, C., & Judd, C. M. (in press). New
+#'   Yzerbyt, V., Muller, D., Batailler, C., & Judd, C. M. (2018). New
 #'   recommendations for testing indirect effects in mediational models: The
 #'   need to report and test component paths. \emph{Journal of Personality and
-#'   Social Psychology}.
+#'   Social Psychology}, \emph{115}(6), 929–943. doi: 10.1037/pspa0000132
 #' 
 #' @examples
 #' ## fit a simple mediation model

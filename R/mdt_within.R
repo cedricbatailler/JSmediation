@@ -58,10 +58,10 @@
 #'   statistical mediation analysis: A path-analytic framework.
 #'   \emph{Psychological Methods}, \emph{22}(1), 6‑27. doi: 10.1037/met0000086
 #'
-#'   Yzerbyt, V., Muller, D., Batailler, C., & Judd, C. M. (in press). New
+#'   Yzerbyt, V., Muller, D., Batailler, C., & Judd, C. M. (2018). New
 #'   recommendations for testing indirect effects in mediational models: The
 #'   need to report and test component paths. \emph{Journal of Personality and
-#'   Social Psychology}.
+#'   Social Psychology}, \emph{115}(6), 929–943. doi: 10.1037/pspa0000132
 #'
 #' @family mediation models
 #'
