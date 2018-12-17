@@ -4,14 +4,14 @@
 \alias{add_index.moderated_mediation}
 \title{add_index method for moderated mediation}
 \usage{
-\method{add_index}{moderated_mediation}(mediation_model, iter = 5000,
+\method{add_index}{moderated_mediation}(mediation_model, times = 5000,
   level = 0.05, stage = NULL, ...)
 }
 \arguments{
 \item{mediation_model}{A mediation model of class
 \code{"moderated_mediation"}.}
 
-\item{iter}{Number of simulation to use to compute Monte Carlo indirect
+\item{times}{Number of simulation to use to compute Monte Carlo indirect
 effect confidence interval.}
 
 \item{level}{Alpha threshold to use with the confidence interval.}

@@ -5,7 +5,7 @@
 #'
 #' @param mediation_model A mediation model of class
 #'   \code{"moderated_mediation"}.
-#' @param iter Number of simulation to use to compute Monte Carlo indirect
+#' @param times Number of simulation to use to compute Monte Carlo indirect
 #'   effect confidence interval.
 #' @param level Alpha threshold to use with the confidence interval.
 #' @param stage Moderated indirect effect's stage on which to compute the
@@ -49,7 +49,7 @@
 #'   Social Psychology}, 89(6), 852‑863. doi: 10.1037/0022-3514.89.6.852
 #'
 #' @export
-add_index.moderated_mediation <- function(mediation_model, iter = 5000, level = .05, stage = NULL, ...) {
+add_index.moderated_mediation <- function(mediation_model, times = 5000, level = .05, stage = NULL, ...) {
 
   if(is.null(stage))
     stop(
@@ -77,7 +77,7 @@ add_index.moderated_mediation <- function(mediation_model, iter = 5000, level = 
     }
 
     ab_sampling <-
-      MASS::mvrnorm(n  = iter,
+      MASS::mvrnorm(n  = times,
                     mu = c(a, b),
                     Sigma =
                       matrix(
@@ -94,7 +94,7 @@ add_index.moderated_mediation <- function(mediation_model, iter = 5000, level = 
       indirect_effect(type       = type,
                       estimate   = a * b,
                       level      = level,
-                      iterations = iter,
+                      times      = times,
                       sampling   = indirect_sampling)
   }
   
@@ -113,7 +113,7 @@ add_index.moderated_mediation <- function(mediation_model, iter = 5000, level = 
     type <- "Indirect effect moderation index (total)"
 
     ab_sampling <-
-      MASS::mvrnorm(n  = iter,
+      MASS::mvrnorm(n  = times,
                     mu = c(a1, b1, a2, b2),
                     Sigma =
                       matrix(
@@ -131,7 +131,7 @@ add_index.moderated_mediation <- function(mediation_model, iter = 5000, level = 
         type          = type,
         estimate      = a1 * b1 + a2 * b2,
         level         = level,
-        iterations    = iter,
+        times         = times,
         sampling      = indirect_sampling
       )
   }

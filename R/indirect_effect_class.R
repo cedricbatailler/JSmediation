@@ -2,7 +2,7 @@ indirect_effect <- function(type,
                             method = "Monte Carlo",
                             estimate,
                             level,
-                            iterations,
+                            times,
                             sampling) {
   
   CI <- stats::quantile(
@@ -18,7 +18,7 @@ indirect_effect <- function(type,
       estimate      = estimate,
       CI            = CI,
       level         = level,
-      iterations    = iterations,
+      times         = times,
       contains_zero = contains_zero,
       sampling      = sampling
     ),

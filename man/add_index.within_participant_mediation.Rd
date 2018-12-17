@@ -5,13 +5,13 @@
 \title{add_index method for within-participant mediation}
 \usage{
 \method{add_index}{within_participant_mediation}(mediation_model,
-  iter = 5000, level = 0.05, ...)
+  times = 5000, level = 0.05, ...)
 }
 \arguments{
 \item{mediation_model}{A mediation model of class
 \code{"within_participant_mediation"}.}
 
-\item{iter}{Number of simulation to use to compute Monte Carlo indirect
+\item{times}{Number of simulation to use to compute Monte Carlo indirect
 effect confidence interval.}
 
 \item{level}{Alpha threshold to use with the confidence interval.}

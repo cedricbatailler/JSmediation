@@ -4,13 +4,13 @@
 \alias{add_index}
 \title{Add an indirect effect index to a fitted mediation model}
 \usage{
-add_index(mediation_model, iter = 5000, level = 0.05, ...)
+add_index(mediation_model, times = 5000, level = 0.05, ...)
 }
 \arguments{
 \item{mediation_model}{A mediation model fitted with and \code{mdt_*} family
 function.}
 
-\item{iter}{Number of simulation to use to compute Monte Carlo  index's
+\item{times}{Number of simulation to use to compute Monte Carlo  index's
 confidence interval.}
 
 \item{level}{Alpha threshold to use with the confidence interval.}

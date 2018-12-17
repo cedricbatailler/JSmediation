@@ -4,7 +4,7 @@
 #'   model fitted with \code{\link{mdt_simple}}.
 #'
 #' @param mediation_model A mediation model of class \code{"simple_mediation"}.
-#' @param iter Number of simulation to use to compute Monte Carlo indirect
+#' @param times Number of simulation to use to compute Monte Carlo indirect
 #'   effect confidence interval.
 #' @param level Alpha threshold to use with the confidence interval.
 #' @param ... Further arguments passed to or from other methods.
@@ -31,7 +31,7 @@
 #' add_index(simple_model)
 #'
 #' @export
-add_index.simple_mediation <- function(mediation_model, iter = 5000, level = .05, ...) {
+add_index.simple_mediation <- function(mediation_model, times = 5000, level = .05, ...) {
 
   a   <- purrr::pluck(mediation_model, "paths", "a", "point_estimate")
   sea <- purrr::pluck(mediation_model, "paths", "a", "se")
@@ -39,7 +39,7 @@ add_index.simple_mediation <- function(mediation_model, iter = 5000, level = .05
   seb <- purrr::pluck(mediation_model, "paths", "b", "se")
 
   ab_sampling <-
-    MASS::mvrnorm(n  = iter,
+    MASS::mvrnorm(n  = times,
                   mu = c(a, b),
                   Sigma =
                     matrix(
@@ -56,7 +56,7 @@ add_index.simple_mediation <- function(mediation_model, iter = 5000, level = .05
     indirect_effect(type       = "Indirect effect",
                     estimate   = a * b,
                     level      = level,
-                    iterations = iter,
+                    times      = times,
                     sampling   = indirect_sampling)
 
   mediation_model$indirect_index <- TRUE

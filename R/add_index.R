@@ -9,7 +9,7 @@
 #'
 #' @param mediation_model A mediation model fitted with and \code{mdt_*} family
 #'   function.
-#' @param iter Number of simulation to use to compute Monte Carlo  index's
+#' @param times Number of simulation to use to compute Monte Carlo  index's
 #'   confidence interval.
 #' @param level Alpha threshold to use with the confidence interval.
 #' @param ... Further arguments to be passed to specific methods.
@@ -18,6 +18,6 @@
 #'   added for later use.
 #'
 #' @export
-add_index <- function(mediation_model, iter = 5000, level = .05, ...) {
+add_index <- function(mediation_model, times = 5000, level = .05, ...) {
   UseMethod("add_index")
 }
