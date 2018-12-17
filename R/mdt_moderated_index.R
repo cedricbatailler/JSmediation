@@ -7,7 +7,7 @@
 #'   \code{"moderated_mediation"}.
 #' @param iter Number of simulation to use to compute Monte Carlo indirect
 #'   effect confidence interval.
-#' @param alpha Alpha threshold to use with the confidence interval.
+#' @param level Alpha threshold to use with the confidence interval.
 #' @param stage Moderated indirect effect's stage on which to compute the
 #'   confidence interval. Can be either \code{1} (or \code{"first"}) or \code{2}
 #'   (or \code{"second"}). To compute total indirect effect moderation index,
@@ -49,7 +49,7 @@
 #'   Social Psychology}, 89(6), 852‑863. doi: 10.1037/0022-3514.89.6.852
 #'
 #' @export
-add_index.moderated_mediation <- function(mediation_model, iter = 5000, alpha = .05, stage = NULL, ...) {
+add_index.moderated_mediation <- function(mediation_model, iter = 5000, level = .05, stage = NULL, ...) {
 
   if(is.null(stage))
     stop(
@@ -87,13 +87,13 @@ add_index.moderated_mediation <- function(mediation_model, iter = 5000, alpha = 
                       ))
 
     indirect_sampling <- ab_sampling[ , 1] * ab_sampling[ , 2]
-    CI <- stats::quantile(indirect_sampling, c(alpha / 2, 1 - alpha / 2))
+    CI <- stats::quantile(indirect_sampling, c(level / 2, 1 - level / 2))
     contains_zero <- (CI[[1]] < 0 & CI[[2]] > 0)
     
     indirect_index_infos <-
       indirect_effect(type       = type,
                       estimate   = a * b,
-                      alpha      = alpha,
+                      level      = level,
                       iterations = iter,
                       sampling   = indirect_sampling)
   }
@@ -130,7 +130,7 @@ add_index.moderated_mediation <- function(mediation_model, iter = 5000, alpha = 
       indirect_effect(
         type          = type,
         estimate      = a1 * b1 + a2 * b2,
-        alpha         = alpha,
+        level         = level,
         iterations    = iter,
         sampling      = indirect_sampling
       )

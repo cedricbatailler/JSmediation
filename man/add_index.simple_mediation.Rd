@@ -5,7 +5,7 @@
 \title{add_index method for simple mediation}
 \usage{
 \method{add_index}{simple_mediation}(mediation_model, iter = 5000,
-  alpha = 0.05, ...)
+  level = 0.05, ...)
 }
 \arguments{
 \item{mediation_model}{A mediation model of class \code{"simple_mediation"}.}
@@ -13,7 +13,7 @@
 \item{iter}{Number of simulation to use to compute Monte Carlo indirect
 effect confidence interval.}
 
-\item{alpha}{Alpha threshold to use with the confidence interval.}
+\item{level}{Alpha threshold to use with the confidence interval.}
 
 \item{...}{Further arguments passed to or from other methods.}
 }

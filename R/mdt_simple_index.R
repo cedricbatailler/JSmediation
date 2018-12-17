@@ -6,7 +6,7 @@
 #' @param mediation_model A mediation model of class \code{"simple_mediation"}.
 #' @param iter Number of simulation to use to compute Monte Carlo indirect
 #'   effect confidence interval.
-#' @param alpha Alpha threshold to use with the confidence interval.
+#' @param level Alpha threshold to use with the confidence interval.
 #' @param ... Further arguments passed to or from other methods.
 #'
 #' @details Indirect effect index for simple mediation uses \eqn{a} and \eqn{b}
@@ -31,7 +31,7 @@
 #' add_index(simple_model)
 #'
 #' @export
-add_index.simple_mediation <- function(mediation_model, iter = 5000, alpha = .05, ...) {
+add_index.simple_mediation <- function(mediation_model, iter = 5000, level = .05, ...) {
 
   a   <- purrr::pluck(mediation_model, "paths", "a", "point_estimate")
   sea <- purrr::pluck(mediation_model, "paths", "a", "se")
@@ -49,13 +49,13 @@ add_index.simple_mediation <- function(mediation_model, iter = 5000, alpha = .05
                     ))
 
   indirect_sampling <- ab_sampling[ , 1] * ab_sampling[ , 2]
-  CI <- stats::quantile(indirect_sampling, c(alpha / 2, 1 - alpha / 2))
+  CI <- stats::quantile(indirect_sampling, c(level / 2, 1 - level / 2))
   contains_zero <- (CI[[1]] < 0 & CI[[2]] > 0)
 
   indirect_index_infos <-
     indirect_effect(type       = "Indirect effect",
                     estimate   = a * b,
-                    alpha      = alpha,
+                    level      = level,
                     iterations = iter,
                     sampling   = indirect_sampling)
 

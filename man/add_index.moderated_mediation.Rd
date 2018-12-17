@@ -5,7 +5,7 @@
 \title{add_index method for moderated mediation}
 \usage{
 \method{add_index}{moderated_mediation}(mediation_model, iter = 5000,
-  alpha = 0.05, stage = NULL, ...)
+  level = 0.05, stage = NULL, ...)
 }
 \arguments{
 \item{mediation_model}{A mediation model of class
@@ -14,7 +14,7 @@
 \item{iter}{Number of simulation to use to compute Monte Carlo indirect
 effect confidence interval.}
 
-\item{alpha}{Alpha threshold to use with the confidence interval.}
+\item{level}{Alpha threshold to use with the confidence interval.}
 
 \item{stage}{Moderated indirect effect's stage on which to compute the
 confidence interval. Can be either \code{1} (or \code{"first"}) or \code{2}
