@@ -33,9 +33,9 @@ Imports:
     tibble,
     stats,
     MASS,
-    data.table
+    data.table,
+    knitr
 Suggests: 
-    knitr,
     rmarkdown,
     testthat,
     covr
