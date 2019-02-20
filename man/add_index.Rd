@@ -7,13 +7,13 @@
 add_index(mediation_model, times = 5000, level = 0.05, ...)
 }
 \arguments{
-\item{mediation_model}{A mediation model fitted with and \code{mdt_*} family
+\item{mediation_model}{A mediation model fitted with an \code{mdt_*} family
 function.}
 
-\item{times}{Number of simulation to use to compute Monte Carlo  index's
+\item{times}{Number of simulations to use to compute the Monte Carlo index's
 confidence interval.}
 
-\item{level}{Alpha threshold to use with the confidence interval.}
+\item{level}{Alpha threshold to use for the confidence interval.}
 
 \item{...}{Further arguments to be passed to specific methods.}
 }
@@ -24,8 +24,9 @@ added for later use.
 \description{
 \code{\link{add_index}} is a generic function that adds
 (moderated) indirect effect index to an object created with an \code{mdt_*}
-family function. This function invokes particular methods depending of the
-class of the mediation model. For example, with a model fitted with
-\code{\link{mdt_simple}}, \code{\link{add_index}} will invoke
+family function. This index is computed using Monte Carlo methods. This
+function invokes particular methods depending of the class of the mediation
+model. For example, with a model fitted with \code{\link{mdt_simple}},
+\code{\link{add_index}} will invoke
 \code{\link{add_index.simple_mediation}}.
 }

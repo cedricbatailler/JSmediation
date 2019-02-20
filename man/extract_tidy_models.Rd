@@ -10,12 +10,12 @@ extract_tidy_models(mediation_model)
 \item{mediation_model}{An object of class \code{mediation_model}.}
 }
 \value{
-A data frame with models information.
+A data frame.
 }
 \description{
 When conducting a joint significant test, different models are
-fitted to the data. This function helps you access the models that have been
-used in an object of class \code{mediation_model}.
+fitted to the data. This function helps you access the models  used in an
+object of class \code{mediation_model}.
 }
 \examples{
 data(ho_et_al)
@@ -31,3 +31,8 @@ my_model <-
 extract_tidy_models(my_model)
 
 }
+\seealso{
+Other extract functions: \code{\link{extract_models}},
+  \code{\link{extract_model}}
+}
+\concept{extract functions}

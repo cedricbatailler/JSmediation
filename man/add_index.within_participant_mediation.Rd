@@ -11,17 +11,17 @@
 \item{mediation_model}{A mediation model of class
 \code{"within_participant_mediation"}.}
 
-\item{times}{Number of simulation to use to compute Monte Carlo indirect
+\item{times}{Number of simulations to use to compute the Monte Carlo indirect
 effect confidence interval.}
 
-\item{level}{Alpha threshold to use with the confidence interval.}
+\item{level}{Alpha threshold to use for the confidence interval.}
 
 \item{...}{Further arguments passed to or from other methods.}
 }
 \description{
-Adds confidence interval for the inderct effect to a
-within-participant mediation model fitted with \code{\link{mdt_within}} or
-\code{\link{mdt_within_wide}}.
+Adds the confidencer interval for the index of
+within-participant mediation to a  model fitted with
+\code{\link{mdt_within}} or \code{\link{mdt_within_wide}}.
 }
 \details{
 Indirect effect index for within-participant mediation uses \eqn{a}

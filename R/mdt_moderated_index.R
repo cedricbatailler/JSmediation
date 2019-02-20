@@ -1,33 +1,33 @@
 #' @title add_index method for moderated mediation
 #'
-#' @description Adds confidence interval for the inderct effect's moderation to
-#'   a moderated mediation model fitted with \code{\link{mdt_moderated}}.
+#' @description Adds the confidence interval for the index of moderated
+#'   mediation to a model fitted with \code{\link{mdt_moderated}}.
 #'
 #' @param mediation_model A mediation model of class
 #'   \code{"moderated_mediation"}.
-#' @param times Number of simulation to use to compute Monte Carlo indirect
+#' @param times Number of simulations to use to compute the Monte Carlo indirect
 #'   effect confidence interval.
-#' @param level Alpha threshold to use with the confidence interval.
-#' @param stage Moderated indirect effect's stage on which to compute the
+#' @param level Alpha threshold to use for the confidence interval.
+#' @param stage Moderated indirect effect's stage for which to compute the
 #'   confidence interval. Can be either \code{1} (or \code{"first"}) or \code{2}
 #'   (or \code{"second"}). To compute total indirect effect moderation index,
 #'   use \code{"total"}.
 #' @param ... Further arguments passed to or from other methods.
 #'
 #' @details Indirect effect moderation index for within-participant mediation
-#'   uses \eqn{a}, \eqn{a \times Mod}{a * Mod}, \eqn{b} and \eqn{b \times Mod}{b
-#'   * Mod} estimates and their standard error to compute the appropriate index
+#'   uses \eqn{a}, \eqn{a \times Mod}{a * Mod}, \eqn{b}, and \eqn{b \times Mod}{b
+#'   * Mod} estimates and their standard errors to compute the appropriate index
 #'   product distribution using Monte Carlo methods (see Muller, Judd, &
 #'   Yzerbyt, 2005).
 #'
-#'   \pkg{JSmediation} supports different type of mediated indirect effect
+#'   \pkg{JSmediation} supports different types of mediated indirect effect
 #'   index: 
 #'   \itemize{ 
-#'     \item{Stage 1:}{compute the product beetween \eqn{a \times Mod}{a
+#'     \item{Stage 1: }{computes the product beetween \eqn{a \times Mod}{a
 #'     * Mod} and \eqn{b}.}
-#'     \item{Stage 2:}{compute the product beetween \eqn{a} and \eqn{b \times
+#'     \item{Stage 2: }{ computes the product beetween \eqn{a} and \eqn{b \times
 #'     Mod}{b * Mod}.}
-#'     \item{Total:}{compute the sum of Stage 1 and Stage 2 distribution.}
+#'     \item{Total: }{ computes the sum of Stage 1 and Stage 2 distribution.}
 #'   }
 #'
 #' @examples

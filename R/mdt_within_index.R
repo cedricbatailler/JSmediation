@@ -1,14 +1,14 @@
 #' @title add_index method for within-participant mediation
 #'
-#' @description Adds confidence interval for the inderct effect to a
-#'   within-participant mediation model fitted with \code{\link{mdt_within}} or
-#'   \code{\link{mdt_within_wide}}.
-#'
+#' @description Adds the confidencer interval for the index of
+#'   within-participant mediation to a  model fitted with
+#'   \code{\link{mdt_within}} or \code{\link{mdt_within_wide}}.
+#'   
 #' @param mediation_model A mediation model of class
 #'   \code{"within_participant_mediation"}.
-#' @param times Number of simulation to use to compute Monte Carlo indirect
+#' @param times Number of simulations to use to compute the Monte Carlo indirect
 #'   effect confidence interval.
-#' @param level Alpha threshold to use with the confidence interval.
+#' @param level Alpha threshold to use for the confidence interval.
 #' @param ... Further arguments passed to or from other methods.
 #'
 #' @details Indirect effect index for within-participant mediation uses \eqn{a}

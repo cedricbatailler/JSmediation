@@ -1,16 +1,16 @@
 #' @title add_index method for simple mediation
 #'
-#' @description Adds confidence interval for the inderct effect to a mediation
-#'   model fitted with \code{\link{mdt_simple}}.
+#' @description Adds confidence interval for the index of  mediation to a model
+#'   fitted with \code{\link{mdt_simple}}.
 #'
 #' @param mediation_model A mediation model of class \code{"simple_mediation"}.
-#' @param times Number of simulation to use to compute Monte Carlo indirect
+#' @param times Number of simulations to use to compute the Monte Carlo indirect
 #'   effect confidence interval.
-#' @param level Alpha threshold to use with the confidence interval.
+#' @param level Alpha threshold to use for the confidence interval.
 #' @param ... Further arguments passed to or from other methods.
 #'
 #' @details Indirect effect index for simple mediation uses \eqn{a} and \eqn{b}
-#'   estimates and their standard error to compute the \eqn{ab} product
+#'   estimates and their standard errors to compute the \eqn{ab} product
 #'   distribution using Monte Carlo methods (see MacKinnon, Lockwood, &
 #'   Williams, 2004).
 #'

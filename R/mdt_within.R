@@ -7,13 +7,13 @@
 #'
 #' @param data a data frame containing the variables in the model.
 #' @param IV an unquoted variable in the data frame which will be used as
-#'   independant variable.
+#'   the independant variable.
 #' @param M an unquoted variable in the data frame which will be used as
-#'   mediator.
+#'   the mediator.
 #' @param DV an unquoted variable in the data frame which will be used as
-#'   dependant variable.
+#'   the dependant variable.
 #' @param grouping an unquoted variable in the data frame which will be used as
-#'   grouping variable.
+#'   the grouping variable.
 #' @param default_coding should the variable coding be the default? Defaults to
 #'   \code{TRUE}.
 #'
@@ -30,21 +30,21 @@
 #'   \code{\link{dohle_siegrist}} for an example.
 #'
 #'   Because such formatting is not the most common among social scientists
-#'   intrested in within-participant mediation, \pkg{JSmediation} contains the
+#'   interested in within-participant mediation, \pkg{JSmediation} contains the
 #'   \code{\link{mdt_within_wide}} function which handles long-formatted data
 #'   input (but is syntax-inconsistant with other \code{mdt_*} family
 #'   functions).
 #'
-#' @section Variable coding: Within-participant mediation model's underlying
-#'   models uses difference scores as DV (see Models section). Because the
-#'   function input does not allow the user to specify how the difference scores
-#'   should be computed, \code{mdt_within} has a default coding.
+#' @section Variable coding: Models underlying within-participant mediation use
+#'   difference scores as DV (see Models section). Because the function input
+#'   does not allow the user to specify how the difference scores should be
+#'   computed, \code{mdt_within} has a default coding.
 #'
-#'   \code{mdt_within}'s default behavior is to compute a difference score so
+#'   \code{mdt_within}'s default behavior is to compute the difference score so
 #'   the total effect (the effect of \eqn{X} on \eqn{Y}) will be positive and
-#'   compute other difference scores accordingly.
+#'   compute the other difference scores accordingly.
 #'
-#'   User can change choose to have a negative total effect by using the
+#'   User can choose to have a negative total effect by using the
 #'   \code{default_coding} argument.
 #'
 #'   Note that \code{DV} and \code{M} have to be numeric.

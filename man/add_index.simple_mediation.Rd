@@ -10,20 +10,20 @@
 \arguments{
 \item{mediation_model}{A mediation model of class \code{"simple_mediation"}.}
 
-\item{times}{Number of simulation to use to compute Monte Carlo indirect
+\item{times}{Number of simulations to use to compute the Monte Carlo indirect
 effect confidence interval.}
 
-\item{level}{Alpha threshold to use with the confidence interval.}
+\item{level}{Alpha threshold to use for the confidence interval.}
 
 \item{...}{Further arguments passed to or from other methods.}
 }
 \description{
-Adds confidence interval for the inderct effect to a mediation
-model fitted with \code{\link{mdt_simple}}.
+Adds confidence interval for the index of  mediation to a model
+fitted with \code{\link{mdt_simple}}.
 }
 \details{
 Indirect effect index for simple mediation uses \eqn{a} and \eqn{b}
-estimates and their standard error to compute the \eqn{ab} product
+estimates and their standard errors to compute the \eqn{ab} product
 distribution using Monte Carlo methods (see MacKinnon, Lockwood, &
 Williams, 2004).
 }

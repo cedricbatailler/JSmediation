@@ -1,23 +1,24 @@
-#'@title Data set showing within-subject analysis (wide-format)
+#' @title Dohle and Siegrist (2014, Exp 1) ullustrating within-subject analysis
+#'   (wide-format)
 #'
-#'@description A data set containing data from Dohle and Siegrist (2014)'s
-#'  Experiment 1 that can be used to conduct within-subject joint-significance
-#'  test. In this experiment, authors are intrested in the effect of name
-#'  complexity on willingness to buy a drug. The specific hypothesis would be
-#'  that complex drug name would be percieved as more hazardous, which would in
-#'  turn make someone less likely to buy the drug. Because in real life, one
-#'  have to choose between several drugs, this experiment where name complexity
-#'  was manipulated and where hazardousness and willingness to buy were measured
-#'  was conducted in a within-subject design.
+#' @description A data set containing data from Dohle and Siegrist (2014)'s
+#'   Experiment 1 that can be used to conduct within-subject joint-significance
+#'   test. In this experiment, researchers are interested in the effect of name
+#'   complexity on willingness to buy a drug. The specific hypothesis is that
+#'   complex drug name are percieved as more hazardous, which make someone less
+#'   likely to buy the drug. Researchers used a within-subject design.
 #'
 #'  This data set is in a wide format, see \code{\link{mdt_within_wide}} to
 #'  conduct a within-participant mediation analysis with this dataset.
 #'
-#'@format A data frame with 22 rows and 5 variables: \describe{
-#'  \item{participant}{Participant number.} \item{hazardousness_c}{Hazardousness
-#'  for complex drug name.} \item{hazardousness_s}{Hazardousness for simple drug
-#'  name.} \item{willingness_c}{Willigness to buy for complex drug name.}
-#'  \item{willingness_s}{Willigness to buy for simple drug name.} }
+#'@format A data frame with 22 rows and 5 variables: 
+#'\describe{
+#'  \item{participant}{Participant number.}
+#'  \item{hazardousness_c}{Hazardousness for complex drug name.}
+#'  \item{hazardousness_s}{Hazardousness for simple drug name.}
+#'  \item{willingness_c}{Willigness to buy for complex drug name.}
+#'  \item{willingness_s}{Willigness to buy for simple drug name.}
+#'  }
 #'
 #'@references Dohle, S., & Siegrist, M. (2014). Fluency of pharmaceutical drug
 #'  names predicts perceived hazardousness, assumed side effects and willingness

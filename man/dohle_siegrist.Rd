@@ -3,27 +3,28 @@
 \docType{data}
 \name{dohle_siegrist}
 \alias{dohle_siegrist}
-\title{Data set showing within-subject analysis (long-format)}
-\format{A data frame with 44 rows and 4 variables: \describe{
-\item{participant}{Participant number.} \item{name}{Name of the drugs
-("simple" vs. "complex").} \item{hazardousness}{Mean estimated
-hazardousness.} \item{willingness}{Mean willigness to buy.} }}
+\title{Dohle and Siegrist (2014, Exp 1) ullustrating within-subject analysis
+(long-format)}
+\format{A data frame with 44 rows and 4 variables:
+\describe{
+\item{participant}{Participant number.}
+\item{name}{Name of the drugs ("simple" vs. "complex").}
+\item{hazardousness}{Mean estimated hazardousness.}
+\item{willingness}{Mean willigness to buy.}
+}}
 \usage{
 data("dohle_siegrist")
 }
 \description{
 A data set containing data from Dohle and Siegrist (2014)'s
 Experiment 1 that can be used to conduct within-subject joint-significance
-test. In this experiment, authors are intrested in the effect of name
-complexity on willingness to buy a drug. The specific hypothesis would be
-that complex drug name would be percieved as more hazardous, which would in
-turn make someone less likely to buy the drug. Because in real life, one
-have to choose between several drugs, this experiment where name complexity
-was manipulated and where hazardousness and willingness to buy were
-measured was conducted in a within-subject design.
+test. In this experiment, researchers are interested in the effect of name
+complexity on willingness to buy a drug. The specific hypothesis is that
+complex drug name are percieved as more hazardous, which make someone less
+likely to buy the drug. Researchers used a within-subject design.
 
 This data set is in a long-format, see \code{\link{mdt_within}} to conduct
-a within-participant mediation analysis with this dataset.
+a within-participant mediation analysis with this data set.
 }
 \references{
 Dohle, S., & Siegrist, M. (2014). Fluency of pharmaceutical drug

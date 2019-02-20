@@ -12,12 +12,12 @@ extract_model(mediation_model, step = NULL)
 \item{step}{An integer or a string corresponding to the model to extract.}
 }
 \value{
-Either a list of \code{lm} objects or an \code{lm} object.
+An \code{lm} object.
 }
 \description{
-When conducting a joint significant test, different models are
-fitted to the data. This function helps you access the models that have
-been used in an object of class \code{mediation_model}.
+When conducting a joint-significant test, different models are
+fitted to the data. This function helps you access the models used in an
+object of class \code{mediation_model}.
 }
 \examples{
 data(ho_et_al)
@@ -34,6 +34,10 @@ extract_model(my_model, step = "X -> M")
 
 }
 \seealso{
-\code{\link{extract_models}} to access a list of every models used
-for joint-significance test.
+\code{\link{extract_models}} to access a list of every model
+relevant to joint-significance testing.
+
+Other extract functions: \code{\link{extract_models}},
+  \code{\link{extract_tidy_models}}
 }
+\concept{extract functions}

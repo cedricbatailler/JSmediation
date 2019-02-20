@@ -18,12 +18,12 @@
 #'   
 #' @format A data frame with 824 rows and 5 variables: 
 #' \describe{ 
-#'   \item{id}{An incremental index} 
+#'   \item{id}{An incremental index.} 
 #'   \item{condition}{Experimental condition (High discrimination vs. Low
-#'   discrimination)} 
-#'   \item{sdo}{Score at an SDO scale}
-#'   \item{linkedfate}{Score at an 8-item linked fate measure}
-#'   \item{hypodescent}{Score at a 3-item measure of hypodescent} 
+#'   discrimination).} 
+#'   \item{sdo}{Score at an SDO scale.}
+#'   \item{linkedfate}{Score at an 8-item linked fate measure.}
+#'   \item{hypodescent}{Score at a 3-item measure of hypodescent.} 
 #'   }
 #'
 #' @references Ho, A. K., Kteily, N. S., & Chen, J. M. (2017). “You’re one of

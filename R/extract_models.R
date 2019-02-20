@@ -1,18 +1,14 @@
 #' @title Extract models from a mediation_model object
 #'
-#' @description When conducting a joint significant test, different models are
-#'   fitted to the data. This function helps you access the models that have
-#'   been used in an object of class \code{mediation_model}.
-#'
-#' @seealso \code{\link{extract_model}} to access a specific model used for
-#'   joint-significance test as a data frame.
+#' @description When conducting a joint-significant test, different models are
+#'   fitted to the data. This function helps accessing the models used in an
+#'   object of class \code{mediation_model}.
 #'
 #' @param mediation_model An object of class \code{mediation_model}.
 #'
-#' @seealso \code{\link{extract_models}} to access a single model which has been
-#'   used for joint-significance test.
-#'
 #' @return A list of \code{lm} objects.
+#' 
+#' @family extract functions
 #'
 #' @examples
 #' data(ho_et_al)
@@ -41,18 +37,20 @@ extract_models.mediation_model <- function(mediation_model) {
 
 #' @title Extract a single model from a mediation_model object
 #'
-#' @description When conducting a joint significant test, different models are
-#'   fitted to the data. This function helps you access the models that have
-#'   been used in an object of class \code{mediation_model}.
+#' @description When conducting a joint-significant test, different models are
+#'   fitted to the data. This function helps you access the models used in an
+#'   object of class \code{mediation_model}.
 #'
-#' @seealso \code{\link{extract_models}} to access a list of every models used
-#'   for joint-significance test.
+#' @seealso \code{\link{extract_models}} to access a list of every model
+#'   relevant to joint-significance testing.
 #'
 #' @param mediation_model An object of class \code{mediation_model}.
 #' @param step An integer or a string corresponding to the model to extract.
 #'
-#' @return Either a list of \code{lm} objects or an \code{lm} object.
+#' @return An \code{lm} object.
 #'
+#' @family extract functions
+#' 
 #' @examples
 #' data(ho_et_al)
 #' ho_et_al$condition_c <- build_contrast(ho_et_al$condition,
@@ -90,12 +88,14 @@ extract_model.mediation_model <- function(mediation_model, step = NULL) {
 #' @title Extract models from a mediation object as a data frame
 #'
 #' @description When conducting a joint significant test, different models are
-#' fitted to the data. This function helps you access the models that have been
-#' used in an object of class \code{mediation_model}.
+#' fitted to the data. This function helps you access the models  used in an
+#' object of class \code{mediation_model}.
 #'
 #' @param mediation_model An object of class \code{mediation_model}.
 #'
-#' @return A data frame with models information.
+#' @return A data frame.
+#'
+#' @family extract functions
 #'
 #' @examples
 #' data(ho_et_al)

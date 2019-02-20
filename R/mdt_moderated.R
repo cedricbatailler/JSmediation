@@ -7,26 +7,26 @@
 #'
 #' @param data A data frame containing the variables in the model.
 #' @param IV An unquoted variable in the data frame which will be used as
-#'   independant variable.
+#'   the independant variable.
 #' @param DV An unquoted variable in the data frame which will be used as
-#'   dependant variable.
+#'   the dependant variable.
 #' @param M An unquoted variable in the data frame which will be used as
-#'   mediator.
+#'   the mediator.
 #' @param Mod An unquoted variable in the data frame which will be used as
-#'   moderator.
+#'   the moderator.
 #'
 #' @template mediation_model
 #'
 #' @family mediation models
 #'
-#' @details With moderated mediation analysis, one is intrested in finding if an
+#' @details With moderated mediation analysis, one tests whether the
 #'   indirect effect of \eqn{X} on \eqn{Y} through \eqn{M} is moderated by
 #'   \eqn{Mod}. The hypothesis behind this test is that \eqn{X} has an effect on
 #'   \eqn{M} (\eqn{a}) which has an effect on \eqn{Y} (\eqn{b}), meaning that
 #'   \eqn{X} has an indrect effect on \eqn{Y} through \eqn{M}.
 #'
 #'   Total moderation of the indirect effect of \eqn{X} on \eqn{Y} can be
-#'   described the following way:
+#'   described as follows:
 #'   
 #'   \eqn{c * Mod = c' * Mod + (a * Mod) * b + a * (b * Mod)}
 #'
@@ -41,9 +41,9 @@
 #'   null, one has either to assess the significance against the null for both
 #'   \eqn{a * Mod} and \eqn{b} or \eqn{a} and \eqn{b * Mod}.
 #'   
-#'   Both \eqn{a * Mod} and \eqn{b} or \eqn{a} and \eqn{b * Mod} needs to be
-#'   simultaneously significant for a moderation of the indirect effect to be
-#'   claimed (Muller et al., 2005).
+#'   Either both \eqn{a * Mod} and \eqn{b} or bith \eqn{a} and \eqn{b * Mod}
+#'   need to be simultaneously significant for a moderation of the indirect
+#'   effect to be claimed (Muller et al., 2005).
 #'   
 #' @section Models: In a moderated mediation model, three models will be used:
 #'
@@ -55,10 +55,10 @@
 #'   Xmo_i} + \mathbf{b_{64} Me_i} + \mathbf{b_{65} MeMo_i}}{Yi = b_60 + b61*Xi
 #'   + b_62*Moi + b63 XMoi + b64 Mei + b65 MeMoi}
 #'
-#'   with \eqn{Y_i}{Yi}, outcome value for the \emph{i}th observation,
-#'   \eqn{X_i}{Xi}, predictor value for the \emph{i}th observation,
-#'   \eqn{Mo_i}{Xi}, moderatir value for the \emph{i}th observation, and
-#'   \eqn{M_i}{Mi}, mediator value for the \emph{i}th observation.
+#'   with \eqn{Y_i}{Yi}, the outcome value for the \emph{i}th observation,
+#'   \eqn{X_i}{Xi}, the predictor value for the \emph{i}th observation,
+#'   \eqn{Mo_i}{Xi}, the moderator value for the \emph{i}th observation, and
+#'   \eqn{M_i}{Mi}, the mediator value for the \emph{i}th observation.
 #'
 #'
 #'   Coefficients associated with \eqn{a}, \eqn{a \times Mod}{a * Mod}, \eqn{b},
@@ -68,20 +68,20 @@
 #'   \eqn{b_{65}}{b_65}, \eqn{b_{41}}{b_41}, \eqn{b_{43}}{b_43},
 #'   \eqn{b_{61}}{b_61}, and \eqn{b_{63}}{c63} (see Muller et al., 2005).
 #'   
-#' @section Variable coding: Because joint-significance tests uses linear models
-#'   uneder the scene, variables involved in the model have to be numeric.
+#' @section Variable coding: Because joint-significance tests use linear models
+#'   behind the scenes, variables involved in the model have to be numeric.
 #'   \code{mdt_simple} will throw an error if non-numeric variables are
 #'   specified in the model.
 #'
 #'   If you need to convert a dichotomous categorical variable to a numeric one,
-#'   please refer to \code{\link{build_contrast}} function.
+#'   please refer to the \code{\link{build_contrast}} function.
 #'
 #'   Note that variable coding is especially important in models with multiple
-#'   predictors as it is the cas in the model used to conduct a
+#'   predictors as it is the case in the model used to conduct a
 #'   joint-significance test of moderated mediation. Muller et al. (2005)
-#'   recommend using variable wich are either contrast-coded or centered. Using
+#'   recommend using variables wich are either contrast-coded or centered. Using
 #'   \code{mdt_moderated} with a DV, a mediator, or a moderator which is neither
-#'   will warn you.
+#'   contrast-coded or centered will throw a waarning message.
 #'
 #'
 #' @references Muller, D., Judd, C. M., & Yzerbyt, V. Y. (2005). When moderation

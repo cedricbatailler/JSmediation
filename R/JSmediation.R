@@ -3,7 +3,7 @@
 #' @name JSmediation-package
 #' @aliases JSmediation
 #'
-#' @description A set of helper functions to conduct joint-significance test for
+#' @description A set of functions to conduct joint-significance test for
 #'   mediation analysis.
 #'
 #' @details The main functions of the \pkg{JSmediation} package follow an
@@ -17,7 +17,10 @@
 #'   generaly be specified unquoted.
 #'
 #'   \code{mdt_*} family functions allow you to create an object of class
-#'   \code{"mediation_model"} for which various methods are implemented.
+#'   \code{"mediation_model"} for which various methods are implemented. The
+#'   \code{\link{add_index}} method computes the (moderated) indirect effect
+#'   index using Monte Carlo for the different mediation models
+#'   \pkg{JSmediation} offers.
 #'
 #'   See \code{vignette("jsmediation")} for a general introduction and overview
 #'   of \pkg{JSmediation}.

@@ -2,63 +2,69 @@
 % Please edit documentation in R/mdt_within_wide.R
 \name{mdt_within_wide}
 \alias{mdt_within_wide}
-\title{Fit a within-participant mediation model (wide-format input)}
+\title{Joint-significance test for simple mediation (wide-format input)}
 \usage{
 mdt_within_wide(data, DV_A, DV_B, M_A, M_B)
 }
 \arguments{
 \item{data}{a data frame containing the variables in the model.}
 
-\item{DV_A}{a}
+\item{DV_A}{an unquoted numeric variable in the data frame which will be used
+as the dependant variable value for the "A" independant variable condition.}
 
-\item{DV_B}{a}
+\item{DV_B}{an unquoted numeric variable in the data frame which will be used
+as the dependant variable value for the "B" independant variable condition.}
 
-\item{M_A}{a}
+\item{M_A}{an unquoted numeric variable in the data frame which will be used
+as the mediatior variable value for the "A" independant variable condition.}
 
-\item{M_B}{a}
+\item{M_B}{an unquoted numeric variable in the data frame which will be used
+as the mediatior variable value for the "b" independant variable condition.}
 }
 \value{
-Returns an object of class "\code{mediation_model}" object.
+Returns an object of class "\code{mediation_model}".
 
-An object of class "\code{mediation_model}" is a least containing at list
+An object of class "\code{mediation_model}" is a list containing at least
 the components:
 
 \item{type}{A character string containing the type of model that has been
 conducted (e.g., \code{"simple mediation"}).}
 \item{method}{A character string containing the approach that has been
 used to conduct the mediation analysis (usually
-\code{"joint significance"}).}
-\item{params}{A named list of character strings describing variables used
-in the model.}
+\code{"joint significance"}).} \item{params}{A named list of character
+strings describing the variables used in the model.}
 \item{paths}{A named list containing information on each relevent path of
 the mediation model.}
-\item{indirect_index}{A boolean indicating wether indirect effect index has
-been computed. Defaults to \code{FALSE}. See \code{\link{add_index}} to
-compute mediation index.}
+\item{indirect_index}{A boolean indicating whether an indirect effect index
+has been computed or not. Defaults to \code{FALSE}. See
+\code{\link{add_index}} to compute mediation index.}
 \item{indirect_index_infos}{(Optional) An object of class
 \code{"indirect_index"}. Appears when one apply \code{\link{add_index}}
 to an object of class \code{"mediation_model"}.}
 \item{js_models}{A list of objects of class \code{"lm"}. Contains every
-model used in joint-significance test.}
+model relevant to joint-significance testing.}
 \item{data}{The original data frame that has been been passed through
 \code{data} argument.}
 }
 \description{
-Fit a within-participant mediation model (wide-format input)
+Given a data frame, a predictor (\code{IV}), an outcome
+(\code{DV}), a mediator (\code{M}), and a grouping variable (\code{group})
+conducts a joint-significant test for within-participant mediation (see
+Yzerbyt, Muller, Batailler, & Judd, 2018).
 }
 \details{
-With within-participant mediation analysis, one is intrested in
-finding if the effect of \eqn{X} on \eqn{Y} goes through a third variable
-\eqn{M}. The particularity of within-participant mediation analysis lies in
-the repeated-measure design used. With such design, each sampled unit
+With within-participant mediation analysis, one tests whether the
+effect of \eqn{X} on \eqn{Y} goes through a third variable \eqn{M}. The
+specificity of within-participant mediation analysis lies in the
+repeated-measure design it relies on. With such design, each sampled unit
 (e.g., participant) is measured on the dependent variable \eqn{Y} and the
 mediator \eqn{M} in the two conditions of \eqn{X}. The hypothesis behind
 this test is that \eqn{X} has an effect on \eqn{M} (\eqn{a}) which has an
-effect on \eqn{Y} (\eqn{b}), meaning that \eqn{X} has an indrect effect on
+effect on \eqn{Y} (\eqn{b}), meaning that \eqn{X} has an indirect effect on
 \eqn{Y} through \eqn{M}.
 
-As with simple mediation, total effect of \eqn{X} on \eqn{Y} can be
-conceptually described the following way:
+As with simple mediation, the total effect of \eqn{X} on \eqn{Y} can be
+conceptually described as follows:
 
 \deqn{c = c' + ab}
 
@@ -66,15 +72,48 @@ with \eqn{c} the total effect of \eqn{X} on \eqn{Y}, \eqn{c'} the direct of
 \eqn{X} on \eqn{Y}, and \eqn{ab} the indirect effect of \eqn{X} on \eqn{Y}
 through {M} (see Models section).
 
-To assess if the indirect effect is different from the null, one has to
-assess the significance against the null for both \eqn{a} (the effect of
-\eqn{X} on \eqn{M}) for and \eqn{b} (effect of \eqn{M} on \eqn{Y}
-controlling for the effect of \eqn{X}). Both \eqn{a} and \eqn{b} needs to
-be simultaneously significant for an indirect effect to be claimed (Judd,
-Kenny, & McClelland, 2001; Montoya and Hayes, 2011).
+To assess whether the indirect effect is different from the null, one has
+to assess the significance against the null for both \eqn{a} (the effect of
+\eqn{X} on \eqn{M}) and \eqn{b} (effect of \eqn{M} on \eqn{Y} controlling
+for the effect of \eqn{X}). Both \eqn{a} and \eqn{b} need to be
+simultaneously significant for an indirect effect to be claimed (Judd,
+Kenny, & McClelland, 2001; Montoya & Hayes, 2011).
 }
+\section{Data formatting}{
+ To be consistant with other \code{mdt_*} family
+functions, \code{mdt_within} takes a long-format data frame as \code{data}
+argument. With this kind of format, each sampled unit has two rows, one for
+the first within-participant condition and one for the second
+within-participant condition. In addition, each row has one observation for
+the outcome and one observation for the mediator (see
+\code{\link{dohle_siegrist}} for an example.
+
+Because such formatting is not the most common among social scientists
+interested in within-participant mediation, \pkg{JSmediation} contains the
+\code{\link{mdt_within_wide}} function which handles long-formatted data
+input (but is syntax-inconsistant with other \code{mdt_*} family
+functions).
+}
+
+\section{Variable coding}{
+ Models underlying within-participant mediation use
+difference scores as DV (see Models section). Because the function input
+does not allow the user to specify how the difference scores should be
+computed, \code{mdt_within} has a default coding.
+
+\code{mdt_within}'s default behavior is to compute the difference score so
+the total effect (the effect of \eqn{X} on \eqn{Y}) will be positive and
+compute the other difference scores accordingly.
+
+User can choose to have a negative total effect by using the
+\code{default_coding} argument.
+
+Note that \code{DV} and \code{M} have to be numeric.
+}
+
 \section{Models}{
- For within-participant mediation, three models will be used:
+ For within-participant mediation, three models will be
+fitted:
 \itemize{
 \item \eqn{Y_{2i} - Y_{1i} = c_{11}}{Y2i - Y1i = c11}
 \item \eqn{M_{2i} - M_{1i} = a_{21}}{M2i - M1i = a21}
@@ -83,17 +122,32 @@ Kenny, & McClelland, 2001; Montoya and Hayes, 2011).
   c'31 + b32 * (M2i + M1i) + d33 * [0.5 * (M1i + M2i) - 0.5 * mean(M1 + M2)]}
 }
 
-with \eqn{Y_{2i} - Y_{1i}}{Y2i - Y1i} the difference score beetween DV
+with \eqn{Y_{2i} - Y_{1i}}{Y2i - Y1i} the difference score between DV
 conditions for the outcome variable for the \emph{i}th observation,
 \eqn{M_{2i} - M_{1i}}{M2i - M1i} the difference score between DV conditions
 for the mediator variable for the \emph{i}th observation, \eqn{M_{1i} +
   M_{2i}}{M1i + M2i} the sum of mediator variables values for DV conditions
 for the \emph{i}th observation, and \eqn{\overline{M_{1} + M_{2}}}{mean(M1i
   + M2i)} the mean sum of mediator variables values for DV conditions across
-observations (see Montoya and Hayes, 2011).
+observations (see Montoya & Hayes, 2011).
 
 Coefficients associated with \eqn{a}, \eqn{b}, \eqn{c}, and \eqn{c'} paths
 are respectively \eqn{a_{21}}{a21}, \eqn{b_{32}}{b32}, \eqn{c_{11}}{c11},
 and \eqn{c'_{31}}{c'31}.
 }
 
+\references{
+Judd, C. M., Kenny, D. A., & McClelland, G. H. (2001). Estimating
+and testing mediation and moderation in within-subject designs.
+\emph{Psychological Methods}, \emph{6}(2), 115‑134. doi:
+10.1037//1082-989X.6.2.115
+
+Montoya, A. K., & Hayes, A. F. (2017). Two-condition within-participant
+statistical mediation analysis: A path-analytic framework.
+\emph{Psychological Methods}, \emph{22}(1), 6‑27. doi: 10.1037/met0000086
+
+Yzerbyt, V., Muller, D., Batailler, C., & Judd, C. M. (2018). New
+recommendations for testing indirect effects in mediational models: The
+need to report and test component paths. \emph{Journal of Personality and
+Social Psychology}, \emph{115}(6), 929–943. doi: 10.1037/pspa0000132
+}

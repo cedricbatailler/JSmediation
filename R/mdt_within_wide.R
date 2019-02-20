@@ -1,15 +1,66 @@
-#' Fit a within-participant mediation model (wide-format input)
-#'
-#' @param data a data frame containing the variables in the model.
-#' @param DV_A a
-#' @param DV_B a
-#' @param M_A a
-#' @param M_B a
+#' @title Joint-significance test for simple mediation (wide-format input)
 #' 
+#' @description Given a data frame, a predictor (\code{IV}), an outcome
+#'   (\code{DV}), a mediator (\code{M}), and a grouping variable (\code{group})
+#'   conducts a joint-significant test for within-participant mediation (see
+#'   Yzerbyt, Muller, Batailler, & Judd, 2018).
+#'   
+#' @param data a data frame containing the variables in the model.
+#' @param DV_A an unquoted numeric variable in the data frame which will be used
+#'   as the dependant variable value for the "A" independant variable condition.
+#' @param DV_B an unquoted numeric variable in the data frame which will be used
+#'   as the dependant variable value for the "B" independant variable condition.
+#' @param M_A an unquoted numeric variable in the data frame which will be used
+#'   as the mediatior variable value for the "A" independant variable condition.
+#' @param M_B an unquoted numeric variable in the data frame which will be used
+#'   as the mediatior variable value for the "b" independant variable condition.
+#'   
+#' @section Data formatting: To be consistant with other \code{mdt_*} family
+#'   functions, \code{mdt_within} takes a long-format data frame as \code{data}
+#'   argument. With this kind of format, each sampled unit has two rows, one for
+#'   the first within-participant condition and one for the second
+#'   within-participant condition. In addition, each row has one observation for
+#'   the outcome and one observation for the mediator (see
+#'   \code{\link{dohle_siegrist}} for an example.
+#'
+#'   Because such formatting is not the most common among social scientists
+#'   interested in within-participant mediation, \pkg{JSmediation} contains the
+#'   \code{\link{mdt_within_wide}} function which handles long-formatted data
+#'   input (but is syntax-inconsistant with other \code{mdt_*} family
+#'   functions).
+#'
+#' @section Variable coding: Models underlying within-participant mediation use
+#'   difference scores as DV (see Models section). Because the function input
+#'   does not allow the user to specify how the difference scores should be
+#'   computed, \code{mdt_within} has a default coding.
+#'
+#'   \code{mdt_within}'s default behavior is to compute the difference score so
+#'   the total effect (the effect of \eqn{X} on \eqn{Y}) will be positive and
+#'   compute the other difference scores accordingly.
+#'
+#'   User can choose to have a negative total effect by using the
+#'   \code{default_coding} argument.
+#'
+#'   Note that \code{DV} and \code{M} have to be numeric.
+#'   
 #' @template mediation_model
 #' @template within_details
 #' @template within_models
 #'
+#' @references Judd, C. M., Kenny, D. A., & McClelland, G. H. (2001). Estimating
+#'   and testing mediation and moderation in within-subject designs.
+#'   \emph{Psychological Methods}, \emph{6}(2), 115‑134. doi:
+#'   10.1037//1082-989X.6.2.115
+#'
+#'   Montoya, A. K., & Hayes, A. F. (2017). Two-condition within-participant
+#'   statistical mediation analysis: A path-analytic framework.
+#'   \emph{Psychological Methods}, \emph{22}(1), 6‑27. doi: 10.1037/met0000086
+#'
+#'   Yzerbyt, V., Muller, D., Batailler, C., & Judd, C. M. (2018). New
+#'   recommendations for testing indirect effects in mediational models: The
+#'   need to report and test component paths. \emph{Journal of Personality and
+#'   Social Psychology}, \emph{115}(6), 929–943. doi: 10.1037/pspa0000132
+#'   
 #' @export
 mdt_within_wide <- function(data, DV_A, DV_B, M_A, M_B) {
   UseMethod("mdt_within_wide")

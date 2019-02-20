@@ -13,9 +13,9 @@ extract_models(mediation_model)
 A list of \code{lm} objects.
 }
 \description{
-When conducting a joint significant test, different models are
-fitted to the data. This function helps you access the models that have
-been used in an object of class \code{mediation_model}.
+When conducting a joint-significant test, different models are
+fitted to the data. This function helps accessing the models used in an
+object of class \code{mediation_model}.
 }
 \examples{
 data(ho_et_al)
@@ -32,9 +32,7 @@ extract_models(my_model)
 
 }
 \seealso{
-\code{\link{extract_model}} to access a specific model used for
-joint-significance test as a data frame.
-
-\code{\link{extract_models}} to access a single model which has been
-used for joint-significance test.
+Other extract functions: \code{\link{extract_model}},
+  \code{\link{extract_tidy_models}}
 }
+\concept{extract functions}

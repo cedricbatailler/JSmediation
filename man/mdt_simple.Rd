@@ -19,28 +19,27 @@ as dependant variable.}
 mediator.}
 }
 \value{
-Returns an object of class "\code{mediation_model}" object.
+Returns an object of class "\code{mediation_model}".
 
-An object of class "\code{mediation_model}" is a least containing at list
+An object of class "\code{mediation_model}" is a list containing at least
 the components:
 
 \item{type}{A character string containing the type of model that has been
 conducted (e.g., \code{"simple mediation"}).}
 \item{method}{A character string containing the approach that has been
 used to conduct the mediation analysis (usually
-\code{"joint significance"}).}
-\item{params}{A named list of character strings describing variables used
-in the model.}
+\code{"joint significance"}).} \item{params}{A named list of character
+strings describing the variables used in the model.}
 \item{paths}{A named list containing information on each relevent path of
 the mediation model.}
-\item{indirect_index}{A boolean indicating wether indirect effect index has
-been computed. Defaults to \code{FALSE}. See \code{\link{add_index}} to
-compute mediation index.}
+\item{indirect_index}{A boolean indicating whether an indirect effect index
+has been computed or not. Defaults to \code{FALSE}. See
+\code{\link{add_index}} to compute mediation index.}
 \item{indirect_index_infos}{(Optional) An object of class
 \code{"indirect_index"}. Appears when one apply \code{\link{add_index}}
 to an object of class \code{"mediation_model"}.}
 \item{js_models}{A list of objects of class \code{"lm"}. Contains every
-model used in joint-significance test.}
+model relevant to joint-significance testing.}
 \item{data}{The original data frame that has been been passed through
 \code{data} argument.}
 }
@@ -50,13 +49,13 @@ Given a data frame, a predictor (\code{IV}), an outcome
 for simple mediation (see Yzerbyt, Muller, Batailler, & Judd, 2018).
 }
 \details{
-With simple mediation analysis, one is intrested in finding if the
+With simple mediation analysis, one is interested in finding if the
 effect of \eqn{X} on \eqn{Y} goes through a third variable \eqn{M}. The
 hypothesis behind this test is that \eqn{X} has an effect on \eqn{M}
 (\eqn{a}) which has an effect on \eqn{Y} (\eqn{b}), meaning that \eqn{X}
 has an indrect effect on \eqn{Y} through \eqn{M}.
 
-Total effect of \eqn{X} on \eqn{Y} can be described the following way:
+The total effect of \eqn{X} on \eqn{Y} can be described as follows:
 
 \deqn{c = c' + ab}
 
@@ -64,15 +63,15 @@ with \eqn{c} the total effect of \eqn{X} on \eqn{Y}, \eqn{c'} the direct of
 \eqn{X} on \eqn{Y}, and \eqn{ab} the indirect effect of \eqn{X} on \eqn{Y}
 through {M} (see Models section).
 
-To assess if the indirect effect is different from the null, one has to
-assess the significance against the null for both \eqn{a} (the effect of
-\eqn{X} on \eqn{M}) for and \eqn{b} (effect of \eqn{M} on \eqn{Y}
+To assess whether the indirect effect is different from the null, one has
+to assess the significance against the null for both \eqn{a} (the effect of
+\eqn{X} on \eqn{M}) and \eqn{b} (effect of \eqn{M} on \eqn{Y}
 controlling for the effect of \eqn{X}). Both \eqn{a} and \eqn{b} needs to
-be simultaneously significant for an indirect effect to be claimed (Baron &
-Kenny, 1986; Judd & Kenny, 1981).
+be simultaneously significant for an indirect effect to be claimed (Cohen &
+Cohen, 1983; Yzerbyt, Muller, Batailler, & Judd, 2018).
 }
 \section{Models}{
- In a simple mediation model, three models will be used:
+ In a simple mediation model, three models will be fitted:
 \itemize{
 \item \eqn{Y_i = b_{10} + \mathbf{c_{11}} X_i}{Yi = b_10 + c_11*Xi}
 \item \eqn{M_i = b_{20} + \mathbf{a_{21}} X_i}{Mi = b_20 + a_21*Xi}
@@ -80,24 +79,24 @@ Kenny, 1986; Judd & Kenny, 1981).
     b_30 + c'_31*Xi + b_32*Mi}
 }
 
-with \eqn{Y_i}{Yi}, outcome value for the \emph{i}th observation,
-\eqn{X_i}{Xi}, predictor value for the \emph{i}th observation, and
-\eqn{M_i}{Mi}, mediator value for the \emph{i}th observation (Baron &
-Kenny, 1986; Judd & Kenny, 1981).
+with \eqn{Y_i}{Yi}, the outcome value for the \emph{i}th observation,
+\eqn{X_i}{Xi}, the predictor value for the \emph{i}th observation, and
+\eqn{M_i}{Mi}, the mediator value for the \emph{i}th observation (Cohen &
+Cohen, 1983; Yzerbyt, Muller, Batailler, & Judd, 2018).
 
-Coefficients associated with \eqn{a}, \eqn{aMod} \eqn{b}, \eqn{c}, and
-\eqn{c'} paths are respectively \eqn{a_{21}}{a_21}, \eqn{b_{32}}{b_32},
+Coefficients associated with \eqn{a}, \eqn{b}, \eqn{c}, and \eqn{c'} paths
+are respectively \eqn{a_{21}}{a_21}, \eqn{b_{32}}{b_32},
 \eqn{c_{11}}{c_11}, and \eqn{c'_{31}}{c'_31}.
 }
 
 \section{Variable coding}{
  Because joint-significance tests uses linear models
-uneder the scene, variables involved in the model have to be numeric.
+behind the scenes, variables involved in the model have to be numeric.
 \code{mdt_simple} will throw an error if non-numeric variables are
 specified in the model.
 
-If you need to convert a dichotomous categorical variable to a numeric one,
-please refer to \code{\link{build_contrast}} function.
+To convert a dichotomous categorical variable to a numeric one, please
+refer to the \code{\link{build_contrast}} function.
 }
 
 \examples{
@@ -113,14 +112,9 @@ mdt_simple(data = ho_et_al,
 
 }
 \references{
-Baron, R. M., & Kenny, D. A. (1986). The moderator-mediator
-variable distinction in social psychological research: Conceptual,
-strategic, and statistical considerations. \emph{Journal of Personality and
-Social Psychology}, \emph{51}(6), 1173‑1182.doi:10.1037/0022-3514.51.6.1173
-
-Judd, C. M., & Kenny, D. A. (1981). Process Analysis: Estimating Mediation
-in Treatment Evaluations. \emph{Evaluation Review}, \emph{5}(5), 602‑619.
-doi: 10.1177/0193841X8100500502
+Cohen, J., & Cohen, P. (1983). \emph{Applied multiple
+regression/correlation analysis for the behavioral sciences} (2nd ed).
+Hillsdale, N.J: L. Erlbaum Associates.
 
 Yzerbyt, V., Muller, D., Batailler, C., & Judd, C. M. (2018). New
 recommendations for testing indirect effects in mediational models: The
