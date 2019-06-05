@@ -24,5 +24,5 @@ test_that("mdt_simple print method does not throw an error", {
                       M    = linkedfate)
   
   expect_output(print(model))
-  expect_output(print(add_index, model))
+  expect_output(print(add_index(model)))
 })
