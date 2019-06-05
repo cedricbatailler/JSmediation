@@ -2,7 +2,7 @@
 % Please edit documentation in R/apastylr.R
 \name{apastylr}
 \alias{apastylr}
-\title{Create an APA formatted character from a significance test}
+\title{Creates an APA formatted report from a significance test}
 \usage{
 apastylr(model, term)
 }
@@ -15,7 +15,7 @@ apastylr(model, term)
 An APA formatted character string.
 }
 \description{
-Create an APA formated report from the test of a specific term
+Create an APA formatted report from the test of a specific term
 in a linear model.
 }
 \examples{

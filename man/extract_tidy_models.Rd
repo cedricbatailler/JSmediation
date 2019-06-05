@@ -2,7 +2,7 @@
 % Please edit documentation in R/extract_models.R
 \name{extract_tidy_models}
 \alias{extract_tidy_models}
-\title{Extract models from a mediation object as a data frame}
+\title{Extracts models from a mediation object as a data frame}
 \usage{
 extract_tidy_models(mediation_model)
 }

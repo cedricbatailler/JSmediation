@@ -7,13 +7,13 @@
 #'   
 #' @param data a data frame containing the variables in the model.
 #' @param DV_A an unquoted numeric variable in the data frame which will be used
-#'   as the dependant variable value for the "A" independant variable condition.
+#'   as the dependent variable value for the "A" independent variable condition.
 #' @param DV_B an unquoted numeric variable in the data frame which will be used
-#'   as the dependant variable value for the "B" independant variable condition.
+#'   as the dependent variable value for the "B" independent variable condition.
 #' @param M_A an unquoted numeric variable in the data frame which will be used
-#'   as the mediatior variable value for the "A" independant variable condition.
+#'   as the mediatior variable value for the "A" independent variable condition.
 #' @param M_B an unquoted numeric variable in the data frame which will be used
-#'   as the mediatior variable value for the "b" independant variable condition.
+#'   as the mediatior variable value for the "b" independent variable condition.
 #'   
 #' @section Data formatting: To be consistant with other \code{mdt_*} family
 #'   functions, \code{mdt_within} takes a long-format data frame as \code{data}

@@ -1,7 +1,7 @@
 #' @details With within-participant mediation analysis, one tests whether the
 #'   effect of \eqn{X} on \eqn{Y} goes through a third variable \eqn{M}. The
 #'   specificity of within-participant mediation analysis lies in the
-#'   repeated-measure design it relies on. With such design, each sampled unit
+#'   repeated measures design it relies on. With such design, each sampled unit
 #'   (e.g., participant) is measured on the dependent variable \eqn{Y} and the
 #'   mediator \eqn{M} in the two conditions of \eqn{X}. The hypothesis behind
 #'   this test is that \eqn{X} has an effect on \eqn{M} (\eqn{a}) which has an

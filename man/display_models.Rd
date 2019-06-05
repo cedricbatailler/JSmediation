@@ -2,7 +2,7 @@
 % Please edit documentation in R/display_models.R
 \name{display_models}
 \alias{display_models}
-\title{Display models from a mediation object}
+\title{Displays models from a mediation object}
 \usage{
 display_models(mediation_model)
 }

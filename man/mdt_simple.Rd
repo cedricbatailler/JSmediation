@@ -10,10 +10,10 @@ mdt_simple(data, IV, DV, M)
 \item{data}{A data frame containing the variables to be used in the model.}
 
 \item{IV}{An unquoted numeric variable in the data frame which will be used
-as independant variable.}
+as independent variable.}
 
 \item{DV}{An unquoted numeric variable in the data frame which will be used
-as dependant variable.}
+as dependent variable.}
 
 \item{M}{An unquoted numeric variable in the data frame which will be used as
 mediator.}
@@ -30,7 +30,7 @@ conducted (e.g., \code{"simple mediation"}).}
 used to conduct the mediation analysis (usually
 \code{"joint significance"}).} \item{params}{A named list of character
 strings describing the variables used in the model.}
-\item{paths}{A named list containing information on each relevent path of
+\item{paths}{A named list containing information on each relevant path of
 the mediation model.}
 \item{indirect_index}{A boolean indicating whether an indirect effect index
 has been computed or not. Defaults to \code{FALSE}. See
@@ -40,7 +40,7 @@ has been computed or not. Defaults to \code{FALSE}. See
 to an object of class \code{"mediation_model"}.}
 \item{js_models}{A list of objects of class \code{"lm"}. Contains every
 model relevant to joint-significance testing.}
-\item{data}{The original data frame that has been been passed through
+\item{data}{The original data frame that has been passed through
 \code{data} argument.}
 }
 \description{
@@ -52,8 +52,8 @@ for simple mediation (see Yzerbyt, Muller, Batailler, & Judd, 2018).
 With simple mediation analysis, one is interested in finding if the
 effect of \eqn{X} on \eqn{Y} goes through a third variable \eqn{M}. The
 hypothesis behind this test is that \eqn{X} has an effect on \eqn{M}
-(\eqn{a}) which has an effect on \eqn{Y} (\eqn{b}), meaning that \eqn{X}
-has an indrect effect on \eqn{Y} through \eqn{M}.
+(\eqn{a}) that has an effect on \eqn{Y} (\eqn{b}), meaning that \eqn{X}
+has an indirect effect on \eqn{Y} through \eqn{M}.
 
 The total effect of \eqn{X} on \eqn{Y} can be described as follows:
 

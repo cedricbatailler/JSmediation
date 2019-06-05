@@ -1,4 +1,4 @@
-#' @title Add an indirect effect index to a fitted mediation model
+#' @title Adds an indirect effect index to a fitted mediation model
 #'
 #' @description \code{\link{add_index}} is a generic function that adds
 #'   (moderated) indirect effect index to an object created with an \code{mdt_*}

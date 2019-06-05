@@ -10,10 +10,10 @@ mdt_within(data, IV, DV, M, grouping, default_coding = TRUE)
 \item{data}{a data frame containing the variables in the model.}
 
 \item{IV}{an unquoted variable in the data frame which will be used as
-the independant variable.}
+the independent variable.}
 
 \item{DV}{an unquoted variable in the data frame which will be used as
-the dependant variable.}
+the dependent variable.}
 
 \item{M}{an unquoted variable in the data frame which will be used as
 the mediator.}
@@ -36,7 +36,7 @@ conducted (e.g., \code{"simple mediation"}).}
 used to conduct the mediation analysis (usually
 \code{"joint significance"}).} \item{params}{A named list of character
 strings describing the variables used in the model.}
-\item{paths}{A named list containing information on each relevent path of
+\item{paths}{A named list containing information on each relevant path of
 the mediation model.}
 \item{indirect_index}{A boolean indicating whether an indirect effect index
 has been computed or not. Defaults to \code{FALSE}. See
@@ -46,7 +46,7 @@ has been computed or not. Defaults to \code{FALSE}. See
 to an object of class \code{"mediation_model"}.}
 \item{js_models}{A list of objects of class \code{"lm"}. Contains every
 model relevant to joint-significance testing.}
-\item{data}{The original data frame that has been been passed through
+\item{data}{The original data frame that has been passed through
 \code{data} argument.}
 }
 \description{
@@ -59,7 +59,7 @@ Yzerbyt, Muller, Batailler, & Judd, 2018).
 With within-participant mediation analysis, one tests whether the
 effect of \eqn{X} on \eqn{Y} goes through a third variable \eqn{M}. The
 specificity of within-participant mediation analysis lies in the
-repeated-measure design it relies on. With such design, each sampled unit
+repeated measures design it relies on. With such design, each sampled unit
 (e.g., participant) is measured on the dependent variable \eqn{Y} and the
 mediator \eqn{M} in the two conditions of \eqn{X}. The hypothesis behind
 this test is that \eqn{X} has an effect on \eqn{M} (\eqn{a}) which has an
@@ -108,7 +108,7 @@ and \eqn{c'_{31}}{c'31}.
 }
 
 \section{Data formatting}{
- To be consistant with other \code{mdt_*} family
+ To be consistent with other \code{mdt_*} family
 functions, \code{mdt_within} takes a long-format data frame as \code{data}
 argument. With this kind of format, each sampled unit has two rows, one for
 the first within-participant condition and one for the second
@@ -119,7 +119,7 @@ the outcome and one observation for the mediator (see
 Because such formatting is not the most common among social scientists
 interested in within-participant mediation, \pkg{JSmediation} contains the
 \code{\link{mdt_within_wide}} function which handles long-formatted data
-input (but is syntax-inconsistant with other \code{mdt_*} family
+input (but is syntax-inconsistent with other \code{mdt_*} family
 functions).
 }
 

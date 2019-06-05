@@ -7,11 +7,11 @@
 #'
 #' @param data a data frame containing the variables in the model.
 #' @param IV an unquoted variable in the data frame which will be used as
-#'   the independant variable.
+#'   the independent variable.
 #' @param M an unquoted variable in the data frame which will be used as
 #'   the mediator.
 #' @param DV an unquoted variable in the data frame which will be used as
-#'   the dependant variable.
+#'   the dependent variable.
 #' @param grouping an unquoted variable in the data frame which will be used as
 #'   the grouping variable.
 #' @param default_coding should the variable coding be the default? Defaults to
@@ -21,7 +21,7 @@
 #' @template within_details
 #' @template within_models
 #'
-#' @section Data formatting: To be consistant with other \code{mdt_*} family
+#' @section Data formatting: To be consistent with other \code{mdt_*} family
 #'   functions, \code{mdt_within} takes a long-format data frame as \code{data}
 #'   argument. With this kind of format, each sampled unit has two rows, one for
 #'   the first within-participant condition and one for the second
@@ -32,7 +32,7 @@
 #'   Because such formatting is not the most common among social scientists
 #'   interested in within-participant mediation, \pkg{JSmediation} contains the
 #'   \code{\link{mdt_within_wide}} function which handles long-formatted data
-#'   input (but is syntax-inconsistant with other \code{mdt_*} family
+#'   input (but is syntax-inconsistent with other \code{mdt_*} family
 #'   functions).
 #'
 #' @section Variable coding: Models underlying within-participant mediation use

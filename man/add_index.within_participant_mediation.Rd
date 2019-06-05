@@ -19,7 +19,7 @@ effect confidence interval.}
 \item{...}{Further arguments passed to or from other methods.}
 }
 \description{
-Adds the confidencer interval for the index of
+Adds the confidence interval for the index of
 within-participant mediation to a  model fitted with
 \code{\link{mdt_within}} or \code{\link{mdt_within_wide}}.
 }

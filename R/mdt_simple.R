@@ -6,11 +6,11 @@
 #'
 #' @param data A data frame containing the variables to be used in the model.
 #' @param IV An unquoted numeric variable in the data frame which will be used
-#'   as independant variable.
+#'   as independent variable.
 #' @param M An unquoted numeric variable in the data frame which will be used as
 #'   mediator.
 #' @param DV An unquoted numeric variable in the data frame which will be used
-#'   as dependant variable.
+#'   as dependent variable.
 #'
 #' @template mediation_model
 #'
@@ -19,8 +19,8 @@
 #' @details With simple mediation analysis, one is interested in finding if the
 #'   effect of \eqn{X} on \eqn{Y} goes through a third variable \eqn{M}. The
 #'   hypothesis behind this test is that \eqn{X} has an effect on \eqn{M}
-#'   (\eqn{a}) which has an effect on \eqn{Y} (\eqn{b}), meaning that \eqn{X}
-#'   has an indrect effect on \eqn{Y} through \eqn{M}.
+#'   (\eqn{a}) that has an effect on \eqn{Y} (\eqn{b}), meaning that \eqn{X}
+#'   has an indirect effect on \eqn{Y} through \eqn{M}.
 #'
 #'   The total effect of \eqn{X} on \eqn{Y} can be described as follows:
 #'

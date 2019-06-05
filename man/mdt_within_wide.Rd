@@ -10,16 +10,16 @@ mdt_within_wide(data, DV_A, DV_B, M_A, M_B)
 \item{data}{a data frame containing the variables in the model.}
 
 \item{DV_A}{an unquoted numeric variable in the data frame which will be used
-as the dependant variable value for the "A" independant variable condition.}
+as the dependent variable value for the "A" independent variable condition.}
 
 \item{DV_B}{an unquoted numeric variable in the data frame which will be used
-as the dependant variable value for the "B" independant variable condition.}
+as the dependent variable value for the "B" independent variable condition.}
 
 \item{M_A}{an unquoted numeric variable in the data frame which will be used
-as the mediatior variable value for the "A" independant variable condition.}
+as the mediatior variable value for the "A" independent variable condition.}
 
 \item{M_B}{an unquoted numeric variable in the data frame which will be used
-as the mediatior variable value for the "b" independant variable condition.}
+as the mediatior variable value for the "b" independent variable condition.}
 }
 \value{
 Returns an object of class "\code{mediation_model}".
@@ -33,7 +33,7 @@ conducted (e.g., \code{"simple mediation"}).}
 used to conduct the mediation analysis (usually
 \code{"joint significance"}).} \item{params}{A named list of character
 strings describing the variables used in the model.}
-\item{paths}{A named list containing information on each relevent path of
+\item{paths}{A named list containing information on each relevant path of
 the mediation model.}
 \item{indirect_index}{A boolean indicating whether an indirect effect index
 has been computed or not. Defaults to \code{FALSE}. See
@@ -43,7 +43,7 @@ has been computed or not. Defaults to \code{FALSE}. See
 to an object of class \code{"mediation_model"}.}
 \item{js_models}{A list of objects of class \code{"lm"}. Contains every
 model relevant to joint-significance testing.}
-\item{data}{The original data frame that has been been passed through
+\item{data}{The original data frame that has been passed through
 \code{data} argument.}
 }
 \description{
@@ -56,7 +56,7 @@ Yzerbyt, Muller, Batailler, & Judd, 2018).
 With within-participant mediation analysis, one tests whether the
 effect of \eqn{X} on \eqn{Y} goes through a third variable \eqn{M}. The
 specificity of within-participant mediation analysis lies in the
-repeated-measure design it relies on. With such design, each sampled unit
+repeated measures design it relies on. With such design, each sampled unit
 (e.g., participant) is measured on the dependent variable \eqn{Y} and the
 mediator \eqn{M} in the two conditions of \eqn{X}. The hypothesis behind
 this test is that \eqn{X} has an effect on \eqn{M} (\eqn{a}) which has an

@@ -1,4 +1,4 @@
-#' @title Extract models from a mediation_model object
+#' @title Extracts models from a mediation_model object
 #'
 #' @description When conducting a joint-significant test, different models are
 #'   fitted to the data. This function helps accessing the models used in an
@@ -35,7 +35,7 @@ extract_models.mediation_model <- function(mediation_model) {
     purrr::pluck(mediation_model, "js_models")
 }
 
-#' @title Extract a single model from a mediation_model object
+#' @title Extracts a single model from a mediation_model object
 #'
 #' @description When conducting a joint-significant test, different models are
 #'   fitted to the data. This function helps you access the models used in an
@@ -85,7 +85,7 @@ extract_model.mediation_model <- function(mediation_model, step = NULL) {
   }
 }
 
-#' @title Extract models from a mediation object as a data frame
+#' @title Extracts models from a mediation object as a data frame
 #'
 #' @description When conducting a joint significant test, different models are
 #' fitted to the data. This function helps you access the models  used in an

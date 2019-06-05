@@ -1,7 +1,7 @@
 #' @title Data set showing simple and moderated mediation analysis
 #'
 #' @description A data set containing data from Experiment 3 from Ho, Kteiley,
-#'   and Chen (2017). In this experiment, authors hypothised that presenting a
+#'   and Chen (2017). In this experiment, the authors hypothized that presenting a
 #'   text stating that Black-White biracials were discriminated would lead Black
 #'   participants to associate Black-White biracials more with their lower
 #'   status parent group than their higher status parent group, according to the
@@ -9,7 +9,7 @@
 #'   effect was mediated by the sense of linked fate between discriminated
 #'   Black-White participants and Black participants.
 #'
-#'   Note that this data set does not include participants who were in the
+#'   Note that this data set does not include the participants who were in the
 #'   discrimination control condition in the study conducted by Ho, Kteiley and
 #'   Chen (2017).
 #'

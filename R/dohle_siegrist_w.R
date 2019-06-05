@@ -1,11 +1,11 @@
-#' @title Dohle and Siegrist (2014, Exp 1) ullustrating within-subject analysis
+#' @title Dohle and Siegrist (2014, Exp 1) illustrating within-subject analysis
 #'   (wide-format)
 #'
 #' @description A data set containing data from Dohle and Siegrist (2014)'s
 #'   Experiment 1 that can be used to conduct within-subject joint-significance
 #'   test. In this experiment, researchers are interested in the effect of name
 #'   complexity on willingness to buy a drug. The specific hypothesis is that
-#'   complex drug name are percieved as more hazardous, which make someone less
+#'   complex drug name are perceived as more hazardous, which make someone less
 #'   likely to buy the drug. Researchers used a within-subject design.
 #'
 #'  This data set is in a wide format, see \code{\link{mdt_within_wide}} to

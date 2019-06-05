@@ -1,4 +1,4 @@
-#' @title Fit a moderated mediation model
+#' @title Fits a moderated mediation model
 #'
 #' @description Given a data frame, a predictor (\code{IV}), an outcome
 #'   (\code{DV}), a mediator (\code{M}), and a moderator (\code{Mod}) conducts a
@@ -7,9 +7,9 @@
 #'
 #' @param data A data frame containing the variables in the model.
 #' @param IV An unquoted variable in the data frame which will be used as
-#'   the independant variable.
+#'   the independent variable.
 #' @param DV An unquoted variable in the data frame which will be used as
-#'   the dependant variable.
+#'   the dependent variable.
 #' @param M An unquoted variable in the data frame which will be used as
 #'   the mediator.
 #' @param Mod An unquoted variable in the data frame which will be used as
@@ -41,7 +41,7 @@
 #'   null, one has either to assess the significance against the null for both
 #'   \eqn{a * Mod} and \eqn{b} or \eqn{a} and \eqn{b * Mod}.
 #'   
-#'   Either both \eqn{a * Mod} and \eqn{b} or bith \eqn{a} and \eqn{b * Mod}
+#'   Either both \eqn{a * Mod} and \eqn{b} or both \eqn{a} and \eqn{b * Mod}
 #'   need to be simultaneously significant for a moderation of the indirect
 #'   effect to be claimed (Muller et al., 2005).
 #'   
@@ -79,9 +79,9 @@
 #'   Note that variable coding is especially important in models with multiple
 #'   predictors as it is the case in the model used to conduct a
 #'   joint-significance test of moderated mediation. Muller et al. (2005)
-#'   recommend using variables wich are either contrast-coded or centered. Using
-#'   \code{mdt_moderated} with a DV, a mediator, or a moderator which is neither
-#'   contrast-coded or centered will throw a waarning message.
+#'   recommend using variables that are either contrast-coded or centered. Using
+#'   \code{mdt_moderated} with a DV, a mediator, or a moderator that is neither
+#'   contrast-coded nor centered will throw a warning message.
 #'
 #'
 #' @references Muller, D., Judd, C. M., & Yzerbyt, V. Y. (2005). When moderation

@@ -2,7 +2,7 @@
 % Please edit documentation in R/extract_models.R
 \name{extract_model}
 \alias{extract_model}
-\title{Extract a single model from a mediation_model object}
+\title{Extracts a single model from a mediation_model object}
 \usage{
 extract_model(mediation_model, step = NULL)
 }

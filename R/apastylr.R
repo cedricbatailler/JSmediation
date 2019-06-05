@@ -1,6 +1,6 @@
-#' @title Create an APA formatted character from a significance test
+#' @title Creates an APA formatted report from a significance test
 #'
-#' @description Create an APA formated report from the test of a specific term
+#' @description Create an APA formatted report from the test of a specific term
 #'   in a linear model.
 #'
 #' @param model A linear model created using \code{lm()}.

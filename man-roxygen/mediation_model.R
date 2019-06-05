@@ -9,7 +9,7 @@
 #'     used to conduct the mediation analysis (usually
 #'   \code{"joint significance"}).} \item{params}{A named list of character
 #'   strings describing the variables used in the model.}
-#'   \item{paths}{A named list containing information on each relevent path of 
+#'   \item{paths}{A named list containing information on each relevant path of 
 #'     the mediation model.}
 #'   \item{indirect_index}{A boolean indicating whether an indirect effect index
 #'   has been computed or not. Defaults to \code{FALSE}. See
@@ -19,5 +19,5 @@
 #'     to an object of class \code{"mediation_model"}.}
 #'   \item{js_models}{A list of objects of class \code{"lm"}. Contains every
 #'     model relevant to joint-significance testing.}
-#'   \item{data}{The original data frame that has been been passed through
+#'   \item{data}{The original data frame that has been passed through
 #'     \code{data} argument.}

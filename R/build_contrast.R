@@ -1,7 +1,7 @@
-#' @title Build a contrast code from character vector
+#' @title Builds a contrast code from character vector
 #'
 #' @description This function helps building a contrast code from a character
-#'   variable. It is useful when one needs to recode a two-categories character
+#'   variable. It is useful when one needs to recode a two-category character
 #'   variable to a numeric one.
 #'
 #' @param vector A character vector.
@@ -11,8 +11,8 @@
 #' @return A numeric vector.
 #'
 #' @details The \code{\link{lm}} method supports factor and character variables
-#'   by dummy coding them. Dummy coding can make interpretation of regression
-#'   coefficent difficult or at least more difficult than contrast coding.
+#'   by dummy coding them. Dummy coding can make the interpretation of regression
+#'   coefficient difficult or at least more difficult than contrast coding.
 #'   Contrast-coded-variable coefficients interpretation is particularly useful
 #'   when conducting a joint-significance test.
 #'

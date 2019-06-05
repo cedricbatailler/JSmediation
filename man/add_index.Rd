@@ -2,7 +2,7 @@
 % Please edit documentation in R/add_index.R
 \name{add_index}
 \alias{add_index}
-\title{Add an indirect effect index to a fitted mediation model}
+\title{Adds an indirect effect index to a fitted mediation model}
 \usage{
 add_index(mediation_model, times = 5000, level = 0.05, ...)
 }

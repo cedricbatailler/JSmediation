@@ -1,4 +1,4 @@
-#' @title Display models from a mediation object
+#' @title Displays models from a mediation object
 #'
 #' @description When conducting a joint-significance test, different models are
 #' fitted to the data. This function helps you see a summary of the models that

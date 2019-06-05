@@ -2,7 +2,7 @@
 % Please edit documentation in R/extract_models.R
 \name{extract_models}
 \alias{extract_models}
-\title{Extract models from a mediation_model object}
+\title{Extracts models from a mediation_model object}
 \usage{
 extract_models(mediation_model)
 }
