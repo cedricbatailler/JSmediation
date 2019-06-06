@@ -13,7 +13,7 @@
 #'   Judd, 2018).
 #'
 #'   The syntax for \code{mdt_*} family functions is usually the same. The first
-#'   argument is always a data frame (\code{data})  which is followed by the
+#'   argument is always a data frame (\code{data}) which is followed by the
 #'   variable names involved in the model (e.g., DV, IV). Because \code{mdt_*}
 #'   family functions use non-standard evaluation, these variable names must
 #'   generally be specified unquoted.
