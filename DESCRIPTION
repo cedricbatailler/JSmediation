@@ -2,8 +2,13 @@ Package: JSmediation
 Version: 0.0.0.9000
 Title: Mediation Analysis Using Joint Significance
 Authors@R: c(
-    person("Cédric", "Batailler", email = "cedric.batailler@gmail.com", role = c("aut", "cre")),
-    person("Dominique", "Muller", role = "aut"),
+    person("Cédric", "Batailler", 
+           email = "cedric.batailler@gmail.com",
+           role = c("aut", "cre"),
+           comment = c(ORCID = "0000-0003-0553-6827")),
+    person("Dominique", "Muller", 
+           role = "aut",
+           comment = c(ORCID = "0000-0001-9544-5317")),
     person("Vincent", "Yzerbyt", role = "aut"),
     person("Charles", "Judd", role = "aut"),
     person("Arnold", "Ho", role = "dtc"),
