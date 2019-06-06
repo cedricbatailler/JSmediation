@@ -45,5 +45,6 @@ Imports:
 Suggests: 
     rmarkdown,
     testthat,
-    covr
+    covr,
+    roxygen2
 VignetteBuilder: knitr
