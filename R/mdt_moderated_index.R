@@ -14,9 +14,9 @@
 #'   use \code{"total"}.
 #' @param ... Further arguments passed to or from other methods.
 #'
-#' @details Indirect effect moderation index for within-participant mediation
-#'   uses \eqn{a}, \eqn{a \times Mod}{a * Mod}, \eqn{b}, and \eqn{b \times Mod}{b
-#'   * Mod} estimates and their standard errors to compute the appropriate index
+#' @details Indirect effect moderation index for moderated mediation uses
+#'   \eqn{a}, \eqn{a \times Mod}{a * Mod}, \eqn{b}, and \eqn{b \times Mod}{b *
+#'   Mod} estimates and their standard errors to compute the appropriate index
 #'   product distribution using Monte Carlo methods (see Muller, Judd, &
 #'   Yzerbyt, 2005).
 #'

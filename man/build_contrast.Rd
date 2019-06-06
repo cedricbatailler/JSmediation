@@ -17,7 +17,7 @@ build_contrast(vector, cond_a, cond_b)
 A numeric vector.
 }
 \description{
-This function helps building a contrast code from a character
+This function constructs a contrast code from a character
 variable. It is useful when one needs to recode a two-category character
 variable to a numeric one.
 }

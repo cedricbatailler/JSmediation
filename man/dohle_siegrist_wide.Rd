@@ -10,8 +10,8 @@
 \item{participant}{Participant number.}
 \item{hazardousness_c}{Hazardousness for complex drug name.}
 \item{hazardousness_s}{Hazardousness for simple drug name.}
-\item{willingness_c}{Willigness to buy for complex drug name.}
-\item{willingness_s}{Willigness to buy for simple drug name.}
+\item{willingness_c}{Willingness to buy for complex drug name.}
+\item{willingness_s}{Willingness to buy for simple drug name.}
 }}
 \usage{
 data("dohle_siegrist_wide")
@@ -21,8 +21,8 @@ A data set containing data from Dohle and Siegrist (2014)'s
 Experiment 1 that can be used to conduct within-subject joint-significance
 test. In this experiment, researchers are interested in the effect of name
 complexity on willingness to buy a drug. The specific hypothesis is that
-complex drug name are perceived as more hazardous, which make someone less
-likely to buy the drug. Researchers used a within-subject design.
+complex drug names are perceived as more hazardous, which makes someone
+less likely to buy the drug. Researchers used a within-subject design.
 
 This data set is in a wide format, see \code{\link{mdt_within_wide}} to
 conduct a within-participant mediation analysis with this dataset.

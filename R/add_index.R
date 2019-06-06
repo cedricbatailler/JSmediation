@@ -1,6 +1,6 @@
 #' @title Adds an indirect effect index to a fitted mediation model
 #'
-#' @description \code{\link{add_index}} is a generic function that adds
+#' @description \code{\link{add_index}} is a generic function that adds a
 #'   (moderated) indirect effect index to an object created with an \code{mdt_*}
 #'   family function. This index is computed using Monte Carlo methods. This
 #'   function invokes particular methods depending of the class of the mediation

@@ -33,7 +33,7 @@
 #'   To assess whether the indirect effect is different from the null, one has
 #'   to assess the significance against the null for both \eqn{a} (the effect of
 #'   \eqn{X} on \eqn{M}) and \eqn{b} (effect of \eqn{M} on \eqn{Y}
-#'   controlling for the effect of \eqn{X}). Both \eqn{a} and \eqn{b} needs to
+#'   controlling for the effect of \eqn{X}). Both \eqn{a} and \eqn{b} need to
 #'   be simultaneously significant for an indirect effect to be claimed (Cohen &
 #'   Cohen, 1983; Yzerbyt, Muller, Batailler, & Judd, 2018).
 #'
@@ -55,7 +55,7 @@
 #'   
 #' @section Variable coding: Because joint-significance tests uses linear models
 #'   behind the scenes, variables involved in the model have to be numeric.
-#'   \code{mdt_simple} will throw an error if non-numeric variables are
+#'   \code{mdt_simple} will give an error if non-numeric variables are
 #'   specified in the model.
 #'
 #'   To convert a dichotomous categorical variable to a numeric one, please

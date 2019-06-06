@@ -42,7 +42,7 @@ the mediation model.}
 has been computed or not. Defaults to \code{FALSE}. See
 \code{\link{add_index}} to compute mediation index.}
 \item{indirect_index_infos}{(Optional) An object of class
-\code{"indirect_index"}. Appears when one apply \code{\link{add_index}}
+\code{"indirect_index"}. Appears when one applies \code{\link{add_index}}
 to an object of class \code{"mediation_model"}.}
 \item{js_models}{A list of objects of class \code{"lm"}. Contains every
 model relevant to joint-significance testing.}
@@ -58,13 +58,13 @@ Yzerbyt, Muller, Batailler, & Judd, 2018).
 \details{
 With within-participant mediation analysis, one tests whether the
 effect of \eqn{X} on \eqn{Y} goes through a third variable \eqn{M}. The
-specificity of within-participant mediation analysis lies in the
-repeated measures design it relies on. With such design, each sampled unit
-(e.g., participant) is measured on the dependent variable \eqn{Y} and the
-mediator \eqn{M} in the two conditions of \eqn{X}. The hypothesis behind
-this test is that \eqn{X} has an effect on \eqn{M} (\eqn{a}) which has an
-effect on \eqn{Y} (\eqn{b}), meaning that \eqn{X} has an indirect effect on
-\eqn{Y} through \eqn{M}.
+specificity of within-participant mediation analysis lies in the repeated
+measures design it relies on. With such a design, each sampled unit (e.g.,
+participant) is measured on the dependent variable \eqn{Y} and the mediator
+\eqn{M} in the two conditions of \eqn{X}. The hypothesis behind this test
+is that \eqn{X} has an effect on \eqn{M} (\eqn{a}) which has an effect on
+\eqn{Y} (\eqn{b}), meaning that \eqn{X} has an indirect effect on \eqn{Y}
+through \eqn{M}.
 
 As with simple mediation, the total effect of \eqn{X} on \eqn{Y} can be
 conceptually described as follows:
@@ -118,7 +118,7 @@ the outcome and one observation for the mediator (see
 
 Because such formatting is not the most common among social scientists
 interested in within-participant mediation, \pkg{JSmediation} contains the
-\code{\link{mdt_within_wide}} function which handles long-formatted data
+\code{\link{mdt_within_wide}} function which handles wide-formatted data
 input (but is syntax-inconsistent with other \code{mdt_*} family
 functions).
 }
@@ -131,7 +131,10 @@ computed, \code{mdt_within} has a default coding.
 
 \code{mdt_within}'s default behavior is to compute the difference score so
 the total effect (the effect of \eqn{X} on \eqn{Y}) will be positive and
-compute the other difference scores accordingly.
+compute the other difference scores accordingly. That is, if
+\code{mdt_within} has to use \eqn{Y_{2i} − Y_{1i}} (instead of \eqn{Y_{1i}
+  - Y_{2i}}) so that \eqn{c_{11}} is positive, it will use \eqn{M_{2i} −
+  M_{1i}} (instead of \eqn{M_{1i} - M_{2i}} in the other models.
 
 User can choose to have a negative total effect by using the
 \code{default_coding} argument.

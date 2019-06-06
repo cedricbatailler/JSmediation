@@ -23,7 +23,7 @@
 #'   indirect effect of \eqn{X} on \eqn{Y} through \eqn{M} is moderated by
 #'   \eqn{Mod}. The hypothesis behind this test is that \eqn{X} has an effect on
 #'   \eqn{M} (\eqn{a}) which has an effect on \eqn{Y} (\eqn{b}), meaning that
-#'   \eqn{X} has an indrect effect on \eqn{Y} through \eqn{M}.
+#'   \eqn{X} has an indirect effect on \eqn{Y} through \eqn{M}.
 #'
 #'   Total moderation of the indirect effect of \eqn{X} on \eqn{Y} can be
 #'   described as follows:
@@ -37,10 +37,6 @@
 #'   \eqn{a * (b * Mod)}, the moderation of the indirect effect passing by the 
 #'   moderation of \eqn{b} (see Models section; Muller et al., 2005).
 #'
-#'   To assess if the moderation of the indirect effect is different from the
-#'   null, one has either to assess the significance against the null for both
-#'   \eqn{a * Mod} and \eqn{b} or \eqn{a} and \eqn{b * Mod}.
-#'   
 #'   Either both \eqn{a * Mod} and \eqn{b} or both \eqn{a} and \eqn{b * Mod}
 #'   need to be simultaneously significant for a moderation of the indirect
 #'   effect to be claimed (Muller et al., 2005).
@@ -70,18 +66,18 @@
 #'   
 #' @section Variable coding: Because joint-significance tests use linear models
 #'   behind the scenes, variables involved in the model have to be numeric.
-#'   \code{mdt_simple} will throw an error if non-numeric variables are
+#'   \code{mdt_simple} will give an error if non-numeric variables are
 #'   specified in the model.
 #'
 #'   If you need to convert a dichotomous categorical variable to a numeric one,
 #'   please refer to the \code{\link{build_contrast}} function.
 #'
 #'   Note that variable coding is especially important in models with multiple
-#'   predictors as it is the case in the model used to conduct a
-#'   joint-significance test of moderated mediation. Muller et al. (2005)
-#'   recommend using variables that are either contrast-coded or centered. Using
-#'   \code{mdt_moderated} with a DV, a mediator, or a moderator that is neither
-#'   contrast-coded nor centered will throw a warning message.
+#'   predictors as is the case in the model used to conduct a joint-significance
+#'   test of moderated mediation. Muller et al. (2005) recommend using variables
+#'   that are either contrast-coded or centered. Using \code{mdt_moderated} with
+#'   a DV, a mediator, or a moderator that is neither contrast-coded nor
+#'   centered will give a warning message.
 #'
 #'
 #' @references Muller, D., Judd, C. M., & Yzerbyt, V. Y. (2005). When moderation

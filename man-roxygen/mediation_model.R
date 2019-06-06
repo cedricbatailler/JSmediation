@@ -15,7 +15,7 @@
 #'   has been computed or not. Defaults to \code{FALSE}. See
 #'   \code{\link{add_index}} to compute mediation index.}
 #'   \item{indirect_index_infos}{(Optional) An object of class
-#'     \code{"indirect_index"}. Appears when one apply \code{\link{add_index}}
+#'     \code{"indirect_index"}. Appears when one applies \code{\link{add_index}}
 #'     to an object of class \code{"mediation_model"}.}
 #'   \item{js_models}{A list of objects of class \code{"lm"}. Contains every
 #'     model relevant to joint-significance testing.}

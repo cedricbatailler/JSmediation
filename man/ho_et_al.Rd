@@ -18,13 +18,13 @@ data("ho_et_al")
 }
 \description{
 A data set containing data from Experiment 3 from Ho, Kteiley,
-and Chen (2017). In this experiment, the authors hypothized that presenting a
-text stating that Black-White biracials were discriminated would lead Black
-participants to associate Black-White biracials more with their lower
-status parent group than their higher status parent group, according to the
-rule of \emph{hypodescent}. In this experiment, the authors tested if this
-effect was mediated by the sense of linked fate between discriminated
-Black-White participants and Black participants.
+and Chen (2017). In this experiment, the authors hypothesized that
+presenting a text stating that Black-White biracials were discriminated
+against would lead Black participants to associate Black-White biracials
+more with their lower status parent group than their higher status parent
+group, according to the rule of \emph{hypodescent}. In this experiment, the
+authors tested if this effect was mediated by the sense of linked fate
+between discriminated Black-White biracials and Black participants.
 
 Note that this data set does not include the participants who were in the
 discrimination control condition in the study conducted by Ho, Kteiley and

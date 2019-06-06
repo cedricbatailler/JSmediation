@@ -31,7 +31,7 @@
 #'
 #'   Because such formatting is not the most common among social scientists
 #'   interested in within-participant mediation, \pkg{JSmediation} contains the
-#'   \code{\link{mdt_within_wide}} function which handles long-formatted data
+#'   \code{\link{mdt_within_wide}} function which handles wide-formatted data
 #'   input (but is syntax-inconsistent with other \code{mdt_*} family
 #'   functions).
 #'
@@ -42,8 +42,11 @@
 #'
 #'   \code{mdt_within}'s default behavior is to compute the difference score so
 #'   the total effect (the effect of \eqn{X} on \eqn{Y}) will be positive and
-#'   compute the other difference scores accordingly.
-#'
+#'   compute the other difference scores accordingly. That is, if
+#'   \code{mdt_within} has to use \eqn{Y_{2i} − Y_{1i}} (instead of \eqn{Y_{1i}
+#'   - Y_{2i}}) so that \eqn{c_{11}} is positive, it will use \eqn{M_{2i} −
+#'   M_{1i}} (instead of \eqn{M_{1i} - M_{2i}} in the other models.
+#'   
 #'   User can choose to have a negative total effect by using the
 #'   \code{default_coding} argument.
 #'

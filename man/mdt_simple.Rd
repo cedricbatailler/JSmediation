@@ -36,7 +36,7 @@ the mediation model.}
 has been computed or not. Defaults to \code{FALSE}. See
 \code{\link{add_index}} to compute mediation index.}
 \item{indirect_index_infos}{(Optional) An object of class
-\code{"indirect_index"}. Appears when one apply \code{\link{add_index}}
+\code{"indirect_index"}. Appears when one applies \code{\link{add_index}}
 to an object of class \code{"mediation_model"}.}
 \item{js_models}{A list of objects of class \code{"lm"}. Contains every
 model relevant to joint-significance testing.}
@@ -66,7 +66,7 @@ through {M} (see Models section).
 To assess whether the indirect effect is different from the null, one has
 to assess the significance against the null for both \eqn{a} (the effect of
 \eqn{X} on \eqn{M}) and \eqn{b} (effect of \eqn{M} on \eqn{Y}
-controlling for the effect of \eqn{X}). Both \eqn{a} and \eqn{b} needs to
+controlling for the effect of \eqn{X}). Both \eqn{a} and \eqn{b} need to
 be simultaneously significant for an indirect effect to be claimed (Cohen &
 Cohen, 1983; Yzerbyt, Muller, Batailler, & Judd, 2018).
 }
@@ -92,7 +92,7 @@ are respectively \eqn{a_{21}}{a_21}, \eqn{b_{32}}{b_32},
 \section{Variable coding}{
  Because joint-significance tests uses linear models
 behind the scenes, variables involved in the model have to be numeric.
-\code{mdt_simple} will throw an error if non-numeric variables are
+\code{mdt_simple} will give an error if non-numeric variables are
 specified in the model.
 
 To convert a dichotomous categorical variable to a numeric one, please
