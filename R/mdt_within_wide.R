@@ -31,7 +31,8 @@
 #'
 #' @section Variable coding: Models underlying within-participant mediation use
 #'   difference scores as DV (see Models section).  \code{mdt_within_wide} uses
-#'   \code{M_A} - \code{M_B} and \code{DV_A} - \code{DV_B} in these models.
+#'   \code{M_A} \eqn{-} \code{M_B} and \code{DV_A} \eqn{-} \code{DV_B} in these
+#'   models.
 #'
 #' @template mediation_model
 #' @template within_details

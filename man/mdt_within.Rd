@@ -132,8 +132,8 @@ computed, \code{mdt_within} has a default coding.
 \code{mdt_within}'s default behavior is to compute the difference score so
 the total effect (the effect of \eqn{X} on \eqn{Y}) will be positive and
 compute the other difference scores accordingly. That is, if
-\code{mdt_within} has to use \eqn{Y_{2i} − Y_{1i}} (instead of \eqn{Y_{1i}
-  - Y_{2i}}) so that \eqn{c_{11}} is positive, it will use \eqn{M_{2i} −
+\code{mdt_within} has to use \eqn{Y_{2i} - Y_{1i}} (instead of \eqn{Y_{1i}
+  - Y_{2i}}) so that \eqn{c_{11}} is positive, it will use \eqn{M_{2i} -
   M_{1i}} (instead of \eqn{M_{1i} - M_{2i}} in the other models.
 
 User can choose to have a negative total effect by using the
