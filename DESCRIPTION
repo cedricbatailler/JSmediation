@@ -18,9 +18,7 @@ Authors@R: c(
     person("Michael", "Siegrist", role = "dtc")
     )
 Description: A set of helper functions to conduct joint-significance tests for 
-  mediation analysis. The joint-significance approach is preferred as it does 
-  not inflate false positive result rate 
-  (Yzerbyt, Muller, Batailler, & Judd, 2018) <doi:10.1037/pspa0000132>.
+  mediation analysis.
 License: MIT + file LICENSE
 Encoding: UTF-8
 LazyData: true
