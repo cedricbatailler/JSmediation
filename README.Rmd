@@ -111,11 +111,11 @@ _115_(6), 929–943. doi:
 
 Ho, A. K., Kteily, N. S., & Chen, J. M. (2017). “You’re one of us”: Black
 Americans’ use of hypodescent and its association with egalitarianism. _Journal
-of Personality and Social Psychology_, _113_(5), 753‑768. doi:
+of Personality and Social Psychology_, _113_(5), 753-768. doi:
 [10.1037/pspi0000107](https://dx.doi.org/10.1037/pspi0000107)
 
 ## Contributing
 Contributions are absolutly welcome. Please note that this project is released 
-with a [Contributor Code of Conduct](CODE_OF_CONDUCT.md).
+with a [Contributor Code of Conduct](.github/CODE_OF_CONDUCT.md).
 
 By participating in this project you agree to abide by its terms.

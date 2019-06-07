@@ -70,7 +70,7 @@ library(JSmediation)
 
 The `JSmediation` package contains several functions as well as example
 data sets that can be used as an example. The `ho_et_al` data set comes
-from Ho et al. (2017; Exp. 3) and contains variables to test a simple
+from Ho et al. (2017; Exp. 3) and contains variables to test a simple
 mediation. As a simple example, we will conduct a joint-significance
 test of the indirect effect of discrimination on hypodescent passing by
 linked fate.
@@ -151,12 +151,13 @@ Social Psychology*, *115*(6), 929–943. doi:
 Ho, A. K., Kteily, N. S., & Chen, J. M. (2017). “You’re one of us”:
 Black Americans’ use of hypodescent and its association with
 egalitarianism. *Journal of Personality and Social Psychology*,
-*113*(5), 753‑768. doi:
+*113*(5), 753-768. doi:
 [10.1037/pspi0000107](https://dx.doi.org/10.1037/pspi0000107)
 
 ## Contributing
 
 Contributions are absolutly welcome. Please note that this project is
-released with a [Contributor Code of Conduct](CODE_OF_CONDUCT.md).
+released with a [Contributor Code of
+Conduct](.github/CODE_OF_CONDUCT.md).
 
 By participating in this project you agree to abide by its terms.
