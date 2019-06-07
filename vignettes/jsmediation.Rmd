@@ -172,6 +172,3 @@ information.
 extract_tidy_models(my_model)
 ```
 
-# References 
-
-Ho, A. K., Kteily, N. S., & Chen, J. M. (2017). “You’re one of us”: Black Americans’ use of hypodescent and its association with egalitarianism. _Journal of Personality and Social Psychology_, _113_(5), 753‑768. doi:10.1037/pspi0000107
