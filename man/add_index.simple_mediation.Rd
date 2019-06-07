@@ -43,5 +43,5 @@ add_index(simple_model)
 MacKinnon, D. P., Lockwood, C. M., & Williams, J. (2004).
 Confidence Limits for the Indirect Effect: Distribution of the Product and
 Resampling Methods. \emph{Multivariate Behavioral Research}, \emph{39}(1),
-99‑128. doi: 10.1207/s15327906mbr3901_4
+99-128. doi: 10.1207/s15327906mbr3901_4
 }

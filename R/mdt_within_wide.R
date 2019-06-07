@@ -40,12 +40,12 @@
 #'
 #' @references Judd, C. M., Kenny, D. A., & McClelland, G. H. (2001). Estimating
 #'   and testing mediation and moderation in within-subject designs.
-#'   \emph{Psychological Methods}, \emph{6}(2), 115‑134. doi:
+#'   \emph{Psychological Methods}, \emph{6}(2), 115-134. doi:
 #'   10.1037//1082-989X.6.2.115
 #'
 #'   Montoya, A. K., & Hayes, A. F. (2017). Two-condition within-participant
 #'   statistical mediation analysis: A path-analytic framework.
-#'   \emph{Psychological Methods}, \emph{22}(1), 6‑27. doi: 10.1037/met0000086
+#'   \emph{Psychological Methods}, \emph{22}(1), 6-27. doi: 10.1037/met0000086
 #'
 #'   Yzerbyt, V., Muller, D., Batailler, C., & Judd, C. M. (2018). New
 #'   recommendations for testing indirect effects in mediational models: The
