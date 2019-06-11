@@ -116,6 +116,7 @@ of Personality and Social Psychology_, _113_(5), 753-768. doi:
 
 ## Contributing
 Contributions are absolutly welcome. Please note that this project is released 
-with a [Contributor Code of Conduct](.github/CODE_OF_CONDUCT.md).
+with a [Contributor Code of
+Conduct](https://github.com/cedricbatailler/JSmediation/blob/master/CODE_OF_CONDUCT.md).
 
 By participating in this project you agree to abide by its terms.
