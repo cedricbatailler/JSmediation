@@ -109,17 +109,17 @@ mdt_within.data.frame <- function(data, IV, DV, M, grouping, default_coding = TR
   IV_cond <- data %>% dplyr::pull( !! IV_var ) %>% unique()
 
   M_cond_1_name <-
-    glue::glue("{M_name}_mean_{IV_cond[[1]]}")
+    as.character(glue::glue("{M_name}_mean_{IV_cond[[1]]}"))
   M_cond_2_name <-
-    glue::glue("{M_name}_mean_{IV_cond[[2]]}")
+    as.character(glue::glue("{M_name}_mean_{IV_cond[[2]]}"))
 
   M_mean_name <-
-    glue::glue("{M_name}_mean")
+    as.character(glue::glue("{M_name}_mean"))
 
   DV_cond_1_name <-
-    glue::glue("{DV_name}_mean_{IV_cond[[1]]}")
+    as.character(glue::glue("{DV_name}_mean_{IV_cond[[1]]}"))
   DV_cond_2_name <-
-    glue::glue("{DV_name}_mean_{IV_cond[[2]]}")
+    as.character(glue::glue("{DV_name}_mean_{IV_cond[[2]]}"))
 
   # wrangling
   wrangling_formula <-
@@ -146,9 +146,9 @@ mdt_within.data.frame <- function(data, IV, DV, M, grouping, default_coding = TR
   # else, set B - A.
   if(DV_A_sup_B == default_coding) {
     DV_diff_name <-
-      glue::glue("DV_{IV_cond[[1]]}_{IV_cond[[2]]}")
+      as.character(glue::glue("DV_{IV_cond[[1]]}_{IV_cond[[2]]}"))
     M_diff_name <-
-      glue::glue("IV_{IV_cond[[1]]}_{IV_cond[[2]]}")
+      as.character(glue::glue("IV_{IV_cond[[1]]}_{IV_cond[[2]]}"))
 
     data_long <-
       data_long %>%
@@ -156,10 +156,10 @@ mdt_within.data.frame <- function(data, IV, DV, M, grouping, default_coding = TR
                      !! sym(M_diff_name)  := !! sym(M_cond_1_name)  - !! sym(M_cond_2_name))
   } else {
     DV_diff_name <-
-      glue::glue("DV_{IV_cond[[2]]}_{IV_cond[[1]]}")
+      as.character(glue::glue("DV_{IV_cond[[2]]}_{IV_cond[[1]]}"))
 
     M_diff_name <-
-      glue::glue("M_{IV_cond[[2]]}_{IV_cond[[1]]}")
+      as.character(glue::glue("M_{IV_cond[[2]]}_{IV_cond[[1]]}"))
 
     data_long <-
       data_long %>%
