@@ -145,7 +145,7 @@ egalitarianism. *Journal of Personality and Social Psychology*,
 
 ## Contributing
 
-Contributions are absolutly welcome. Please note that this project is
+Contributions are absolutely welcome. Please note that this project is
 released with a [Contributor Code of
 Conduct](https://github.com/cedricbatailler/JSmediation/blob/master/CODE_OF_CONDUCT.md).
 

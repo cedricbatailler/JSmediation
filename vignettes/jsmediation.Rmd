@@ -22,11 +22,11 @@ knitr::opts_chunk$set(
 With this package, you can type a mediation model the way you think it, 
 `JSmediation` dealing with fitting underlying models.
 
-In this vignette, we will conduct ajoint-significicant test for a simple 
+In this vignette, we will conduct a joint-significant test for a simple 
 mediation scenario.
 
 We will use a data set from Ho, Kteily and Chen (2017). In this experiment, 
-authors hypothised that presenting a text stating that Black-White biracials 
+authors hypothesized that presenting a text stating that Black-White biracials 
 were discriminated would lead Black participants to associate Black-White 
 biracials more with their lower status parent group than their higher status 
 parent group, according to the rule of hypodescent. In this experiment, the 
@@ -74,7 +74,7 @@ my_model <-
              M  = linkedfate)
 ```
 
-We now have an object of class `mediation_model`, we can now wether our data 
+We now have an object of class `mediation_model`, we can now whether our data 
 support a simple mediation. 
 
 Before looking into the results, we will check for OLS assumptions because 
@@ -122,18 +122,18 @@ my_model
 ```
 
 In this summary, both a and b paths are significant, we could conclude that 
-the indirect effect of discrimination on hypodesscent by linked fate is 
+the indirect effect of discrimination on hypodescent by linked fate is 
 significant according to the joint significant test. 
 
 We could choose to compute the Monte Carlo moderation index using `add_index` 
-function. This functions adds the indrect effect to the `mediation_model` 
+function. This functions adds the indirect effect to the `mediation_model` 
 object which is print directly.
 
 ```{r}
 add_index(my_model)
 ```
 
-Following this mediation analys, one could write the following to report the
+Following this mediation analysis, one could write the following to report the
 joint significant mediation test:
 
 > First, we tested examined if  discrimination condition (low vs. high) had an
@@ -149,7 +149,7 @@ joint significant mediation test:
 > _t_(821) = 5.75, _p_ < .001. The effect of discrimination condition on 
 > hypodescent after controlling for linked fate was no longer significant, 
 > _t_(821) = 0.33, _p_ = .742.
-> Consistantly with this analysis, the Monte Carlo confidence interval for the
+> Consistently with this analysis, the Monte Carlo confidence interval for the
 > indirect effect did not contain 0, CI<sub>95%</sub> [0.0889; 0.208].
 
 # Miscellaneous

@@ -80,7 +80,7 @@ simultaneously significant for an indirect effect to be claimed (Judd,
 Kenny, & McClelland, 2001; Montoya & Hayes, 2011).
 }
 \section{Data formatting}{
- To be consistant with other \code{mdt_*} family
+ To be consistent with other \code{mdt_*} family
 functions, \code{mdt_within} takes a long-format data frame as \code{data}
 argument. With this kind of format, each sampled unit has two rows, one for
 the first within-participant condition and one for the second
@@ -91,7 +91,7 @@ the outcome and one observation for the mediator (see
 Because such formatting is not the most common among social scientists
 interested in within-participant mediation, \pkg{JSmediation} contains the
 \code{\link{mdt_within_wide}} function which handles wide-formatted data
-input (but is syntax-inconsistant with other \code{mdt_*} family
+input (but is syntax-inconsistent with other \code{mdt_*} family
 functions).
 }
 

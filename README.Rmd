@@ -106,7 +106,7 @@ of Personality and Social Psychology_, _113_(5), 753-768. doi:
 [10.1037/pspi0000107](https://dx.doi.org/10.1037/pspi0000107)
 
 ## Contributing
-Contributions are absolutly welcome. Please note that this project is released 
+Contributions are absolutely welcome. Please note that this project is released 
 with a [Contributor Code of
 Conduct](https://github.com/cedricbatailler/JSmediation/blob/master/CODE_OF_CONDUCT.md).
 

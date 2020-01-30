@@ -13,7 +13,7 @@ check_variables.default <- function(model) {
   NULL
 }
 
-# Method for moderated_mediation class. Checks wether IV, Mediator, or
+# Method for moderated_mediation class. Checks whether IV, Mediator, or
 # Moderator is either a contrast-coded or a centered variable. Throws a
 # message if it is not the case.
 check_variables.moderated_mediation <- function(model) {
