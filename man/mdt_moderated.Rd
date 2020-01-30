@@ -127,7 +127,8 @@ need to report and test component paths. \emph{Journal of Personality and
 Social Psychology}, \emph{115}(6), 929–943. doi: 10.1037/pspa0000132
 }
 \seealso{
-Other mediation models: \code{\link{mdt_simple}},
-  \code{\link{mdt_within}}
+Other mediation models: 
+\code{\link{mdt_simple}()},
+\code{\link{mdt_within}()}
 }
 \concept{mediation models}

@@ -4,8 +4,7 @@
 \alias{add_index.moderated_mediation}
 \title{add_index method for moderated mediation}
 \usage{
-\method{add_index}{moderated_mediation}(mediation_model, times = 5000,
-  level = 0.05, stage = NULL, ...)
+\method{add_index}{moderated_mediation}(mediation_model, times = 5000, level = 0.05, stage = NULL, ...)
 }
 \arguments{
 \item{mediation_model}{A mediation model of class

@@ -37,7 +37,8 @@ extract_model(my_model, step = "X -> M")
 \code{\link{extract_models}} to access a list of every model
 relevant to joint-significance testing.
 
-Other extract functions: \code{\link{extract_models}},
-  \code{\link{extract_tidy_models}}
+Other extract functions: 
+\code{\link{extract_models}()},
+\code{\link{extract_tidy_models}()}
 }
 \concept{extract functions}

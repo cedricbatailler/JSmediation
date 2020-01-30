@@ -32,7 +32,8 @@ extract_tidy_models(my_model)
 
 }
 \seealso{
-Other extract functions: \code{\link{extract_models}},
-  \code{\link{extract_model}}
+Other extract functions: 
+\code{\link{extract_models}()},
+\code{\link{extract_model}()}
 }
 \concept{extract functions}
