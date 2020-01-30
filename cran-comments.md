@@ -1,18 +1,22 @@
-## Resubmission
-
-This is a resubmission. In this version I have:
-- Fixed a broken link in README.md (link to CODE_OF_CONDUCT.md)
-- Added a reference to the method used in DESCRIPTION
-
 ## Release summary
 
-This is a new release.
+This is a patch release.
+
+Some of the functions used internally became incompatible with the glue class 
+some of our character variables had. Because of this, one of the main function
+was broken. Problematic variables are now coerced to characters which solving 
+the problem. 
 
 ## Test environments
-* local windows install, R 3.6.0
-* R-hub via `rhub::check_rhub_cran()`
-* win-builder (old, release, and devel)
+* local macosR install, R 3.6.1
+* R-hub via `rhub::check_for_cran()`
+* ubuntu 16.04 (on travis-ci)
+* win-builder (old, release, andisnt devel)
 
 ## R CMD check results
 
 0 ERRORs | 0 WARNINGs | 0 NOTE
+
+## Downstream dependencies
+
+There are currently no downstream dependencies for this package.
