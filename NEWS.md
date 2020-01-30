@@ -2,6 +2,7 @@
 
 ## Bug fixes
 
+* Fix typo in the documentation.
 * Fix an error related to the type of internal variables. 
 
 # JSmediation 0.1.0
