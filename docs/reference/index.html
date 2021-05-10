@@ -19,8 +19,8 @@
 <!-- jquery -->
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js" integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
 <!-- Bootstrap -->
+<link href="https://cdnjs.cloudflare.com/ajax/libs/bootswatch/3.4.0/cosmo/bootstrap.min.css" rel="stylesheet" crossorigin="anonymous" />
 
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.4.1/css/bootstrap.min.css" integrity="sha256-bZLfwXAP04zRMK2BjiO8iu9pf4FbLqX6zitd+tIvLhE=" crossorigin="anonymous" />
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.4.1/js/bootstrap.min.js" integrity="sha256-nuL8/2cJ5NDSSwnKD8VqreErSWHtnEP9E7AySL+1ev4=" crossorigin="anonymous"></script>
 
@@ -61,6 +61,16 @@
 <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
 <![endif]-->
 
+
+<!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-131796926-3"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'UA-131796926-3');
+</script>
 
 
   </head>
@@ -144,8 +154,8 @@
     <tbody>
       <tr>
         <th colspan="2">
-          <h2 id="section-mediation-models" class="hasAnchor"><a href="#section-mediation-models" class="anchor"></a>Mediation models</h2>
-          <p class="section-desc"><p>Functions to fit mediation models.</p></p>
+          <h2 id="section-fitting-mediation-models" class="hasAnchor"><a href="#section-fitting-mediation-models" class="anchor"></a>Fitting mediation models</h2>
+          <p class="section-desc"></p>
         </th>
       </tr>
       
@@ -182,7 +192,7 @@
       <tr>
         <th colspan="2">
           <h2 id="section-mediation-model-helper-functions" class="hasAnchor"><a href="#section-mediation-model-helper-functions" class="anchor"></a>Mediation model helper functions</h2>
-          <p class="section-desc"><p>A collection of function to help people manipulate .</p></p>
+          <p class="section-desc"><p>A collection of function to help people manipulate <code>mediation_model</code>.</p></p>
         </th>
       </tr>
       
@@ -196,12 +206,6 @@
           <p><code><a href="add_index.html">add_index()</a></code> </p>
         </td>
         <td><p>Adds an indirect effect index to a fitted mediation model</p></td>
-      </tr><tr>
-        
-        <td>
-          <p><code><a href="display_models.html">display_models()</a></code> </p>
-        </td>
-        <td><p>Displays models from a mediation object</p></td>
       </tr><tr>
         
         <td>
@@ -220,6 +224,12 @@
           <p><code><a href="extract_tidy_models.html">extract_tidy_models()</a></code> </p>
         </td>
         <td><p>Extracts models from a mediation object as a data frame</p></td>
+      </tr><tr>
+        
+        <td>
+          <p><code><a href="display_models.html">display_models()</a></code> </p>
+        </td>
+        <td><p>Displays models from a mediation object</p></td>
       </tr>
     </tbody><tbody>
       <tr>
@@ -293,7 +303,7 @@
 
       <footer>
       <div class="copyright">
-  <p>Developed by Cédric Batailler, Dominique Muller, Vincent Yzerbyt, Charles Judd.</p>
+  <p>Developed by <a href='https://cedricbatailler.me'>Cédric Batailler</a>, <a href='https://www.dominique.muller.lippc2s.fr/'>Dominique Muller</a>, Vincent Yzerbyt, Charles Judd.</p>
 </div>
 
 <div class="pkgdown">

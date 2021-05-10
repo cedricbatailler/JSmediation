@@ -4,7 +4,7 @@ author: "Cédric Batailler"
 date: "`r Sys.Date()`"
 output: rmarkdown::html_vignette
 vignette: >
-  %\VignetteIndexEntry{mediation analysis with JSmediation}
+  %\VignetteIndexEntry{Mediation analysis with JSmediation}
   %\VignetteEngine{knitr::rmarkdown}
   %\VignetteEncoding{UTF-8}
 ---

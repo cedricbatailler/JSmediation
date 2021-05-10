@@ -1,18 +1,37 @@
+home:
+  title: JSmediation · An R package to conduction mediation analysis
+  description: Easely conduct mediation analysis using joint-significance tests.
+  
+template:
+  params:
+    bootswatch: cosmo
+    ganalytics: UA-131796926-3
+  twitter:
+    author: "@cedricbatailler"
+    card: summary_large_image
+
+authors:
+  Cédric Batailler:
+    href: https://cedricbatailler.me
+  Dominique Muller:
+    href: https://www.dominique.muller.lippc2s.fr/
+    
 reference:
-- title: "Mediation models"
-  desc: >
-    Functions to fit mediation models.
+
+- title: "Fitting mediation models"
 - contents:
   - starts_with("mdt_")
+
 - title: "Mediation model helper functions"
   desc: >
     A collection of function to help people manipulate `mediation_model`.
 - contents:
   - add_index
-  - display_models
   - extract_model
   - extract_models
   - extract_tidy_models
+  - display_models
+  
 - title: "Data sets"
   desc: >
     A collection of data sets to illustratoe how `JSmediation` works.
@@ -20,6 +39,7 @@ reference:
   - ho_et_al
   - dohle_siegrist
   - dohle_siegrist_wide
+
 - title: "Misc."
   desc: >
 - contents: 
