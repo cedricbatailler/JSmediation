@@ -1,0 +1,7 @@
+pandoc: '2.13'
+pkgdown: 1.6.1
+pkgdown_sha: ~
+articles:
+  jsmediation: jsmediation.html
+last_built: 2021-05-10T11:42Z
+

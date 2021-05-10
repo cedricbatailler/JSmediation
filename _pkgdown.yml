@@ -1,0 +1,27 @@
+reference:
+- title: "Mediation models"
+  desc: >
+    Functions to fit mediation models.
+- contents:
+  - starts_with("mdt_")
+- title: "Mediation model helper functions"
+  desc: >
+    A collection of function to help people manipulate `mediation_model`.
+- contents:
+  - add_index
+  - display_models
+  - extract_model
+  - extract_models
+  - extract_tidy_models
+- title: "Data sets"
+  desc: >
+    A collection of data sets to illustratoe how `JSmediation` works.
+- contents: 
+  - ho_et_al
+  - dohle_siegrist
+  - dohle_siegrist_wide
+- title: "Misc."
+  desc: >
+- contents: 
+  - apastylr
+  - build_contrast
