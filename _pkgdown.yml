@@ -5,7 +5,7 @@ home:
 template:
   params:
     bootswatch: cosmo
-    ganalytics: UA-131796926-3
+    ganalytics: G-CSC1TRYSDL
   twitter:
     author: "@cedricbatailler"
     card: summary_large_image
