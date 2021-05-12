@@ -1,3 +1,5 @@
+url: https://jsmediation.cedricbatailler.me
+
 home:
   title: JSmediation · An R package to conduction mediation analysis
   description: Easely conduct mediation analysis using joint-significance tests.
@@ -9,13 +11,17 @@ template:
   twitter:
     author: "@cedricbatailler"
     card: summary_large_image
+  docsearch:
+    api_key: d3fc9eeadfb88a84050b53647236a5ba
+    index_name: jsmediation
 
 authors:
   Cédric Batailler:
     href: https://cedricbatailler.me
   Dominique Muller:
     href: https://www.dominique.muller.lippc2s.fr/
-    
+
+
 reference:
 
 - title: "Fitting mediation models"
@@ -31,7 +37,7 @@ reference:
   - extract_models
   - extract_tidy_models
   - display_models
-  
+
 - title: "Data sets"
   desc: >
     A collection of data sets to illustratoe how `JSmediation` works.
