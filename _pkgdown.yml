@@ -8,12 +8,12 @@ template:
   params:
     bootswatch: cosmo
     ganalytics: G-CSC1TRYSDL
+    docsearch:
+      api_key: d3fc9eeadfb88a84050b53647236a5ba
+      index_name: jsmediation
   twitter:
     author: "@cedricbatailler"
     card: summary_large_image
-  docsearch:
-    api_key: d3fc9eeadfb88a84050b53647236a5ba
-    index_name: jsmediation
 
 authors:
   Cédric Batailler:
