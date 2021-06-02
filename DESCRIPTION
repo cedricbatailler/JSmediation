@@ -45,5 +45,6 @@ Suggests:
     rmarkdown,
     testthat,
     covr,
-    roxygen2
+    roxygen2,
+    performance
 VignetteBuilder: knitr
