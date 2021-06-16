@@ -16,5 +16,3 @@ computed when `stage = "total"`.
 
 * Initial release.
 * Added a `NEWS.md` file to track changes to the package.
-
-git 
