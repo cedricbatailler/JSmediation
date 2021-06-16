@@ -1,5 +1,5 @@
 Package: JSmediation
-Version: 0.1.1
+Version: 0.1.1.9000
 Title: Mediation Analysis Using Joint Significance
 Authors@R: c(
     person("Cédric", "Batailler", 
