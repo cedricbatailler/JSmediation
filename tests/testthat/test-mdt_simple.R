@@ -1,5 +1,3 @@
-context("test-mdt_simple")
-
 test_that("mdt_simple does not throw an error", {
   data(ho_et_al)
   ho_et_al$condition_c <- build_contrast(ho_et_al$condition,

@@ -1,5 +1,3 @@
-context("test-mdt_moderated_index")
-
 test_that("moderated mediation index produce the intended intervals", {
   withr::with_seed(123, 
   {

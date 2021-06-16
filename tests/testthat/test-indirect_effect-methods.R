@@ -1,5 +1,3 @@
-context("test-indirect_effect-methods")
-
 test_that("print method does not throw error", {
   data(ho_et_al)
   ho_et_al$condition_c <- build_contrast(ho_et_al$condition,
