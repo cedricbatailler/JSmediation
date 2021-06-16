@@ -124,7 +124,8 @@ add_index.moderated_mediation <- function(mediation_model, times = 5000, level =
                         nrow = 4
                       ))
 
-    indirect_sampling <- ab_sampling[ , 1] * ab_sampling[ , 2]
+    indirect_sampling <- ab_sampling[ , 1] * ab_sampling[ , 2] +
+      ab_sampling[ , 3] * ab_sampling[ , 4]
     
     indirect_index_infos <-
       indirect_effect(
