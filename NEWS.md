@@ -1,5 +1,7 @@
 # JSmediation (development version)
 
+* Using testthat 3rd edition.
+
 ## Bug fixes
 
 * Fix an error in how confidence intervals for moderated mediation index was
