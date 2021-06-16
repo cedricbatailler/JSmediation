@@ -5,13 +5,15 @@
 \alias{dohle_siegrist}
 \title{Dohle and Siegrist (2014, Exp 1) illustrating within-subject analysis
 (long-format)}
-\format{A data frame with 44 rows and 4 variables:
+\format{
+A data frame with 44 rows and 4 variables:
 \describe{
 \item{participant}{Participant number.}
 \item{name}{Name of the drugs ("simple" vs. "complex").}
 \item{hazardousness}{Mean estimated hazardousness.}
 \item{willingness}{Mean willingness to buy.}
-}}
+}
+}
 \usage{
 data("dohle_siegrist")
 }
