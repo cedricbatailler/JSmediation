@@ -91,11 +91,11 @@ add_index.moderated_mediation <- function(mediation_model, times = 5000, level =
     contains_zero <- (CI[[1]] < 0 & CI[[2]] > 0)
     
     indirect_index_infos <-
-      indirect_effect(type       = type,
-                      estimate   = a * b,
-                      level      = level,
-                      times      = times,
-                      sampling   = indirect_sampling)
+      indirect_index(type       = type,
+                     estimate   = a * b,
+                     level      = level,
+                     times      = times,
+                     sampling   = indirect_sampling)
   }
   
   else if(stage %in% c("total")) {
@@ -127,17 +127,13 @@ add_index.moderated_mediation <- function(mediation_model, times = 5000, level =
     indirect_sampling <- ab_sampling[ , 1] * ab_sampling[ , 2]
     
     indirect_index_infos <-
-      indirect_effect(
-        type          = type,
-        estimate      = a1 * b1 + a2 * b2,
-        level         = level,
-        times         = times,
-        sampling      = indirect_sampling
-      )
+      indirect_index(type     = type,
+                     estimate = a1 * b1 + a2 * b2,
+                     level    = level,
+                     times    = times,
+                     sampling = indirect_sampling)
   }
-
-
-
+  
   mediation_model$indirect_index <- TRUE
   mediation_model$indirect_index_infos <-
     indirect_index_infos

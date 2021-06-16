@@ -53,11 +53,11 @@ add_index.within_participant_mediation <- function(mediation_model, times = 5000
   contains_zero <- (CI[[1]] < 0 & CI[[2]] > 0)
 
   indirect_index_infos <-
-    indirect_effect(type       = "Within-participant indirect effect",
-                    estimate   = a * b,
-                    level      = level,
-                    times      = times,
-                    sampling   = indirect_sampling)
+    indirect_index(type       = "Within-participant indirect effect",
+                   estimate   = a * b,
+                   level      = level,
+                   times      = times,
+                   sampling   = indirect_sampling)
   
   mediation_model$indirect_index <- TRUE
   mediation_model$indirect_index_infos <- indirect_index_infos

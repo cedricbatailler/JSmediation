@@ -1,4 +1,4 @@
-context("test-indirect_effect-methods")
+context("test-indirect_index-methods")
 
 test_that("print method does not throw error", {
   data(ho_et_al)

@@ -1,4 +1,4 @@
-indirect_effect <- function(type,
+indirect_index <- function(type,
                             method = "Monte Carlo",
                             estimate,
                             level,
