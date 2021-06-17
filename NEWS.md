@@ -1,5 +1,6 @@
 # JSmediation (development version)
 
+* New home for the documentation at https://jsmediation.cedricbatailler.me
 * Using testthat 3rd edition.
 
 ## Bug fixes
