@@ -1,51 +1,69 @@
 Package: JSmediation
-Version: 0.1.1.9000
 Title: Mediation Analysis Using Joint Significance
-Authors@R: c(
-    person("Cédric", "Batailler", 
-           email = "cedric.batailler@gmail.com",
-           role = c("aut", "cre"),
-           comment = c(ORCID = "0000-0003-0553-6827")),
-    person("Dominique", "Muller", 
-           role = "aut",
-           comment = c(ORCID = "0000-0001-9544-5317")),
-    person("Vincent", "Yzerbyt", role = "aut"),
-    person("Charles", "Judd", role = "aut"),
-    person("Arnold", "Ho", role = "dtc"),
-    person("Nour", "Kteily", role = "dtc"),
-    person("Jacqueline", "Chen", role = "dtc"),
-    person("Simone", "Dohle", role = "dtc"),
-    person("Michael", "Siegrist", role = "dtc")
-    )
-Description: A set of helper functions to conduct joint-significance tests for 
-  mediation analysis, as recommended by 
-  Yzerbyt, Muller, Batailler, & Judd. (2018) <doi:10.1037/pspa0000132>.
+Version: 0.1.1.9000
+Authors@R: 
+    c(person(given = "Cédric",
+             family = "Batailler",
+             role = c("aut", "cre"),
+             email = "cedric.batailler@gmail.com",
+             comment = c(ORCID = "0000-0003-0553-6827")),
+      person(given = "Dominique",
+             family = "Muller",
+             role = "aut",
+             comment = c(ORCID = "0000-0001-9544-5317")),
+      person(given = "Vincent",
+             family = "Yzerbyt",
+             role = "aut"),
+      person(given = "Charles",
+             family = "Judd",
+             role = "aut"),
+      person(given = "Arnold",
+             family = "Ho",
+             role = "dtc"),
+      person(given = "Nour",
+             family = "Kteily",
+             role = "dtc"),
+      person(given = "Jacqueline",
+             family = "Chen",
+             role = "dtc"),
+      person(given = "Simone",
+             family = "Dohle",
+             role = "dtc"),
+      person(given = "Michael",
+             family = "Siegrist",
+             role = "dtc"))
+Description: A set of helper functions to conduct joint-significance tests
+    for mediation analysis, as recommended by Yzerbyt, Muller, Batailler,
+    & Judd. (2018) <doi:10.1037/pspa0000132>.
 License: MIT + file LICENSE
+URL: http://jsmediation.cedricbatailler.me/,
+    https://github.com/cedricbatailler/JSmediation
+BugReports: https://github.com/cedricbatailler/JSmediation/issues
+Depends: 
+    R (>= 2.10)
+Imports: 
+    broom,
+    data.table,
+    dplyr,
+    glue,
+    knitr,
+    magrittr,
+    MASS,
+    purrr,
+    rlang (>= 0.1.2),
+    stats,
+    tibble
+Suggests: 
+    covr,
+    markdown,
+    rmarkdown,
+    roxygen2,
+    testthat (>= 3.0.2)
+VignetteBuilder: 
+    knitr
+ByteCompile: true
+Config/testthat/edition: 3
 Encoding: UTF-8
 LazyData: true
-ByteCompile: true
 Roxygen: list(markdown = TRUE)
 RoxygenNote: 7.0.2
-Depends: R (>= 2.10)
-URL: http://jsmediation.cedricbatailler.me/, https://github.com/cedricbatailler/JSmediation
-BugReports: https://github.com/cedricbatailler/JSmediation/issues
-Imports: 
-    rlang (>= 0.1.2),
-    dplyr,
-    magrittr,
-    purrr,
-    glue,
-    broom,
-    tibble,
-    stats,
-    MASS,
-    data.table,
-    knitr
-Suggests: 
-    rmarkdown,
-    markdown,
-    testthat (>= 3.0.2),
-    covr,
-    roxygen2
-VignetteBuilder: knitr
-Config/testthat/edition: 3
