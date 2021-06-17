@@ -43,7 +43,8 @@ Imports:
     knitr
 Suggests: 
     rmarkdown,
-    testthat,
+    testthat (>= 3.0.2),
     covr,
     roxygen2
 VignetteBuilder: knitr
+Config/testthat/edition: 3

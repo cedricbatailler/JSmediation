@@ -1,5 +1,3 @@
-context("test-display_models")
-
 test_that("display_models does not throw an error when used as intented", {
   data(ho_et_al)
   ho_et_al$condition_c <- build_contrast(ho_et_al$condition,
