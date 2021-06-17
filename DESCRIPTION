@@ -43,6 +43,7 @@ Imports:
     knitr
 Suggests: 
     rmarkdown,
+    markdown,
     testthat (>= 3.0.2),
     covr,
     roxygen2
