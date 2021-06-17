@@ -48,7 +48,7 @@ test_that("moderated mediation index produce the intended intervals", {
     
     expect_equal(model_with_stage_2_index[[1]], -0.0820, 
                  tolerance = 1e-3)
-    expect_equal(model_with_stage_2_index[[2]],  0.0087, 
+    expect_equal(model_with_stage_2_index[[2]],  0.0088, 
                  tolerance = 1e-3)
     
     expect_equal(model_with_total_index[[1]], -0.1320, 
