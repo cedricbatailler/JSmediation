@@ -1,5 +1,7 @@
 # JSmediation (development version)
 
+* Add new test to check if the computation of confidence interval works as
+intended.
 * New home for the documentation at https://jsmediation.cedricbatailler.me
 * Using testthat 3rd edition.
 
