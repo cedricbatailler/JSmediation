@@ -27,7 +27,7 @@ ByteCompile: true
 Roxygen: list(markdown = TRUE)
 RoxygenNote: 7.0.2
 Depends: R (>= 2.10)
-URL: http://cedricbatailler.me/JSmediation, https://github.com/cedricbatailler/JSmediation
+URL: http://jsmediation.cedricbatailler.me/, https://github.com/cedricbatailler/JSmediation
 BugReports: https://github.com/cedricbatailler/JSmediation/issues
 Imports: 
     rlang (>= 0.1.2),
