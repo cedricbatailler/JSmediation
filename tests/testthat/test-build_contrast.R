@@ -1,5 +1,3 @@
-context("test-build_contrast.R")
-
 test_that("returns double", {
   vector <- c("a", "b", "a", "a")
 

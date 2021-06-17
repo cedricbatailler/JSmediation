@@ -1,5 +1,3 @@
-context("test-apastylr")
-
 test_that("apastylr does not throw an error when used as intended", {
   data(ho_et_al)
   test <- lm(hypodescent ~ linkedfate, ho_et_al)

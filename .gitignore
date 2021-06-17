@@ -2,6 +2,9 @@
 .Rhistory
 .RData
 .Ruserdata
+
 JSmediation.Rproj
+
 inst/doc
+
 .DS_Store

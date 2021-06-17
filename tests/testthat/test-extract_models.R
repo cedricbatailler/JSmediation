@@ -1,5 +1,3 @@
-context("test-extract_models")
-
 test_that("extract_model throws an error when `step` = NULL", {
   data(ho_et_al)
   

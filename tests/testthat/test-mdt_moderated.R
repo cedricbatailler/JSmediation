@@ -1,5 +1,3 @@
-context("test-mdt_moderated.R")
-
 test_that("used models are correctly specified", {
   data <-
     ho_et_al %>%
