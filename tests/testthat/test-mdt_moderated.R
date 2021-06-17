@@ -18,7 +18,7 @@ test_that("used models are correctly specified", {
   
   models_js <- purrr::pluck(js_model, "js_models")
   
-  expect_equivalent(models_js, models)
+  expect_equal(models_js, models, ignore_attr = TRUE)
 })
 
 test_that("mdt_moderated does not throw error", {
