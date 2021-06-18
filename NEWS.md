@@ -1,4 +1,4 @@
-# JSmediation (development version)
+# JSmediation 0.1.2
 
 * Add new test to check if the computation of confidence interval works as
 intended.
