@@ -2,16 +2,17 @@
 
 This is a patch release.
 
-Some of the functions used internally became incompatible with the glue class 
-some of our character variables had. Because of this, one of the main function
-was broken. Problematic variables are now coerced to characters which solving 
-the problem. 
+Minor changes include an update of testhat to edition 3, new tests, and we now
+publicize the pkgdown website within change.
+
+We also fix a problem with how the `add_index` behavior when the model was a
+`modertated_mediation` and `stage = "total"`.
 
 ## Test environments
-* local macosR install, R 3.6.1
-* R-hub via `rhub::check_for_cran()`
-* ubuntu 16.04 (on travis-ci)
-* win-builder (old, release, andisnt devel)
+* local macOS R install, R 4.1.0
+* GitHub Actions (macOS-latest): release
+* GitHub Actions (windows-latest): relaese
+* GitHub Actions (ubuntu-20.04): release, devel
 
 ## R CMD check results
 
