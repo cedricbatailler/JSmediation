@@ -5,14 +5,16 @@
 \alias{dohle_siegrist_wide}
 \title{Dohle and Siegrist (2014, Exp 1) illustrating within-subject analysis
 (wide-format)}
-\format{A data frame with 22 rows and 5 variables:
+\format{
+A data frame with 22 rows and 5 variables:
 \describe{
 \item{participant}{Participant number.}
 \item{hazardousness_c}{Hazardousness for complex drug name.}
 \item{hazardousness_s}{Hazardousness for simple drug name.}
 \item{willingness_c}{Willingness to buy for complex drug name.}
 \item{willingness_s}{Willingness to buy for simple drug name.}
-}}
+}
+}
 \usage{
 data("dohle_siegrist_wide")
 }
