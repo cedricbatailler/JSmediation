@@ -1,3 +1,9 @@
+## Resubmission
+
+This is a resbmission. In this resbmission I have:
+* follow moved content as appropriate in urls
+* Fix a header in NEWS.md (Dev version -> 0.1.2)
+
 ## Release summary
 
 This is a patch release.
