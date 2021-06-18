@@ -36,7 +36,7 @@ Description: A set of helper functions to conduct joint-significance tests
     for mediation analysis, as recommended by Yzerbyt, Muller, Batailler,
     & Judd. (2018) <doi:10.1037/pspa0000132>.
 License: MIT + file LICENSE
-URL: http://jsmediation.cedricbatailler.me/,
+URL: https://jsmediation.cedricbatailler.me/,
     https://github.com/cedricbatailler/JSmediation
 BugReports: https://github.com/cedricbatailler/JSmediation/issues
 Depends: 
