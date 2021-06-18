@@ -42,6 +42,6 @@ capture multiple expressions supplied as arguments, including
 therefore one should always use \code{rlang::exprs()}.
 
 To learn more about tidy eval and how to use these tools, visit
-\url{https://rlang.r-lib.org} and the \href{https://adv-r.hadley.nz/metaprogramming.html}{Metaprogramming section} of \href{https://adv-r.hadley.nz}{Advanced R}.
+\url{https://rlang.r-lib.org/} and the \href{https://adv-r.hadley.nz/metaprogramming.html}{Metaprogramming section} of \href{https://adv-r.hadley.nz}{Advanced R}.
 }
 \keyword{internal}
