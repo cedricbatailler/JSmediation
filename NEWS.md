@@ -1,5 +1,8 @@
 # JSmediation (Development version)
 
+* Introduce `check_assumptions` to test the OLS assumptions of the models
+underlying the mediation using the `performance` package.
+
 # JSmediation 0.1.2
 
 * Add new test to check if the computation of confidence interval works as
