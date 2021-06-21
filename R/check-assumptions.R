@@ -13,7 +13,7 @@
 #'
 #' @param mediation_model An object of class \code{mediation_model}.
 #'
-#' @return An object of class \code{mediation_model}.
+#' @return Invisibly return an object of class \code{mediation_model}.
 #'
 #' @examples
 #' data(ho_et_al)
@@ -41,7 +41,7 @@ check_assumptions.mediation_model <- function(mediation_model) {
   purrr::pluck(mediation_model, "js_models") %>% 
     purrr::map2(names(.), ~ check_model(.y, .x))
   
-  mediation_model
+  invisible(mediation_model)
 }
 
 # Checks assumptions in a model

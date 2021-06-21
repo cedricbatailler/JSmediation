@@ -10,7 +10,7 @@ check_assumptions(mediation_model)
 \item{mediation_model}{An object of class \code{mediation_model}.}
 }
 \value{
-An object of class \code{mediation_model}.
+Invisibly return an object of class \code{mediation_model}.
 }
 \description{
 When conducting a joint-significant test, different models are
