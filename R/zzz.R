@@ -1,5 +1,5 @@
 # Set global variables to avoid CHECK notes
-utils::globalVariables(".")
+if(getRversion() >= "2.15.1") utils::globalVariables(".")
 
 # Checks if the input can be considered as a contrast-coded vector.
 # Args:
