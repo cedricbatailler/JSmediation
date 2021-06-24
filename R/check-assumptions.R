@@ -39,7 +39,7 @@ check_assumptions.mediation_model <- function(mediation_model) {
   rlang::check_installed("performance")
   
   purrr::pluck(mediation_model, "js_models") %>% 
-    purrr::map2(names(.), ~ check_model(.y, .x))
+    purrr::imap(~ check_model(.y, .x))
   
   invisible(mediation_model)
 }
