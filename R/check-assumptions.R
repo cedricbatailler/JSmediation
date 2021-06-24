@@ -29,28 +29,55 @@
 #' check_assumptions(my_model)
 #'
 #' @export
-check_assumptions <- function(mediation_model) {
+check_assumptions <- function(mediation_model, 
+                              tests = c("normality", "heteroscedasticity")) {
   UseMethod("check_assumptions")
 }
 
 #' @export
-check_assumptions.mediation_model <- function(mediation_model) {
-  
-  rlang::check_installed("performance")
-  
-  purrr::pluck(mediation_model, "js_models") %>% 
-    purrr::imap(~ check_model(.y, .x))
-  
-  invisible(mediation_model)
-}
+check_assumptions.mediation_model <- 
+  function(mediation_model, 
+           tests = c("normality", "heteroscedasticity")) {
+    
+    rlang::check_installed("performance")
+    
+    supported_tests <- c("normality", "heteroscedasticity", "outliers")
+    
+    if(length(tests) < 1L) {
+      rlang::abort(c("`tests` argument must contains at least one element."))
+    }
+    
+    if(! is.character(tests)) {
+      rlang::abort(c("`tests` argument must be a character vector."))
+    }
+    
+    if(sum(! tests %in% supported_tests) >= 1) {
+      rlang::warn(message = 
+                    c("`tests` argument in `check_assumptions` contains unsupported checks.",
+                      i  = "Supported checks are:",
+                      " " = "- normality",
+                      " " = "- heteroscedasticity",
+                      " " = "- outliers")
+      )
+      }
+    
+    purrr::pluck(mediation_model, "js_models") %>% 
+      purrr::imap(~ check_model(.y, .x, tests))
+    
+    invisible(mediation_model)
+  }
 
 # Checks assumptions in a model
 # Args:
 #   model_name: a carachter to be printed
 #   model: a lm object
+#   tests: a character vector with the test to run
 
-check_model <- function(model_name, model) {
+check_model <- function(model_name, model, tests) {
   cat(model_name, sep = "\n")
-  performance::check_normality(model)
-  performance::check_heteroscedasticity(model)
+  
+  if("normality" %in% tests)          { performance::check_normality(model) }
+  if("heteroscedasticity" %in% tests) { performance::check_heteroscedasticity(model) }
+  if("outliers" %in% tests)           { performance::check_outliers(model) }
+  
 }
