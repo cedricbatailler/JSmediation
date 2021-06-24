@@ -59,6 +59,7 @@ Suggests:
     performance,
     rmarkdown,
     roxygen2,
+    stringr,
     testthat (>= 3.0.2),
     withr
 VignetteBuilder: 
