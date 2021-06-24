@@ -1,3 +1,6 @@
+# Set global variables to avoid CHECK notes
+utils::globalVariables(".")
+
 # Checks if the input can be considered as a contrast-coded vector.
 # Args:
 #   x: a numeric vector
@@ -16,7 +19,6 @@ is_centered <- function(x) {
   # implementation to deal with floating number rounding error
   isTRUE(all.equal(mean(x), 0))
 }
-
 
 
 access_data <- function(mediation_model, variable) {
