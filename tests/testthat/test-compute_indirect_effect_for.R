@@ -10,7 +10,6 @@ test_that("M arg accepts single numeric value", {
                   sdo_c =
                     scale(sdo, scale = FALSE)) %>%
     mdt_moderated(
-      dataset,
       condition_c,
       hypodescent,
       linkedfate_c,
