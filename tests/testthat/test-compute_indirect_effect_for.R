@@ -16,15 +16,15 @@ test_that("M arg accepts single numeric value", {
       sdo_c
     )
 
-  expect_warning(
+  expect_error(
     moderated_mediation_model %>% compute_indirect_effect_for(Mod = "foo")
   )
 
-  expect_warning(
+  expect_error(
     moderated_mediation_model %>% compute_indirect_effect_for(Mod = c(1, 2))
   )
 
-  expect_warning(
+  expect_error(
     moderated_mediation_model %>% compute_indirect_effect_for(Mod = 0),
     NA
   )
