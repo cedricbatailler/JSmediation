@@ -55,12 +55,12 @@ check_assumptions.mediation_model <-
       rlang::warn(message = 
                     c("`tests` argument in `check_assumptions` contains unsupported checks.",
                       i  = "Supported checks are:",
-                      " " = "- normality",
-                      " " = "- heteroscedasticity",
-                      " " = "- outliers")
+                      "- normality",
+                      "- heteroscedasticity",
+                      "- outliers")
       )
-      }
-    
+    }
+
     purrr::pluck(mediation_model, "js_models") %>% 
       purrr::imap(~ check_model(.y, .x, tests))
     
