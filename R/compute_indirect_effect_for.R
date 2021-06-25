@@ -1,6 +1,7 @@
 #' Compute the indirect effect index for a specific value of the moderator
 #'
 #'  @param Mod The moderator value for which to compute the indirect effect. 
+#' `r lifecycle::badge("experimental")`
 #'
 #' Note that the function relies on a model specification as described in Muller
 #' et al. (2005).
