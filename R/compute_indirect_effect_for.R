@@ -37,7 +37,7 @@ compute_indirect_effect_for.moderated_mediation <-
     sea2 <- purrr::pluck(mediation_model, "paths", "a", "se")
     b2   <- purrr::pluck(mediation_model, "paths", "b * Mod", "point_estimate")
     seb2 <- purrr::pluck(mediation_model, "paths", "b * Mod", "se")
-    
+
     param_sampling <-
       MASS::mvrnorm(n  = times,
                     mu = c(a1, b1, a2, b2),
@@ -52,12 +52,12 @@ compute_indirect_effect_for.moderated_mediation <-
 
     indirect_sampling <- (param_sampling[ , 1] + param_sampling[ , 2] * Mod) * 
       (param_sampling[ , 3] + param_sampling[ , 4] * Mod)
-    
+
     indirect_effect(
       type          = glue::glue("Conditional simple mediation index (Mod = {Mod})"),
       estimate      = a1 * b1 + a2 * b2,
       level         = level,
       times         = times,
       sampling      = indirect_sampling)
-    
+
   }
