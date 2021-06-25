@@ -1,16 +1,20 @@
 #' @title Test assumptions for models underlying the mediation
 #'
 #' @description When conducting a joint-significant test, different models are
-#'   fitted to the data. This function tests the normality and
-#'   heteroscedasticity assumptions for these models using \code{performance}.
-#'   \code{check_assumptions} uses \code{\link[performance]{check_normality}}
-#'   and \code{\link[performance]{check_heteroscedasticity}} to test the
-#'   assumptions.
+#'   fitted to the data. This function tests assumptions regarding these models
+#'   using the \code{performance} package.
 #'
-#'   Note that \code{check_assumptions} returns a
-#'   \code{mediation_model} object.
+#'   The assumptions test are performed using
+#'   \code{\link[performance]{check_normality}},
+#'   \code{\link[performance]{check_heteroscedasticity}}, and
+#'   \code{\link[performance]{check_outliers}}.
+#'
+#'   Note that \code{check_assumptions} returns a \code{mediation_model} object.
 #'
 #' @param mediation_model An object of class \code{mediation_model}.
+#' @param tests A character vector indicating which test to run. Supported test
+#'   includes \code{"normality"}, \code{"heteroscedasticity"}, and
+#'   \code{"outliers"}
 #'
 #' @return Invisibly return an object of class \code{mediation_model}.
 #'
