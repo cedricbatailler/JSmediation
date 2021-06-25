@@ -1,13 +1,17 @@
 #' Compute the indirect effect index for a specific value of the moderator
 #'
-#'  @param Mod The moderator value for which to compute the indirect effect. 
 #' `r lifecycle::badge("experimental")`
+#'
+#'  @param Mod The moderator value for which to compute the indirect effect.
+#'  @param times Number of simulations to use to compute the Monte Carlo indirect
+#'   effect confidence interval.
+#' @param level Alpha threshold to use for the confidence interval.
 #'
 #' Note that the function relies on a model specification as described in Muller
 #' et al. (2005).
 #' 
 #' @export
-compute_indirect_effect_for <- function(mediation_model, 
+compute_indirect_effect_for <- function(mediation_model,
                                         Mod = 0, 
                                         times = 5000, 
                                         level = .05) {

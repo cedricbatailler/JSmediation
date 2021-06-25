@@ -11,10 +11,17 @@ compute_indirect_effect_for(
   level = 0.05
 )
 }
+\arguments{
+\item{level}{Alpha threshold to use for the confidence interval.
+
+Note that the function relies on a model specification as described in Muller
+et al. (2005).}
+}
 \description{
-@param Mod The moderator value for which to compute the indirect effect.
+\ifelse{html}{\href{https://lifecycle.r-lib.org/articles/stages.html#experimental}{\figure{lifecycle-experimental.svg}{options: alt='[Experimental]'}}}{\strong{[Experimental]}}
 }
 \details{
-Note that the function relies on a model specification as described in Muller
-et al. (2005).
+@param Mod The moderator value for which to compute the indirect effect.
+@param times Number of simulations to use to compute the Monte Carlo indirect
+effect confidence interval.
 }
