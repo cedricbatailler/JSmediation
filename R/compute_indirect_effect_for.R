@@ -1,4 +1,6 @@
-#' @export
+#' Compute the indirect effect index for a specific value of the moderator
+#' 
+#'#' @export
 compute_indirect_effect_for <- function() {
   UseMethod("compute_indirect_effect_for")
 }
