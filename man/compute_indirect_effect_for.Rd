@@ -4,8 +4,17 @@
 \alias{compute_indirect_effect_for}
 \title{Compute the indirect effect index for a specific value of the moderator}
 \usage{
-compute_indirect_effect_for()
+compute_indirect_effect_for(
+  mediation_model,
+  Mod = 0,
+  times = 5000,
+  level = 0.05
+)
 }
 \description{
-#' @export
+@param Mod The moderator value for which to compute the indirect effect.
+}
+\details{
+Note that the function relies on a model specification as described in Muller
+et al. (2005).
 }
