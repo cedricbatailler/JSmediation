@@ -20,11 +20,11 @@ compute_indirect_effect_for.moderated_mediation <-
            times = 5000, 
            level = .05) {
 
-  if (!is.numeric(M)) {
+  if (!is.numeric(Mod)) {
     rlang::abort("`Mod` argument must be numeric.")
   }
 
-    if (length(M) != 1) {
+    if (length(Mod) != 1) {
       rlang::abort("`Mod` argument must be a single numeric value.")
     }
 
@@ -50,11 +50,11 @@ compute_indirect_effect_for.moderated_mediation <-
                         nrow = 4
                       ))
 
-    indirect_sampling <- (ab_sampling[ , 1] + ab_sampling[ , 2] * Mod) * 
-      (ab_sampling[ , 3] + ab_sampling[ , 4] * Mod)
+    indirect_sampling <- (param_sampling[ , 1] + param_sampling[ , 2] * Mod) * 
+      (param_sampling[ , 3] + param_sampling[ , 4] * Mod)
     
     indirect_effect(
-      type          = glue::glue("Conditional simple mediation (Mod = {Mod})"),
+      type          = glue::glue("Conditional simple mediation index (Mod = {Mod})"),
       estimate      = a1 * b1 + a2 * b2,
       level         = level,
       times         = times,
