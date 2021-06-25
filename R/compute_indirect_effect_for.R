@@ -60,7 +60,7 @@ compute_indirect_effect_for.moderated_mediation <-
 
     indirect_effect(
       type          = glue::glue("Conditional simple mediation index (Mod = {Mod})"),
-      estimate      = a1 * b1 + a2 * b2,
+      estimate      = (a1 + b1 * Mod)  * (a2 + b2 * Mod),
       level         = level,
       times         = times,
       sampling      = indirect_sampling)
