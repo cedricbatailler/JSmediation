@@ -2,8 +2,8 @@
 #'
 #' `r lifecycle::badge("experimental")`
 #'
-#'  @param Mod The moderator value for which to compute the indirect effect.
-#'  @param times Number of simulations to use to compute the Monte Carlo indirect
+#' @param Mod The moderator value for which to compute the indirect effect.
+#' @param times Number of simulations to use to compute the Monte Carlo indirect
 #'   effect confidence interval.
 #' @param level Alpha threshold to use for the confidence interval.
 #'
