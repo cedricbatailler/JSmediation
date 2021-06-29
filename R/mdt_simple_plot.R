@@ -45,9 +45,9 @@ plot.simple_mediation <- function(mediation_model,
     mediation_figure <-
       mediation_figure %>% 
       dplyr::mutate(
-        path_a_sig      = mediation %>% get_APA_for("a")  %>% pvalue_from_APA(),  
-        path_b_sig      = mediation %>% get_APA_for("b")  %>% pvalue_from_APA(),
-        path_cprime_sig = mediation %>% get_APA_for("c'") %>% pvalue_from_APA()
+        path_a_sig      = mediation_model %>% get_APA_for("a")  %>% pvalue_from_APA(),  
+        path_b_sig      = mediation_model %>% get_APA_for("b")  %>% pvalue_from_APA(),
+        path_cprime_sig = mediation_model %>% get_APA_for("c'") %>% pvalue_from_APA()
       ) %>% 
       dplyr::mutate(across(ends_with("sig"), pvalue_to_stars)) %>% 
       dplyr::mutate(
