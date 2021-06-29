@@ -55,6 +55,7 @@ Imports:
     tibble
 Suggests: 
     covr,
+    DiagrammeR,
     markdown,
     rmarkdown,
     roxygen2,
