@@ -7,24 +7,24 @@
 #'  mediation analysis.
 #'
 #' @details The main functions of the \pkg{JSmediation} package follow an
-#'   \code{mdt_*} pattern. \code{mdt_*} family functions allow you to conduct
+#'   `mdt_*` pattern. `mdt_*` family functions allow you to conduct
 #'   joint-significance tests for various mediation models (see Judd, Yzerbyt, &
 #'   Muller, 2014; Muller, Judd, & Yzerbyt, 2005; Yzerbyt, Muller, Batailler, &
 #'   Judd, 2018).
 #'
-#'   The syntax for \code{mdt_*} family functions is usually the same. The first
-#'   argument is always a data frame (\code{data}) which is followed by the
-#'   variable names involved in the model (e.g., DV, IV). Because \code{mdt_*}
+#'   The syntax for `mdt_*` family functions is usually the same. The first
+#'   argument is always a data frame (`data`) which is followed by the
+#'   variable names involved in the model (e.g., DV, IV). Because `mdt_*`
 #'   family functions use non-standard evaluation, these variable names must
 #'   generally be specified unquoted.
 #'
-#'   \code{mdt_*} family functions allow you to create an object of class
-#'   \code{"mediation_model"} for which various methods are implemented. The
+#'   `mdt_*` family functions allow you to create an object of class
+#'   `"mediation_model"` for which various methods are implemented. The
 #'   \code{\link{add_index}} method computes the (moderated) indirect effect
 #'   index using Monte Carlo for the different mediation models
 #'   \pkg{JSmediation} offers.
 #'
-#'   See \code{vignette("jsmediation")} for a general introduction and overview
+#'   See `vignette("jsmediation")` for a general introduction and overview
 #'   of \pkg{JSmediation}.
 #'
 #' @references Muller, D., Judd, C. M., & Yzerbyt, V. Y. (2005). When moderation

@@ -2,11 +2,11 @@
 #'
 #' @description When conducting a joint-significance test, different models are
 #' fitted to the data. This function helps you see a summary of the models that
-#' have been used in an object of class \code{mediation_model}.
+#' have been used in an object of class `mediation_model`.
 #'
-#' @param mediation_model An object of class \code{mediation_model}.
+#' @param mediation_model An object of class `mediation_model`.
 #'
-#' @return A list of \code{summary.lm} objects.
+#' @return A list of `summary.lm` objects.
 #'
 #' @examples
 #' data(ho_et_al)

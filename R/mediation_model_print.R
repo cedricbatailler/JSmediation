@@ -1,9 +1,9 @@
-#' @title Print method for object of class \code{mediation_model}
+#' @title Print method for object of class `mediation_model`
 #'
 #' @description Print a summary for a mediation model represented by a
-#' \code{mediation_model} object.
+#'   `mediation_model` object.
 #'
-#' @param x      An object of class \code{mediation_model}.
+#' @param x      An object of class `mediation_model`.
 #' @param digits How many significant digits are to be used for numerics.
 #' @param ...    Further arguments.
 #'

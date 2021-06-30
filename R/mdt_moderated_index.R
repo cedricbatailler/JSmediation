@@ -4,14 +4,14 @@
 #'   mediation to a model fitted with \code{\link{mdt_moderated}}.
 #'
 #' @param mediation_model A mediation model of class
-#'   \code{"moderated_mediation"}.
+#'   `"moderated_mediation"`.
 #' @param times Number of simulations to use to compute the Monte Carlo indirect
 #'   effect confidence interval.
 #' @param level Alpha threshold to use for the confidence interval.
 #' @param stage Moderated indirect effect's stage for which to compute the
-#'   confidence interval. Can be either \code{1} (or \code{"first"}) or \code{2}
-#'   (or \code{"second"}). To compute total indirect effect moderation index,
-#'   use \code{"total"}.
+#'   confidence interval. Can be either `1` (or `"first"`) or `2`
+#'   (or `"second"`). To compute total indirect effect moderation index,
+#'   use `"total"`.
 #' @param ... Further arguments passed to or from other methods.
 #'
 #' @details Indirect effect moderation index for moderated mediation uses

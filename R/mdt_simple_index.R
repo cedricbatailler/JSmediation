@@ -3,7 +3,7 @@
 #' @description Adds confidence interval for the index of  mediation to a model
 #'   fitted with \code{\link{mdt_simple}}.
 #'
-#' @param mediation_model A mediation model of class \code{"simple_mediation"}.
+#' @param mediation_model A mediation model of class `"simple_mediation"`.
 #' @param times Number of simulations to use to compute the Monte Carlo indirect
 #'   effect confidence interval.
 #' @param level Alpha threshold to use for the confidence interval.

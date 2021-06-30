@@ -1,7 +1,7 @@
 #' @title Joint-significance test for simple mediation
 #'
-#' @description Given a data frame, a predictor (\code{IV}), an outcome
-#'   (\code{DV}), and a mediator (\code{M}), conducts a joint-significant test 
+#' @description Given a data frame, a predictor (`IV`), an outcome
+#'   (`DV`), and a mediator (`M`), conducts a joint-significant test 
 #'   for simple mediation (see Yzerbyt, Muller, Batailler, & Judd, 2018).
 #'
 #' @param data A data frame containing the variables to be used in the model.
@@ -55,7 +55,7 @@
 #'   
 #' @section Variable coding: Because joint-significance tests uses linear models
 #'   behind the scenes, variables involved in the model have to be numeric.
-#'   \code{mdt_simple} will give an error if non-numeric variables are
+#'   `mdt_simple` will give an error if non-numeric variables are
 #'   specified in the model.
 #'
 #'   To convert a dichotomous categorical variable to a numeric one, please

@@ -3,7 +3,7 @@
 #' @description Create an APA formatted report from the test of a specific term
 #'   in a linear model.
 #'
-#' @param model A linear model created using \code{lm()}.
+#' @param model A linear model created using `lm()`.
 #' @param term A character string representing a term in the linear model.
 #'
 #' @return An APA formatted character string.

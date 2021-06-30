@@ -1,7 +1,7 @@
 #' @title Fits a moderated mediation model
 #'
-#' @description Given a data frame, a predictor (\code{IV}), an outcome
-#'   (\code{DV}), a mediator (\code{M}), and a moderator (\code{Mod}) conducts a
+#' @description Given a data frame, a predictor (`IV`), an outcome
+#'   (`DV`), a mediator (`M`), and a moderator (`Mod`) conducts a
 #'   joint-significant test for moderated mediation (see Yzerbyt, Muller,
 #'   Batailler, & Judd, 2018).
 #'
@@ -66,7 +66,7 @@
 #'   
 #' @section Variable coding: Because joint-significance tests use linear models
 #'   behind the scenes, variables involved in the model have to be numeric.
-#'   \code{mdt_simple} will give an error if non-numeric variables are
+#'   `mdt_simple` will give an error if non-numeric variables are
 #'   specified in the model.
 #'
 #'   If you need to convert a dichotomous categorical variable to a numeric one,
@@ -75,7 +75,7 @@
 #'   Note that variable coding is especially important in models with multiple
 #'   predictors as is the case in the model used to conduct a joint-significance
 #'   test of moderated mediation. Muller et al. (2005) recommend using variables
-#'   that are either contrast-coded or centered. Using \code{mdt_moderated} with
+#'   that are either contrast-coded or centered. Using `mdt_moderated` with
 #'   a DV, a mediator, or a moderator that is neither contrast-coded nor
 #'   centered will give a warning message.
 #'
