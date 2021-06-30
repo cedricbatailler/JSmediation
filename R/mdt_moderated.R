@@ -70,7 +70,7 @@
 #'   specified in the model.
 #'
 #'   If you need to convert a dichotomous categorical variable to a numeric one,
-#'   please refer to the \code{\link{build_contrast}} function.
+#'   please refer to the [`build_contrast`] function.
 #'
 #'   Note that variable coding is especially important in models with multiple
 #'   predictors as is the case in the model used to conduct a joint-significance

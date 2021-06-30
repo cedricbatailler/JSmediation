@@ -1,7 +1,7 @@
 #' @title add_index method for moderated mediation
 #'
 #' @description Adds the confidence interval for the index of moderated
-#'   mediation to a model fitted with \code{\link{mdt_moderated}}.
+#'   mediation to a model fitted with [`mdt_moderated`].
 #'
 #' @param mediation_model A mediation model of class
 #'   `"moderated_mediation"`.

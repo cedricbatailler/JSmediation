@@ -59,7 +59,7 @@
 #'   specified in the model.
 #'
 #'   To convert a dichotomous categorical variable to a numeric one, please
-#'   refer to the \code{\link{build_contrast}} function.
+#'   refer to the [`build_contrast`] function.
 #'
 #' @references Cohen, J., & Cohen, P. (1983). \emph{Applied multiple
 #'   regression/correlation analysis for the behavioral sciences} (2nd ed).

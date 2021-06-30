@@ -127,7 +127,7 @@ functions).
  Models underlying within-participant mediation use
 difference scores as DV (see Models section). Because the function input
 does not allow the user to specify how the difference scores should be
-computed, \code{mdt_within} has a default coding.
+computed, \code{\link{mdt_within}} has a default coding.
 
 \code{mdt_within}'s default behavior is to compute the difference score so
 the total effect (the effect of \eqn{X} on \eqn{Y}) will be positive and

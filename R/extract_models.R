@@ -41,7 +41,7 @@ extract_models.mediation_model <- function(mediation_model) {
 #'   fitted to the data. This function helps you access the models used in an
 #'   object of class `mediation_model`.
 #'
-#' @seealso \code{\link{extract_models}} to access a list of every model
+#' @seealso [`extract_models`] to access a list of every model
 #'   relevant to joint-significance testing.
 #'
 #' @param mediation_model An object of class `mediation_model`.

@@ -81,7 +81,7 @@ Kenny, & McClelland, 2001; Montoya & Hayes, 2011).
 }
 \section{Data formatting}{
  To be consistent with other \verb{mdt_*} family
-functions, \code{mdt_within} takes a long-format data frame as \code{data}
+functions, \code{\link{mdt_within}} takes a long-format data frame as \code{data}
 argument. With this kind of format, each sampled unit has two rows, one for
 the first within-participant condition and one for the second
 within-participant condition. In addition, each row has one observation for

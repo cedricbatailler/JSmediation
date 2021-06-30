@@ -16,16 +16,16 @@
 #'   as the mediatior variable value for the "b" independent variable condition.
 #'   
 #' @section Data formatting: To be consistent with other `mdt_*` family
-#'   functions, `mdt_within` takes a long-format data frame as `data`
+#'   functions, [`mdt_within`] takes a long-format data frame as `data`
 #'   argument. With this kind of format, each sampled unit has two rows, one for
 #'   the first within-participant condition and one for the second
 #'   within-participant condition. In addition, each row has one observation for
 #'   the outcome and one observation for the mediator (see
-#'   \code{\link{dohle_siegrist}} for an example.
+#'   [`dohle_siegrist`] for an example.
 #'
 #'   Because such formatting is not the most common among social scientists
 #'   interested in within-participant mediation, \pkg{JSmediation} contains the
-#'   \code{\link{mdt_within_wide}} function which handles wide-formatted data
+#'   [`mdt_within_wide`] function which handles wide-formatted data
 #'   input (but is syntax-inconsistent with other `mdt_*` family
 #'   functions).
 #'

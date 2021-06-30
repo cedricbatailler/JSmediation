@@ -1,7 +1,7 @@
 #' @title add_index method for simple mediation
 #'
 #' @description Adds confidence interval for the index of  mediation to a model
-#'   fitted with \code{\link{mdt_simple}}.
+#'   fitted with [`mdt_simple`].
 #'
 #' @param mediation_model A mediation model of class `"simple_mediation"`.
 #' @param times Number of simulations to use to compute the Monte Carlo indirect

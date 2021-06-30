@@ -27,18 +27,18 @@
 #'   the first within-participant condition and one for the second
 #'   within-participant condition. In addition, each row has one observation for
 #'   the outcome and one observation for the mediator (see
-#'   \code{\link{dohle_siegrist}} for an example.
+#'   [`dohle_siegrist`] for an example.
 #'
 #'   Because such formatting is not the most common among social scientists
 #'   interested in within-participant mediation, \pkg{JSmediation} contains the
-#'   \code{\link{mdt_within_wide}} function which handles wide-formatted data
+#'   [`mdt_within_wide`] function which handles wide-formatted data
 #'   input (but is syntax-inconsistent with other `mdt_*` family
 #'   functions).
 #'
 #' @section Variable coding: Models underlying within-participant mediation use
 #'   difference scores as DV (see Models section). Because the function input
 #'   does not allow the user to specify how the difference scores should be
-#'   computed, `mdt_within` has a default coding.
+#'   computed, [`mdt_within`] has a default coding.
 #'
 #'   `mdt_within`'s default behavior is to compute the difference score so
 #'   the total effect (the effect of \eqn{X} on \eqn{Y}) will be positive and
