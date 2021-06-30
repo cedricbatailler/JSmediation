@@ -1,55 +1,45 @@
 #' Plot method for simple_mediation object
 #'
-#' @param mediation_model 
+#' @param x A mediation model created with \code{mdt_simple}. 
 #' @param coef_rounding 
 #' @param coef_show_stars 
-#' @param height 
-#' @param width 
-#' @param graph_label 
-#' @param node_text_size 
-#' @param edge_text_size 
-#' @param color 
-#' @param ranksep 
-#' @param minlen 
+#' @param figure_options
+#' @param ...
 #'
 #' @return
 #' @export
 
-plot.simple_mediation <- function(mediation_model,
-                                  coef_rounding = 2,
-                                  coef_show_stars = TRUE,
-                                  height = .75, 
-                                  width = 2, 
-                                  graph_label = NA, 
-                                  node_text_size = 12, 
-                                  edge_text_size = 12, 
-                                  color = "black",
-                                  ranksep = .2, 
-                                  minlen = 3){
-  
+plot.simple_mediation <- function(
+  x,
+  coef_rounding = 2,
+  coef_show_stars = TRUE,
+  figure_options = mediaiton_figure_options(),
+  ...
+){
+
   rlang::check_installed("DiagrammeR")
 
-  mediation_figure <-   
+  mediation_figure <-
     tibble::tibble(
-      lab_x   = purrr::chuck(mediation_model, "params", "IV"),
-      lab_m   = purrr::chuck(mediation_model, "params", "M"),
-      lab_y   = purrr::chuck(mediation_model, "params", "DV"),
-      path_a_coef      = purrr::chuck(mediation_model, "paths", "a", "point_estimate"),
-      path_b_coef      = purrr::chuck(mediation_model, "paths", "b", "point_estimate"),
-      path_cprime_coef = purrr::chuck(mediation_model, "paths", "c'", "point_estimate")
+      lab_x   = purrr::chuck(x, "params", "IV"),
+      lab_m   = purrr::chuck(x, "params", "M"),
+      lab_y   = purrr::chuck(x, "params", "DV"),
+      path_a_coef      = purrr::chuck(x, "paths", "a", "point_estimate"),
+      path_b_coef      = purrr::chuck(x, "paths", "b", "point_estimate"),
+      path_cprime_coef = purrr::chuck(x, "paths", "c'", "point_estimate")
     ) %>% 
-    dplyr::mutate(dplyr::across(ends_with("coef"),
+    dplyr::mutate(dplyr::across(dplyr::ends_with("coef"),
                                 ~round(., coef_rounding))) 
   
   if (coef_show_stars) {
     mediation_figure <-
       mediation_figure %>% 
       dplyr::mutate(
-        path_a_sig      = mediation_model %>% get_APA_for("a")  %>% pvalue_from_APA(),  
-        path_b_sig      = mediation_model %>% get_APA_for("b")  %>% pvalue_from_APA(),
-        path_cprime_sig = mediation_model %>% get_APA_for("c'") %>% pvalue_from_APA()
+        path_a_sig      = x %>% get_APA_for("a")  %>% pvalue_from_APA(),  
+        path_b_sig      = x %>% get_APA_for("b")  %>% pvalue_from_APA(),
+        path_cprime_sig = x %>% get_APA_for("c'") %>% pvalue_from_APA()
       ) %>% 
-      dplyr::mutate(across(ends_with("sig"), pvalue_to_stars)) %>% 
+      dplyr::mutate(dplyr::across(dplyr::ends_with("sig"), pvalue_to_stars)) %>% 
       dplyr::mutate(
         path_a_coef      = glue::glue("{path_a_coef}{path_a_sig}"),
         path_b_coef      = glue::glue("{path_b_coef}{path_b_sig}"),
@@ -57,16 +47,16 @@ plot.simple_mediation <- function(mediation_model,
       )
   }
   
-  mediation_figure$height  <- height   # node height
-  mediation_figure$width   <- width    # node width
-  mediation_figure$color   <- color    # node + edge border color
-  mediation_figure$ranksep <- ranksep  # separation btwn mediator row and x->y row
-  mediation_figure$minlen  <- minlen   # minimum edge length
+  mediation_figure$height  <- purrr::chuck(figure_options, "height")
+  mediation_figure$width   <- purrr::chuck(figure_options, "width")
+  mediation_figure$color   <- purrr::chuck(figure_options, "color")
+  mediation_figure$ranksep <- purrr::chuck(figure_options, "ranksep")
+  mediation_figure$minlen  <- purrr::chuck(figure_options, "minlen")
   
-  mediation_figure$node_text_size  <- node_text_size
-  mediation_figure$edge_text_size  <- edge_text_size
+  mediation_figure$node_text_size  <- purrr::chuck(figure_options, "node_text_size")
+  mediation_figure$edge_text_size  <- purrr::chuck(figure_options, "edge_text_size")
   
-  mediation_figure$graph_label <- ifelse(is.na(graph_label), "", paste0("label = '", graph_label, "'"))
+  mediation_figure$graph_label <- ifelse(is.na(purrr::chuck(figure_options, "graph_label")), "", paste0("label = '", purrr::chuck(figure_options, "graph_label"), "'"))
   
   
   diagram_out <- glue::glue_data(mediation_figure,

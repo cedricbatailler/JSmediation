@@ -5,41 +5,21 @@
 \title{Plot method for simple_mediation object}
 \usage{
 \method{plot}{simple_mediation}(
-  mediation_model,
+  x,
   coef_rounding = 2,
   coef_show_stars = TRUE,
-  height = 0.75,
-  width = 2,
-  graph_label = NA,
-  node_text_size = 12,
-  edge_text_size = 12,
-  color = "black",
-  ranksep = 0.2,
-  minlen = 3
+  figure_options = mediaiton_figure_options(),
+  ...
 )
 }
 \arguments{
-\item{mediation_model}{}
+\item{x}{A mediation model created with \code{mdt_simple}.}
 
 \item{coef_rounding}{}
 
 \item{coef_show_stars}{}
 
-\item{height}{}
-
-\item{width}{}
-
-\item{graph_label}{}
-
-\item{node_text_size}{}
-
-\item{edge_text_size}{}
-
-\item{color}{}
-
-\item{ranksep}{}
-
-\item{minlen}{}
+\item{...}{}
 }
 \value{
 
