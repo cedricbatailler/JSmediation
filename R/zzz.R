@@ -17,11 +17,14 @@ is_centered <- function(x) {
   isTRUE(all.equal(mean(x), 0))
 }
 
-
-
 access_data <- function(mediation_model, variable) {
   variable_q <- enquo(variable)
 
   purrr::pluck(mediation_model, "data") %>%
     dplyr::pull( !! variable_q )
+}
+
+pvalue_from_APA <- function(APA) {
+  stringr::str_extract(APA, "\\.\\d{3}$") %>% 
+    as.numeric()
 }

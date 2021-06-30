@@ -51,10 +51,12 @@ Imports:
     MASS,
     purrr,
     rlang (>= 0.1.2),
+    stringr,
     stats,
     tibble
 Suggests: 
     covr,
+    DiagrammeR,
     markdown,
     rmarkdown,
     roxygen2,
