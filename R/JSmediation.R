@@ -20,7 +20,7 @@
 #'
 #'   `mdt_*` family functions allow you to create an object of class
 #'   `"mediation_model"` for which various methods are implemented. The
-#'   \code{\link{add_index}} method computes the (moderated) indirect effect
+#'   [`add_index`] method computes the (moderated) indirect effect
 #'   index using Monte Carlo for the different mediation models
 #'   \pkg{JSmediation} offers.
 #'
