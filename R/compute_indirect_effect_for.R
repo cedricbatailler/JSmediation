@@ -12,9 +12,9 @@
 #' 
 #' @export
 compute_indirect_effect_for <- function(mediation_model,
-                                        Mod = 0, 
-                                        times = 5000, 
-                                        level = .05) {
+                                         Mod = 0, 
+                                         times = 5000, 
+                                         level = .05) {
   UseMethod("compute_indirect_effect_for")
 }
 
@@ -25,42 +25,56 @@ compute_indirect_effect_for.moderated_mediation <-
            times = 5000, 
            level = .05) {
 
-  if (!is.numeric(Mod)) {
-    rlang::abort("`Mod` argument must be numeric.")
-  }
+    # checks
+    if (!is.numeric(Mod)) {
+      rlang::abort("`Mod` argument must be numeric.")
+    }
 
     if (length(Mod) != 1) {
       rlang::abort("`Mod` argument must be a single numeric value.")
     }
 
-    a1   <- purrr::pluck(mediation_model, "paths", "a * Mod", "point_estimate")
-    sea1 <- purrr::pluck(mediation_model, "paths", "a * Mod", "se")
-    b1   <- purrr::pluck(mediation_model, "paths", "b", "point_estimate")
-    seb1 <- purrr::pluck(mediation_model, "paths", "b", "se")
-    
-    a2   <- purrr::pluck(mediation_model, "paths", "a", "point_estimate")
-    sea2 <- purrr::pluck(mediation_model, "paths", "a", "se")
-    b2   <- purrr::pluck(mediation_model, "paths", "b * Mod", "point_estimate")
-    seb2 <- purrr::pluck(mediation_model, "paths", "b * Mod", "se")
+    mediation_dataset <- purrr::chuck(mediation_model, "data")
+    moderator         <- purrr::chuck(mediation_model, "params", "Mod")
 
+    # adjust the moderator coding so that 0 is the value we want to look at
+    mediation_dataset <- 
+      mediation_dataset %>% 
+      mutate(across(.data[[moderator]], ~ .x - Mod))
+
+    # run a new moderated mediation model
+    mediation_model_at_Mod <-
+      mdt_moderated(data = mediation_dataset,
+                    IV  = !! sym(purrr::chuck(mediation_model, "params", "IV")),
+                    M   = !! sym(purrr::chuck(mediation_model, "params", "M")),
+                    DV  = !! sym(purrr::chuck(mediation_model, "params", "DV")),
+                    Mod = !! sym(purrr::chuck(mediation_model, "params", "Mod")))
+
+    # extract effects of IV, which now reads as the effects of IV when Mod = Mod
+
+    a_estimate   <- purrr::pluck(mediation_model_at_Mod, "paths", "a", "point_estimate")
+    a_se         <- purrr::pluck(mediation_model_at_Mod, "paths", "a", "se")
+
+    b_estimate   <- purrr::pluck(mediation_model_at_Mod, "paths", "b", "point_estimate")
+    b_se         <- purrr::pluck(mediation_model_at_Mod, "paths", "b", "se")
+
+    # sample the params
     param_sampling <-
       MASS::mvrnorm(n  = times,
-                    mu = c(a1, b1, a2, b2),
+                    mu = c(a_estimate, b_estimate),
                     Sigma =
                       matrix(
-                        c(sea1^2,      0,      0,      0,
-                          0,      seb1^2,      0,      0,
-                          0,           0, sea2^2,      0,
-                          0,           0,      0, seb2^2),
-                        nrow = 4
-                      ))
+                        c(a_se^2,      0,
+                          0, b_se^2),
+                        nrow = 2
+                      )
+      )
 
-    indirect_sampling <- (param_sampling[ , 1] + param_sampling[ , 2] * Mod) * 
-      (param_sampling[ , 3] + param_sampling[ , 4] * Mod)
+    indirect_sampling <- param_sampling[ , 1] * param_sampling[ , 2] 
 
     indirect_effect(
       type          = glue::glue("Conditional simple mediation index (Mod = {Mod})"),
-      estimate      = (a1 + b1 * Mod)  * (a2 + b2 * Mod),
+      estimate      = a_estimate  * b_estimate,
       level         = level,
       times         = times,
       sampling      = indirect_sampling)
