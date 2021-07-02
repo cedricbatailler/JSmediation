@@ -44,8 +44,7 @@ test_that("JSmediation approach is consistent with the {mediation} approach (Mod
                                                "Low discrimination",
                                                "High discrimination")) %>%
     dplyr::mutate(dplyr::across(c(linkedfate, sdo),
-                                ~ as.numeric(scale(.)))) %>%
-    readr::write_csv("data.csv")
+                                ~ as.numeric(scale(.))))
 
   # mediation approach
   model_1 <- lm(linkedfate ~ condition_c * sdo, dataset)
