@@ -8,11 +8,11 @@
 #'   not make accessong the actual indirect effect for a specific moderator
 #'   values easy. `compute_indirect_effect_for` fills this gap.
 #'
-#' @param mediation_model A mediation 
+#' @param mediation_model A moderated mediation model fitted with `mdt_moderated``. 
 #' @param Mod The moderator value for which to compute the indirect effect. Must
 #'   be a numeric value, defaults to `0`.
-#' @param times Number of simulations to use to compute the Monte `Carlo` indirect
-#'   effect confidence interval. Must be numeric, defaults to 5000.
+#' @param times Number of simulations to use to compute the Monte Carlo indirect
+#'   effect confidence interval. Must be numeric, defaults to `5000`.
 #' @param level Alpha threshold to use for the indirect effect's confidence
 #'   interval.
 
