@@ -12,16 +12,46 @@ compute_indirect_effect_for(
 )
 }
 \arguments{
-\item{Mod}{The moderator value for which to compute the indirect effect.}
+\item{mediation_model}{A mediation}
 
-\item{times}{Number of simulations to use to compute the Monte Carlo indirect
-effect confidence interval.}
+\item{Mod}{The moderator value for which to compute the indirect effect. Must
+be a numeric value, defaults to \code{0}.}
 
-\item{level}{Alpha threshold to use for the confidence interval.
+\item{times}{Number of simulations to use to compute the Monte \code{Carlo} indirect
+effect confidence interval. Must be numeric, defaults to 5000.}
 
-Note that the function relies on a model specification as described in Muller
-et al. (2005).}
+\item{level}{Alpha threshold to use for the indirect effect's confidence
+interval.}
 }
 \description{
+When computing a moderated mediation, one is assessing whether
+an indirect effect depends on a moderator value (Muller et al., 2005).
+\code{\link{mdt_moderated}} make it easy to assess moderated mediation, but it does
+not make accessong the actual indirect effect for a specific moderator
+values easy. \code{compute_indirect_effect_for} fills this gap.
+}
+\details{
 \ifelse{html}{\href{https://lifecycle.r-lib.org/articles/stages.html#experimental}{\figure{lifecycle-experimental.svg}{options: alt='[Experimental]'}}}{\strong{[Experimental]}}
+}
+\examples{
+# compute an indirect effect index for a specific value in a moderated 
+# mediation.
+data(ho_et_al)
+ho_et_al$condition_c <- build_contrast(ho_et_al$condition,
+                                       "Low discrimination",
+                                       "High discrimination")
+ho_et_al$linkedfate <- as.numeric(scale(ho_et_al$linkedfate))
+ho_et_al$sdo        <- as.numeric(scale(ho_et_al$sdo))
+moderated_mediation_model <- mdt_moderated(data = ho_et_al,
+                                           DV = hypodescent,
+                                           IV = condition_c,
+                                           M = linkedfate,
+                                           Mod = sdo) 
+compute_indirect_effect_for(moderated_mediation_model, Mod = 0)
+
+}
+\references{
+Muller, D., Judd, C. M., & Yzerbyt, V. Y. (2005). When moderation
+is mediated and mediation is moderated. \emph{Journal of Personality and
+Social Psychology}, 89(6), 852-863. doi: 10.1037/0022-3514.89.6.852
 }

@@ -2,14 +2,40 @@
 #'
 #' `r lifecycle::badge("experimental")`
 #'
-#' @param Mod The moderator value for which to compute the indirect effect.
-#' @param times Number of simulations to use to compute the Monte Carlo indirect
-#'   effect confidence interval.
-#' @param level Alpha threshold to use for the confidence interval.
+#' @description When computing a moderated mediation, one is assessing whether
+#'   an indirect effect depends on a moderator value (Muller et al., 2005).
+#'   [`mdt_moderated`] make it easy to assess moderated mediation, but it does
+#'   not make accessong the actual indirect effect for a specific moderator
+#'   values easy. `compute_indirect_effect_for` fills this gap.
 #'
-#' Note that the function relies on a model specification as described in Muller
-#' et al. (2005).
-#' 
+#' @param mediation_model A mediation 
+#' @param Mod The moderator value for which to compute the indirect effect. Must
+#'   be a numeric value, defaults to `0`.
+#' @param times Number of simulations to use to compute the Monte `Carlo` indirect
+#'   effect confidence interval. Must be numeric, defaults to 5000.
+#' @param level Alpha threshold to use for the indirect effect's confidence
+#'   interval.
+
+#' @examples
+#' # compute an indirect effect index for a specific value in a moderated 
+#' # mediation.
+#' data(ho_et_al)
+#' ho_et_al$condition_c <- build_contrast(ho_et_al$condition,
+#'                                        "Low discrimination",
+#'                                        "High discrimination")
+#' ho_et_al$linkedfate <- as.numeric(scale(ho_et_al$linkedfate))
+#' ho_et_al$sdo        <- as.numeric(scale(ho_et_al$sdo))
+#' moderated_mediation_model <- mdt_moderated(data = ho_et_al,
+#'                                            DV = hypodescent,
+#'                                            IV = condition_c,
+#'                                            M = linkedfate,
+#'                                            Mod = sdo) 
+#' compute_indirect_effect_for(moderated_mediation_model, Mod = 0)
+#'
+#' @references Muller, D., Judd, C. M., & Yzerbyt, V. Y. (2005). When moderation
+#'   is mediated and mediation is moderated. *Journal of Personality and
+#'   Social Psychology*, 89(6), 852-863. doi: 10.1037/0022-3514.89.6.852
+#'
 #' @export
 compute_indirect_effect_for <- function(mediation_model,
                                          Mod = 0, 
@@ -65,7 +91,7 @@ compute_indirect_effect_for.moderated_mediation <-
                     Sigma =
                       matrix(
                         c(a_se^2,      0,
-                          0, b_se^2),
+                               0, b_se^2),
                         nrow = 2
                       )
       )
