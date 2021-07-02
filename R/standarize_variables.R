@@ -8,7 +8,10 @@
 #'
 #' @param data A data frame containing the variables to standardize.
 #' @param cols <[`tidy-select`][dplyr_tidy_select]> Columns to standardize.
-#'   Defaults to [`dpyr::everything()`].
+#'   Defaults to [`dplyr::everything()`].
+#' @param suffix A character suffix to be added to the scaled variables names.
+#'   When suffix is set to`NULL`, the  `standardize_variables()` function will
+#'   overwrite the scaled variables. Defaults to `NULL`.
 #'
 #' @return A data frame with the standardized columns.
 #' @export
@@ -18,9 +21,11 @@
 #'   standardize_variables(sdo)
 #'
 #' ho_et_al %>%
-#'   standardize_variables(c(sdo, linkedfate))
+#'   standardize_variables(c(sdo, linkedfate), suffix = "scaled")
 #'
-standardize_variables <- function(.data, .cols = dplyr::everything()) {
+standardize_variables <- function(data, 
+                                  cols = dplyr::everything(), 
+                                  suffix = NULL) {
   UseMethod("standardize_variables")
 }
 
@@ -29,10 +34,18 @@ standardize_variables <- function(.data, .cols = dplyr::everything()) {
 standardise_variables <- standardize_variables
 
 #' @export
-standardize_variables.data.frame <- function(.data, .cols = dplyr::everything()) {
-
-  .data %>%
-    dplyr::mutate(dplyr::across({{ .cols }},
-                                scale))
-
+standardize_variables.data.frame <- function(data,
+                                             cols = dplyr::everything(),
+                                             suffix = NULL) {
+  # defines suffix
+  if( ! is.null(suffix)) {
+    suffix <- glue::glue("_{suffix}")
+  } else {
+    suffix <- ""
+  }
+  # scales variables
+  data %>%
+    dplyr::mutate(dplyr::across(.cols = {{ cols }},
+                                .fns = scale, 
+                                .names = "{.col}{suffix}"))
 }

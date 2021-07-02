@@ -5,15 +5,19 @@
 \alias{standardise_variables}
 \title{Standardize variables in a data set.}
 \usage{
-standardize_variables(.data, .cols = dplyr::everything())
+standardize_variables(data, cols = dplyr::everything(), suffix = NULL)
 
-standardise_variables(.data, .cols = dplyr::everything())
+standardise_variables(data, cols = dplyr::everything(), suffix = NULL)
 }
 \arguments{
 \item{data}{A data frame containing the variables to standardize.}
 
 \item{cols}{<\code{\link[=dplyr_tidy_select]{tidy-select}}> Columns to standardize.
-Defaults to \code{\link[dpyr:everything]{dpyr::everything()}}.}
+Defaults to \code{\link[dplyr:reexports]{dplyr::everything()}}.}
+
+\item{suffix}{A character suffix to be added to the scaled variables names.
+When suffix is set to\code{NULL}, the  \code{standardize_variables()} function will
+overwrite the scaled variables. Defaults to \code{NULL}.}
 }
 \value{
 A data frame with the standardized columns.
@@ -30,6 +34,6 @@ ho_et_al \%>\%
   standardize_variables(sdo)
 
 ho_et_al \%>\%
-  standardize_variables(c(sdo, linkedfate))
+  standardize_variables(c(sdo, linkedfate), suffix = "scaled")
 
 }
