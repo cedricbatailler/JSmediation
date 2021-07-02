@@ -26,3 +26,21 @@ test_that("standardize_variables throws error for non-numeric variables", {
   expect_error(standardize_variables(ho_et_al, condition))
 
 })
+
+test_that("suffix argument work as intended", {
+
+  scaled_dataset <- 
+    mtcars %>% 
+    standardize_variables(cyl, suffix = "foo")
+
+  expect_true("cyl_foo" %in% names(scaled_dataset))
+
+  scaled_dataset <- 
+    mtcars %>% 
+    standardize_variables(c(cyl, disp),
+                          suffix = "foo")
+  
+  expect_true("cyl_foo" %in% names(scaled_dataset))
+  expect_true("disp_foo" %in% names(scaled_dataset))
+
+})
