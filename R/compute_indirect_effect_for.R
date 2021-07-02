@@ -40,7 +40,7 @@ compute_indirect_effect_for.moderated_mediation <-
     # adjust the moderator coding so that 0 is the value we want to look at
     mediation_dataset <- 
       mediation_dataset %>% 
-      mutate(across(.data[[moderator]], ~ .x - Mod))
+      dplyr::mutate(across(.data[[moderator]], ~ .x - Mod))
 
     # run a new moderated mediation model
     mediation_model_at_Mod <-
