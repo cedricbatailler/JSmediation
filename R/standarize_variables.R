@@ -1,11 +1,10 @@
 #' Standardize variables in a data set.
 #'
-#' @description
-#' `standardize_variables()` standardizes the selected columns in a data.frame
-#' using \code{\link[base:scale]{scale}}. This function overwrites
-#' the column to be scaled.
+#' @description `standardize_variables()` standardizes the selected columns in a
+#'   data.frame using \code{\link[base:scale]{scale}}. By default, this function
+#'   overwrites the column to be scaled.
 #'
-#' `standardize_variables()` and `standardise_variables()` are synonyms.
+#'   `standardize_variables()` and `standardise_variables()` are synonyms.
 #'
 #' @param data A data frame containing the variables to standardize.
 #' @param cols <[`tidy-select`][dplyr_tidy_select]> Columns to standardize.
