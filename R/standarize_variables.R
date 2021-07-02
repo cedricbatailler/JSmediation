@@ -7,8 +7,9 @@
 #'
 #' `standardize_variables()` and `standardise_variables()` are synonyms.
 #'
-#' @param .data A data frame containing the variables to standardize.
-#' @param .cols <[`tidy-select`][dplyr_tidy_select]> Columns to standardize.
+#' @param data A data frame containing the variables to standardize.
+#' @param cols <[`tidy-select`][dplyr_tidy_select]> Columns to standardize.
+#'   Defaults to [`dpyr::everything()`].
 #'
 #' @return A data frame with the standardized columns.
 #' @export

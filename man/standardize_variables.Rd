@@ -10,17 +10,18 @@ standardize_variables(.data, .cols = dplyr::everything())
 standardise_variables(.data, .cols = dplyr::everything())
 }
 \arguments{
-\item{.data}{A data frame containing the variables to standardize.}
+\item{data}{A data frame containing the variables to standardize.}
 
-\item{.cols}{<\code{\link[=dplyr_tidy_select]{tidy-select}}> Columns to standardize.}
+\item{cols}{<\code{\link[=dplyr_tidy_select]{tidy-select}}> Columns to standardize.
+Defaults to \code{\link[dpyr:everything]{dpyr::everything()}}.}
 }
 \value{
 A data frame with the standardized columns.
 }
 \description{
-\code{standardize_variables()} standardizes the selected columns in a data.frame
-using \code{\link[base:scale]{scale}}. This function overwrites
-the column to be scaled.
+\code{standardize_variables()} standardizes the selected columns in a
+data.frame using \code{\link[base:scale]{scale}}. By default, this function
+overwrites the column to be scaled.
 
 \code{standardize_variables()} and \code{standardise_variables()} are synonyms.
 }
