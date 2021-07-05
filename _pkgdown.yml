@@ -33,6 +33,7 @@ reference:
     A collection of function to help people manipulate `mediation_model`.
 - contents:
   - add_index
+  - compute_indirect_effect_for
   - extract_model
   - extract_models
   - extract_tidy_models
