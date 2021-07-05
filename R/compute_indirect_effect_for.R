@@ -15,7 +15,7 @@
 #' @param times Number of simulations to use to compute the Monte Carlo indirect
 #'   effect confidence interval. Must be numeric, defaults to `5000`.
 #' @param level Alpha threshold to use for the indirect effect's confidence
-#'   interval.
+#'   interval. Defaults to `.05`.
 #'   
 #' @details 
 #'   The approach used by `compute_indirect_effect_for` is similar to the

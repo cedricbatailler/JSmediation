@@ -21,7 +21,7 @@ be a numeric value, defaults to \code{0}.}
 effect confidence interval. Must be numeric, defaults to \code{5000}.}
 
 \item{level}{Alpha threshold to use for the indirect effect's confidence
-interval.}
+interval. Defaults to \code{.05}.}
 }
 \description{
 \ifelse{html}{\href{https://lifecycle.r-lib.org/articles/stages.html#experimental}{\figure{lifecycle-experimental.svg}{options: alt='[Experimental]'}}}{\strong{[Experimental]}}
@@ -33,7 +33,7 @@ not allow accessing the indirect effect for a specific moderator values.
 \code{compute_indirect_effect_for} fills this gap.
 }
 \details{
-The approach usde by \code{compute_indirect_effect_for} is similar to the
+The approach used by \code{compute_indirect_effect_for} is similar to the
 approach used for simple slope analyses. Specifically, it will fit a new
 moderated mediation model, but with a data set with a different variable
 coding. Behind the scenes, \code{compute_indirect_effect_for} adjusts the
