@@ -50,18 +50,24 @@ Imports:
     magrittr,
     MASS,
     purrr,
-    rlang (>= 0.1.2),
+    rlang (>= 0.4.9),
     stats,
-    tibble
+    tibble,
+    utils
 Suggests: 
     covr,
     markdown,
+    patchwork,
+    performance,
     rmarkdown,
     roxygen2,
+    stringr,
     testthat (>= 3.0.2),
     withr
 VignetteBuilder: 
     knitr
+Remotes:
+    easystats/see
 ByteCompile: true
 Config/testthat/edition: 3
 Encoding: UTF-8
