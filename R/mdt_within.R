@@ -93,39 +93,39 @@ mdt_within.data.frame <- function(data, IV, DV, M, grouping, default_coding = TR
 
   # type check ----------------------------------------------------------------
   if(!is.character(IV_data))
-    stop(glue::glue("Warning:
-                    IV ({IV_name}) must be character."))
+    stop(glue("Warning:
+               IV ({IV_name}) must be character."))
 
   if(!is.numeric(M_data))
-    stop(glue::glue("Warning:
-                    Mediator ({M_name}) must be numeric."))
+    stop(glue("Warning:
+               Mediator ({M_name}) must be numeric."))
 
   if(!is.numeric(M_data))
-    stop(glue::glue("Warning:
-                    DV ({DV_name}) must be numeric."))
+    stop(glue("Warning:
+               DV ({DV_name}) must be numeric."))
 
   # data wrangling ------------------------------------------------------------
   # naming
   IV_cond <- data %>% dplyr::pull( !! IV_var ) %>% unique()
 
   M_cond_1_name <-
-    as.character(glue::glue("{M_name}_mean_{IV_cond[[1]]}"))
+    as.character(glue("{M_name}_mean_{IV_cond[[1]]}"))
   M_cond_2_name <-
-    as.character(glue::glue("{M_name}_mean_{IV_cond[[2]]}"))
+    as.character(glue("{M_name}_mean_{IV_cond[[2]]}"))
 
   M_mean_name <-
-    as.character(glue::glue("{M_name}_mean"))
+    as.character(glue("{M_name}_mean"))
 
   DV_cond_1_name <-
-    as.character(glue::glue("{DV_name}_mean_{IV_cond[[1]]}"))
+    as.character(glue("{DV_name}_mean_{IV_cond[[1]]}"))
   DV_cond_2_name <-
-    as.character(glue::glue("{DV_name}_mean_{IV_cond[[2]]}"))
+    as.character(glue("{DV_name}_mean_{IV_cond[[2]]}"))
 
   # wrangling
   wrangling_formula <-
-    glue::glue("{grouping} ~ {IV}",
-               grouping = grouping_name,
-               IV       = IV_name) %>%
+    glue("{grouping} ~ {IV}",
+         grouping = grouping_name,
+         IV       = IV_name) %>%
     stats::as.formula()
 
   data_long <-
@@ -146,9 +146,9 @@ mdt_within.data.frame <- function(data, IV, DV, M, grouping, default_coding = TR
   # else, set B - A.
   if(DV_A_sup_B == default_coding) {
     DV_diff_name <-
-      as.character(glue::glue("DV_{IV_cond[[1]]}_{IV_cond[[2]]}"))
+      as.character(glue("DV_{IV_cond[[1]]}_{IV_cond[[2]]}"))
     M_diff_name <-
-      as.character(glue::glue("IV_{IV_cond[[1]]}_{IV_cond[[2]]}"))
+      as.character(glue("IV_{IV_cond[[1]]}_{IV_cond[[2]]}"))
 
     data_long <-
       data_long %>%
@@ -156,10 +156,10 @@ mdt_within.data.frame <- function(data, IV, DV, M, grouping, default_coding = TR
                      !! sym(M_diff_name)  := !! sym(M_cond_1_name)  - !! sym(M_cond_2_name))
   } else {
     DV_diff_name <-
-      as.character(glue::glue("DV_{IV_cond[[2]]}_{IV_cond[[1]]}"))
+      as.character(glue("DV_{IV_cond[[2]]}_{IV_cond[[1]]}"))
 
     M_diff_name <-
-      as.character(glue::glue("M_{IV_cond[[2]]}_{IV_cond[[1]]}"))
+      as.character(glue("M_{IV_cond[[2]]}_{IV_cond[[1]]}"))
 
     data_long <-
       data_long %>%
@@ -174,18 +174,18 @@ mdt_within.data.frame <- function(data, IV, DV, M, grouping, default_coding = TR
 
   # bulding models ------------------------------------------------------------
   model1 <-
-    stats::as.formula(glue::glue("{DV} ~ 1",
-                                 DV = DV_diff_name))
-
+    stats::as.formula(glue("{DV} ~ 1",
+                           DV = DV_diff_name))
+  
   model2 <-
-    stats::as.formula(glue::glue("{M}  ~ 1",
-                                 M = M_diff_name))
-
+    stats::as.formula(glue("{M}  ~ 1",
+                           M = M_diff_name))
+  
   model3 <-
-    stats::as.formula(glue::glue("{DV}  ~ 1 + {M} + {M_mean}",
-                                 DV     = DV_diff_name,
-                                 M      = M_diff_name,
-                                 M_mean = M_mean_name))
+    stats::as.formula(glue("{DV}  ~ 1 + {M} + {M_mean}",
+                           DV     = DV_diff_name,
+                           M      = M_diff_name,
+                           M_mean = M_mean_name))
 
   # model fitting and cleaning ------------------------------------------------
   js_models <-
@@ -204,10 +204,10 @@ mdt_within.data.frame <- function(data, IV, DV, M, grouping, default_coding = TR
   # bulding mediation model object --------------------------------------------
   mediation_model(
     type      = "within-participant_mediation",
-    params    = list("IV" = glue::glue("{IV_name} (difference: {score})",
-                                       score = ifelse(DV_A_sup_B == default_coding,
-                                                      paste0(IV_cond[[1]], " - ", IV_cond[[2]]),
-                                                      paste0(IV_cond[[2]], " - ", IV_cond[[1]]))),
+    params    = list("IV" = glue("{IV_name} (difference: {score})",
+                                 score = ifelse(DV_A_sup_B == default_coding,
+                                                paste0(IV_cond[[1]], " - ", IV_cond[[2]]),
+                                                paste0(IV_cond[[2]], " - ", IV_cond[[1]]))),
                      "DV" = DV_name,
                      "M"  = M_name),
     paths     = paths,

@@ -18,14 +18,14 @@ print.mediation_model <- function(x, digits = 3, ...) {
   models <- x %>% purrr::pluck("js_models")
 
   # summary -------------------------------------------------------------------
-  cat(glue::glue("Test of mediation ({type})\n\n"))
+  cat(glue("Test of mediation ({type})\n\n"))
   cat("==============================================\n")
 
   cat("\nVariables:\n\n")
 
   purrr::map2(params,
               names(params),
-              ~ cat(glue::glue("- {.y}: {.x} \n\n")))
+              ~ cat(glue("- {.y}: {.x} \n\n")))
 
   check_variables(x)
 
