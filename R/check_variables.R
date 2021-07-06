@@ -44,7 +44,7 @@ please make sure it is intended as regression coefficients depends on the
 variables' coding:"
     )
     for (var in Var_n_check) {
-      message(glue::glue("* {var}"))
+      message(glue("* {var}"))
     }
   }
 }

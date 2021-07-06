@@ -144,8 +144,8 @@ mdt_within_wide.data.frame <- function(data, DV_A, DV_B, M_A, M_B) {
   # bulding mediation model object --------------------------------------------
   mediation_model(
     type      = "within-participant mediation",
-    params    = list("DV difference" = glue::glue("{DV_A_name} - {DV_B_name}"),
-                     "M difference"  = glue::glue("{M_A_name} - {M_B_name}")),
+    params    = list("DV difference" = glue("{DV_A_name} - {DV_B_name}"),
+                     "M difference"  = glue("{M_A_name} - {M_B_name}")),
     paths     = paths,
     js_models = js_models,
     data      = data,
