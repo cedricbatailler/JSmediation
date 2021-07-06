@@ -57,6 +57,7 @@ Imports:
 Suggests: 
     covr,
     markdown,
+    patchwork,
     performance,
     rmarkdown,
     roxygen2,
@@ -65,6 +66,8 @@ Suggests:
     withr
 VignetteBuilder: 
     knitr
+Remotes:
+    easystats/see
 ByteCompile: true
 Config/testthat/edition: 3
 Encoding: UTF-8

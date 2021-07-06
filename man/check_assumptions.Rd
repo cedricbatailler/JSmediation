@@ -17,7 +17,7 @@ includes \code{"normality"}, \code{"heteroscedasticity"}, and
 \code{"outliers"}}
 }
 \value{
-Invisibly return an object of class \code{mediation_model}.
+Invisibly returns an object of class \code{mediation_model}.
 }
 \description{
 When conducting a joint-significant test, different models are
@@ -45,3 +45,8 @@ my_model <-
 check_assumptions(my_model)
 
 }
+\seealso{
+Other assumption checks: 
+\code{\link{check_assumptions_plot}()}
+}
+\concept{assumption checks}
