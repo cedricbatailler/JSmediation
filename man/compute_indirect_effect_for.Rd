@@ -24,8 +24,6 @@ effect confidence interval. Must be numeric, defaults to \code{5000}.}
 interval. Defaults to \code{.05}.}
 }
 \description{
-\ifelse{html}{\href{https://lifecycle.r-lib.org/articles/stages.html#experimental}{\figure{lifecycle-experimental.svg}{options: alt='[Experimental]'}}}{\strong{[Experimental]}}
-
 When computing a moderated mediation, one assesses whether an indirect
 effect changes according a moderator value (Muller et al., 2005).
 \code{\link{mdt_moderated}} makes it easy to assess moderated mediation, but it does

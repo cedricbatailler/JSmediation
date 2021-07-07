@@ -1,8 +1,6 @@
 #' Compute the indirect effect index for a specific value of the moderator
 #'
 #' @description 
-#'   `r lifecycle::badge("experimental")`
-#'   
 #'   When computing a moderated mediation, one assesses whether an indirect
 #'   effect changes according a moderator value (Muller et al., 2005).
 #'   [`mdt_moderated`] makes it easy to assess moderated mediation, but it does

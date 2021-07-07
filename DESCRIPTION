@@ -47,7 +47,6 @@ Imports:
     dplyr,
     glue,
     knitr,
-    lifecycle,
     magrittr,
     MASS,
     purrr,
