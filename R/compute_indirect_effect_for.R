@@ -18,7 +18,7 @@
 #'   interval.
 #'   
 #' @details 
-#'   The approach usde by `compute_indirect_effect_for` is similar to the
+#'   The approach used by `compute_indirect_effect_for` is similar to the
 #'   approach used for simple slope analyses. Specifically, it will fit a new
 #'   moderated mediation model, but with a data set with a different variable
 #'   coding. Behind the scenes, `compute_indirect_effect_for` adjusts the
