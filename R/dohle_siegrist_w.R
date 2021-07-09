@@ -8,7 +8,7 @@
 #'   complex drug names are perceived as more hazardous, which makes someone
 #'   less likely to buy the drug. Researchers used a within-subject design.
 #'
-#'   This data set is in a wide format, see \code{\link{mdt_within_wide}} to
+#'   This data set is in a wide format, see [`mdt_within_wide`] to
 #'   conduct a within-participant mediation analysis with this dataset.
 #'
 #'@format A data frame with 22 rows and 5 variables: 

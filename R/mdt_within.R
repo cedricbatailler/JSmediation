@@ -1,7 +1,7 @@
 #' @title Joint-significance test for within-participant mediation
 #'
-#' @description Given a data frame, a predictor (\code{IV}), an outcome
-#'   (\code{DV}), a mediator (\code{M}), and a grouping variable (\code{group})
+#' @description Given a data frame, a predictor (`IV`), an outcome
+#'   (`DV`), a mediator (`M`), and a grouping variable (`group`)
 #'   conducts a joint-significant test for within-participant mediation (see
 #'   Yzerbyt, Muller, Batailler, & Judd, 2018).
 #'
@@ -15,42 +15,42 @@
 #' @param grouping an unquoted variable in the data frame which will be used as
 #'   the grouping variable.
 #' @param default_coding should the variable coding be the default? Defaults to
-#'   \code{TRUE}.
+#'   `TRUE`.
 #'
 #' @template mediation_model
 #' @template within_details
 #' @template within_models
 #'
-#' @section Data formatting: To be consistent with other \code{mdt_*} family
-#'   functions, \code{mdt_within} takes a long-format data frame as \code{data}
+#' @section Data formatting: To be consistent with other `mdt_*` family
+#'   functions, `mdt_within` takes a long-format data frame as `data`
 #'   argument. With this kind of format, each sampled unit has two rows, one for
 #'   the first within-participant condition and one for the second
 #'   within-participant condition. In addition, each row has one observation for
 #'   the outcome and one observation for the mediator (see
-#'   \code{\link{dohle_siegrist}} for an example.
+#'   [`dohle_siegrist`] for an example.
 #'
 #'   Because such formatting is not the most common among social scientists
 #'   interested in within-participant mediation, \pkg{JSmediation} contains the
-#'   \code{\link{mdt_within_wide}} function which handles wide-formatted data
-#'   input (but is syntax-inconsistent with other \code{mdt_*} family
+#'   [`mdt_within_wide`] function which handles wide-formatted data
+#'   input (but is syntax-inconsistent with other `mdt_*` family
 #'   functions).
 #'
 #' @section Variable coding: Models underlying within-participant mediation use
 #'   difference scores as DV (see Models section). Because the function input
 #'   does not allow the user to specify how the difference scores should be
-#'   computed, \code{mdt_within} has a default coding.
+#'   computed, [`mdt_within`] has a default coding.
 #'
-#'   \code{mdt_within}'s default behavior is to compute the difference score so
+#'   `mdt_within`'s default behavior is to compute the difference score so
 #'   the total effect (the effect of \eqn{X} on \eqn{Y}) will be positive and
 #'   compute the other difference scores accordingly. That is, if
-#'   \code{mdt_within} has to use \eqn{Y_{2i} - Y_{1i}} (instead of \eqn{Y_{1i}
+#'   `mdt_within` has to use \eqn{Y_{2i} - Y_{1i}} (instead of \eqn{Y_{1i}
 #'   - Y_{2i}}) so that \eqn{c_{11}} is positive, it will use \eqn{M_{2i} -
 #'   M_{1i}} (instead of \eqn{M_{1i} - M_{2i}} in the other models.
 #'   
 #'   User can choose to have a negative total effect by using the
-#'   \code{default_coding} argument.
+#'   `default_coding` argument.
 #'
-#'   Note that \code{DV} and \code{M} have to be numeric.
+#'   Note that `DV` and `M` have to be numeric.
 #'
 #' @references Judd, C. M., Kenny, D. A., & McClelland, G. H. (2001). Estimating
 #'   and testing mediation and moderation in within-subject designs.

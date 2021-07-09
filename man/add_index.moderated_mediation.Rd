@@ -36,11 +36,11 @@ Yzerbyt, 2005).
 \pkg{JSmediation} supports different types of mediated indirect effect
 index:
 \itemize{
-\item{Stage 1: }{computes the product between \eqn{a \times Mod}{a
-    * Mod} and \eqn{b}.}
-\item{Stage 2: }{ computes the product between \eqn{a} and \eqn{b \times
-    Mod}{b * Mod}.}
-\item{Total: }{ computes the sum of Stage 1 and Stage 2 distribution.}
+\item \strong{Stage 1:} computes the product between \eqn{a \times Mod}{a * Mod} and
+\eqn{b}.
+\item \strong{Stage 2:} computes the product between \eqn{a} and \eqn{b \times
+     Mod}{b * Mod}.
+\item \strong{Total:} computes the sum of Stage 1 and Stage 2 distribution.
 }
 }
 \examples{
