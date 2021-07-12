@@ -4,6 +4,10 @@
 #'   (`DV`), a mediator (`M`), and a moderator (`Mod`) conducts a
 #'   joint-significant test for moderated mediation (see Yzerbyt, Muller,
 #'   Batailler, & Judd, 2018).
+#'   
+#'   [`add_index.moderated_mediation`] computes the moderated mediation index.
+#'   [`compute_indirect_effect_for`] is used to compute the indirect effect
+#'   index for a specific value of the moderator.
 #'
 #' @param data A data frame containing the variables in the model.
 #' @param IV An unquoted variable in the data frame which will be used as
