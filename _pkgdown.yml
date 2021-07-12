@@ -3,7 +3,7 @@ url: https://jsmediation.cedricbatailler.me
 home:
   title: JSmediation · An R package to conduction mediation analysis
   description: Easely conduct mediation analysis using joint-significance tests.
-  
+
 template:
   params:
     bootswatch: cosmo
@@ -42,14 +42,13 @@ reference:
 - title: "Data sets"
   desc: >
     A collection of data sets to illustrate how `JSmediation` works.
-- contents: 
+- contents:
   - ho_et_al
   - dohle_siegrist
   - dohle_siegrist_wide
 
 - title: "Misc."
   desc: >
-- contents: 
+- contents:
   - apastylr
   - build_contrast
-  
