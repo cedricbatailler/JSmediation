@@ -135,7 +135,7 @@ mdt_moderated.data.frame <- function(data, IV, DV, M, Mod) {
     stop(glue::glue("Warning:
                     DV ({DV_name}) must be numeric."))
 
-  if(!is.numeric(DV_data))
+  if(!is.numeric(Mod_data))
     stop(glue::glue("Warning:
                     Moderator ({DV_name}) must be numeric."))
 
