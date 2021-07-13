@@ -115,10 +115,10 @@ mdt_moderated.data.frame <- function(data, IV, DV, M, Mod) {
   IVMod_name <- glue::glue("{IV_name}:{Mod_name}")
   MMod_name  <- glue::glue("{M_name}:{Mod_name}")
 
-  IV_data  <- data %>% dplyr::pull( !! IV_var )  %>% as.numeric()
-  M_data   <- data %>% dplyr::pull( !! M_var )   %>% as.numeric()
-  DV_data  <- data %>% dplyr::pull( !! DV_var )  %>% as.numeric()
-  Mod_data <- data %>% dplyr::pull( !! Mod_var ) %>% as.numeric()
+  IV_data  <- data %>% dplyr::pull( !! IV_var )
+  M_data   <- data %>% dplyr::pull( !! M_var )
+  DV_data  <- data %>% dplyr::pull( !! DV_var )
+  Mod_data <- data %>% dplyr::pull( !! Mod_var )
 
 
   # type check ----------------------------------------------------------------
@@ -135,7 +135,7 @@ mdt_moderated.data.frame <- function(data, IV, DV, M, Mod) {
     stop(glue::glue("Warning:
                     DV ({DV_name}) must be numeric."))
 
-  if(!is.numeric(DV_data))
+  if(!is.numeric(Mod_data))
     stop(glue::glue("Warning:
                     Moderator ({DV_name}) must be numeric."))
 
