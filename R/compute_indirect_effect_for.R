@@ -147,7 +147,7 @@ compute_indirect_effect_for.moderated_mediation <-
     indirect_sampling <- param_sampling[ , 1] * param_sampling[ , 2] 
 
     indirect_effect(
-      type          = glue::glue("Conditional simple mediation index (Mod = {Mod})"),
+      type          = glue("Conditional simple mediation index (Mod = {Mod})"),
       estimate      = a_estimate  * b_estimate,
       level         = level,
       times         = times,

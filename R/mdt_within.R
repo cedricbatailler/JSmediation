@@ -97,12 +97,12 @@ mdt_within.data.frame <- function(data, IV, DV, M, grouping, default_coding = TR
                IV ({IV_name}) must be character."))
 
   if(!is.numeric(DV_data))
-    stop(glue::glue("Warning:
-                    DV ({DV_name}) must be numeric."))
+    stop(glue("Warning:
+              DV ({DV_name}) must be numeric."))
 
   if(!is.numeric(M_data))
-    stop(glue::glue("Warning:
-                    Mediator ({M_name}) must be numeric."))
+    stop(glue("Warning:
+              Mediator ({M_name}) must be numeric."))
 
   # data wrangling ------------------------------------------------------------
   # naming
