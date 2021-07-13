@@ -112,8 +112,8 @@ mdt_moderated.data.frame <- function(data, IV, DV, M, Mod) {
   DV_name    <- rlang::quo_name(DV_var)
   M_name     <- rlang::quo_name(M_var)
   Mod_name   <- rlang::quo_name(Mod_var)
-  IVMod_name <- glue::glue("{IV_name}:{Mod_name}")
-  MMod_name  <- glue::glue("{M_name}:{Mod_name}")
+  IVMod_name <- glue("{IV_name}:{Mod_name}")
+  MMod_name  <- glue("{M_name}:{Mod_name}")
 
   IV_data  <- data %>% dplyr::pull( !! IV_var )
   M_data   <- data %>% dplyr::pull( !! M_var )
@@ -123,41 +123,41 @@ mdt_moderated.data.frame <- function(data, IV, DV, M, Mod) {
 
   # type check ----------------------------------------------------------------
   if(!is.numeric(IV_data))
-    stop(glue::glue("Warning:
-                    IV ({IV_name}) must be numeric (see build_contrast() to
-                    convert a character vector to a contrast code)."))
+    stop(glue("Warning:
+               IV ({IV_name}) must be numeric (see build_contrast() to
+               convert a character vector to a contrast code)."))
 
   if(!is.numeric(M_data))
-    stop(glue::glue("Warning:
-                    Mediator ({M_name}) must be numeric."))
+    stop(glue("Warning:
+               Mediator ({M_name}) must be numeric."))
 
   if(!is.numeric(DV_data))
-    stop(glue::glue("Warning:
-                    DV ({DV_name}) must be numeric."))
+    stop(glue("Warning:
+               DV ({DV_name}) must be numeric."))
 
   if(!is.numeric(Mod_data))
-    stop(glue::glue("Warning:
-                    Moderator ({DV_name}) must be numeric."))
+    stop(glue("Warning:
+              Moderator ({DV_name}) must be numeric."))
 
   # building models -----------------------------------------------------------
   model1 <-
-    stats::as.formula(glue::glue("{DV} ~ {IV} * {Mod}",
-                                 IV  = IV_name,
-                                 DV  = DV_name,
-                                 Mod = Mod_name))
-
+    stats::as.formula(glue("{DV} ~ {IV} * {Mod}",
+                           IV  = IV_name,
+                           DV  = DV_name,
+                           Mod = Mod_name))
+  
   model2 <-
-    stats::as.formula(glue::glue("{M} ~ {IV} * {Mod}",
-                                 IV  = IV_name,
-                                 M   = M_name,
-                                 Mod = Mod_name))
-
+    stats::as.formula(glue("{M} ~ {IV} * {Mod}",
+                           IV  = IV_name,
+                           M   = M_name,
+                           Mod = Mod_name))
+  
   model3 <-
-    stats::as.formula(glue::glue("{DV} ~ ({IV} + {M}) * {Mod}",
-                                 DV  = DV_name,
-                                 IV  = IV_name,
-                                 M   = M_name,
-                                 Mod = Mod_name))
+    stats::as.formula(glue("{DV} ~ ({IV} + {M}) * {Mod}",
+                           DV  = DV_name,
+                           IV  = IV_name,
+                           M   = M_name,
+                           Mod = Mod_name))
 
   # model fitting and cleaning ------------------------------------------------
   js_models <-

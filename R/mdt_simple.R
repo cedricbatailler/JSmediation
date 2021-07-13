@@ -105,34 +105,34 @@ mdt_simple.data.frame <- function(data, IV, DV, M) {
 
   # type check ----------------------------------------------------------------
   if(!is.numeric(IV_data))
-    stop(glue::glue("Warning:
-                    IV ({IV_name}) must be numeric (see build_contrast() to
-                    convert a character vector to a contrast code)."))
+    stop(glue("Warning:
+               IV ({IV_name}) must be numeric (see build_contrast() to
+               convert a character vector to a contrast code)."))
 
   if(!is.numeric(M_data))
-    stop(glue::glue("Warning:
-                    Mediator ({M_name}) must be numeric."))
+    stop(glue("Warning:
+               Mediator ({M_name}) must be numeric."))
 
   if(!is.numeric(DV_data))
-    stop(glue::glue("Warning:
-                    DV ({DV_name}) must be numeric."))
+    stop(glue("Warning:
+               DV ({DV_name}) must be numeric."))
 
   # building models -----------------------------------------------------------
   model1 <-
-    stats::as.formula(glue::glue("{DV} ~ {IV}",
-                                 IV = IV_name,
-                                 DV = DV_name))
+    stats::as.formula(glue("{DV} ~ {IV}",
+                           IV = IV_name,
+                           DV = DV_name))
 
   model2 <-
-    stats::as.formula(glue::glue("{M} ~ {IV}",
-                                 IV = IV_name,
-                                 M  = M_name))
+    stats::as.formula(glue("{M} ~ {IV}",
+                           IV = IV_name,
+                           M  = M_name))
 
   model3 <-
-    stats::as.formula(glue::glue("{DV} ~ {IV} + {M}",
-                                 DV = DV_name,
-                                 IV = IV_name,
-                                 M  = M_name))
+    stats::as.formula(glue("{DV} ~ {IV} + {M}",
+                           DV = DV_name,
+                           IV = IV_name,
+                           M  = M_name))
 
   # models fitting and cleaning -----------------------------------------------
   js_models <-
