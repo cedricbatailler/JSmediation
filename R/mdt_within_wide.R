@@ -1,7 +1,7 @@
 #' @title Joint-significance test for simple mediation (wide-format input)
 #' 
-#' @description Given a data frame, a predictor (\code{IV}), an outcome
-#'   (\code{DV}), a mediator (\code{M}), and a grouping variable (\code{group})
+#' @description Given a data frame, a predictor (`IV`), an outcome
+#'   (`DV`), a mediator (`M`), and a grouping variable (`group`)
 #'   conducts a joint-significant test for within-participant mediation (see
 #'   Yzerbyt, Muller, Batailler, & Judd, 2018).
 #'   
@@ -15,23 +15,23 @@
 #' @param M_B an unquoted numeric variable in the data frame which will be used
 #'   as the mediatior variable value for the "b" independent variable condition.
 #'   
-#' @section Data formatting: To be consistent with other \code{mdt_*} family
-#'   functions, \code{mdt_within} takes a long-format data frame as \code{data}
+#' @section Data formatting: To be consistent with other `mdt_*` family
+#'   functions, [`mdt_within`] takes a long-format data frame as `data`
 #'   argument. With this kind of format, each sampled unit has two rows, one for
 #'   the first within-participant condition and one for the second
 #'   within-participant condition. In addition, each row has one observation for
 #'   the outcome and one observation for the mediator (see
-#'   \code{\link{dohle_siegrist}} for an example.
+#'   [`dohle_siegrist`] for an example.
 #'
 #'   Because such formatting is not the most common among social scientists
 #'   interested in within-participant mediation, \pkg{JSmediation} contains the
-#'   \code{\link{mdt_within_wide}} function which handles wide-formatted data
-#'   input (but is syntax-inconsistent with other \code{mdt_*} family
+#'   [`mdt_within_wide`] function which handles wide-formatted data
+#'   input (but is syntax-inconsistent with other `mdt_*` family
 #'   functions).
 #'
 #' @section Variable coding: Models underlying within-participant mediation use
-#'   difference scores as DV (see Models section).  \code{mdt_within_wide} uses
-#'   \code{M_A} \eqn{-} \code{M_B} and \code{DV_A} \eqn{-} \code{DV_B} in these
+#'   difference scores as DV (see Models section).  `mdt_within_wide` uses
+#'   `M_A` \eqn{-} `M_B` and `DV_A` \eqn{-} `DV_B` in these
 #'   models.
 #'
 #' @template mediation_model

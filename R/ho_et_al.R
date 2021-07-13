@@ -13,7 +13,7 @@
 #'   discrimination control condition in the study conducted by Ho, Kteiley and
 #'   Chen (2017).
 #'
-#'   See \code{\link{mdt_simple}} and \code{\link{mdt_moderated}} to conduct a
+#'   See [`mdt_simple`] and [`mdt_moderated`] to conduct a
 #'   simple mediation or a moderated mediation analysis with this dataset.
 #'   
 #' @format A data frame with 824 rows and 5 variables: 

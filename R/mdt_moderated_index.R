@@ -1,17 +1,17 @@
 #' @title add_index method for moderated mediation
 #'
 #' @description Adds the confidence interval for the index of moderated
-#'   mediation to a model fitted with \code{\link{mdt_moderated}}.
+#'   mediation to a model fitted with [`mdt_moderated`].
 #'
 #' @param mediation_model A mediation model of class
-#'   \code{"moderated_mediation"}.
+#'   `"moderated_mediation"`.
 #' @param times Number of simulations to use to compute the Monte Carlo indirect
 #'   effect confidence interval.
 #' @param level Alpha threshold to use for the confidence interval.
 #' @param stage Moderated indirect effect's stage for which to compute the
-#'   confidence interval. Can be either \code{1} (or \code{"first"}) or \code{2}
-#'   (or \code{"second"}). To compute total indirect effect moderation index,
-#'   use \code{"total"}.
+#'   confidence interval. Can be either `1` (or `"first"`) or `2`
+#'   (or `"second"`). To compute total indirect effect moderation index,
+#'   use `"total"`.
 #' @param ... Further arguments passed to or from other methods.
 #'
 #' @details Indirect effect moderation index for moderated mediation uses
@@ -22,13 +22,11 @@
 #'
 #'   \pkg{JSmediation} supports different types of mediated indirect effect
 #'   index: 
-#'   \itemize{ 
-#'     \item{Stage 1: }{computes the product between \eqn{a \times Mod}{a
-#'     * Mod} and \eqn{b}.}
-#'     \item{Stage 2: }{ computes the product between \eqn{a} and \eqn{b \times
-#'     Mod}{b * Mod}.}
-#'     \item{Total: }{ computes the sum of Stage 1 and Stage 2 distribution.}
-#'   }
+#'   * **Stage 1:** computes the product between \eqn{a \times Mod}{a * Mod} and
+#'     \eqn{b}.
+#'   * **Stage 2:** computes the product between \eqn{a} and \eqn{b \times
+#'      Mod}{b * Mod}.
+#'   * **Total:** computes the sum of Stage 1 and Stage 2 distribution.
 #'
 #' @examples
 #' ## getting a stage 1 moderated indirect effect index

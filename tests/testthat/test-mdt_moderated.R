@@ -110,3 +110,19 @@ test_that("add_index method for mdt_moderated does not throw error when used as 
   expect_silent(add_index(model, stage = "total"))
   
 })
+
+test_that("Type checks work as intended in mdt_moderated", {
+  data("ho_et_al")
+  
+  ho_et_al$condition_c <- build_contrast(ho_et_al$condition,
+                                         "Low discrimination",
+                                         "High discrimination")
+  ho_et_al$foo <- "foo"
+  
+  expect_error(mdt_moderated(ho_et_al, foo, hypodescent, linkedfate, sdo))
+  expect_error(mdt_moderated(ho_et_al, condition_c, foo, linkedfate, sdo))
+  expect_error(mdt_moderated(ho_et_al, condition_c, hypodescent, foo, sdo))
+  expect_error(mdt_moderated(ho_et_al, condition_c, hypodescent, linkedfate, foo))
+  
+})
+
