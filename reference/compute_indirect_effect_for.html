@@ -6,7 +6,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Fits a moderated mediation model — mdt_moderated • JSmediation</title>
+<title>Compute the indirect effect index for a specific value of the moderator — compute_indirect_effect_for • JSmediation</title>
 
 <!-- favicons -->
 <link rel="icon" type="image/png" sizes="16x16" href="../favicon-16x16.png">
@@ -52,14 +52,12 @@
 
 
 
-<meta property="og:title" content="Fits a moderated mediation model — mdt_moderated" />
-<meta property="og:description" content="Given a data frame, a predictor (IV), an outcome
-(DV), a mediator (M), and a moderator (Mod) conducts a
-joint-significant test for moderated mediation (see Yzerbyt, Muller,
-Batailler, &amp;amp; Judd, 2018).
-add_index.moderated_mediation computes the moderated mediation index.
-compute_indirect_effect_for is used to compute the indirect effect
-index for a specific value of the moderator." />
+<meta property="og:title" content="Compute the indirect effect index for a specific value of the moderator — compute_indirect_effect_for" />
+<meta property="og:description" content="When computing a moderated mediation, one assesses whether an indirect
+effect changes according a moderator value (Muller et al., 2005).
+mdt_moderated makes it easy to assess moderated mediation, but it does
+not allow accessing the indirect effect for a specific moderator values.
+compute_indirect_effect_for fills this gap." />
 <meta property="og:image" content="https://jsmediation.cedricbatailler.me/logo.png" />
 
 
@@ -159,97 +157,72 @@ index for a specific value of the moderator." />
 <div class="row">
   <div class="col-md-9 contents">
     <div class="page-header">
-    <h1>Fits a moderated mediation model</h1>
-    <small class="dont-index">Source: <a href='https://github.com/cedricbatailler/JSmediation/blob/master/R/mdt_moderated.R'><code>R/mdt_moderated.R</code></a></small>
-    <div class="hidden name"><code>mdt_moderated.Rd</code></div>
+    <h1>Compute the indirect effect index for a specific value of the moderator</h1>
+    <small class="dont-index">Source: <a href='https://github.com/cedricbatailler/JSmediation/blob/master/R/compute_indirect_effect_for.R'><code>R/compute_indirect_effect_for.R</code></a></small>
+    <div class="hidden name"><code>compute_indirect_effect_for.Rd</code></div>
     </div>
 
     <div class="ref-description">
-    <p>Given a data frame, a predictor (<code>IV</code>), an outcome
-(<code>DV</code>), a mediator (<code>M</code>), and a moderator (<code>Mod</code>) conducts a
-joint-significant test for moderated mediation (see Yzerbyt, Muller,
-Batailler, &amp; Judd, 2018).</p>
-<p><code><a href='add_index.moderated_mediation.html'>add_index.moderated_mediation</a></code> computes the moderated mediation index.
-<code><a href='compute_indirect_effect_for.html'>compute_indirect_effect_for</a></code> is used to compute the indirect effect
-index for a specific value of the moderator.</p>
+    <p>When computing a moderated mediation, one assesses whether an indirect
+effect changes according a moderator value (Muller et al., 2005).
+<code><a href='mdt_moderated.html'>mdt_moderated</a></code> makes it easy to assess moderated mediation, but it does
+not allow accessing the indirect effect for a specific moderator values.
+<code>compute_indirect_effect_for</code> fills this gap.</p>
     </div>
 
-    <pre class="usage"><span class='fu'>mdt_moderated</span><span class='op'>(</span><span class='va'>data</span>, <span class='va'>IV</span>, <span class='va'>DV</span>, <span class='va'>M</span>, <span class='va'>Mod</span><span class='op'>)</span></pre>
+    <pre class="usage"><span class='fu'>compute_indirect_effect_for</span><span class='op'>(</span>
+  <span class='va'>mediation_model</span>,
+  Mod <span class='op'>=</span> <span class='fl'>0</span>,
+  times <span class='op'>=</span> <span class='fl'>5000</span>,
+  level <span class='op'>=</span> <span class='fl'>0.05</span>
+<span class='op'>)</span></pre>
 
     <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a>Arguments</h2>
     <table class="ref-arguments">
     <colgroup><col class="name" /><col class="desc" /></colgroup>
     <tr>
-      <th>data</th>
-      <td><p>A data frame containing the variables in the model.</p></td>
-    </tr>
-    <tr>
-      <th>IV</th>
-      <td><p>An unquoted variable in the data frame which will be used as
-the independent variable.</p></td>
-    </tr>
-    <tr>
-      <th>DV</th>
-      <td><p>An unquoted variable in the data frame which will be used as
-the dependent variable.</p></td>
-    </tr>
-    <tr>
-      <th>M</th>
-      <td><p>An unquoted variable in the data frame which will be used as
-the mediator.</p></td>
+      <th>mediation_model</th>
+      <td><p>A moderated mediation model fitted with `mdt_moderated``.</p></td>
     </tr>
     <tr>
       <th>Mod</th>
-      <td><p>An unquoted variable in the data frame which will be used as
-the moderator.</p></td>
+      <td><p>The moderator value for which to compute the indirect effect. Must
+be a numeric value, defaults to <code>0</code>.</p></td>
+    </tr>
+    <tr>
+      <th>times</th>
+      <td><p>Number of simulations to use to compute the Monte Carlo indirect
+effect confidence interval. Must be numeric, defaults to <code>5000</code>.</p></td>
+    </tr>
+    <tr>
+      <th>level</th>
+      <td><p>Alpha threshold to use for the indirect effect's confidence
+interval. Defaults to <code>.05</code>.</p></td>
     </tr>
     </table>
 
-    <h2 class="hasAnchor" id="value"><a class="anchor" href="#value"></a>Value</h2>
-
-    <p>Returns an object of class "<code>mediation_model</code>".</p>
-<p>An object of class "<code>mediation_model</code>" is a list containing at least
-the components:</p>
-<dt>type</dt><dd><p>A character string containing the type of model that has been
-conducted (e.g., <code>"simple mediation"</code>).</p></dd>
-<dt>method</dt><dd><p>A character string containing the approach that has been
-used to conduct the mediation analysis (usually
-<code>"joint significance"</code>).</p></dd> <dt>params</dt><dd><p>A named list of character
-strings describing the variables used in the model.</p></dd>
-<dt>paths</dt><dd><p>A named list containing information on each relevant path of
-the mediation model.</p></dd>
-<dt>indirect_index</dt><dd><p>A boolean indicating whether an indirect effect index
-has been computed or not. Defaults to <code>FALSE</code>. See
-<code><a href='add_index.html'>add_index</a></code> to compute mediation index.</p></dd>
-<dt>indirect_index_infos</dt><dd><p>(Optional) An object of class
-<code>"indirect_index"</code>. Appears when one applies <code><a href='add_index.html'>add_index</a></code>
-to an object of class <code>"mediation_model"</code>.</p></dd>
-<dt>js_models</dt><dd><p>A list of objects of class <code>"lm"</code>. Contains every
-model relevant to joint-significance testing.</p></dd>
-<dt>data</dt><dd><p>The original data frame that has been passed through
-<code>data</code> argument.</p></dd>
-
     <h2 class="hasAnchor" id="details"><a class="anchor" href="#details"></a>Details</h2>
 
-    <p>With moderated mediation analysis, one tests whether the
-indirect effect of \(X\) on \(Y\) through \(M\) is moderated by
-\(Mod\). The hypothesis behind this test is that \(X\) has an effect on
-\(M\) (\(a\)) which has an effect on \(Y\) (\(b\)), meaning that
-\(X\) has an indirect effect on \(Y\) through \(M\).</p>
-<p>Total moderation of the indirect effect of \(X\) on \(Y\) can be
-described as follows:</p>
-<p>\(c * Mod = c' * Mod + (a * Mod) * b + a * (b * Mod)\)</p>
-<p>with \(c * Mod\) the total moderation of the indirect effect, \(c' *
-  Mod\) the moderation of the direct effect, \((a * Mod) * b\), the
-moderation of the indirect effect passing by the moderation of \(a\), and
-\(a * (b * Mod)\), the moderation of the indirect effect passing by the
-moderation of \(b\) (see Models section; Muller et al., 2005).</p>
-<p>Either both \(a * Mod\) and \(b\) or both \(a\) and \(b * Mod\)
-need to be simultaneously significant for a moderation of the indirect
-effect to be claimed (Muller et al., 2005).</p>
+    <p>The approach used by <code>compute_indirect_effect_for</code> is similar to the
+approach used for simple slope analyses. Specifically, it will fit a new
+moderated mediation model, but with a data set with a different variable
+coding. Behind the scenes, <code>compute_indirect_effect_for</code> adjusts the
+moderator variable coding, so that the value we want to compute the
+indirect effect for is now <code>0</code>.</p>
+<p>Once done, a new moderated mediation model is applied using the new data
+set. Because of the new coding, and because of how one interprets
+coefficients in a linear regression, \(a \times b\) is now the
+indirect effect we wanted to compute (see the Models section).</p>
+<p>Thanks to the returned values of \(a\) and bb (\(b_51\)
+and \(b_64\), see the Models section), it is now easy to compute
+\(a \times b\). <code>compute_indirect_effect_for</code> uses the same
+approach than the <code><a href='add_index.html'>add_index</a></code> funcion. A Monte Carlo simulation is used
+to compute the indirect effect index (MacKinnon et al., 2004).</p>
     <h2 class="hasAnchor" id="models"><a class="anchor" href="#models"></a>Models</h2>
 
-    <p>In a moderated mediation model, three models will be used:</p><ul>
+    <p>In a moderated mediation model, three models are used.
+<code>compute_indirect_effect_for</code> uses the same model specification as
+<code><a href='mdt_moderated.html'>mdt_moderated</a></code>:</p><ul>
 <li><p>\(Y_i = b_{40} + \mathbf{b_{41}} X_i + b_{42} Mo_i + \mathbf{b_{43}}
   XMo_i \)</p></li>
 <li><p>\(M_i = b_{50} + \mathbf{b_{51}} X_i + b_{52} Mo_i + \mathbf{b_{53}
@@ -268,35 +241,38 @@ effect to be claimed (Muller et al., 2005).</p>
 \(b_{51}\), \(b_{53}\), \(b_{64}\),
 \(b_{65}\), \(b_{41}\), \(b_{43}\),
 \(b_{61}\), and \(b_{63}\) (see Muller et al., 2005).</p>
-    <h2 class="hasAnchor" id="variable-coding"><a class="anchor" href="#variable-coding"></a>Variable coding</h2>
-
-    <p>Because joint-significance tests use linear models
-behind the scenes, variables involved in the model have to be numeric.
-<code>mdt_simple</code> will give an error if non-numeric variables are
-specified in the model.</p>
-<p>If you need to convert a dichotomous categorical variable to a numeric one,
-please refer to the <code><a href='build_contrast.html'>build_contrast</a></code> function.</p>
-<p>Note that variable coding is especially important in models with multiple
-predictors as is the case in the model used to conduct a joint-significance
-test of moderated mediation. Muller et al. (2005) recommend using variables
-that are either contrast-coded or centered. Using <code>mdt_moderated</code> with
-a DV, a mediator, or a moderator that is neither contrast-coded nor
-centered will give a warning message.</p>
     <h2 class="hasAnchor" id="references"><a class="anchor" href="#references"></a>References</h2>
 
-    <p>Muller, D., Judd, C. M., &amp; Yzerbyt, V. Y. (2005). When moderation
+    <p>MacKinnon, D. P., Lockwood, C. M., &amp; Williams, J. (2004). Confidence Limits
+for the Indirect Effect: Distribution of the Product and Resampling
+Methods. <em>Multivariate Behavioral Research</em>, <em>39</em>(1), 99-128. doi:
+10.1207/s15327906mbr3901_4</p>
+<p>Muller, D., Judd, C. M., &amp; Yzerbyt, V. Y. (2005). When moderation
 is mediated and mediation is moderated. <em>Journal of Personality and
-Social Psychology</em>, 89(6), 852-863. doi: 10.1037/0022-3514.89.6.852</p>
-<p>Yzerbyt, V., Muller, D., Batailler, C., &amp; Judd, C. M. (2018). New
-recommendations for testing indirect effects in mediational models: The
-need to report and test component paths. <em>Journal of Personality and
-Social Psychology</em>, <em>115</em>(6), 929–943. doi: 10.1037/pspa0000132</p>
-    <h2 class="hasAnchor" id="see-also"><a class="anchor" href="#see-also"></a>See also</h2>
+Social Psychology</em>, <em>89</em>(6), 852-863. doi: 10.1037/0022-3514.89.6.852</p>
 
-    <div class='dont-index'><p>Other mediation models: 
-<code><a href='mdt_simple.html'>mdt_simple</a>()</code>,
-<code><a href='mdt_within.html'>mdt_within</a>()</code></p></div>
-
+    <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
+    <pre class="examples"><div class='input'><span class='co'># compute an indirect effect index for a specific value in a moderated </span>
+<span class='co'># mediation.</span>
+<span class='fu'><a href='https://rdrr.io/r/utils/data.html'>data</a></span><span class='op'>(</span><span class='va'>ho_et_al</span><span class='op'>)</span>
+<span class='va'>ho_et_al</span><span class='op'>$</span><span class='va'>condition_c</span> <span class='op'>&lt;-</span> <span class='fu'><a href='build_contrast.html'>build_contrast</a></span><span class='op'>(</span><span class='va'>ho_et_al</span><span class='op'>$</span><span class='va'>condition</span>,
+                                       <span class='st'>"Low discrimination"</span>,
+                                       <span class='st'>"High discrimination"</span><span class='op'>)</span>
+<span class='va'>ho_et_al</span><span class='op'>$</span><span class='va'>linkedfate</span> <span class='op'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/r/base/numeric.html'>as.numeric</a></span><span class='op'>(</span><span class='fu'><a href='https://rdrr.io/r/base/scale.html'>scale</a></span><span class='op'>(</span><span class='va'>ho_et_al</span><span class='op'>$</span><span class='va'>linkedfate</span><span class='op'>)</span><span class='op'>)</span>
+<span class='va'>ho_et_al</span><span class='op'>$</span><span class='va'>sdo</span>        <span class='op'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/r/base/numeric.html'>as.numeric</a></span><span class='op'>(</span><span class='fu'><a href='https://rdrr.io/r/base/scale.html'>scale</a></span><span class='op'>(</span><span class='va'>ho_et_al</span><span class='op'>$</span><span class='va'>sdo</span><span class='op'>)</span><span class='op'>)</span>
+<span class='va'>moderated_mediation_model</span> <span class='op'>&lt;-</span> <span class='fu'><a href='mdt_moderated.html'>mdt_moderated</a></span><span class='op'>(</span>data <span class='op'>=</span> <span class='va'>ho_et_al</span>,
+                                           DV <span class='op'>=</span> <span class='va'>hypodescent</span>,
+                                           IV <span class='op'>=</span> <span class='va'>condition_c</span>,
+                                           M <span class='op'>=</span> <span class='va'>linkedfate</span>,
+                                           Mod <span class='op'>=</span> <span class='va'>sdo</span><span class='op'>)</span> 
+<span class='fu'>compute_indirect_effect_for</span><span class='op'>(</span><span class='va'>moderated_mediation_model</span>, Mod <span class='op'>=</span> <span class='fl'>0</span><span class='op'>)</span>
+</div><div class='output co'>#&gt; - type: Conditional simple mediation index (Mod = 0) 
+#&gt; - point estimate: 0.0916 
+#&gt; - confidence interval:
+#&gt;   - method: Monte Carlo (5000 iterations)
+#&gt;   - level: 0.05 
+#&gt;   - CI: [0.0418; 0.146]</div><div class='input'>
+</div></pre>
   </div>
   <div class="col-md-3 hidden-xs hidden-sm" id="pkgdown-sidebar">
     <nav id="toc" data-toggle="toc" class="sticky-top">
