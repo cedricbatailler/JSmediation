@@ -50,7 +50,7 @@ standardize_variables.data.frame <- function(data,
 
   # defines suffix
   if (!is.null(suffix)) {
-    suffix <- glue::glue("_{suffix}")
+    suffix <- glue("_{suffix}")
   } else {
     suffix <- ""
   }
