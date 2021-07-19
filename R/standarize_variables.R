@@ -22,9 +22,8 @@
 #'
 #' ho_et_al %>%
 #'   standardize_variables(c(sdo, linkedfate), suffix = "scaled")
-#'
-standardize_variables <- function(data, 
-                                  cols = dplyr::everything(), 
+standardize_variables <- function(data,
+                                  cols = dplyr::everything(),
                                   suffix = NULL) {
   UseMethod("standardize_variables")
 }
@@ -38,14 +37,17 @@ standardize_variables.data.frame <- function(data,
                                              cols = dplyr::everything(),
                                              suffix = NULL) {
   # defines suffix
-  if( ! is.null(suffix)) {
+  if (!is.null(suffix)) {
     suffix <- glue::glue("_{suffix}")
   } else {
     suffix <- ""
   }
+
   # scales variables
   data %>%
-    dplyr::mutate(dplyr::across(.cols = {{ cols }},
-                                .fns = scale, 
-                                .names = "{.col}{suffix}"))
+    dplyr::mutate(dplyr::across(
+      .cols = {{ cols }},
+      .fns = scale,
+      .names = "{.col}{suffix}"
+    ))
 }
