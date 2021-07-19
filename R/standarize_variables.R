@@ -47,7 +47,7 @@ standardize_variables.data.frame <- function(data,
   data %>%
     dplyr::mutate(dplyr::across(
       .cols = {{ cols }},
-      .fns = scale,
+      .fns = ~ as.numeric(scale(.x)),
       .names = "{.col}{suffix}"
     ))
 }
