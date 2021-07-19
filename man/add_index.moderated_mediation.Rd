@@ -48,7 +48,7 @@ index:
 ho_et_al$condition_c <- build_contrast(ho_et_al$condition,
                                        "Low discrimination",
                                        "High discrimination")
-ho_et_al <- standardize_variables(ho_et_al, c(linkedfate, sdo))
+ho_et_al <- standardize_variables(ho_et_al, c(linkedfate, sdo), suffix ="c")
 moderated_model <- mdt_moderated(data = ho_et_al,
                                  IV = condition_c,
                                  DV = hypodescent,
