@@ -44,3 +44,32 @@ test_that("suffix argument work as intended", {
   expect_true("disp_foo" %in% names(scaled_dataset))
 
 })
+
+test_that("standardize_variables keeps grouping", {
+  dataset_grouped <-
+    dplyr::group_by(mtcars, cyl)
+
+  dataset_standardized <-
+    dataset_grouped %>%
+    standardize_variables(mpg)
+
+  expect_identical(dplyr::groups(dataset_standardized),
+                   dplyr::groups(dataset_grouped))
+})
+
+test_that("standardize_variables is insensitive to grouping", {
+  dataset_grouped <-
+    dplyr::group_by(mtcars, cyl)
+
+  dataset_grouped_standardized <-
+    dataset_grouped %>%
+    standardize_variables(mpg) %>%
+    dplyr::ungroup()
+
+  dataset_notgrouped_standardized <-
+    mtcars %>%
+    standardize_variables(mpg)
+
+  expect_equal(dataset_grouped_standardized,
+               dataset_notgrouped_standardized)
+})
