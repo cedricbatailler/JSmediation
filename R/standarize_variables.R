@@ -36,6 +36,10 @@ standardise_variables <- standardize_variables
 standardize_variables.data.frame <- function(data,
                                              cols = dplyr::everything(),
                                              suffix = NULL) {
+
+  # store grouping variable as symbols
+  grouping_vars <- dplyr::groups(data)
+
   # defines suffix
   if (!is.null(suffix)) {
     suffix <- glue::glue("_{suffix}")
@@ -45,9 +49,11 @@ standardize_variables.data.frame <- function(data,
 
   # scales variables
   data %>%
+    dplyr::ungroup() %>%
     dplyr::mutate(dplyr::across(
       .cols = {{ cols }},
       .fns = ~ as.numeric(scale(.x)),
       .names = "{.col}{suffix}"
-    ))
+    )) %>%
+    dplyr::group_by(!!!grouping_vars)
 }
