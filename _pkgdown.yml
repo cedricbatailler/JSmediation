@@ -32,6 +32,7 @@ reference:
     A collection of function to help people manipulate `mediation_model`.
 - contents:
   - add_index
+  - compute_indirect_effect_for
   - extract_model
   - extract_models
   - extract_tidy_models
@@ -40,15 +41,14 @@ reference:
 - title: "Data sets"
   desc: >
     A collection of data sets to illustrate how `JSmediation` works.
-- contents: 
+- contents:
   - ho_et_al
   - dohle_siegrist
   - dohle_siegrist_wide
 
 - title: "Misc."
   desc: >
-- contents: 
+- contents:
   - apastylr
   - build_contrast
   - standardize_variables
-

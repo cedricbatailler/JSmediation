@@ -1,7 +1,7 @@
 #' @title Joint-significance test for simple mediation
 #'
-#' @description Given a data frame, a predictor (\code{IV}), an outcome
-#'   (\code{DV}), and a mediator (\code{M}), conducts a joint-significant test 
+#' @description Given a data frame, a predictor (`IV`), an outcome
+#'   (`DV`), and a mediator (`M`), conducts a joint-significant test 
 #'   for simple mediation (see Yzerbyt, Muller, Batailler, & Judd, 2018).
 #'
 #' @param data A data frame containing the variables to be used in the model.
@@ -55,11 +55,11 @@
 #'   
 #' @section Variable coding: Because joint-significance tests uses linear models
 #'   behind the scenes, variables involved in the model have to be numeric.
-#'   \code{mdt_simple} will give an error if non-numeric variables are
+#'   `mdt_simple` will give an error if non-numeric variables are
 #'   specified in the model.
 #'
 #'   To convert a dichotomous categorical variable to a numeric one, please
-#'   refer to the \code{\link{build_contrast}} function.
+#'   refer to the [`build_contrast`] function.
 #'
 #' @references Cohen, J., & Cohen, P. (1983). \emph{Applied multiple
 #'   regression/correlation analysis for the behavioral sciences} (2nd ed).
@@ -105,34 +105,34 @@ mdt_simple.data.frame <- function(data, IV, DV, M) {
 
   # type check ----------------------------------------------------------------
   if(!is.numeric(IV_data))
-    stop(glue::glue("Warning:
-                    IV ({IV_name}) must be numeric (see build_contrast() to
-                    convert a character vector to a contrast code)."))
+    stop(glue("Warning:
+               IV ({IV_name}) must be numeric (see build_contrast() to
+               convert a character vector to a contrast code)."))
 
   if(!is.numeric(M_data))
-    stop(glue::glue("Warning:
-                    Mediator ({M_name}) must be numeric."))
+    stop(glue("Warning:
+               Mediator ({M_name}) must be numeric."))
 
   if(!is.numeric(DV_data))
-    stop(glue::glue("Warning:
-                    DV ({DV_name}) must be numeric."))
+    stop(glue("Warning:
+               DV ({DV_name}) must be numeric."))
 
   # building models -----------------------------------------------------------
   model1 <-
-    stats::as.formula(glue::glue("{DV} ~ {IV}",
-                                 IV = IV_name,
-                                 DV = DV_name))
+    stats::as.formula(glue("{DV} ~ {IV}",
+                           IV = IV_name,
+                           DV = DV_name))
 
   model2 <-
-    stats::as.formula(glue::glue("{M} ~ {IV}",
-                                 IV = IV_name,
-                                 M  = M_name))
+    stats::as.formula(glue("{M} ~ {IV}",
+                           IV = IV_name,
+                           M  = M_name))
 
   model3 <-
-    stats::as.formula(glue::glue("{DV} ~ {IV} + {M}",
-                                 DV = DV_name,
-                                 IV = IV_name,
-                                 M  = M_name))
+    stats::as.formula(glue("{DV} ~ {IV} + {M}",
+                           DV = DV_name,
+                           IV = IV_name,
+                           M  = M_name))
 
   # models fitting and cleaning -----------------------------------------------
   js_models <-

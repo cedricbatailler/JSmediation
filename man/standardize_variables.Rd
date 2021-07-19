@@ -25,7 +25,8 @@ A data frame with the standardized columns.
 \description{
 \code{standardize_variables()} standardizes the selected columns in a
 data.frame using \code{\link[base:scale]{scale}}. By default, this function
-overwrites the column to be scaled.
+overwrites the column to be scaled. Use the \code{suffix} argument to avoid this
+behavior.
 
 \code{standardize_variables()} and \code{standardise_variables()} are synonyms.
 }

@@ -10,7 +10,7 @@
 #'
 #' @return A numeric vector.
 #'
-#' @details The \code{\link{lm}} method supports factor and character variables
+#' @details The [`lm`] method supports factor and character variables
 #'   by dummy coding them. Dummy coding can make the interpretation of regression
 #'   coefficient difficult or at least more difficult than contrast coding.
 #'   Contrast-coded-variable coefficients interpretation is particularly useful
@@ -25,7 +25,7 @@
 #'
 #'  head(ho_et_al)
 #'
-#' @seealso \code{\link{scale}} for centering continuous numeric variable.
+#' @seealso [`scale`] for centering continuous numeric variable.
 #'
 #' @export
 build_contrast <- function(vector, cond_a, cond_b) {

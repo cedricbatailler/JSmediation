@@ -1,9 +1,13 @@
 #' @title Fits a moderated mediation model
 #'
-#' @description Given a data frame, a predictor (\code{IV}), an outcome
-#'   (\code{DV}), a mediator (\code{M}), and a moderator (\code{Mod}) conducts a
+#' @description Given a data frame, a predictor (`IV`), an outcome
+#'   (`DV`), a mediator (`M`), and a moderator (`Mod`) conducts a
 #'   joint-significant test for moderated mediation (see Yzerbyt, Muller,
 #'   Batailler, & Judd, 2018).
+#'   
+#'   [`add_index.moderated_mediation`] computes the moderated mediation index.
+#'   [`compute_indirect_effect_for`] is used to compute the indirect effect
+#'   index for a specific value of the moderator.
 #'
 #' @param data A data frame containing the variables in the model.
 #' @param IV An unquoted variable in the data frame which will be used as
@@ -66,16 +70,16 @@
 #'   
 #' @section Variable coding: Because joint-significance tests use linear models
 #'   behind the scenes, variables involved in the model have to be numeric.
-#'   \code{mdt_simple} will give an error if non-numeric variables are
+#'   `mdt_simple` will give an error if non-numeric variables are
 #'   specified in the model.
 #'
 #'   If you need to convert a dichotomous categorical variable to a numeric one,
-#'   please refer to the \code{\link{build_contrast}} function.
+#'   please refer to the [`build_contrast`] function.
 #'
 #'   Note that variable coding is especially important in models with multiple
 #'   predictors as is the case in the model used to conduct a joint-significance
 #'   test of moderated mediation. Muller et al. (2005) recommend using variables
-#'   that are either contrast-coded or centered. Using \code{mdt_moderated} with
+#'   that are either contrast-coded or centered. Using `mdt_moderated` with
 #'   a DV, a mediator, or a moderator that is neither contrast-coded nor
 #'   centered will give a warning message.
 #'
@@ -108,52 +112,52 @@ mdt_moderated.data.frame <- function(data, IV, DV, M, Mod) {
   DV_name    <- rlang::quo_name(DV_var)
   M_name     <- rlang::quo_name(M_var)
   Mod_name   <- rlang::quo_name(Mod_var)
-  IVMod_name <- glue::glue("{IV_name}:{Mod_name}")
-  MMod_name  <- glue::glue("{M_name}:{Mod_name}")
+  IVMod_name <- glue("{IV_name}:{Mod_name}")
+  MMod_name  <- glue("{M_name}:{Mod_name}")
 
-  IV_data  <- data %>% dplyr::pull( !! IV_var )  %>% as.numeric()
-  M_data   <- data %>% dplyr::pull( !! M_var )   %>% as.numeric()
-  DV_data  <- data %>% dplyr::pull( !! DV_var )  %>% as.numeric()
-  Mod_data <- data %>% dplyr::pull( !! Mod_var ) %>% as.numeric()
+  IV_data  <- data %>% dplyr::pull( !! IV_var )
+  M_data   <- data %>% dplyr::pull( !! M_var )
+  DV_data  <- data %>% dplyr::pull( !! DV_var )
+  Mod_data <- data %>% dplyr::pull( !! Mod_var )
 
 
   # type check ----------------------------------------------------------------
   if(!is.numeric(IV_data))
-    stop(glue::glue("Warning:
-                    IV ({IV_name}) must be numeric (see build_contrast() to
-                    convert a character vector to a contrast code)."))
+    stop(glue("Warning:
+               IV ({IV_name}) must be numeric (see build_contrast() to
+               convert a character vector to a contrast code)."))
 
   if(!is.numeric(M_data))
-    stop(glue::glue("Warning:
-                    Mediator ({M_name}) must be numeric."))
+    stop(glue("Warning:
+               Mediator ({M_name}) must be numeric."))
 
   if(!is.numeric(DV_data))
-    stop(glue::glue("Warning:
-                    DV ({DV_name}) must be numeric."))
+    stop(glue("Warning:
+               DV ({DV_name}) must be numeric."))
 
-  if(!is.numeric(DV_data))
-    stop(glue::glue("Warning:
-                    Moderator ({DV_name}) must be numeric."))
+  if(!is.numeric(Mod_data))
+    stop(glue("Warning:
+              Moderator ({DV_name}) must be numeric."))
 
   # building models -----------------------------------------------------------
   model1 <-
-    stats::as.formula(glue::glue("{DV} ~ {IV} * {Mod}",
-                                 IV  = IV_name,
-                                 DV  = DV_name,
-                                 Mod = Mod_name))
-
+    stats::as.formula(glue("{DV} ~ {IV} * {Mod}",
+                           IV  = IV_name,
+                           DV  = DV_name,
+                           Mod = Mod_name))
+  
   model2 <-
-    stats::as.formula(glue::glue("{M} ~ {IV} * {Mod}",
-                                 IV  = IV_name,
-                                 M   = M_name,
-                                 Mod = Mod_name))
-
+    stats::as.formula(glue("{M} ~ {IV} * {Mod}",
+                           IV  = IV_name,
+                           M   = M_name,
+                           Mod = Mod_name))
+  
   model3 <-
-    stats::as.formula(glue::glue("{DV} ~ ({IV} + {M}) * {Mod}",
-                                 DV  = DV_name,
-                                 IV  = IV_name,
-                                 M   = M_name,
-                                 Mod = Mod_name))
+    stats::as.formula(glue("{DV} ~ ({IV} + {M}) * {Mod}",
+                           DV  = DV_name,
+                           IV  = IV_name,
+                           M   = M_name,
+                           Mod = Mod_name))
 
   # model fitting and cleaning ------------------------------------------------
   js_models <-
