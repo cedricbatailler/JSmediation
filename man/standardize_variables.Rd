@@ -35,5 +35,4 @@ ho_et_al \%>\%
 
 ho_et_al \%>\%
   standardize_variables(c(sdo, linkedfate), suffix = "scaled")
-
 }
