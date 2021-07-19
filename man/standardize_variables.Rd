@@ -29,6 +29,15 @@ overwrites the column to be scaled.
 
 \code{standardize_variables()} and \code{standardise_variables()} are synonyms.
 }
+\section{\code{standardize_variables} and \code{grouped_df}}{
+
+
+Note that \code{standardize_variables} ignores grouping. Meaning that if you
+call this function on a grouped data frame (see \link[dplyr:grouped_df]{dplyr::grouped_df}), the
+\strong{overall} variables' mean and standard deviation will be used for the
+standardization.
+}
+
 \examples{
 ho_et_al \%>\%
   standardize_variables(sdo)

@@ -2,7 +2,8 @@
 #'
 #' @description `standardize_variables()` standardizes the selected columns in a
 #'   data.frame using \code{\link[base:scale]{scale}}. By default, this function
-#'   overwrites the column to be scaled.
+#'   overwrites the column to be scaled. Use the `suffix` argument to avoid this
+#'   behavior.
 #'
 #'   `standardize_variables()` and `standardise_variables()` are synonyms.
 #'
@@ -12,6 +13,13 @@
 #' @param suffix A character suffix to be added to the scaled variables names.
 #'   When suffix is set to`NULL`, the  `standardize_variables()` function will
 #'   overwrite the scaled variables. Defaults to `NULL`.
+#'
+#' @section `standardize_variables` and `grouped_df`:
+#'
+#'   Note that `standardize_variables` ignores grouping. Meaning that if you
+#'   call this function on a grouped data frame (see [dplyr::grouped_df]), the
+#'   __overall__ variables' mean and standard deviation will be used for the
+#'   standardization.
 #'
 #' @return A data frame with the standardized columns.
 #' @export
