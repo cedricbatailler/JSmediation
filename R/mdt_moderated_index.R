@@ -21,7 +21,7 @@
 #'   Yzerbyt, 2005).
 #'
 #'   \pkg{JSmediation} supports different types of mediated indirect effect
-#'   index: 
+#'   index:
 #'   * **Stage 1:** computes the product between \eqn{a \times Mod}{a * Mod} and
 #'     \eqn{b}.
 #'   * **Stage 2:** computes the product between \eqn{a} and \eqn{b \times
@@ -33,8 +33,7 @@
 #' ho_et_al$condition_c <- build_contrast(ho_et_al$condition,
 #'                                        "Low discrimination",
 #'                                        "High discrimination")
-#' ho_et_al$linkedfate_c <- scale(ho_et_al$linkedfate, scale = FALSE)
-#' ho_et_al$sdo_c <- scale(ho_et_al$sdo, scale = FALSE)
+#' ho_et_al <- standardize_variables(ho_et_al, c(linkedfate, sdo))
 #' moderated_model <- mdt_moderated(data = ho_et_al,
 #'                                  IV = condition_c,
 #'                                  DV = hypodescent,
@@ -87,7 +86,7 @@ add_index.moderated_mediation <- function(mediation_model, times = 5000, level =
     indirect_sampling <- ab_sampling[ , 1] * ab_sampling[ , 2]
     CI <- stats::quantile(indirect_sampling, c(level / 2, 1 - level / 2))
     contains_zero <- (CI[[1]] < 0 & CI[[2]] > 0)
-    
+
     indirect_index_infos <-
       indirect_effect(type       = type,
                       estimate   = a * b,
@@ -95,7 +94,7 @@ add_index.moderated_mediation <- function(mediation_model, times = 5000, level =
                       times      = times,
                       sampling   = indirect_sampling)
   }
-  
+
   else if(stage %in% c("total")) {
 
     a1   <- purrr::pluck(mediation_model, "paths", "a * Mod", "point_estimate")
@@ -124,7 +123,7 @@ add_index.moderated_mediation <- function(mediation_model, times = 5000, level =
 
     indirect_sampling <- ab_sampling[ , 1] * ab_sampling[ , 2] +
       ab_sampling[ , 3] * ab_sampling[ , 4]
-    
+
     indirect_index_infos <-
       indirect_effect(
         type          = type,

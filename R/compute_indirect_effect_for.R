@@ -1,39 +1,39 @@
 #' Compute the indirect effect index for a specific value of the moderator
 #'
-#' @description 
+#' @description
 #'   When computing a moderated mediation, one assesses whether an indirect
 #'   effect changes according a moderator value (Muller et al., 2005).
 #'   [`mdt_moderated`] makes it easy to assess moderated mediation, but it does
 #'   not allow accessing the indirect effect for a specific moderator values.
 #'   `compute_indirect_effect_for` fills this gap.
 #'
-#' @param mediation_model A moderated mediation model fitted with `mdt_moderated``. 
+#' @param mediation_model A moderated mediation model fitted with `mdt_moderated``.
 #' @param Mod The moderator value for which to compute the indirect effect. Must
 #'   be a numeric value, defaults to `0`.
 #' @param times Number of simulations to use to compute the Monte Carlo indirect
 #'   effect confidence interval. Must be numeric, defaults to `5000`.
 #' @param level Alpha threshold to use for the indirect effect's confidence
 #'   interval. Defaults to `.05`.
-#'   
-#' @details 
+#'
+#' @details
 #'   The approach used by `compute_indirect_effect_for` is similar to the
 #'   approach used for simple slope analyses. Specifically, it will fit a new
 #'   moderated mediation model, but with a data set with a different variable
 #'   coding. Behind the scenes, `compute_indirect_effect_for` adjusts the
 #'   moderator variable coding, so that the value we want to compute the
 #'   indirect effect for is now `0`.
-#'   
+#'
 #'   Once done, a new moderated mediation model is applied using the new data
 #'   set. Because of the new coding, and because of how one interprets
-#'   coefficients in a linear regression, \eqn{a \times b}{a * b} is now the 
-#'   indirect effect we wanted to compute (see the Models section). 
-#'   
+#'   coefficients in a linear regression, \eqn{a \times b}{a * b} is now the
+#'   indirect effect we wanted to compute (see the Models section).
+#'
 #'   Thanks to the returned values of \eqn{a}{a} and {b}{b} (\eqn{b_51}{b_51}
 #'   and \eqn{b_64}{b_64}, see the Models section), it is now easy to compute
 #'   \eqn{a \times b}{a * b}. `compute_indirect_effect_for` uses the same
 #'   approach than the [`add_index`] funcion. A Monte Carlo simulation is used
 #'   to compute the indirect effect index (MacKinnon et al., 2004).
-#'   
+#'
 #' @section Models: In a moderated mediation model, three models are used.
 #'   `compute_indirect_effect_for` uses the same model specification as
 #'   [`mdt_moderated`]:
@@ -57,46 +57,45 @@
 #'   \eqn{b_{51}}{b_51}, \eqn{b_{53}}{b_53}, \eqn{b_{64}}{b_64},
 #'   \eqn{b_{65}}{b_65}, \eqn{b_{41}}{b_41}, \eqn{b_{43}}{b_43},
 #'   \eqn{b_{61}}{b_61}, and \eqn{b_{63}}{c63} (see Muller et al., 2005).
-#'   
+#'
 #' @examples
-#' # compute an indirect effect index for a specific value in a moderated 
+#' # compute an indirect effect index for a specific value in a moderated
 #' # mediation.
 #' data(ho_et_al)
 #' ho_et_al$condition_c <- build_contrast(ho_et_al$condition,
 #'                                        "Low discrimination",
 #'                                        "High discrimination")
-#' ho_et_al$linkedfate <- as.numeric(scale(ho_et_al$linkedfate))
-#' ho_et_al$sdo        <- as.numeric(scale(ho_et_al$sdo))
+#' ho_et_al <- standardize_variables(ho_et_al, c(linkedfate, sdo))
 #' moderated_mediation_model <- mdt_moderated(data = ho_et_al,
 #'                                            DV = hypodescent,
 #'                                            IV = condition_c,
 #'                                            M = linkedfate,
-#'                                            Mod = sdo) 
+#'                                            Mod = sdo)
 #' compute_indirect_effect_for(moderated_mediation_model, Mod = 0)
 #'
-#' @references 
+#' @references
 #'   MacKinnon, D. P., Lockwood, C. M., & Williams, J. (2004). Confidence Limits
 #'   for the Indirect Effect: Distribution of the Product and Resampling
 #'   Methods. *Multivariate Behavioral Research*, *39*(1), 99-128. doi:
 #'   10.1207/s15327906mbr3901_4
-#'   
+#'
 #'   Muller, D., Judd, C. M., & Yzerbyt, V. Y. (2005). When moderation
 #'   is mediated and mediation is moderated. *Journal of Personality and
 #'   Social Psychology*, *89*(6), 852-863. doi: 10.1037/0022-3514.89.6.852
 #'
 #' @export
 compute_indirect_effect_for <- function(mediation_model,
-                                         Mod = 0, 
-                                         times = 5000, 
+                                         Mod = 0,
+                                         times = 5000,
                                          level = .05) {
   UseMethod("compute_indirect_effect_for")
 }
 
 #' @export
-compute_indirect_effect_for.moderated_mediation <- 
-  function(mediation_model, 
-           Mod = 0, 
-           times = 5000, 
+compute_indirect_effect_for.moderated_mediation <-
+  function(mediation_model,
+           Mod = 0,
+           times = 5000,
            level = .05) {
 
     # checks
@@ -112,8 +111,8 @@ compute_indirect_effect_for.moderated_mediation <-
     moderator         <- purrr::chuck(mediation_model, "params", "Mod")
 
     # adjust the moderator coding so that 0 is the value we want to look at
-    mediation_dataset <- 
-      mediation_dataset %>% 
+    mediation_dataset <-
+      mediation_dataset %>%
       dplyr::mutate(dplyr::across(.data[[moderator]], ~ .x - Mod))
 
     # run a new moderated mediation model
@@ -144,7 +143,7 @@ compute_indirect_effect_for.moderated_mediation <-
                       )
       )
 
-    indirect_sampling <- param_sampling[ , 1] * param_sampling[ , 2] 
+    indirect_sampling <- param_sampling[ , 1] * param_sampling[ , 2]
 
     indirect_effect(
       type          = glue("Conditional simple mediation index (Mod = {Mod})"),
