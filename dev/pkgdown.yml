@@ -1,0 +1,10 @@
+pandoc: 2.7.3
+pkgdown: 1.6.1
+pkgdown_sha: ~
+articles:
+  jsmediation: jsmediation.html
+last_built: 2021-07-21T14:05Z
+urls:
+  reference: https://jsmediation.cedricbatailler.me/reference
+  article: https://jsmediation.cedricbatailler.me/articles
+
