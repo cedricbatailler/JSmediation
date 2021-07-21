@@ -252,19 +252,18 @@ is mediated and mediation is moderated. <em>Journal of Personality and
 Social Psychology</em>, <em>89</em>(6), 852-863. doi: 10.1037/0022-3514.89.6.852</p>
 
     <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
-    <pre class="examples"><div class='input'><span class='co'># compute an indirect effect index for a specific value in a moderated </span>
+    <pre class="examples"><div class='input'><span class='co'># compute an indirect effect index for a specific value in a moderated</span>
 <span class='co'># mediation.</span>
 <span class='fu'><a href='https://rdrr.io/r/utils/data.html'>data</a></span><span class='op'>(</span><span class='va'>ho_et_al</span><span class='op'>)</span>
 <span class='va'>ho_et_al</span><span class='op'>$</span><span class='va'>condition_c</span> <span class='op'>&lt;-</span> <span class='fu'><a href='build_contrast.html'>build_contrast</a></span><span class='op'>(</span><span class='va'>ho_et_al</span><span class='op'>$</span><span class='va'>condition</span>,
                                        <span class='st'>"Low discrimination"</span>,
                                        <span class='st'>"High discrimination"</span><span class='op'>)</span>
-<span class='va'>ho_et_al</span><span class='op'>$</span><span class='va'>linkedfate</span> <span class='op'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/r/base/numeric.html'>as.numeric</a></span><span class='op'>(</span><span class='fu'><a href='https://rdrr.io/r/base/scale.html'>scale</a></span><span class='op'>(</span><span class='va'>ho_et_al</span><span class='op'>$</span><span class='va'>linkedfate</span><span class='op'>)</span><span class='op'>)</span>
-<span class='va'>ho_et_al</span><span class='op'>$</span><span class='va'>sdo</span>        <span class='op'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/r/base/numeric.html'>as.numeric</a></span><span class='op'>(</span><span class='fu'><a href='https://rdrr.io/r/base/scale.html'>scale</a></span><span class='op'>(</span><span class='va'>ho_et_al</span><span class='op'>$</span><span class='va'>sdo</span><span class='op'>)</span><span class='op'>)</span>
+<span class='va'>ho_et_al</span> <span class='op'>&lt;-</span> <span class='fu'><a href='standardize_variables.html'>standardize_variables</a></span><span class='op'>(</span><span class='va'>ho_et_al</span>, <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span><span class='va'>linkedfate</span>, <span class='va'>sdo</span><span class='op'>)</span><span class='op'>)</span>
 <span class='va'>moderated_mediation_model</span> <span class='op'>&lt;-</span> <span class='fu'><a href='mdt_moderated.html'>mdt_moderated</a></span><span class='op'>(</span>data <span class='op'>=</span> <span class='va'>ho_et_al</span>,
                                            DV <span class='op'>=</span> <span class='va'>hypodescent</span>,
                                            IV <span class='op'>=</span> <span class='va'>condition_c</span>,
                                            M <span class='op'>=</span> <span class='va'>linkedfate</span>,
-                                           Mod <span class='op'>=</span> <span class='va'>sdo</span><span class='op'>)</span> 
+                                           Mod <span class='op'>=</span> <span class='va'>sdo</span><span class='op'>)</span>
 <span class='fu'>compute_indirect_effect_for</span><span class='op'>(</span><span class='va'>moderated_mediation_model</span>, Mod <span class='op'>=</span> <span class='fl'>0</span><span class='op'>)</span>
 </div><div class='output co'>#&gt; - type: Conditional simple mediation index (Mod = 0) 
 #&gt; - point estimate: 0.0916 
