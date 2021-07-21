@@ -6,7 +6,8 @@ home:
 
 template:
   params:
-    bootswatch: cosmo
+    bootstrap: 4
+    bootswatch: paper
     ganalytics: G-CSC1TRYSDL
     docsearch:
       api_key: d3fc9eeadfb88a84050b53647236a5ba
