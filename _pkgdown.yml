@@ -15,6 +15,9 @@ template:
     author: "@cedricbatailler"
     card: summary_large_image
 
+development:
+  mode: auto
+
 authors:
   Cédric Batailler:
     href: https://cedricbatailler.me
