@@ -21,7 +21,6 @@ authors:
   Dominique Muller:
     href: https://www.dominique.muller.lippc2s.fr/
 
-
 reference:
 
 - title: "Fitting mediation models"
@@ -52,3 +51,4 @@ reference:
 - contents:
   - apastylr
   - build_contrast
+  - standardize_variables

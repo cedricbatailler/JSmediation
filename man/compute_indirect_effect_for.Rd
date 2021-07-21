@@ -77,19 +77,18 @@ Coefficients associated with \eqn{a}, \eqn{a \times Mod}{a * Mod}, \eqn{b},
 }
 
 \examples{
-# compute an indirect effect index for a specific value in a moderated 
+# compute an indirect effect index for a specific value in a moderated
 # mediation.
 data(ho_et_al)
 ho_et_al$condition_c <- build_contrast(ho_et_al$condition,
                                        "Low discrimination",
                                        "High discrimination")
-ho_et_al$linkedfate <- as.numeric(scale(ho_et_al$linkedfate))
-ho_et_al$sdo        <- as.numeric(scale(ho_et_al$sdo))
+ho_et_al <- standardize_variables(ho_et_al, c(linkedfate, sdo))
 moderated_mediation_model <- mdt_moderated(data = ho_et_al,
                                            DV = hypodescent,
                                            IV = condition_c,
                                            M = linkedfate,
-                                           Mod = sdo) 
+                                           Mod = sdo)
 compute_indirect_effect_for(moderated_mediation_model, Mod = 0)
 
 }
