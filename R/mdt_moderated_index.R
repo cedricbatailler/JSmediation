@@ -20,7 +20,7 @@
 #'   product distribution using Monte Carlo methods (see Muller, Judd, &
 #'   Yzerbyt, 2005).
 #'
-#'   \pkg{JSmediation} supports different types of mediated indirect effect
+#'   JSmediation supports different types of mediated indirect effect
 #'   index:
 #'   * **Stage 1:** computes the product between \eqn{a \times Mod}{a * Mod} and
 #'     \eqn{b}.
