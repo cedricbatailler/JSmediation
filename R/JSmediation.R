@@ -28,17 +28,17 @@
 #'   of \pkg{JSmediation}.
 #'
 #' @references Muller, D., Judd, C. M., & Yzerbyt, V. Y. (2005). When moderation
-#'   is mediated and mediation is moderated. \emph{Journal of Personality and
-#'   Social Psychology}, \emph{89}(6), 852–863. doi: 10.1037/0022-3514.89.6.852
+#'   is mediated and mediation is moderated. *Journal of Personality and
+#'   Social Psychology*, *89*(6), 852–863. doi: 10.1037/0022-3514.89.6.852
 #'
-#'   Judd, C. M., Yzerbyt, V. Y., & Muller, D. (2014). \emph{Mediation and
-#'   Moderation}. In H. T. Reis & C. M. Judd (Eds.), Handbook of Research
+#'   Judd, C. M., Yzerbyt, V. Y., & Muller, D. (2014). *Mediation and
+#'   Moderation*. In H. T. Reis & C. M. Judd (Eds.), Handbook of Research
 #'   Methods in Social and Personality Psychology (2nd ed., pp. 653–676). New
 #'   York: Cambridge University Press.
 #'
 #'   Yzerbyt, V., Muller, D., Batailler, C., & Judd, C. M. (2018). New
 #'   recommendations for testing indirect effects in mediational models: The
-#'   need to report and test component paths. \emph{Journal of Personality and
-#'   Social Psychology}, \emph{115}(6), 929–943. doi: 10.1037/pspa0000132
+#'   need to report and test component paths. *Journal of Personality and
+#'   Social Psychology*, *115*(6), 929–943. doi: 10.1037/pspa0000132
 
 NULL
