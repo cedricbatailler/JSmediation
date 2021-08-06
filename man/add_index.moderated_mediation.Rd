@@ -36,11 +36,11 @@ Yzerbyt, 2005).
 \pkg{JSmediation} supports different types of mediated indirect effect
 index:
 \itemize{
-\item{Stage 1: }{computes the product between \eqn{a \times Mod}{a
-    * Mod} and \eqn{b}.}
-\item{Stage 2: }{ computes the product between \eqn{a} and \eqn{b \times
-    Mod}{b * Mod}.}
-\item{Total: }{ computes the sum of Stage 1 and Stage 2 distribution.}
+\item \strong{Stage 1:} computes the product between \eqn{a \times Mod}{a * Mod} and
+\eqn{b}.
+\item \strong{Stage 2:} computes the product between \eqn{a} and \eqn{b \times
+     Mod}{b * Mod}.
+\item \strong{Total:} computes the sum of Stage 1 and Stage 2 distribution.
 }
 }
 \examples{
@@ -48,8 +48,7 @@ index:
 ho_et_al$condition_c <- build_contrast(ho_et_al$condition,
                                        "Low discrimination",
                                        "High discrimination")
-ho_et_al$linkedfate_c <- scale(ho_et_al$linkedfate, scale = FALSE)
-ho_et_al$sdo_c <- scale(ho_et_al$sdo, scale = FALSE)
+ho_et_al <- standardize_variables(ho_et_al, c(linkedfate, sdo), suffix ="c")
 moderated_model <- mdt_moderated(data = ho_et_al,
                                  IV = condition_c,
                                  DV = hypodescent,

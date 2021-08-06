@@ -1,9 +1,9 @@
-#' @title Print method for object of class \code{indirect_index}
+#' @title Print method for object of class `indirect_index`
 #'
 #' @description Print a summary for an indirect effect index created with
-#'   \code{add_index()} method.
+#'   `add_index()` method.
 #'
-#' @param x      An object of class \code{indirect_index}.
+#' @param x      An object of class `indirect_index`.
 #' @param digits How many significant digits are to be used for numerics.
 #' @param ...    Further arguments.
 #'

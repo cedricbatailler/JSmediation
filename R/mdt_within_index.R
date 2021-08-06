@@ -2,10 +2,10 @@
 #'
 #' @description Adds the confidence interval for the index of
 #'   within-participant mediation to a  model fitted with
-#'   \code{\link{mdt_within}} or \code{\link{mdt_within_wide}}.
-#'   
+#'   [`mdt_within`] or [`mdt_within_wide`].
+#'  
 #' @param mediation_model A mediation model of class
-#'   \code{"within_participant_mediation"}.
+#'   `"within_participant_mediation"`.
 #' @param times Number of simulations to use to compute the Monte Carlo indirect
 #'   effect confidence interval.
 #' @param level Alpha threshold to use for the confidence interval.

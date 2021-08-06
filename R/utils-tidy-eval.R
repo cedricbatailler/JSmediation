@@ -29,7 +29,6 @@
 #' section](https://adv-r.hadley.nz/metaprogramming.html) of [Advanced
 #' R](https://adv-r.hadley.nz).
 #'
-#' @md
 #' @name     tidyeval
 #' @keywords internal
 #' @importFrom rlang quo quos enquo enquos quo_name sym ensym syms

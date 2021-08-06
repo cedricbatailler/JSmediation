@@ -51,6 +51,10 @@ Given a data frame, a predictor (\code{IV}), an outcome
 (\code{DV}), a mediator (\code{M}), and a moderator (\code{Mod}) conducts a
 joint-significant test for moderated mediation (see Yzerbyt, Muller,
 Batailler, & Judd, 2018).
+
+\code{\link{add_index.moderated_mediation}} computes the moderated mediation index.
+\code{\link{compute_indirect_effect_for}} is used to compute the indirect effect
+index for a specific value of the moderator.
 }
 \details{
 With moderated mediation analysis, one tests whether the

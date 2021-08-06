@@ -17,6 +17,10 @@ Authors@R:
       person(given = "Charles",
              family = "Judd",
              role = "aut"),
+      person(given = "Yoann",
+             family = "Julliard",
+             role = "ctb",
+             comment = c(ORCID = "0000-0002-5428-6994")),
       person(given = "Arnold",
              family = "Ho",
              role = "dtc"),
@@ -55,17 +59,21 @@ Imports:
     stats,
     tibble
 Suggests: 
+    mediation,
     covr,
     DiagrammeR,
     markdown,
     rmarkdown,
     roxygen2,
     testthat (>= 3.0.2),
-    withr
+    withr,
+    lavaan,
+    processR
 VignetteBuilder: 
     knitr
 ByteCompile: true
 Config/testthat/edition: 3
+Config/testthat/parallel: true
 Encoding: UTF-8
 LazyData: true
 Roxygen: list(markdown = TRUE)
