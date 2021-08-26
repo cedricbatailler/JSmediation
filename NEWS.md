@@ -4,6 +4,7 @@
 * Introduce the `compute_indirect_effect_for()` function which computes the 
   indirect effect confidence interval for a specific value of the moderator in 
   a moderated mediation model.
+* Add a vignette to illustrate moderated mediation analyses.
 
 # JSmediation 0.1.2
 
