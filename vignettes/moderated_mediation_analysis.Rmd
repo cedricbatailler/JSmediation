@@ -1,0 +1,119 @@
+---
+title: "Conducting a moderated mediation analysis"
+output: rmarkdown::html_vignette
+vignette: >
+  %\VignetteIndexEntry{moderated_mediation_analysis}
+  %\VignetteEngine{knitr::rmarkdown}
+  %\VignetteEncoding{UTF-8}
+bibliography: "`r system.file('references.bib', package='JSmediation')`"
+csl: "`r system.file('apa.csl', package='JSmediation')`"
+---
+
+```{r, include = FALSE}
+knitr::opts_chunk$set(
+  collapse = TRUE,
+  comment = "#>"
+)
+```
+
+Simple mediation refers to the pattern of statistical relationships in which the effect of a variable on another goes through a third variable. Sometimes, this indirect relationship is conditional to a fourth variable---a moderator. In such scenario, we talk about **moderated mediation**. The *JSmediation* package offers a collection of tool to conduct and report a moderated mediation analysis [@muller_when_2005].
+
+```{r setup, message=FALSE}
+library(JSmediation)
+library(dplyr)
+```
+
+The [Introduction to JSmediation](jsmediation.html) vignette uses a data set collected by Ho et al. [-@ho_youre_2017] to illustrate simple mediation. This data set contains the result of an experiment in which Ho et al. focus on hypodescent among Black Americans. Hypodescent usually refers to when members of a high status group will be more likely to categorize individual belonging to several group as member of the lower group rather than as member of the higher group. For example, some White Americans show a tendency to categorize Black-White multiracial as Black Americans [@ho_youre_2017]. In the experiment that we will focus on, Ho et al. [-@ho_youre_2017] showed that Black Americans had a tendency to hypodescent and that this tendency was mediated by a feeling of linked fate between Black Americans and Black-White multiracials. In the current vignette, we will investigate whether this indirect effect is moderated by social dominance orientation.
+
+```{r}
+data(ho_et_al)
+```
+
+Note that this vignette was written to illustrate features from the *JSmediation* package. We will use functions from other packages (e.g., `dplyr`), but make it explicit when we do so. In other words, if you want to reproduce this example, you do not have to type `dplyr::mutate`, `mutate` will work.
+
+## Formatting the data set
+
+The data set collected by Ho et al. [-@ho_youre_2017] already contains the information necessary for the test of our hypothesis of moderated mediation. The data set contains a `condition` column indicating whether participant where in a situation of high or low discrimantion and a `hypodescent` column. The data set also contains a `linkedfate` column indicating the level of linked fate participants felt in the experimental situation. The simple mediation analysis in the [Introduction to JSmediation](jsmediation.html) vignette shows that participants in high discrimination conditions tends to feel higher level of linked fate which result in higher hypodescent. We will now investigate whether this indirect effect is more likely to be observed among participants who show higher level of SDO (thanks to the `sdo` column).
+
+```{r}
+head(ho_et_al)
+```
+
+Before we run the moderated mediation analysis, we must tweak the data set a little bit. Muller et al. [-@muller_when_2005] recommend centering continuous predictors and contrast coding categorical ones. *JSmediation* offers helpers like `build_contrast` or `standardize_variables` to do so.
+
+```{r}
+ho_et_al <-
+  ho_et_al %>%
+  standardize_variables(c(sdo, linkedfate), suffix = "c") %>%
+  dplyr::mutate(condition_c = build_contrast(condition,
+                                             "Low discrimination",
+                                             "High discrimination")
+  )
+
+head(ho_et_al)
+```
+
+The first function we used, `standardize_variables`, allows us to center and reduce (to standardize) a set of variables (here: `sdo` and `linkedfate`). The `suffix` argument of this function is used to name the standardized variables. Here, because we set `suffix = "c"`, the new variables are named `sdo_c` and `linkedfate_c`. When the suffix argument is blank, original variables are overwritten. Because *JSmediation* was designed to fit within the tidyverse, `standardize_variables` is especially useful in a *dplyr* [chain](https://dplyr.tidyverse.org/articles/dplyr.html#combining-functions-with- "Combining functions with `%>%`").
+
+Here, we also used a second function from *JSmediation*: `build_contrast`. This function takes a character vector as a first argument and, then, returns a contrast-coded variables. It is designed for variables with two conditions, which is the case of `condition`. Because we want to include the transformed variable in `ho_et_al`, we can use the `dplyr::mutate` function which [create (or modify) variables](https://dplyr.tidyverse.org/reference/mutate.html "Create, modify, and delete columns"). With this method, we contrast-coded the `condition` variable.
+
+```{r}
+ho_et_al %>% 
+  dplyr::select(dplyr::starts_with("condition"))
+```
+
+## Fitting the moderated mediation model
+
+We will now run our moderated mediation analysis. Remember, we are testing whether participants in high discrimination condition show higher level of hypodescent because of a higher perception of linked fate, and whether this indirect effect is higher among people with high level of SDO. In other words, we are testing whether SDO moderates the mediation of the effect on condition on hypodescent through linked fate perception. To test this moderated mediation, we will use the `mdr_moderated` function.
+
+`mdt_moderated` works like every `mdt_*` function. We will have to describe the role of the variable in the `ho_et_al` data set.
+
+```{r}
+moderated_mediation_fit <- 
+  mdt_moderated(data = ho_et_al,
+                IV   = condition_c,
+                DV   = hypodescent, 
+                M    = linkedfate_c,
+                Mod  = sdo_c)
+```
+
+The `moderated_mediation_fit` that we just computed contains every linear model useful to assess moderated mediation, as described in Muller et al. [-@muller_when_2005].
+
+To compute the confidence interval around the moderated mediation index, we can use the `add_index`method. In the case of moderated mediation, we will have to specify whether we are in a scenario where we assume that the moderator impacts the relation between or IV and the mediator, the relation between the moderator and the DV, or both. To do so, we must use the `stage` argument.
+
+```{r}
+moderated_mediation_fit_w_index <- moderated_mediation_fit %>%
+  add_index(stage = "first")
+```
+
+We can now print our model, and check whether we are in a moderated mediation situation.
+
+```{r}
+moderated_mediation_fit_w_index
+```
+
+This object contains every bit of information to report a moderated mediation in an analysis, following Yzerbyt et al.'s [@yzerbyt_new_2018] recommendations:
+
+> To assess whether SDO moderates the indirect effect of condition on hypodescent through linked fate perception, we conducted a moderated mediation analysis [@muller_when_2005]. This analysis first revealed that SDO moderates the effect of condition on linked fate perception, *t*(820) = 4.25, *p* \< .001. It also revealed that the effect of linked fate perception for a mean level of SDO, and controlling for the effect of the condition and for the moderation of the condition by SDO, predicted significantly hypodescent, *t*(818) = 3.75, *p* \< .001. This pattern reveals the existence of a moderated mediation. We also computed the first stage moderated mediation index consistent with our joint-significant analysis and it confirmed the moderated mediation, -0.0432, $CI_{95\%}$ [-0.0778; -0.0171] ( Monte Carlo simulation, 5000 simulations; Yzerbyt et al., 2018).
+
+## Mediation analysis for a moderator's value
+
+When reporting a moderated mediation analysis, it is sometimes useful to know what the indirect effect is for several values of the moderator. The `compute_indirect_effect_for` function serves that purpose.
+
+`compute_indirect_effect_for` takes as the first argument a moderated mediation model for which we want to compute the indirect effect at a specific value of the moderator and as the second argument the value of the moderator.
+
+In our example, we standardized our moderator. A mean value of the moderator therefore is `sdo_c = 0`. If we wanted to compute the effect of condition on hypodescent through linked fate for a mean value of sdo, we would have to run the following:
+
+```{r}
+compute_indirect_effect_for(moderated_mediation_fit, Mod = 0)
+```
+
+We could also compute this indirect effect for participants which score one standard deviation above the mean in terms of SDO.
+
+```{r}
+compute_indirect_effect_for(moderated_mediation_fit, Mod = 1)
+```
+
+As we can see, the indirect effect estimate decreases when the SDO increases. This result is consistent with the negative value of the moderated mediation index.
+
+# References
