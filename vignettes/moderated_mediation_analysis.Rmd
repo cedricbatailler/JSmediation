@@ -242,7 +242,7 @@ with our joint-significant analysis and it confirmed the moderated mediation,
 -0.0432, $CI_{95\%}$ [-0.0778; -0.0171] (Monte Carlo simulation, 5000
 simulations; Yzerbyt et al., 2018).
 
-## Mediation analysis for a moderator's value
+## Compute the indirect effect for a moderator's value
 
 When reporting a moderated mediation analysis, it is sometimes useful to know
 what the indirect effect is for several values of the moderator. The
