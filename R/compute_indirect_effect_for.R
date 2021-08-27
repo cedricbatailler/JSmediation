@@ -46,10 +46,10 @@
 #'   Xmo_i} + \mathbf{b_{64} Me_i} + \mathbf{b_{65} MeMo_i}}{Yi = b_60 + b61*Xi
 #'   + b_62*Moi + b63 XMoi + b64 Mei + b65 MeMoi}
 #'
-#'   with \eqn{Y_i}{Yi}, the outcome value for the \emph{i}th observation,
-#'   \eqn{X_i}{Xi}, the predictor value for the \emph{i}th observation,
-#'   \eqn{Mo_i}{Xi}, the moderator value for the \emph{i}th observation, and
-#'   \eqn{M_i}{Mi}, the mediator value for the \emph{i}th observation.
+#'   with \eqn{Y_i}{Yi}, the outcome value for the *i*th observation,
+#'   \eqn{X_i}{Xi}, the predictor value for the *i*th observation,
+#'   \eqn{Mo_i}{Xi}, the moderator value for the *i*th observation, and
+#'   \eqn{M_i}{Mi}, the mediator value for the *i*th observation.
 #'
 #'   Coefficients associated with \eqn{a}, \eqn{a \times Mod}{a * Mod}, \eqn{b},
 #'   \eqn{b \times Mod}{b * Mod}, \eqn{c}, \eqn{c \times Mod}{c * Mod},

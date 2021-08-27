@@ -55,10 +55,10 @@
 #'   Xmo_i} + \mathbf{b_{64} Me_i} + \mathbf{b_{65} MeMo_i}}{Yi = b_60 + b61*Xi
 #'   + b_62*Moi + b63 XMoi + b64 Mei + b65 MeMoi}
 #'
-#'   with \eqn{Y_i}{Yi}, the outcome value for the \emph{i}th observation,
-#'   \eqn{X_i}{Xi}, the predictor value for the \emph{i}th observation,
-#'   \eqn{Mo_i}{Xi}, the moderator value for the \emph{i}th observation, and
-#'   \eqn{M_i}{Mi}, the mediator value for the \emph{i}th observation.
+#'   with \eqn{Y_i}{Yi}, the outcome value for the *i*th observation,
+#'   \eqn{X_i}{Xi}, the predictor value for the *i*th observation,
+#'   \eqn{Mo_i}{Xi}, the moderator value for the *i*th observation, and
+#'   \eqn{M_i}{Mi}, the mediator value for the *i*th observation.
 #'
 #'
 #'   Coefficients associated with \eqn{a}, \eqn{a \times Mod}{a * Mod}, \eqn{b},
@@ -85,14 +85,14 @@
 #'
 #'
 #' @references Muller, D., Judd, C. M., & Yzerbyt, V. Y. (2005). When moderation
-#'   is mediated and mediation is moderated. \emph{Journal of Personality and
-#'   Social Psychology}, 89(6), 852-863. doi: 10.1037/0022-3514.89.6.852
+#'   is mediated and mediation is moderated. *Journal of Personality and
+#'   Social Psychology*, 89(6), 852-863. doi: 10.1037/0022-3514.89.6.852
 #'
 #'   Yzerbyt, V., Muller, D., Batailler, C., & Judd, C. M. (2018). New
 #'   recommendations for testing indirect effects in mediational models: The
-#'   need to report and test component paths. \emph{Journal of Personality and
-#'   Social Psychology}, \emph{115}(6), 929–943. doi: 10.1037/pspa0000132
-#'
+#'   need to report and test component paths. *Journal of Personality and
+#'   Social Psychology*, *115*(6), 929–943. doi: 10.1037/pspa0000132
+#'   
 #' @export
 
 mdt_moderated <- function(data, IV, DV, M, Mod) {
