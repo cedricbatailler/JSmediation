@@ -142,6 +142,12 @@ egalitarianism. *Journal of Personality and Social Psychology*,
 *113*(5), 753-768. doi:
 [10.1037/pspi0000107](https://dx.doi.org/10.1037/pspi0000107)
 
+## Getting help
+
+If you encounter a clear bug or have a question please file an issue
+with a minimal reproducible example on
+[GitHub](https://github.com/cedricbatailler/JSmediation/issues).
+
 ## Contributing
 
 Contributions are absolutely welcome. Please note that this project is
