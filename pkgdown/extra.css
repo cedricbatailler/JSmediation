@@ -1,0 +1,62 @@
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300;0,400;1,300;1,400&display=swap');
+
+h1 {font-size: 40px;}
+h2 {font-size: 30px;}
+h3 {font-size: 23px;}
+
+h1, h2, h3, h4, h5, h6, .h1, .h2, .h3, .h4, .h5, .h6 {
+  font-weight: 300;
+}
+
+body {
+  font-family: 'Open Sans', sans-serif;
+}
+/* - NAVBAR -----------------------------------------------------------------*/
+.label-danger {
+  font-size: small;
+  font-weight: 300;
+  background: transparent;
+  color: #e51c23;
+}
+
+.navbar {
+  border: none;
+  box-shadow: 0 3px 15px 0 rgba(0, 0, 0, 0.1);
+  -webkit-box-shadow: 0 3px 15px 0 rgba(0, 0, 0, 0.1);
+  min-height: 50px;
+  padding: 5px 0;
+}
+
+.navbar-brand {
+  height: 50px;
+  line-height: 50px;
+  padding: 0 0 0 54px;
+  background-image: url(logo.png);
+  background-size: 32px auto;
+  background-repeat: no-repeat;
+  background-position: 15px center;
+  font-size: 32px;
+}
+
+.navbar-form {
+  margin: 3px 0 0;
+}
+
+.navbar-default .navbar-nav>.active>a, .navbar-default .navbar-nav>.active>a:hover, .navbar-default .navbar-nav>.active>a:focus {
+  border-radius: 3px;
+}
+
+.navbar-toggle {
+  margin: 8px 15px 5px 0;
+}
+
+.nav > li > a {
+  font-size: 16px;
+  line-height: 29px;
+  padding: 10px 15px;
+}
+
+.label {
+  border-radius: 0;
+  padding: .2em .3em;
+}
