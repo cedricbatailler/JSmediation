@@ -55,18 +55,18 @@
 <meta property="og:title" content="Tidy eval helpers — tidyeval" />
 <meta property="og:description" content="
 
-sym() creates a symbol from a string and
-syms() creates a list of symbols from a
+rlang::sym() creates a symbol from a string and
+rlang::syms() creates a list of symbols from a
 character vector.
-expr() and quo() quote
+rlang::expr() and rlang::quo() quote
 one expression. quo() wraps the quoted expression in a quosure.
 The plural variants rlang::exprs() and
-quos() return a list of quoted expressions or
+rlang::quos() return a list of quoted expressions or
 quosures.
-enexpr() and enquo()
+rlang::enexpr() and rlang::enquo()
 capture the expression supplied as argument by the user of the
 current function (enquo() wraps this expression in a quosure).
-enexprs() and enquos()
+rlang::enexprs() and rlang::enquos()
 capture multiple expressions supplied as arguments, including
 ....
 
@@ -182,18 +182,18 @@ https://rlang.r-lib.org/ and the Metaprogramming section of Advanced R." />
     <div class="ref-description">
     
 <ul>
-<li><p><code><a href='https://rlang.r-lib.org/reference/sym.html'>sym</a>()</code> creates a symbol from a string and
-<code><a href='https://rlang.r-lib.org/reference/sym.html'>syms</a>()</code> creates a list of symbols from a
+<li><p><code><a href='https://rlang.r-lib.org/reference/sym.html'>rlang::sym()</a></code> creates a symbol from a string and
+<code><a href='https://rlang.r-lib.org/reference/sym.html'>rlang::syms()</a></code> creates a list of symbols from a
 character vector.</p></li>
-<li><p><code><a href='https://rlang.r-lib.org/reference/nse-defuse.html'>expr</a>()</code> and <code><a href='https://rlang.r-lib.org/reference/nse-defuse.html'>quo</a>()</code> quote
+<li><p><code><a href='https://rlang.r-lib.org/reference/nse-defuse.html'>rlang::expr()</a></code> and <code><a href='https://rlang.r-lib.org/reference/nse-defuse.html'>rlang::quo()</a></code> quote
 one expression. <code>quo()</code> wraps the quoted expression in a quosure.</p>
 <p>The plural variants <code><a href='https://rlang.r-lib.org/reference/nse-defuse.html'>rlang::exprs()</a></code> and
-<code><a href='https://rlang.r-lib.org/reference/nse-defuse.html'>quos</a>()</code> return a list of quoted expressions or
+<code><a href='https://rlang.r-lib.org/reference/nse-defuse.html'>rlang::quos()</a></code> return a list of quoted expressions or
 quosures.</p></li>
-<li><p><code><a href='https://rlang.r-lib.org/reference/nse-defuse.html'>enexpr</a>()</code> and <code><a href='https://rlang.r-lib.org/reference/nse-defuse.html'>enquo</a>()</code>
+<li><p><code><a href='https://rlang.r-lib.org/reference/nse-defuse.html'>rlang::enexpr()</a></code> and <code><a href='https://rlang.r-lib.org/reference/nse-defuse.html'>rlang::enquo()</a></code>
 capture the expression supplied as argument by the user of the
 current function (<code>enquo()</code> wraps this expression in a quosure).</p>
-<p><code><a href='https://rlang.r-lib.org/reference/nse-defuse.html'>enexprs</a>()</code> and <code><a href='https://rlang.r-lib.org/reference/nse-defuse.html'>enquos</a>()</code>
+<p><code><a href='https://rlang.r-lib.org/reference/nse-defuse.html'>rlang::enexprs()</a></code> and <code><a href='https://rlang.r-lib.org/reference/nse-defuse.html'>rlang::enquos()</a></code>
 capture multiple expressions supplied as arguments, including
 <code>...</code>.</p></li>
 </ul>
