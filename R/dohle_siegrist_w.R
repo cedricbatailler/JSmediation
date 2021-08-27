@@ -22,7 +22,7 @@
 #'
 #'@references Dohle, S., & Siegrist, M. (2014). Fluency of pharmaceutical drug
 #'  names predicts perceived hazardousness, assumed side effects and willingness
-#'  to buy. \emph{Journal of Health Psychology}, \emph{19}(10), 1241-1249. doi:
+#'  to buy. *Journal of Health Psychology*, *19*(10), 1241-1249. doi:
 #'  10.1177/1359105313488974
 #'
 #'@usage data("dohle_siegrist_wide")

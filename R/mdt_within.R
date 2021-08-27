@@ -30,7 +30,7 @@
 #'   [`dohle_siegrist`] for an example.
 #'
 #'   Because such formatting is not the most common among social scientists
-#'   interested in within-participant mediation, \pkg{JSmediation} contains the
+#'   interested in within-participant mediation, JSmediation contains the
 #'   [`mdt_within_wide`] function which handles wide-formatted data
 #'   input (but is syntax-inconsistent with other `mdt_*` family
 #'   functions).
@@ -46,7 +46,7 @@
 #'   `mdt_within` has to use \eqn{Y_{2i} - Y_{1i}} (instead of \eqn{Y_{1i}
 #'   - Y_{2i}}) so that \eqn{c_{11}} is positive, it will use \eqn{M_{2i} -
 #'   M_{1i}} (instead of \eqn{M_{1i} - M_{2i}} in the other models.
-#'   
+#'
 #'   User can choose to have a negative total effect by using the
 #'   `default_coding` argument.
 #'
@@ -54,17 +54,17 @@
 #'
 #' @references Judd, C. M., Kenny, D. A., & McClelland, G. H. (2001). Estimating
 #'   and testing mediation and moderation in within-subject designs.
-#'   \emph{Psychological Methods}, \emph{6}(2), 115-134. doi:
+#'   *Psychological Methods*, *6*(2), 115-134. doi:
 #'   10.1037//1082-989X.6.2.115
 #'
 #'   Montoya, A. K., & Hayes, A. F. (2017). Two-condition within-participant
 #'   statistical mediation analysis: A path-analytic framework.
-#'   \emph{Psychological Methods}, \emph{22}(1), 6-27. doi: 10.1037/met0000086
+#'   *Psychological Methods*, *22*(1), 6-27. doi: 10.1037/met0000086
 #'
 #'   Yzerbyt, V., Muller, D., Batailler, C., & Judd, C. M. (2018). New
 #'   recommendations for testing indirect effects in mediational models: The
-#'   need to report and test component paths. \emph{Journal of Personality and
-#'   Social Psychology}, \emph{115}(6), 929–943. doi: 10.1037/pspa0000132
+#'   need to report and test component paths. *Journal of Personality and
+#'   Social Psychology*, *115*(6), 929–943. doi: 10.1037/pspa0000132
 #'
 #' @family mediation models
 #'
@@ -176,11 +176,11 @@ mdt_within.data.frame <- function(data, IV, DV, M, grouping, default_coding = TR
   model1 <-
     stats::as.formula(glue("{DV} ~ 1",
                            DV = DV_diff_name))
-  
+
   model2 <-
     stats::as.formula(glue("{M}  ~ 1",
                            M = M_diff_name))
-  
+
   model3 <-
     stats::as.formula(glue("{DV}  ~ 1 + {M} + {M_mean}",
                            DV     = DV_diff_name,

@@ -89,7 +89,7 @@ the outcome and one observation for the mediator (see
 \code{\link{dohle_siegrist}} for an example.
 
 Because such formatting is not the most common among social scientists
-interested in within-participant mediation, \pkg{JSmediation} contains the
+interested in within-participant mediation, JSmediation contains the
 \code{\link{mdt_within_wide}} function which handles wide-formatted data
 input (but is syntax-inconsistent with other \verb{mdt_*} family
 functions).
