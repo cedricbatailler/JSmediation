@@ -1,4 +1,4 @@
-/* Edit pkgdown/extra.css to customize the theme */
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300;0,400;1,300;1,400&display=swap');
 
 h1 {font-size: 40px;}
 h2 {font-size: 30px;}
@@ -8,7 +8,16 @@ h1, h2, h3, h4, h5, h6, .h1, .h2, .h3, .h4, .h5, .h6 {
   font-weight: 300;
 }
 
+body {
+  font-family: 'Open Sans', sans-serif;
+}
 /* - NAVBAR -----------------------------------------------------------------*/
+.label-danger {
+  font-size: small;
+  font-weight: 300;
+  background: transparent;
+  color: #e51c23;
+}
 
 .navbar {
   border: none;
@@ -49,6 +58,5 @@ h1, h2, h3, h4, h5, h6, .h1, .h2, .h3, .h4, .h5, .h6 {
 
 .label {
   border-radius: 0em;
-  font-size: 50%;
   padding: .2em .3em .2em;
 }
