@@ -210,7 +210,7 @@ standardization.</p>
     <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
     <pre class="examples"><div class='input'><span class='va'>ho_et_al</span> <span class='op'>%&gt;%</span>
   <span class='fu'>standardize_variables</span><span class='op'>(</span><span class='va'>sdo</span><span class='op'>)</span>
-</div><div class='output co'>#&gt; <span style='color: #949494;'># A tibble: 824 x 5</span>
+</div><div class='output co'>#&gt; <span style='color: #949494;'># A tibble: 824 × 5</span>
 #&gt;    id    condition              sdo linkedfate hypodescent
 #&gt;    <span style='color: #949494; font-style: italic;'>&lt;chr&gt;</span> <span style='color: #949494; font-style: italic;'>&lt;chr&gt;</span>                <span style='color: #949494; font-style: italic;'>&lt;dbl&gt;</span>      <span style='color: #949494; font-style: italic;'>&lt;dbl&gt;</span>       <span style='color: #949494; font-style: italic;'>&lt;dbl&gt;</span>
 #&gt; <span style='color: #BCBCBC;'> 1</span> 2     Low discrimination  -<span style='color: #BB0000;'>0.470</span>       6           2.33
@@ -226,19 +226,19 @@ standardization.</p>
 #&gt; <span style='color: #949494;'># … with 814 more rows</span></div><div class='input'>
 <span class='va'>ho_et_al</span> <span class='op'>%&gt;%</span>
   <span class='fu'>standardize_variables</span><span class='op'>(</span><span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span><span class='va'>sdo</span>, <span class='va'>linkedfate</span><span class='op'>)</span>, suffix <span class='op'>=</span> <span class='st'>"scaled"</span><span class='op'>)</span>
-</div><div class='output co'>#&gt; <span style='color: #949494;'># A tibble: 824 x 7</span>
-#&gt;    id    condition        sdo linkedfate hypodescent sdo_scaled linkedfate_scal…
-#&gt;    <span style='color: #949494; font-style: italic;'>&lt;chr&gt;</span> <span style='color: #949494; font-style: italic;'>&lt;chr&gt;</span>          <span style='color: #949494; font-style: italic;'>&lt;dbl&gt;</span>      <span style='color: #949494; font-style: italic;'>&lt;dbl&gt;</span>       <span style='color: #949494; font-style: italic;'>&lt;dbl&gt;</span>      <span style='color: #949494; font-style: italic;'>&lt;dbl&gt;</span>            <span style='color: #949494; font-style: italic;'>&lt;dbl&gt;</span>
-#&gt; <span style='color: #BCBCBC;'> 1</span> 2     Low discrimin…  1.81       6           2.33     -<span style='color: #BB0000;'>0.470</span>           0.636 
-#&gt; <span style='color: #BCBCBC;'> 2</span> 3     High discrimi…  1.56       5.88        6        -<span style='color: #BB0000;'>0.707</span>           0.538 
-#&gt; <span style='color: #BCBCBC;'> 3</span> 4     High discrimi…  1.75       6.62        6        -<span style='color: #BB0000;'>0.529</span>           1.13  
-#&gt; <span style='color: #BCBCBC;'> 4</span> 5     Low discrimin…  4.25       5.12        5.67      1.84           -<span style='color: #BB0000;'>0.052</span><span style='color: #BB0000; text-decoration: underline;'>5</span>
-#&gt; <span style='color: #BCBCBC;'> 5</span> 6     Low discrimin…  1.94       4.38        4        -<span style='color: #BB0000;'>0.351</span>          -<span style='color: #BB0000;'>0.643</span> 
-#&gt; <span style='color: #BCBCBC;'> 6</span> 9     High discrimi…  2.88       3.75        4         0.538          -<span style='color: #BB0000;'>1.13</span>  
-#&gt; <span style='color: #BCBCBC;'> 7</span> 11    High discrimi…  1.12       6.62        5.33     -<span style='color: #BB0000;'>1.12</span>            1.13  
-#&gt; <span style='color: #BCBCBC;'> 8</span> 12    Low discrimin…  4.25       4.62        4         1.84           -<span style='color: #BB0000;'>0.446</span> 
-#&gt; <span style='color: #BCBCBC;'> 9</span> 14    Low discrimin…  1.19       5.12        3.67     -<span style='color: #BB0000;'>1.06</span>           -<span style='color: #BB0000;'>0.052</span><span style='color: #BB0000; text-decoration: underline;'>5</span>
-#&gt; <span style='color: #BCBCBC;'>10</span> 16    High discrimi…  1.25       6.75        4        -<span style='color: #BB0000;'>1.00</span>            1.23  
+</div><div class='output co'>#&gt; <span style='color: #949494;'># A tibble: 824 × 7</span>
+#&gt;    id    condition             sdo linkedfate hypodescent sdo_scaled linkedfate_scal…
+#&gt;    <span style='color: #949494; font-style: italic;'>&lt;chr&gt;</span> <span style='color: #949494; font-style: italic;'>&lt;chr&gt;</span>               <span style='color: #949494; font-style: italic;'>&lt;dbl&gt;</span>      <span style='color: #949494; font-style: italic;'>&lt;dbl&gt;</span>       <span style='color: #949494; font-style: italic;'>&lt;dbl&gt;</span>      <span style='color: #949494; font-style: italic;'>&lt;dbl&gt;</span>            <span style='color: #949494; font-style: italic;'>&lt;dbl&gt;</span>
+#&gt; <span style='color: #BCBCBC;'> 1</span> 2     Low discrimination   1.81       6           2.33     -<span style='color: #BB0000;'>0.470</span>           0.636 
+#&gt; <span style='color: #BCBCBC;'> 2</span> 3     High discrimination  1.56       5.88        6        -<span style='color: #BB0000;'>0.707</span>           0.538 
+#&gt; <span style='color: #BCBCBC;'> 3</span> 4     High discrimination  1.75       6.62        6        -<span style='color: #BB0000;'>0.529</span>           1.13  
+#&gt; <span style='color: #BCBCBC;'> 4</span> 5     Low discrimination   4.25       5.12        5.67      1.84           -<span style='color: #BB0000;'>0.052</span><span style='color: #BB0000; text-decoration: underline;'>5</span>
+#&gt; <span style='color: #BCBCBC;'> 5</span> 6     Low discrimination   1.94       4.38        4        -<span style='color: #BB0000;'>0.351</span>          -<span style='color: #BB0000;'>0.643</span> 
+#&gt; <span style='color: #BCBCBC;'> 6</span> 9     High discrimination  2.88       3.75        4         0.538          -<span style='color: #BB0000;'>1.13</span>  
+#&gt; <span style='color: #BCBCBC;'> 7</span> 11    High discrimination  1.12       6.62        5.33     -<span style='color: #BB0000;'>1.12</span>            1.13  
+#&gt; <span style='color: #BCBCBC;'> 8</span> 12    Low discrimination   4.25       4.62        4         1.84           -<span style='color: #BB0000;'>0.446</span> 
+#&gt; <span style='color: #BCBCBC;'> 9</span> 14    Low discrimination   1.19       5.12        3.67     -<span style='color: #BB0000;'>1.06</span>           -<span style='color: #BB0000;'>0.052</span><span style='color: #BB0000; text-decoration: underline;'>5</span>
+#&gt; <span style='color: #BCBCBC;'>10</span> 16    High discrimination  1.25       6.75        4        -<span style='color: #BB0000;'>1.00</span>            1.23  
 #&gt; <span style='color: #949494;'># … with 814 more rows</span></div></pre>
   </div>
   <div class="col-md-3 hidden-xs hidden-sm" id="pkgdown-sidebar">
