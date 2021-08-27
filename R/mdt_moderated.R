@@ -1,10 +1,10 @@
 #' @title Fits a moderated mediation model
 #'
-#' @description Given a data frame, a predictor (`IV`), an outcome
-#'   (`DV`), a mediator (`M`), and a moderator (`Mod`) conducts a
-#'   joint-significant test for moderated mediation (see Yzerbyt, Muller,
-#'   Batailler, & Judd, 2018).
-#'   
+#' @description Given a data frame, a predictor (`IV`), an outcome (`DV`), a
+#'   mediator (`M`), and a moderator (`Mod`) conducts a joint-significant test
+#'   for moderated mediation (see Yzerbyt, Muller, Batailler, & Judd, 2018).You
+#'   can learn about moderated mediation in `vignette("moderated-mediation")`
+#'
 #'   [`add_index.moderated_mediation`] computes the moderated mediation index.
 #'   [`compute_indirect_effect_for`] is used to compute the indirect effect
 #'   index for a specific value of the moderator.
@@ -31,20 +31,20 @@
 #'
 #'   Total moderation of the indirect effect of \eqn{X} on \eqn{Y} can be
 #'   described as follows:
-#'   
+#'
 #'   \eqn{c * Mod = c' * Mod + (a * Mod) * b + a * (b * Mod)}
 #'
 #'
 #'   with \eqn{c * Mod} the total moderation of the indirect effect, \eqn{c' *
 #'   Mod} the moderation of the direct effect, \eqn{(a * Mod) * b}, the
 #'   moderation of the indirect effect passing by the moderation of \eqn{a}, and
-#'   \eqn{a * (b * Mod)}, the moderation of the indirect effect passing by the 
+#'   \eqn{a * (b * Mod)}, the moderation of the indirect effect passing by the
 #'   moderation of \eqn{b} (see Models section; Muller et al., 2005).
 #'
 #'   Either both \eqn{a * Mod} and \eqn{b} or both \eqn{a} and \eqn{b * Mod}
 #'   need to be simultaneously significant for a moderation of the indirect
 #'   effect to be claimed (Muller et al., 2005).
-#'   
+#'
 #' @section Models: In a moderated mediation model, three models will be used:
 #'
 #'   - \eqn{Y_i = b_{40} + \mathbf{b_{41}} X_i + b_{42} Mo_i + \mathbf{b_{43}}
@@ -67,7 +67,7 @@
 #'   \eqn{b_{51}}{b_51}, \eqn{b_{53}}{b_53}, \eqn{b_{64}}{b_64},
 #'   \eqn{b_{65}}{b_65}, \eqn{b_{41}}{b_41}, \eqn{b_{43}}{b_43},
 #'   \eqn{b_{61}}{b_61}, and \eqn{b_{63}}{c63} (see Muller et al., 2005).
-#'   
+#'
 #' @section Variable coding: Because joint-significance tests use linear models
 #'   behind the scenes, variables involved in the model have to be numeric.
 #'   `mdt_simple` will give an error if non-numeric variables are
@@ -92,7 +92,7 @@
 #'   recommendations for testing indirect effects in mediational models: The
 #'   need to report and test component paths. \emph{Journal of Personality and
 #'   Social Psychology}, \emph{115}(6), 929–943. doi: 10.1037/pspa0000132
-#'   
+#'
 #' @export
 
 mdt_moderated <- function(data, IV, DV, M, Mod) {
@@ -145,13 +145,13 @@ mdt_moderated.data.frame <- function(data, IV, DV, M, Mod) {
                            IV  = IV_name,
                            DV  = DV_name,
                            Mod = Mod_name))
-  
+
   model2 <-
     stats::as.formula(glue("{M} ~ {IV} * {Mod}",
                            IV  = IV_name,
                            M   = M_name,
                            Mod = Mod_name))
-  
+
   model3 <-
     stats::as.formula(glue("{DV} ~ ({IV} + {M}) * {Mod}",
                            DV  = DV_name,

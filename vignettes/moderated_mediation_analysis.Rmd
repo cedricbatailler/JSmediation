@@ -2,7 +2,7 @@
 title: "Conducting a moderated mediation analysis"
 output: rmarkdown::html_vignette
 vignette: >
-  %\VignetteIndexEntry{moderated_mediation_analysis}
+  %\VignetteIndexEntry{Conducting a moderated mediation analysis}
   %\VignetteEngine{knitr::rmarkdown}
   %\VignetteEncoding{UTF-8}
 bibliography: "`r system.file('references.bib', package='JSmediation')`"
@@ -15,6 +15,12 @@ knitr::opts_chunk$set(
   comment = "#>"
 )
 ```
+
+This vignette reports a moderated mediation analysis. This will help getting
+familiar with the several helpers *JSmediation* offers to conduct moderated
+mediation analysis.
+
+## Overview
 
 Simple mediation refers to the pattern of statistical relationships in which the
 effect of a variable on another goes through a third variable. Sometimes, this
@@ -150,7 +156,8 @@ on the significance of some coefficients, one will be able to assess moderated
 mediation.
 
 To better understand the process of testing a moderated mediation, we can glance
-at the equation describing the moderation of the indirect effect of X on Y. Such moderation can be described as follows:
+at the equation describing the moderation of the indirect effect of X on Y. Such
+moderation can be described as follows:
 
 $$
 c \times Mod = c' \times Mod + (a \times Mod) \times b + a \times (b \times Mod)
