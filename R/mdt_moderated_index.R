@@ -20,7 +20,7 @@
 #'   product distribution using Monte Carlo methods (see Muller, Judd, &
 #'   Yzerbyt, 2005).
 #'
-#'   \pkg{JSmediation} supports different types of mediated indirect effect
+#'   JSmediation supports different types of mediated indirect effect
 #'   index:
 #'   * **Stage 1:** computes the product between \eqn{a \times Mod}{a * Mod} and
 #'     \eqn{b}.
@@ -42,8 +42,8 @@
 #' add_index(moderated_model, stage = 1)
 #'
 #' @references Muller, D., Judd, C. M., & Yzerbyt, V. Y. (2005). When moderation
-#'   is mediated and mediation is moderated. \emph{Journal of Personality and
-#'   Social Psychology}, 89(6), 852-863. doi: 10.1037/0022-3514.89.6.852
+#'   is mediated and mediation is moderated. *Journal of Personality and
+#'   Social Psychology*, 89(6), 852-863. doi: 10.1037/0022-3514.89.6.852
 #'
 #' @export
 add_index.moderated_mediation <- function(mediation_model, times = 5000, level = .05, stage = NULL, ...) {

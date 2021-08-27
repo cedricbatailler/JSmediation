@@ -44,9 +44,9 @@
 #'   - \eqn{Y_i = b_{30} + \mathbf{c'_{31}} X_i + \mathbf{b_{32}} M_i}{Yi =
 #'     b_30 + c'_31*Xi + b_32*Mi}
 #'
-#'   with \eqn{Y_i}{Yi}, the outcome value for the \emph{i}th observation,
-#'   \eqn{X_i}{Xi}, the predictor value for the \emph{i}th observation, and
-#'   \eqn{M_i}{Mi}, the mediator value for the \emph{i}th observation (Cohen &
+#'   with \eqn{Y_i}{Yi}, the outcome value for the *i*th observation,
+#'   \eqn{X_i}{Xi}, the predictor value for the *i*th observation, and
+#'   \eqn{M_i}{Mi}, the mediator value for the *i*th observation (Cohen &
 #'   Cohen, 1983; Yzerbyt, Muller, Batailler, & Judd, 2018).
 #'   
 #'   Coefficients associated with \eqn{a}, \eqn{b}, \eqn{c}, and \eqn{c'} paths
@@ -61,14 +61,14 @@
 #'   To convert a dichotomous categorical variable to a numeric one, please
 #'   refer to the [`build_contrast`] function.
 #'
-#' @references Cohen, J., & Cohen, P. (1983). \emph{Applied multiple
-#'   regression/correlation analysis for the behavioral sciences} (2nd ed).
+#' @references Cohen, J., & Cohen, P. (1983). *Applied multiple
+#'   regression/correlation analysis for the behavioral sciences* (2nd ed).
 #'   Hillsdale, N.J: L. Erlbaum Associates.
 #'
 #'   Yzerbyt, V., Muller, D., Batailler, C., & Judd, C. M. (2018). New
 #'   recommendations for testing indirect effects in mediational models: The
-#'   need to report and test component paths. \emph{Journal of Personality and
-#'   Social Psychology}, \emph{115}(6), 929–943. doi: 10.1037/pspa0000132
+#'   need to report and test component paths. *Journal of Personality and
+#'   Social Psychology*, *115*(6), 929–943. doi: 10.1037/pspa0000132
 #' 
 #' @examples
 #' ## fit a simple mediation model
