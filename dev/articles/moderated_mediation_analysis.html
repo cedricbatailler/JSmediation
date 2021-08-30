@@ -146,11 +146,11 @@
 <span class="co">#&gt; 4  5  Low discrimination 4.2500      5.125    5.666667</span>
 <span class="co">#&gt; 5  6  Low discrimination 1.9375      4.375    4.000000</span>
 <span class="co">#&gt; 6  9 High discrimination 2.8750      3.750    4.000000</span></code></pre></div>
-<p>Before we run the moderated mediation analysis, we must tweak the data set a little bit. Muller et al. <span class="citation">(2005)</span> recommend centering the continuous predictors and contrast-coding the categorical ones. <em>JSmediation</em> offers helpers like <code>build_contrast</code> or <code>standardize_variables</code> to do so.</p>
+<p>Before we run the moderated mediation analysis, we must tweak the data set a little bit. Muller et al. <span class="citation">(2005)</span> recommend centering the continuous predictors and contrast-coding the categorical ones. <em>JSmediation</em> offers helpers like <code>build_contrast</code> or <code>standardize_variable</code> to do so.</p>
 <div class="sourceCode" id="cb4"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="va">ho_et_al</span> <span class="op">&lt;-</span>
   <span class="va">ho_et_al</span> <span class="op">%&gt;%</span>
-  <span class="fu"><a href="../reference/standardize_variables.html">standardize_variables</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="va">sdo</span>, <span class="va">linkedfate</span><span class="op">)</span>, suffix <span class="op">=</span> <span class="st">"c"</span><span class="op">)</span> <span class="op">%&gt;%</span>
+  <span class="fu"><a href="../reference/standardize_variable.html">standardize_variable</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="va">sdo</span>, <span class="va">linkedfate</span><span class="op">)</span>, suffix <span class="op">=</span> <span class="st">"c"</span><span class="op">)</span> <span class="op">%&gt;%</span>
   <span class="fu">dplyr</span><span class="fu">::</span><span class="fu"><a href="https://dplyr.tidyverse.org/reference/mutate.html">mutate</a></span><span class="op">(</span>condition_c <span class="op">=</span> <span class="fu"><a href="../reference/build_contrast.html">build_contrast</a></span><span class="op">(</span><span class="va">condition</span>,
                                              <span class="st">"Low discrimination"</span>,
                                              <span class="st">"High discrimination"</span><span class="op">)</span>
@@ -166,7 +166,7 @@
 <span class="co">#&gt; 4 5     Low discri…  4.25       5.12        5.67  1.84       -0.0525        -0.5</span>
 <span class="co">#&gt; 5 6     Low discri…  1.94       4.38        4    -0.351      -0.643         -0.5</span>
 <span class="co">#&gt; 6 9     High discr…  2.88       3.75        4     0.538      -1.13           0.5</span></code></pre></div>
-<p>The first function we used, <code>standardize_variables</code>, allows us to center and reduce (to standardize) a set of variables (here: <code>sdo</code> and <code>linkedfate</code>). The <code>suffix</code> argument of this function is used to name the standardized variables. Here, because we set <code>suffix = "c"</code>, the new variables are named <code>sdo_c</code> and <code>linkedfate_c</code>. When the suffix argument is blank, original variables are overwritten. Because <em>JSmediation</em> was designed to fit within the tidyverse, <code>standardize_variables</code> is especially useful in a <em>dplyr</em> <a href="https://dplyr.tidyverse.org/articles/dplyr.html#combining-functions-with-%20%22Combining%20functions%20with%20%60%%3E%%60%22">chain</a>.</p>
+<p>The first function we used, <code>standardize_variable</code>, allows us to center and reduce (to standardize) a set of variables (here: <code>sdo</code> and <code>linkedfate</code>). The <code>suffix</code> argument of this function is used to name the standardized variables. Here, because we set <code>suffix = "c"</code>, the new variables are named <code>sdo_c</code> and <code>linkedfate_c</code>. When the suffix argument is blank, original variables are overwritten. Because <em>JSmediation</em> was designed to fit within the tidyverse, <code>standardize_variable</code> is especially useful in a <em>dplyr</em> <a href="https://dplyr.tidyverse.org/articles/dplyr.html#combining-functions-with-%20%22Combining%20functions%20with%20%60%%3E%%60%22">chain</a>.</p>
 <p>Here, we also used a second function from <em>JSmediation</em>: <code>build_contrast</code>. This function takes a character vector as a first argument and, then, returns a contrast-coded variables. It is designed for variables with two conditions, which is the case of <code>condition</code>. Because we want to include the transformed variable in <code>ho_et_al</code>, we can use the <code><a href="https://dplyr.tidyverse.org/reference/mutate.html">dplyr::mutate</a></code> function which <a href="https://dplyr.tidyverse.org/reference/mutate.html%20%22Create,%20modify,%20and%20delete%20columns%22">create (or modify) variables</a>. With this method, we contrast-coded the <code>condition</code> variable.</p>
 <div class="sourceCode" id="cb5"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="va">ho_et_al</span> <span class="op">%&gt;%</span> 
@@ -291,7 +291,7 @@ c \times Mod = c' \times Mod + (a \times Mod) \times b + a \times (b \times Mod)
 <span class="co">#&gt; - confidence interval:</span>
 <span class="co">#&gt;   - method: Monte Carlo (5000 iterations)</span>
 <span class="co">#&gt;   - level: 0.05 </span>
-<span class="co">#&gt;   - CI: [-0.0767; -0.0166]</span>
+<span class="co">#&gt;   - CI: [-0.0787; -0.0163]</span>
 <span class="co">#&gt; </span>
 <span class="co">#&gt; Fitted models:</span>
 <span class="co">#&gt; </span>
@@ -321,7 +321,7 @@ c \times Mod = c' \times Mod + (a \times Mod) \times b + a \times (b \times Mod)
 <span class="co">#&gt; - confidence interval:</span>
 <span class="co">#&gt;   - method: Monte Carlo (5000 iterations)</span>
 <span class="co">#&gt;   - level: 0.05 </span>
-<span class="co">#&gt;   - CI: [0.0427; 0.147]</span></code></pre></div>
+<span class="co">#&gt;   - CI: [0.0424; 0.145]</span></code></pre></div>
 <p>We could also compute this indirect effect for participants who score one standard deviation above the mean in terms of SDO.</p>
 <div class="sourceCode" id="cb11"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="fu"><a href="../reference/compute_indirect_effect_for.html">compute_indirect_effect_for</a></span><span class="op">(</span><span class="va">moderated_mediation_fit</span>, Mod <span class="op">=</span> <span class="fl">1</span><span class="op">)</span>
@@ -330,7 +330,7 @@ c \times Mod = c' \times Mod + (a \times Mod) \times b + a \times (b \times Mod)
 <span class="co">#&gt; - confidence interval:</span>
 <span class="co">#&gt;   - method: Monte Carlo (5000 iterations)</span>
 <span class="co">#&gt;   - level: 0.05 </span>
-<span class="co">#&gt;   - CI: [-0.00771; 0.0753]</span></code></pre></div>
+<span class="co">#&gt;   - CI: [-0.0073; 0.0729]</span></code></pre></div>
 <p>As we can see, the indirect effect estimate decreases when the SDO increases. This result is consistent with the negative value of the moderated mediation index.</p>
 </div>
 <div id="references" class="section level1 unnumbered">
