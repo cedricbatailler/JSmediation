@@ -99,12 +99,12 @@ head(ho_et_al)
 Before we run the moderated mediation analysis, we must tweak the data set a
 little bit. Muller et al. [-@muller_when_2005] recommend centering the
 continuous predictors and contrast-coding the categorical ones. *JSmediation*
-offers helpers like `build_contrast` or `standardize_variables` to do so.
+offers helpers like `build_contrast` or `standardize_variable` to do so.
 
 ```{r}
 ho_et_al <-
   ho_et_al %>%
-  standardize_variables(c(sdo, linkedfate), suffix = "c") %>%
+  standardize_variable(c(sdo, linkedfate), suffix = "c") %>%
   dplyr::mutate(condition_c = build_contrast(condition,
                                              "Low discrimination",
                                              "High discrimination")
@@ -113,13 +113,13 @@ ho_et_al <-
 head(ho_et_al)
 ```
 
-The first function we used, `standardize_variables`, allows us to center and
+The first function we used, `standardize_variable`, allows us to center and
 reduce (to standardize) a set of variables (here: `sdo` and `linkedfate`). The
 `suffix` argument of this function is used to name the standardized variables.
 Here, because we set `suffix = "c"`, the new variables are named `sdo_c` and
 `linkedfate_c`. When the suffix argument is blank, original variables are
 overwritten. Because *JSmediation* was designed to fit within the tidyverse,
-`standardize_variables` is especially useful in a *dplyr*
+`standardize_variable` is especially useful in a *dplyr*
 [chain](https://dplyr.tidyverse.org/articles/dplyr.html#combining-functions-with-
 "Combining functions with `%>%`").
 

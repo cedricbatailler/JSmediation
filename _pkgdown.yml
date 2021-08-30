@@ -60,4 +60,4 @@ reference:
 - contents:
   - apastylr
   - build_contrast
-  - standardize_variables
+  - standardize_variable
