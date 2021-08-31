@@ -6,9 +6,8 @@
   a moderated mediation model.
 * Add a vignette to illustrate moderated mediation analyses.
 * Parts of the vignette illustrating simple mediation have been rewritten.
-
-* Introduce `check_assumptions` to test the OLS assumptions of the models
-underlying the mediation using the `performance` package.
+* Introduce `check_assumptions` and `plot_assimptions` to test the OLS
+  assumptions of the models underlying the mediation models.
 
 # JSmediation 0.1.2
 
