@@ -1,5 +1,5 @@
 ---
-title: "Mediation analysis with JSmediation"
+title: "Introduction to mediation analysis with JSmediation"
 author: "Cédric Batailler"
 date: "`r Sys.Date()`"
 output: rmarkdown::html_vignette
@@ -7,6 +7,8 @@ vignette: >
   %\VignetteIndexEntry{mediation analysis with JSmediation}
   %\VignetteEngine{knitr::rmarkdown}
   %\VignetteEncoding{UTF-8}
+bibliography: "`r system.file('references.bib', package='JSmediation')`"
+csl: "`r system.file('apa.csl', package='JSmediation')`"
 ---
 
 ```{r setup, include = FALSE}
@@ -16,43 +18,103 @@ knitr::opts_chunk$set(
 )
 ```
 
-# Simple mediation
+## Overview
 
-`JSmediation` offers helpers to conduct a joint significant mediation test. 
-With this package, you can type a mediation model the way you think it, 
-`JSmediation` dealing with fitting underlying models.
+The _JSmediation_ package was designed to help intuitively typing the code to
+test mediations. In this vignette, we will use it to assess a simple mediation.
 
-In this vignette, we will conduct a joint-significant test for a simple 
-mediation scenario.
+## Conducting a Simple Mediation
 
-We will use a data set from Ho, Kteily and Chen (2017). In this experiment, 
-authors hypothesized that presenting a text stating that Black-White biracials 
-were discriminated would lead Black participants to associate Black-White 
-biracials more with their lower status parent group than their higher status 
-parent group, according to the rule of hypodescent. In this experiment, the 
-authors tested if this effect was mediated by the sense of linked fate between 
-discriminated Black-White participants and Black participants. This data set 
-is shipped with the `JSmediation` and is called `ho_et_al`.
+Simple mediation analysis refers to the analysis testing whether the effect of
+an independent variable on a dependent variable goes through a third variable
+(the mediator). The `ho_et_al` data set, shipped with the _JSmediation_ package,
+contains data illustrating a case of simple mediation. This data set contains
+the data collected by Ho et al. in a paper focusing on hypodescent
+[-@ho_youre_2017], a rule sometimes use when people have to perform multiracial
+categorization and where a percievers associate a biracial person more easily to
+their lowest status group.
 
-First, we will load the `JSmediation` package in our environnement so we can use
-its functions.
+In this experiment, Ho et al. [-@ho_youre_2017] made the hypothesis that a Black
+American participants exposed to the discrimination  of Black-White biracials
+would be more likely to associate Black-White biracials with Black Americans
+rather than with White Americans. In other words, participants of their
+experiment would be more likely to use the hypodescent rule when exposed to high
+discrimination content compared to low discrimination content. In the experiment
+that we will investigate, the authors went further and tested whether the effect
+of the discrimination condition on the use of hypodescent was mediated by a
+feeling of linked fate between the participants (Black Americans) and
+Black-White biracials [@ho_youre_2017].
+
+In this vignette, we will use the `ho_et_al` data set to test whether __feeling
+of linked fate mediates the relationship between the exposition to a high
+discrimination content and the use of hypodescent__ among Black Africans.
+
+### Formalization of Simple Mediation
+
+Simple mediation is often times summarized with one equation [@baron_moderator-mediator_1986;@cohen_applied_1983]:
+
+$$
+c = c' + a \times b
+$$
+
+with $c$ the total effect of the independent variable ($X$) on the dependent
+variable ($Y$), $c'$ the direct of $X$ on $Y$, and $a \times b$ the indirect
+effect of $X$ on $Y$ through the mediator variable ($M$; see Models section of
+the `mdt_simple` help page).
+
+To assess whether the indirect effect is different from the null, one has to
+assess the significance against of both $a$ (the effect of $X$ on $M$) and $b$
+(effect of $M$ on $Y$ controlling for the effect of $X$). Both $a$ and $b$ need
+to be simultaneously significant for an indirect effect to be claimed
+[@yzerbyt_new_2018].
+
+Because we want to test whether the feeling of linked fate is mediating the
+effect of the discrimination condition on the use of hypodescent, we must test
+whether the discrimination condition predicts the feeling of linked fate and
+whether feeling of link fate predicts the use of hypodescent (when controlling
+for the effect of the discrimination condition). The _JSmediation_ package will
+help us in that regard.
+
+Our first step will be to attach the _JSmediation_ package to our environment.
+This will allow us to use the functions and data sets shipped with the package.
 
 ```{r}
 library(JSmediation)
 ```
 
-Now that `JSmediation` is attached, we can load its function, including the 
-`ho_et_al` data set.
+### Data Preparation
+
+To begin with the analysis, we will take a look at the `ho_et_al` data set. 
 
 ```{r}
+data(ho_et_al)
+
 head(ho_et_al)
 ```
 
-The first thing we can see in this data set is that the `condition` variable is
-coded as text something that JSmediation doesn't support. The first step  will 
-be to build a new variable which will represent the discrimination
-condition with a contrast code. To do so, we will use the `build_contrast` 
-function.
+This data set contains 5 columns: 
+* `ìd`: a unique identifier for each participant,
+* `condition`: the discrimination condition of the participants (either "Low
+  discrimination" or "High discrimination"),
+* `sdo`: a measure of Social Dominance Orientation (SDO) of the participant
+  which is extensively used in our example of [moderated
+  mediation]((moderated_mediation_analysis.html),
+* `linkedfate`: the feeling of linked fate between the participants and
+  Black-White biracials,
+* `hypodescent`: the tendency to use the hypodescent rules in multiracial
+  categorization (see, Ho et al. 2017).
+
+This data set is almost ready for our analysis. The only thing that we need is a
+data frame (or a `tibble`) with the value of our different variables for each
+participant (i.e., the independent variable, the dependent variable, and the
+mediator). Our data, however, must be properly formatted for the analysis. In
+particular, every variable must be coded as a numeric variable.
+
+Because the `condition` variable is coded as a character (and not as a
+numeric)—a format which is not supported by _JSmediation_, we will need to
+pre-process our data set. Thanks to the `build_contrast` function, we will
+create a new variable in `ho_et_al` (`condition_c`) representing the
+discrimination condition as a numeric variable.
 
 ```{r}
 ho_et_al$condition_c <- build_contrast(ho_et_al$condition,
@@ -62,113 +124,119 @@ ho_et_al$condition_c <- build_contrast(ho_et_al$condition,
 head(ho_et_al)
 ```
 
-Now that we have a data frame we can use for the analysis, we will use the 
-`mdt_simple` function to fit a simple mediation model. Note that any model 
-`JSmediation` support is implemented in a `mdt_*` function.
+### Using `mdt_fit`
+
+Now that we have a data frame ready for analysis, we will use the `mdt_simple`
+function to fit a simple mediation model. Any mediation model supported by
+_JSmediation_ comes with a  `mdt_*` function. These functions need the users to
+indicate the data set used for the analysis as well as the variable relevant for
+the analysis thanks to the function argument. Once done, it will run the
+relevant linear regression in order to test the conditions necessary for
+mediation.
 
 ```{r}
-my_model <- 
+mediation_fit <- 
   mdt_simple(ho_et_al,
              IV = condition_c,
              DV = hypodescent,
              M  = linkedfate)
 ```
 
-We now have an object of class `mediation_model`, we can now whether our data 
-support a simple mediation. 
+The `mediation_fit` model that we just created contains every bit of information
+necessary to use a joint-significance approach to assess simple mediation
+[@yzerbyt_new_2018].
 
-Before looking into the results, we will check for OLS assumptions because 
-underlying models used in a joint significant test are actually linear models.
+### Working with `mediation_model` Objects
 
-We will extract one model and plot diagnostic plots using the `plot` method for 
-object of class `lm`. To do so, we will use the `extract_model` method. To use
-this function, we will use the `step` argument which allow us to ask for a 
-specific model. Note that `step` allow name of model as well as integer value
-to be requested.
+Before diving into the results, because the joint-significance approach runs
+linear regression under the hood, we will test the assumptions of ordinary least
+square for each of the regression used by `mdt_simple` [@judd_data_2017]. To do
+so, we will use the `check_model` from the _performance_ package function which
+prints several diagnostic plots [@ludecke_performance_2021].
 
-```{r}
-model_1 <- extract_model(my_model, step = "X -> M")
+We will first extract the models used by `mdt_simple`, and then run the
+`check_model` function. The `extract_model` function will be helpful to that
+regard. This function uses a mediation model as a first argument, and the model
+name (or model index) as a second argument. It then returns a linear model
+object (i.e., an `lm` object).
 
-plot(model_1, ask = FALSE)
+```{r fig.height=8, fig.width=7, out.width="100%"}
+first_model <- extract_model(mediation_fit, step = "X -> M")
+performance::check_model(first_model)
 ```
 
 We will do the same thing for the two other models mdt_simple has fitted.
 
-```{r}
-model_2 <- extract_model(my_model, step = 2)
-
-plot(model_2, ask = FALSE)
+```{r fig.height=8, fig.width=7, out.width="100%"}
+second_model <- extract_model(mediation_fit, step = 2)
+performance::check_model(second_model)
 ```
 
-```{r}
-model_3 <- extract_model(my_model, step = 3)
-
-plot(model_3, ask = FALSE)
+```{r fig.height=8, fig.width=7, out.width="100%"}
+third_model <- extract_model(mediation_fit, step = 3)
+performance::check_model(third_model)
 ```
 
-It appears that none of the fitted models violate OLS assumptions.
+Thanks to these plots, we can now interpret the results of the mediation
+knowing whether their data suffer from any violation [@judd_data_2017].
 
-Note that, alternatively, we could have used `extract_models` method to get back
-a list of `lm` objects instead of multiple single `lm` objects.
+### Interpreting the Resuts of a Mediation Model 
 
 Now that we check for our assumptions, we can interpret our model. To do
-so, we just have to call for `my_model`. The structure of objects of class
-`mediation_model` is rather complex but there is a `print` method for these
-objects. The `print` method is implicitly called one called for the `my_model`
-object.
+so, we simply have to call `model_fit`. 
 
 ```{r, render="asis"}
-my_model
+mediation_fit
 ```
 
-In this summary, both a and b paths are significant, we could conclude that 
-the indirect effect of discrimination on hypodescent by linked fate is 
-significant according to the joint significant test. 
+In this summary, we can see that both $a$ and $b$ paths are significant, and we
+can therefore conclude that the indirect effect of the discrimination condition
+on hypodescent used passing through the feeling of linked fate is significant
+[@yzerbyt_new_2018].
 
-We could choose to compute the Monte Carlo moderation index using `add_index` 
-function. This functions adds the indirect effect to the `mediation_model` 
-object which is print directly.
+### Reporting a Simple Mediation
+
+Thanks to the `mdt_simple` function, we almost have every information to report
+our joint-significance test [@yzerbyt_new_2018]. Besides reporting the
+significance of $a$ and $b$, it is sometimes recommended to report the index of
+indirect effect, a single value accounting for $a \times b$. Wa can compute this
+index thanks to Monte Carlo methods thanks to the `add_index` function. This
+functions adds the indirect effect to the model summary object.
 
 ```{r}
-add_index(my_model)
+model_fit_with_index <- add_index(mediation_fit)
+model_fit_with_index
 ```
 
-Following this mediation analysis, one could write the following to report the
-joint significant mediation test:
+The only thing left to do is to report the mediation analysis:
 
-> First, we tested examined if  discrimination condition (low vs. high) had an
-> effect on hypodescent. This analysis revealed a significant effect, 
-> _t_(822) = 2.13, _p_ = .034.
->
-> We then examined our hypothesis of interest, namely, that linked fate 
-> mediated the effect of discrimination on hypodescent. To do so, we 
-> conducted a joint significant test (Yzerbyt et al., 2018). This analysis
-> revealed a significant effect of discrimination condition on linked fate,
-> _t_(822) = 9.10, _p_ < .001, and a significant effect of linked fate on 
-> hypodescent while controlling for discrimination condition, 
-> _t_(821) = 5.75, _p_ < .001. The effect of discrimination condition on 
-> hypodescent after controlling for linked fate was no longer significant, 
-> _t_(821) = 0.33, _p_ = .742.
-> Consistently with this analysis, the Monte Carlo confidence interval for the
-> indirect effect did not contain 0, CI<sub>95%</sub> [0.0889; 0.208].
+> First, we  examined the effect of the discrimination condition (low vs. high)
+on hypodescent use. This analysis revealed a significant effect, _t_(822) =
+2.13, _p_ = .034. > > We then tested our hypothesis of interest, namely, we
+tested whether the sentiment of linked fate between Black Americans and
+Black-White biracials mediated the effect of the discrimination condition on
+hypodescent. To do so, we conducted a joint significant test
+[@yzerbyt_new_2018]. This analysis revealed a significant effect of
+discrimination condition on linked fate, _t_(822) = 9.10, _p_ < .001, and a
+significant effect of linked fate on hypodescent, controlling for
+thediscrimination condition, _t_(821) = 5.75, _p_ < .001. The effect of
+discrimination condition on hypodescent after controlling for the feeling of
+linked fate was no longer significant, _t_(821) = 0.33, _p_ = .742. Consistently
+with this analysis, the Monte Carlo confidence interval for the indirect effect
+did not contain 0, CI<sub>95%</sub> [0.0889; 0.208]. This analysis reveals that
+the feeling of linked fate mediates the effect of the discrimination condition
+on hypodescent.
 
-# Miscellaneous
+## Miscellaneous
 
-Note that `JSmediation` contains some helper function to ease mediation 
-analysis.
+`JSmediation` makes conducting a mediation analysis easy with the `mdt_*`
+functions, but they are not the only function in the package. Some functions
+will help with the linear regression models fitted during the analysis.
 
-`display_models` print a summary of each `lm` object fitted during the joint 
-significant test.
+* `extract_model` returns one of the model used (as an `lm` object).
+* `extract_models` returns a named list of the models used. 
+* `extract_tidy_models` returns a data frame containing models summary 
+  information à la _broom_ [@robinson_broom_2021].
+* `display_models` print a summary of each `lm`  model.
 
-```{r}
-display_models(my_model)
-```
-
-
-`extract_tidy_models` returns a data frame containing models summary 
-information.
-
-```{r}
-extract_tidy_models(my_model)
-```
-
+## References
