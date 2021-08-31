@@ -1,17 +1,17 @@
 #' @title add_index method for moderated mediation
 #'
 #' @description Adds the confidence interval for the index of moderated
-#'   mediation to a model fitted with \code{\link{mdt_moderated}}.
+#'   mediation to a model fitted with [`mdt_moderated`].
 #'
 #' @param mediation_model A mediation model of class
-#'   \code{"moderated_mediation"}.
+#'   `"moderated_mediation"`.
 #' @param times Number of simulations to use to compute the Monte Carlo indirect
 #'   effect confidence interval.
 #' @param level Alpha threshold to use for the confidence interval.
 #' @param stage Moderated indirect effect's stage for which to compute the
-#'   confidence interval. Can be either \code{1} (or \code{"first"}) or \code{2}
-#'   (or \code{"second"}). To compute total indirect effect moderation index,
-#'   use \code{"total"}.
+#'   confidence interval. Can be either `1` (or `"first"`) or `2`
+#'   (or `"second"`). To compute total indirect effect moderation index,
+#'   use `"total"`.
 #' @param ... Further arguments passed to or from other methods.
 #'
 #' @details Indirect effect moderation index for moderated mediation uses
@@ -20,23 +20,20 @@
 #'   product distribution using Monte Carlo methods (see Muller, Judd, &
 #'   Yzerbyt, 2005).
 #'
-#'   \pkg{JSmediation} supports different types of mediated indirect effect
-#'   index: 
-#'   \itemize{ 
-#'     \item{Stage 1: }{computes the product between \eqn{a \times Mod}{a
-#'     * Mod} and \eqn{b}.}
-#'     \item{Stage 2: }{ computes the product between \eqn{a} and \eqn{b \times
-#'     Mod}{b * Mod}.}
-#'     \item{Total: }{ computes the sum of Stage 1 and Stage 2 distribution.}
-#'   }
+#'   JSmediation supports different types of mediated indirect effect
+#'   index:
+#'   * **Stage 1:** computes the product between \eqn{a \times Mod}{a * Mod} and
+#'     \eqn{b}.
+#'   * **Stage 2:** computes the product between \eqn{a} and \eqn{b \times
+#'      Mod}{b * Mod}.
+#'   * **Total:** computes the sum of Stage 1 and Stage 2 distribution.
 #'
 #' @examples
 #' ## getting a stage 1 moderated indirect effect index
 #' ho_et_al$condition_c <- build_contrast(ho_et_al$condition,
 #'                                        "Low discrimination",
 #'                                        "High discrimination")
-#' ho_et_al$linkedfate_c <- scale(ho_et_al$linkedfate, scale = FALSE)
-#' ho_et_al$sdo_c <- scale(ho_et_al$sdo, scale = FALSE)
+#' ho_et_al <- standardize_variable(ho_et_al, c(linkedfate, sdo), suffix ="c")
 #' moderated_model <- mdt_moderated(data = ho_et_al,
 #'                                  IV = condition_c,
 #'                                  DV = hypodescent,
@@ -45,8 +42,8 @@
 #' add_index(moderated_model, stage = 1)
 #'
 #' @references Muller, D., Judd, C. M., & Yzerbyt, V. Y. (2005). When moderation
-#'   is mediated and mediation is moderated. \emph{Journal of Personality and
-#'   Social Psychology}, 89(6), 852-863. doi: 10.1037/0022-3514.89.6.852
+#'   is mediated and mediation is moderated. *Journal of Personality and
+#'   Social Psychology*, 89(6), 852-863. doi: 10.1037/0022-3514.89.6.852
 #'
 #' @export
 add_index.moderated_mediation <- function(mediation_model, times = 5000, level = .05, stage = NULL, ...) {
@@ -89,7 +86,7 @@ add_index.moderated_mediation <- function(mediation_model, times = 5000, level =
     indirect_sampling <- ab_sampling[ , 1] * ab_sampling[ , 2]
     CI <- stats::quantile(indirect_sampling, c(level / 2, 1 - level / 2))
     contains_zero <- (CI[[1]] < 0 & CI[[2]] > 0)
-    
+
     indirect_index_infos <-
       indirect_effect(type       = type,
                       estimate   = a * b,
@@ -97,7 +94,7 @@ add_index.moderated_mediation <- function(mediation_model, times = 5000, level =
                       times      = times,
                       sampling   = indirect_sampling)
   }
-  
+
   else if(stage %in% c("total")) {
 
     a1   <- purrr::pluck(mediation_model, "paths", "a * Mod", "point_estimate")
@@ -126,7 +123,7 @@ add_index.moderated_mediation <- function(mediation_model, times = 5000, level =
 
     indirect_sampling <- ab_sampling[ , 1] * ab_sampling[ , 2] +
       ab_sampling[ , 3] * ab_sampling[ , 4]
-    
+
     indirect_index_infos <-
       indirect_effect(
         type          = type,

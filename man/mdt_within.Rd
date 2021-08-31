@@ -108,7 +108,7 @@ and \eqn{c'_{31}}{c'31}.
 }
 
 \section{Data formatting}{
- To be consistent with other \code{mdt_*} family
+ To be consistent with other \verb{mdt_*} family
 functions, \code{mdt_within} takes a long-format data frame as \code{data}
 argument. With this kind of format, each sampled unit has two rows, one for
 the first within-participant condition and one for the second
@@ -117,9 +117,9 @@ the outcome and one observation for the mediator (see
 \code{\link{dohle_siegrist}} for an example.
 
 Because such formatting is not the most common among social scientists
-interested in within-participant mediation, \pkg{JSmediation} contains the
+interested in within-participant mediation, JSmediation contains the
 \code{\link{mdt_within_wide}} function which handles wide-formatted data
-input (but is syntax-inconsistent with other \code{mdt_*} family
+input (but is syntax-inconsistent with other \verb{mdt_*} family
 functions).
 }
 
@@ -127,7 +127,7 @@ functions).
  Models underlying within-participant mediation use
 difference scores as DV (see Models section). Because the function input
 does not allow the user to specify how the difference scores should be
-computed, \code{mdt_within} has a default coding.
+computed, \code{\link{mdt_within}} has a default coding.
 
 \code{mdt_within}'s default behavior is to compute the difference score so
 the total effect (the effect of \eqn{X} on \eqn{Y}) will be positive and

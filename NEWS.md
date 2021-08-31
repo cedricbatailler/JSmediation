@@ -1,4 +1,10 @@
-# JSmediation (Development version)
+# JSmediation (development version)
+
+* Introduce `standardize_variable` to easily center and reduce your variables.
+* Introduce the `compute_indirect_effect_for()` function which computes the 
+  indirect effect confidence interval for a specific value of the moderator in 
+  a moderated mediation model.
+* Add a vignette to illustrate moderated mediation analyses.
 
 * Introduce `check_assumptions` to test the OLS assumptions of the models
 underlying the mediation using the `performance` package.

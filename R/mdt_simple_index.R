@@ -1,9 +1,9 @@
 #' @title add_index method for simple mediation
 #'
 #' @description Adds confidence interval for the index of  mediation to a model
-#'   fitted with \code{\link{mdt_simple}}.
+#'   fitted with [`mdt_simple`].
 #'
-#' @param mediation_model A mediation model of class \code{"simple_mediation"}.
+#' @param mediation_model A mediation model of class `"simple_mediation"`.
 #' @param times Number of simulations to use to compute the Monte Carlo indirect
 #'   effect confidence interval.
 #' @param level Alpha threshold to use for the confidence interval.
@@ -16,7 +16,7 @@
 #'
 #' @references MacKinnon, D. P., Lockwood, C. M., & Williams, J. (2004).
 #'   Confidence Limits for the Indirect Effect: Distribution of the Product and
-#'   Resampling Methods. \emph{Multivariate Behavioral Research}, \emph{39}(1),
+#'   Resampling Methods. *Multivariate Behavioral Research*, *39*(1),
 #'   99-128. doi: 10.1207/s15327906mbr3901_4
 #'
 #' @examples

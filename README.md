@@ -9,6 +9,8 @@ status](https://www.r-pkg.org/badges/version/JSmediation)](https://cran.r-projec
 [![Coverage
 status](https://codecov.io/gh/cedricbatailler/JSmediation/branch/master/graph/badge.svg)](https://codecov.io/github/cedricbatailler/JSmediation?branch=master)
 
+## Overview
+
 `JSmediation` is an R package aiming to provide a set of functions to
 conduct mediation analysis joint-significance tests. The goal of
 `JSmediation` is to provide a consistent syntax to conduct
@@ -141,6 +143,12 @@ Black Americans’ use of hypodescent and its association with
 egalitarianism. *Journal of Personality and Social Psychology*,
 *113*(5), 753-768. doi:
 [10.1037/pspi0000107](https://dx.doi.org/10.1037/pspi0000107)
+
+## Getting help
+
+If you encounter a clear bug or have a question please file an issue
+with a minimal reproducible example on
+[GitHub](https://github.com/cedricbatailler/JSmediation/issues).
 
 ## Contributing
 
