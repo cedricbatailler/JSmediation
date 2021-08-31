@@ -47,6 +47,6 @@ check_assumptions(my_model)
 }
 \seealso{
 Other assumption checks: 
-\code{\link{check_assumptions_plot}()}
+\code{\link{plot_assumptions}()}
 }
 \concept{assumption checks}
