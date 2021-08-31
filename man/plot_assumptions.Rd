@@ -39,7 +39,7 @@ my_model <-
              DV = hypodescent,
              M = linkedfate)
 
-check_assumptions_plot(my_model)
+plot_assumptions(my_model)
 
 }
 \seealso{
