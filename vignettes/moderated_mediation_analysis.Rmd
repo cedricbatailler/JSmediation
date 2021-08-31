@@ -16,11 +16,11 @@ knitr::opts_chunk$set(
 )
 ```
 
+## Overview
+
 This vignette reports a moderated mediation analysis. This will help getting
 familiar with the several helpers *JSmediation* offers to conduct moderated
 mediation analysis.
-
-## Overview
 
 Simple mediation refers to the pattern of statistical relationships in which the
 effect of a variable on another goes through a third variable. Sometimes, this
@@ -29,16 +29,17 @@ a case, we talk about **moderated mediation**. The *JSmediation* package
 offers a collection of tools to conduct and report a moderated mediation analysis
 [@muller_when_2005].
 
-```{r setup, message=FALSE}
-library(JSmediation)
-library(dplyr)
-```
+## Conducting a Moderated Mediation Analysis
 
 The [Introduction to JSmediation](jsmediation.html) vignette uses a data set
 collected by Ho et al. [-@ho_youre_2017] to illustrate simple mediation. This
 data set contains the result of an experiment in which Ho et al. focus on
 hypodescent among Black Americans. To illustrate how *JSmediation* can be used
 to conduct a moderated mediation analysis, we will expand on this example.
+
+```{r setup, message=FALSE}
+library(JSmediation)
+```
 
 Hypodescent  refers to a rule observed in multiracial categorization. Research
 shows that majority group social perceivers (i.e., White Americans) typically
@@ -72,13 +73,13 @@ the high discrimination of Black-White multiracials.
 data(ho_et_al)
 ```
 
-Note that this vignette was written to illustrate features from the
-*JSmediation* package. We will use functions from other packages (e.g.,
-`dplyr`), but make it explicit when we do so. In other words, if you want to
-reproduce this example, you do not have to type `dplyr::mutate`, `mutate` will
-suffice.
+While this vignette was written to illustrate features from the _JSmediation_
+package, we will use functions from other packages (e.g., _dplyr_), but make it
+explicit when we do so. In other words, rather than calling `library(dplyr)` to
+attache the _dplyr_ package and then calling its function (e.g., `mutate`), we
+will use `dplyr::mutate`, `mutate` will suffice.
 
-## Formatting the data set
+### Data Preparation
 
 The data set collected by Ho et al. [-@ho_youre_2017]  contains the information
 necessary for the test of our hypothesis of moderated mediation. It contains a
@@ -137,7 +138,7 @@ ho_et_al %>%
   dplyr::select(dplyr::starts_with("condition"))
 ```
 
-## Fitting the moderated mediation model
+### Fitting the moderated mediation model
 
 We will now run our moderated mediation analysis. Remember, we are testing
 whether participants in high discrimination condition show higher level of
@@ -147,7 +148,7 @@ we are testing whether SDO moderates the mediation of the effect on condition on
 hypodescent through linked fate perception. To test this moderated mediation, we
 will use the `mdt_moderated` function.
 
-### Testing moderated mediation
+#### Moderated mediation formalization
 
 Muller et al. [-@muller_when_2005] provide an accessible introduction on how to
 conduct a moderated mediation analysis using the joint-significance methods. In
@@ -173,7 +174,7 @@ Either both $a \times Mod$ and $b$ or both $a$ and $b \times Mod$ need to be
 simultaneously significant for the moderation of the indirect effect to be claimed
 (Muller et al., 2005).
 
-### Running the analysis with JSmediation
+#### Running the Analysis with `mdt_moderated`
 
 `mdt_moderated` works like every `mdt_*` function. It will be fit the necessary
 linear models (see the Models section in the help page of `mdt_moderated`) and
@@ -223,7 +224,7 @@ The output of the new object now contains the index.
 moderated_mediation_fit_w_index
 ```
 
-### Reporting moderated mediation
+#### Reporting Moderated Mediation
 
 The `moderated_mediation_fit_w_index` object that we computed contains every bit
 of information to report a moderated mediation in an analysis, following Yzerbyt
@@ -239,7 +240,7 @@ the moderation of the condition by SDO, predicted significantly hypodescent,
 *t*(818) = 3.75, *p* \< .001. This pattern reveals the existence of a moderated
 mediation. We also computed the first stage moderated mediation index consistent
 with our joint-significant analysis and it confirmed the moderated mediation,
--0.0432, $CI_{95\%}$ [-0.0778; -0.0171] (Monte Carlo simulation, 5000
+-0.0432, CI<sub>95%</sub> [-0.0778; -0.0171] (Monte Carlo simulation, 5000
 simulations; Yzerbyt et al., 2018).
 
 ## Compute the indirect effect for a moderator's value
