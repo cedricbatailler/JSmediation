@@ -4,7 +4,7 @@ author: "Cédric Batailler"
 date: "`r Sys.Date()`"
 output: rmarkdown::html_vignette
 vignette: >
-  %\VignetteIndexEntry{mediation analysis with JSmediation}
+  %\VignetteIndexEntry{Introduction to mediation analysis with JSmediation}
   %\VignetteEngine{knitr::rmarkdown}
   %\VignetteEncoding{UTF-8}
 bibliography: "`r system.file('references.bib', package='JSmediation')`"
@@ -152,7 +152,9 @@ Before diving into the results, because the joint-significance approach runs
 linear regression under the hood, we will test the assumptions of ordinary least
 square for each of the regression used by `mdt_simple` [@judd_data_2017]. To do
 so, we will use the `check_model` from the _performance_ package function which
-prints several diagnostic plots [@ludecke_performance_2021].
+prints several diagnostic plots [@ludecke_performance_2021]^[Recent versions of
+_JSmediation_ offers the `check_assumptions` and `plot_assumptions` to help you
+check the OLS assumptions of the fitted model.].
 
 We will first extract the models used by `mdt_simple`, and then run the
 `check_model` function. The `extract_model` function will be helpful to that
@@ -232,6 +234,11 @@ on hypodescent.
 `JSmediation` makes conducting a mediation analysis easy with the `mdt_*`
 functions, but they are not the only function in the package. Some functions
 will help with the linear regression models fitted during the analysis.
+
+* `check_assumptions` tests every model's OLS assumptions using the
+  _performance_ package. 
+* `plot_assumptions` plots plots diagnostic of the models' OLS assumptions using
+  the _performance_ package.
 
 * `extract_model` returns one of the model used (as an `lm` object).
 * `extract_models` returns a named list of the models used. 

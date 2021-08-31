@@ -18,7 +18,6 @@ is_centered <- function(x) {
 }
 
 
-
 access_data <- function(mediation_model, variable) {
   variable_q <- enquo(variable)
 

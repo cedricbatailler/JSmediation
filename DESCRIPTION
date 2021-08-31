@@ -54,22 +54,25 @@ Imports:
     magrittr,
     MASS,
     purrr,
-    rlang (>= 0.1.2),
+    rlang (>= 0.4.9),
     stats,
-    tibble
+    tibble,
+    utils
 Suggests: 
-    mediation,
     covr,
-    markdown,
-    rmarkdown,
-    roxygen2,
-    testthat (>= 3.0.2),
-    withr,
     lavaan,
+    markdown,
+    mediation,
+    patchwork,
     performance,
     processR,
-    see,
-    patchwork
+    rmarkdown,
+    roxygen2,
+    see (>= 0.6.5),
+    stringr,
+    testthat (>= 3.0.2),
+    vdiffr,
+    withr
 VignetteBuilder: 
     knitr
 ByteCompile: true
