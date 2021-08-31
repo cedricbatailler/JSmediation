@@ -192,7 +192,7 @@ c = c' + a \times b
 <div id="working-with-mediation_model-objects" class="section level3">
 <h3 class="hasAnchor">
 <a href="#working-with-mediation_model-objects" class="anchor"></a>Working with <code>mediation_model</code> Objects</h3>
-<p>Before diving into the results, because the joint-significance approach runs linear regression under the hood, we will test the assumptions of ordinary least square for each of the regression used by <code>mdt_simple</code> <span class="citation">(Judd et al., 2017)</span>. To do so, we will use the <code>check_model</code> from the <em>performance</em> package function which prints several diagnostic plots <span class="citation">(<span class="citeproc-not-found" data-reference-id="ludecke_performance_2021"><strong>???</strong></span>)</span>.</p>
+<p>Before diving into the results, because the joint-significance approach runs linear regression under the hood, we will test the assumptions of ordinary least square for each of the regression used by <code>mdt_simple</code> <span class="citation">(Judd et al., 2017)</span>. To do so, we will use the <code>check_model</code> from the <em>performance</em> package function which prints several diagnostic plots <span class="citation">(Lüdecke et al., 2021)</span><a href="#fn1" class="footnote-ref" id="fnref1"><sup>1</sup></a>.</p>
 <p>We will first extract the models used by <code>mdt_simple</code>, and then run the <code>check_model</code> function. The <code>extract_model</code> function will be helpful to that regard. This function uses a mediation model as a first argument, and the model name (or model index) as a second argument. It then returns a linear model object (i.e., an <code>lm</code> object).</p>
 <div class="sourceCode" id="cb5"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="va">first_model</span> <span class="op">&lt;-</span> <span class="fu"><a href="../reference/extract_model.html">extract_model</a></span><span class="op">(</span><span class="va">mediation_fit</span>, step <span class="op">=</span> <span class="st">"X -&gt; M"</span><span class="op">)</span>
@@ -284,7 +284,7 @@ c = c' + a \times b
 <span class="co">#&gt; - confidence interval:</span>
 <span class="co">#&gt;   - method: Monte Carlo (5000 iterations)</span>
 <span class="co">#&gt;   - level: 0.05 </span>
-<span class="co">#&gt;   - CI: [0.0894; 0.206]</span>
+<span class="co">#&gt;   - CI: [0.0901; 0.206]</span>
 <span class="co">#&gt; </span>
 <span class="co">#&gt; Fitted models:</span>
 <span class="co">#&gt; </span>
@@ -302,14 +302,12 @@ c = c' + a \times b
 <a href="#miscellaneous" class="anchor"></a>Miscellaneous</h2>
 <p><code>JSmediation</code> makes conducting a mediation analysis easy with the <code>mdt_*</code> functions, but they are not the only function in the package. Some functions will help with the linear regression models fitted during the analysis.</p>
 <ul>
-<li>
-<code>extract_model</code> returns one of the model used (as an <code>lm</code> object).</li>
-<li>
-<code>extract_models</code> returns a named list of the models used.</li>
-<li>
-<code>extract_tidy_models</code> returns a data frame containing models summary information à la <em>broom</em> <span class="citation">(Robinson et al., 2021)</span>.</li>
-<li>
-<code>display_models</code> print a summary of each <code>lm</code> model.</li>
+<li><p><code>check_assumptions</code> tests every model’s OLS assumptions using the <em>performance</em> package.</p></li>
+<li><p><code>plot_assumptions</code> plots plots diagnostic of the models’ OLS assumptions using the <em>performance</em> package.</p></li>
+<li><p><code>extract_model</code> returns one of the model used (as an <code>lm</code> object).</p></li>
+<li><p><code>extract_models</code> returns a named list of the models used.</p></li>
+<li><p><code>extract_tidy_models</code> returns a data frame containing models summary information à la <em>broom</em> <span class="citation">(Robinson et al., 2021)</span>.</p></li>
+<li><p><code>display_models</code> print a summary of each <code>lm</code> model.</p></li>
 </ul>
 </div>
 <div id="references" class="section level2 unnumbered">
@@ -328,6 +326,9 @@ c = c' + a \times b
 <div id="ref-judd_data_2017">
 <p>Judd, C. M., McClelland, G. H., &amp; Ryan, C. S. (2017). <em>Data analysis: A model comparison approach to regression, ANOVA, and beyond</em> (Third Edition). Routledge, Taylor &amp; Francis Group.</p>
 </div>
+<div id="ref-ludecke_performance_2021">
+<p>Lüdecke, D., Ben-Shachar, M., Patil, I., Waggoner, P., &amp; Makowski, D. (2021). Performance: An R Package for Assessment, Comparison and Testing of Statistical Models. <em>Journal of Open Source Software</em>, <em>6</em>(60), 3139. <a href="https://doi.org/10.21105/joss.03139">https://doi.org/10.21105/joss.03139</a></p>
+</div>
 <div id="ref-robinson_broom_2021">
 <p>Robinson, D., Hayes, A., &amp; Couch, S. (2021). <em>Broom: Convert statistical objects into tidy tibbles</em> [Manual].</p>
 </div>
@@ -335,6 +336,12 @@ c = c' + a \times b
 <p>Yzerbyt, V., Muller, D., Batailler, C., &amp; Judd, C. M. (2018). New recommendations for testing indirect effects in mediational models: The need to report and test component paths. <em>Journal of Personality and Social Psychology</em>, <em>115</em>(6), 929–943. <a href="https://doi.org/10.1037/pspa0000132">https://doi.org/10.1037/pspa0000132</a></p>
 </div>
 </div>
+</div>
+<div class="footnotes">
+<hr>
+<ol>
+<li id="fn1"><p>Recent versions of <em>JSmediation</em> offers the <code>check_assumptions</code> and <code>plot_assumptions</code> to help you check the OLS assumptions of the fitted model.<a href="#fnref1" class="footnote-back">↩︎</a></p></li>
+</ol>
 </div>
   </div>
 

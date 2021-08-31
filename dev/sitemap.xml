@@ -25,6 +25,9 @@
     <loc>https://jsmediation.cedricbatailler.me/reference/build_contrast.html</loc>
   </url>
   <url>
+    <loc>https://jsmediation.cedricbatailler.me/reference/check_assumptions.html</loc>
+  </url>
+  <url>
     <loc>https://jsmediation.cedricbatailler.me/reference/compute_indirect_effect_for.html</loc>
   </url>
   <url>
@@ -62,6 +65,9 @@
   </url>
   <url>
     <loc>https://jsmediation.cedricbatailler.me/reference/pipe.html</loc>
+  </url>
+  <url>
+    <loc>https://jsmediation.cedricbatailler.me/reference/plot_assumptions.html</loc>
   </url>
   <url>
     <loc>https://jsmediation.cedricbatailler.me/reference/print.indirect_index.html</loc>
