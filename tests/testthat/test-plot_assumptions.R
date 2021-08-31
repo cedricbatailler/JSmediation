@@ -24,11 +24,13 @@ test_that("check_assumptions_plot", {
   # use warn=-1 because performance::check_models sometimes generates error as
   # a normal behavior
   png(plot_path)
-  withr::with_options(list(warn = -1), { plot_assumptions(my_model) })
+  withr::with_options(list(warn = -1), {
+    plot_assumptions(my_model)
+    })
   dev.off()
 
   # compare the models --------------------------------------------------------
-  sprintf(plot_path, 1:number_of_models) %>% 
+  sprintf(plot_path, 1:number_of_models) %>%
     purrr::map(~ expect_snapshot_file(.x, cran = FALSE))
 
 })

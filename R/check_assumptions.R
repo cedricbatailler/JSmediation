@@ -49,11 +49,11 @@ check_assumptions.mediation_model <-
     supported_tests <- c("normality", "heteroscedasticity", "outliers")
 
     if (length(tests) < 1L) {
-      rlang::abort(c("`tests` argument must contains at least one element."))
+      rlang::abort("`tests` argument must contains at least one element.")
     }
 
     if (! is.character(tests)) {
-      rlang::abort(c("`tests` argument must be a character vector."))
+      rlang::abort("`tests` argument must be a character vector.")
     }
 
     if (sum(! tests %in% supported_tests) >= 1) {

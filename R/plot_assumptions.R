@@ -41,21 +41,21 @@ plot_assumptions <-
 plot_assumptions.mediation_model <-
   function(mediation_model,
            tests = c("normality", "heteroscedasticity", "outliers")) {
-    
-    
+
+
     # check tests arg ---------------------------------------------------------
     supported_tests <- c("normality", "heteroscedasticity", "outliers")
-    
+
     if (length(tests) < 1L) {
-      rlang::abort(c("`tests` argument must contains at least one element."))
+      rlang::abort("`tests` argument must contains at least one element.")
     }
-    
+
     if (! is.character(tests)) {
-      rlang::abort(c("`tests` argument must be a character vector."))
+      rlang::abort("`tests` argument must be a character vector.")
     }
-    
+
     if (sum(! tests %in% supported_tests) >= 1) {
-      
+
       rlang::warn(message =
                     c("`tests` argument in `check_assumptions` contains unsupported checks.",
                       i  = "Supported checks are:",
@@ -64,26 +64,27 @@ plot_assumptions.mediation_model <-
                       "- outliers")
       )
     }
-    
+
     # Build test list ---------------------------------------------------------
-    tests_to_perform <- c()
+    tests_to_perform <- vector(mode = "character")
+
     if("normality" %in% tests ) {
       tests_to_perform <- append(tests_to_perform, c("qq", "normality"))
     }
     if("heteroscedasticity" %in% tests) {
-      tests_to_perform <- append(tests_to_perform, c("homogeneity"))
+      tests_to_perform <- append(tests_to_perform, "homogeneity")
     }
     if("outliers" %in% tests) {
-      tests_to_perform <- append(tests_to_perform, c("outliers"))
+      tests_to_perform <- append(tests_to_perform, "outliers")
     }
-    
+
     # performance::check_model() ----------------------------------------------
     purrr::pluck(mediation_model, "js_models") %>%
       purrr::iwalk(~ check_model_plot(model = .x,
                                       title = .y,
                                       tests_to_perform = tests_to_perform) %>%
                      print())
-    
+
     invisible(mediation_model)
   }
 
@@ -99,18 +100,18 @@ plot_assumptions.mediation_model <-
 check_model_plot <- function(model, title, tests_to_perform) {
   # packages
   rlang::is_installed(c("patchwork", "see", "withr"))
-  
+
   withr::local_package("see")
-  
+
   # get text for the annotation of the model
-  model_formula <- 
-    purrr::chuck(model, "terms") %>% 
+  model_formula <-
+    purrr::chuck(model, "terms") %>%
     format()
-  
+
   # plot the assumptions
   assumption_plot <-
     plot(performance::check_model(model, check = tests_to_perform))
-  
+
   assumption_plot +
     patchwork::plot_annotation(title = title,
                                subtitle =
