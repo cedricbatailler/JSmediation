@@ -68,7 +68,8 @@ Suggests:
     lavaan,
     performance,
     processR,
-    see
+    see,
+    patchwork
 VignetteBuilder: 
     knitr
 ByteCompile: true
