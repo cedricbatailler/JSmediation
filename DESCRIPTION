@@ -59,20 +59,24 @@ Imports:
     tibble,
     utils
 Suggests: 
-    mediation,
     covr,
+    lavaan,
     markdown,
+    mediation,
+    patchwork
     patchwork,
     performance,
+    performance,
+    processR,
+    processR,
     rmarkdown,
     roxygen2,
     see (>= 0.6.5),
+    see,
     stringr,
     testthat (>= 3.0.2),
-    withr,
-    lavaan,
-    processR,
-    vdiffr
+    vdiffr,
+    withr
 VignetteBuilder: 
     knitr
 ByteCompile: true
