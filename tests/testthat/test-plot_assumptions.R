@@ -25,7 +25,7 @@ test_that("check_assumptions_plot", {
                "must contains at least one element.")
   expect_error(plot_assumptions_without_warn(mediation_fit, tests = c(1L, 2L)),
                "argument must be a character vector.")
-  expect_error(plot_assumptions(mediation_fit, tests = c("foo")),
+  expect_error(plot_assumptions(mediation_fit, tests = c("foo", "bar")),
                "unsupported checks")
   expect_warning(plot_assumptions(mediation_fit, tests = c("foo", "normality")),
                  "unsupported checks")
