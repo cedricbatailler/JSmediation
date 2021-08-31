@@ -54,6 +54,17 @@ plot_assumptions.mediation_model <-
       rlang::abort("`tests` argument must be a character vector.")
     }
 
+    if (sum(tests %in% supported_tests) == 0) {
+
+      rlang::abort(message =
+                     c("`tests` argument in `check_assumptions` contains unsupported checks.",
+                       i  = "Supported checks are:",
+                       "- normality",
+                       "- heteroscedasticity",
+                       "- outliers")
+      )
+    }
+
     if (sum(! tests %in% supported_tests) >= 1) {
 
       rlang::warn(message =

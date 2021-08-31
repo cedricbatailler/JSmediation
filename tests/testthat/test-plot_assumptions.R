@@ -1,4 +1,13 @@
 test_that("check_assumptions_plot", {
+  # it seems that check models produce some error which are not relevent for
+  # the test.
+  plot_assumptions_without_warn <- function(x, ..., seed = 123) {
+    withr::local_options(list(warn = -1))
+    withr::local_seed(seed)
+
+    plot_assumptions(x, ...)
+  }
+
   # run mediation model
   data(ho_et_al)
   ho_et_al$condition_c <- build_contrast(ho_et_al$condition,
@@ -10,14 +19,24 @@ test_that("check_assumptions_plot", {
                DV = hypodescent,
                M = linkedfate)
 
-  plot_assumptions_without_warn <- function(x, seed = 123) {
-    withr::local_options(list(warn = -1))
-    withr::local_seed(seed)
+  # Internal tests run error
 
-    plot_assumptions(x)
-  }
+  expect_error(plot_assumptions_without_warn(mediation_fit, tests = NULL),
+               "must contains at least one element.")
+  expect_error(plot_assumptions_without_warn(mediation_fit, tests = c(1L, 2L)),
+               "argument must be a character vector.")
+  expect_error(plot_assumptions(mediation_fit, tests = c("foo")),
+               "unsupported checks")
+  expect_warning(plot_assumptions(mediation_fit, tests = c("foo", "normality")),
+                 "unsupported checks")
 
-  skip_on_ci() # Test locally
+  # Run smoothly
+  expect_error(
+    plot_assumptions_without_warn(mediation_fit),
+    regexp = NA # Expect no error
+  )
+
+  skip_on_ci() # Test printing locally
 
   # HELP WANTED:
   # Uses vdiffr to check the result of `plot_assumptions`. Because
