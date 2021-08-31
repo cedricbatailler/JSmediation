@@ -72,7 +72,7 @@
   </a>
   <ul class="dropdown-menu" role="menu">
 <li>
-      <a href="../articles/jsmediation.html">Mediation analysis with JSmediation</a>
+      <a href="../articles/jsmediation.html">Introduction to mediation analysis with JSmediation</a>
     </li>
     <li>
       <a href="../articles/moderated_mediation_analysis.html">Conducting a moderated mediation analysis</a>
@@ -117,25 +117,27 @@
 
     
     
-<p>This vignette reports a moderated mediation analysis. This will help getting familiar with the several helpers <em>JSmediation</em> offers to conduct moderated mediation analysis.</p>
 <div id="overview" class="section level2">
 <h2 class="hasAnchor">
 <a href="#overview" class="anchor"></a>Overview</h2>
+<p>This vignette reports a moderated mediation analysis. This will help getting familiar with the several helpers <em>JSmediation</em> offers to conduct moderated mediation analysis.</p>
 <p>Simple mediation refers to the pattern of statistical relationships in which the effect of a variable on another goes through a third variable. Sometimes, this indirect relationship is conditional to a fourth variable—a moderator. In such a case, we talk about <strong>moderated mediation</strong>. The <em>JSmediation</em> package offers a collection of tools to conduct and report a moderated mediation analysis <span class="citation">(Muller et al., 2005)</span>.</p>
-<div class="sourceCode" id="cb1"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://jsmediation.cedricbatailler.me/">JSmediation</a></span><span class="op">)</span>
-<span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://dplyr.tidyverse.org">dplyr</a></span><span class="op">)</span></code></pre></div>
+</div>
+<div id="conducting-a-moderated-mediation-analysis" class="section level2">
+<h2 class="hasAnchor">
+<a href="#conducting-a-moderated-mediation-analysis" class="anchor"></a>Conducting a Moderated Mediation Analysis</h2>
 <p>The <a href="jsmediation.html">Introduction to JSmediation</a> vignette uses a data set collected by Ho et al. <span class="citation">(2017)</span> to illustrate simple mediation. This data set contains the result of an experiment in which Ho et al. focus on hypodescent among Black Americans. To illustrate how <em>JSmediation</em> can be used to conduct a moderated mediation analysis, we will expand on this example.</p>
+<div class="sourceCode" id="cb1"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://jsmediation.cedricbatailler.me/">JSmediation</a></span><span class="op">)</span></code></pre></div>
 <p>Hypodescent refers to a rule observed in multiracial categorization. Research shows that majority group social perceivers (i.e., White Americans) typically associate Black-White multiracials with their lower status group rather than with their higher group (i.e., with Black Americans rather than with White Americans). This phenomenon is called the hypodescent rule and it was retrieved in the Black Americans population by Ho et al. <span class="citation">(2017)</span>. The hypothesis is that such categorization occurs because of a sentiment of linked fate between Black Americans and Black-White multiracials.</p>
 <p>This observation was supported by data showing that Black Americans felt a stronger sentiment of linked fate between them and Black-White multiracials when they read about an article discussing how Black-White multiracials were likely to suffer from discrimination (compared to an article discussing how they were not). The higher sentiment of linked fate was associated with a higher use of the hypodescent rule in multiracial categorization. In other words, the effect of a discrimination condition on hypodescent rule was mediated by the feeling of linked fate.</p>
 <p>In the current vignette, we will investigate whether this indirect effect is moderated by social dominance orientation (SDO). Indeed, SDO correlates with preferences for intergroup equality—higher levels indicates resistance to intergroup equality and support for maintaining status quo, lower levels indicates support for intergroup equality and reducing hierarchy <span class="citation">(Ho et al., 2017)</span>. Ho et al. <span class="citation">(2017)</span> assumed that the indirect effect will be stronger for Black Americans showing lower levels of SDO. They should feel a higher sentiment of linked fate when presented information related to the high discrimination of Black-White multiracials.</p>
 <div class="sourceCode" id="cb2"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="fu"><a href="https://rdrr.io/r/utils/data.html">data</a></span><span class="op">(</span><span class="va">ho_et_al</span><span class="op">)</span></code></pre></div>
-<p>Note that this vignette was written to illustrate features from the <em>JSmediation</em> package. We will use functions from other packages (e.g., <code>dplyr</code>), but make it explicit when we do so. In other words, if you want to reproduce this example, you do not have to type <code><a href="https://dplyr.tidyverse.org/reference/mutate.html">dplyr::mutate</a></code>, <code>mutate</code> will suffice.</p>
-</div>
-<div id="formatting-the-data-set" class="section level2">
-<h2 class="hasAnchor">
-<a href="#formatting-the-data-set" class="anchor"></a>Formatting the data set</h2>
+<p>While this vignette was written to illustrate features from the <em>JSmediation</em> package, we will use functions from other packages (e.g., <em>dplyr</em>), but make it explicit when we do so. In other words, rather than calling <code><a href="https://dplyr.tidyverse.org">library(dplyr)</a></code> to attache the <em>dplyr</em> package and then calling its function (e.g., <code>mutate</code>), we will use <code><a href="https://dplyr.tidyverse.org/reference/mutate.html">dplyr::mutate</a></code>, <code>mutate</code> will suffice.</p>
+<div id="data-preparation" class="section level3">
+<h3 class="hasAnchor">
+<a href="#data-preparation" class="anchor"></a>Data Preparation</h3>
 <p>The data set collected by Ho et al. <span class="citation">(2017)</span> contains the information necessary for the test of our hypothesis of moderated mediation. It contains a <code>condition</code> column indicating whether participants were read about the high or low discrimination of Black-White multiracials and a <code>hypodescent</code> column. The data set also contains a <code>linkedfate</code> column indicating the feeling of linked fate participants felt in the experimental situation. The simple mediation analysis in the <a href="jsmediation.html">Introduction to JSmediation</a> vignette shows that participants in high discrimination conditions tend to feel a higher level of linked fate which results in higher hypodescent. We will now investigate whether this indirect effect is more likely to be observed among participants who show higher levels of SDO (thanks to the <code>sdo</code> column).</p>
 <div class="sourceCode" id="cb3"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="fu"><a href="https://rdrr.io/r/utils/head.html">head</a></span><span class="op">(</span><span class="va">ho_et_al</span><span class="op">)</span>
@@ -186,13 +188,13 @@
 <span class="co">#&gt; 10 High discrimination         0.5</span>
 <span class="co">#&gt; # … with 814 more rows</span></code></pre></div>
 </div>
-<div id="fitting-the-moderated-mediation-model" class="section level2">
-<h2 class="hasAnchor">
-<a href="#fitting-the-moderated-mediation-model" class="anchor"></a>Fitting the moderated mediation model</h2>
-<p>We will now run our moderated mediation analysis. Remember, we are testing whether participants in high discrimination condition show higher level of hypodescent because of a higher perception of linked fate, and whether this indirect effect is higher among people with high level of SDO. In other words, we are testing whether SDO moderates the mediation of the effect on condition on hypodescent through linked fate perception. To test this moderated mediation, we will use the <code>mdt_moderated</code> function.</p>
-<div id="testing-moderated-mediation" class="section level3">
+<div id="fitting-the-moderated-mediation-model" class="section level3">
 <h3 class="hasAnchor">
-<a href="#testing-moderated-mediation" class="anchor"></a>Testing moderated mediation</h3>
+<a href="#fitting-the-moderated-mediation-model" class="anchor"></a>Fitting the moderated mediation model</h3>
+<p>We will now run our moderated mediation analysis. Remember, we are testing whether participants in high discrimination condition show higher level of hypodescent because of a higher perception of linked fate, and whether this indirect effect is higher among people with high level of SDO. In other words, we are testing whether SDO moderates the mediation of the effect on condition on hypodescent through linked fate perception. To test this moderated mediation, we will use the <code>mdt_moderated</code> function.</p>
+<div id="moderated-mediation-formalization" class="section level4">
+<h4 class="hasAnchor">
+<a href="#moderated-mediation-formalization" class="anchor"></a>Moderated mediation formalization</h4>
 <p>Muller et al. <span class="citation">(2005)</span> provide an accessible introduction on how to conduct a moderated mediation analysis using the joint-significance methods. In a nutshell, one will fit several linear models to the data set, and, depending on the significance of some coefficients, one will be able to assess moderated mediation.</p>
 <p>To better understand the process of testing a moderated mediation, we can glance at the equation describing the moderation of the indirect effect of X on Y. Such moderation can be described as follows:</p>
 <p><span class="math display">\[
@@ -201,9 +203,10 @@ c \times Mod = c' \times Mod + (a \times Mod) \times b + a \times (b \times Mod)
 <p>with <span class="math inline">\(c \times Mod\)</span> the total moderation of the indirect effect, <span class="math inline">\(c' \times Mod\)</span> the moderation of the direct effect, <span class="math inline">\((a \times Mod) \times b\)</span>, the moderation of the indirect effect passing by the moderation of <span class="math inline">\(a\)</span>, and <span class="math inline">\(a \times (b \times Mod)\)</span>, the moderation of the indirect effect passing by the moderation of <span class="math inline">\(b\)</span> (see Models section; Muller et al., 2005).</p>
 <p>Either both <span class="math inline">\(a \times Mod\)</span> and <span class="math inline">\(b\)</span> or both <span class="math inline">\(a\)</span> and <span class="math inline">\(b \times Mod\)</span> need to be simultaneously significant for the moderation of the indirect effect to be claimed (Muller et al., 2005).</p>
 </div>
-<div id="running-the-analysis-with-jsmediation" class="section level3">
-<h3 class="hasAnchor">
-<a href="#running-the-analysis-with-jsmediation" class="anchor"></a>Running the analysis with JSmediation</h3>
+<div id="running-the-analysis-with-mdt_moderated" class="section level4">
+<h4 class="hasAnchor">
+<a href="#running-the-analysis-with-mdt_moderated" class="anchor"></a>Running the Analysis with <code>mdt_moderated</code>
+</h4>
 <p><code>mdt_moderated</code> works like every <code>mdt_*</code> function. It will be fit the necessary linear models (see the Models section in the help page of <code>mdt_moderated</code>) and returns the relevant coefficient in a nicely formatted output.</p>
 <p>To use the function, we will have to describe the role of the variable in the <code>ho_et_al</code> data set.</p>
 <div class="sourceCode" id="cb6"><pre class="downlit sourceCode r">
@@ -291,7 +294,7 @@ c \times Mod = c' \times Mod + (a \times Mod) \times b + a \times (b \times Mod)
 <span class="co">#&gt; - confidence interval:</span>
 <span class="co">#&gt;   - method: Monte Carlo (5000 iterations)</span>
 <span class="co">#&gt;   - level: 0.05 </span>
-<span class="co">#&gt;   - CI: [-0.0787; -0.0163]</span>
+<span class="co">#&gt;   - CI: [-0.0768; -0.0164]</span>
 <span class="co">#&gt; </span>
 <span class="co">#&gt; Fitted models:</span>
 <span class="co">#&gt; </span>
@@ -299,13 +302,14 @@ c \times Mod = c' \times Mod + (a \times Mod) \times b + a \times (b \times Mod)
 <span class="co">#&gt; - X * Mod -&gt; M </span>
 <span class="co">#&gt; - (X + M) * Mod -&gt; Y</span></code></pre></div>
 </div>
-<div id="reporting-moderated-mediation" class="section level3">
-<h3 class="hasAnchor">
-<a href="#reporting-moderated-mediation" class="anchor"></a>Reporting moderated mediation</h3>
+<div id="reporting-moderated-mediation" class="section level4">
+<h4 class="hasAnchor">
+<a href="#reporting-moderated-mediation" class="anchor"></a>Reporting Moderated Mediation</h4>
 <p>The <code>moderated_mediation_fit_w_index</code> object that we computed contains every bit of information to report a moderated mediation in an analysis, following Yzerbyt et al.’s <span class="citation">(2018)</span> recommendations:</p>
 <blockquote>
-<p>To assess whether SDO moderates the indirect effect of discrimination condition on hypodescent through linked fate perception, we conducted a moderated mediation analysis <span class="citation">(Muller et al., 2005)</span>. This analysis first revealed that SDO moderates the effect of condition on linked fate perception, <em>t</em>(820) = 4.25, <em>p</em> &lt; .001. It also revealed that the effect of linked fate perception for a mean level of SDO, and controlling for the effect of the condition and for the moderation of the condition by SDO, predicted significantly hypodescent, <em>t</em>(818) = 3.75, <em>p</em> &lt; .001. This pattern reveals the existence of a moderated mediation. We also computed the first stage moderated mediation index consistent with our joint-significant analysis and it confirmed the moderated mediation, -0.0432, <span class="math inline">\(CI_{95\%}\)</span> [-0.0778; -0.0171] (Monte Carlo simulation, 5000 simulations; Yzerbyt et al., 2018).</p>
+<p>To assess whether SDO moderates the indirect effect of discrimination condition on hypodescent through linked fate perception, we conducted a moderated mediation analysis <span class="citation">(Muller et al., 2005)</span>. This analysis first revealed that SDO moderates the effect of condition on linked fate perception, <em>t</em>(820) = 4.25, <em>p</em> &lt; .001. It also revealed that the effect of linked fate perception for a mean level of SDO, and controlling for the effect of the condition and for the moderation of the condition by SDO, predicted significantly hypodescent, <em>t</em>(818) = 3.75, <em>p</em> &lt; .001. This pattern reveals the existence of a moderated mediation. We also computed the first stage moderated mediation index consistent with our joint-significant analysis and it confirmed the moderated mediation, -0.0432, CI<sub>95%</sub> [-0.0778; -0.0171] (Monte Carlo simulation, 5000 simulations; Yzerbyt et al., 2018).</p>
 </blockquote>
+</div>
 </div>
 </div>
 <div id="compute-the-indirect-effect-for-a-moderators-value" class="section level2">
@@ -321,7 +325,7 @@ c \times Mod = c' \times Mod + (a \times Mod) \times b + a \times (b \times Mod)
 <span class="co">#&gt; - confidence interval:</span>
 <span class="co">#&gt;   - method: Monte Carlo (5000 iterations)</span>
 <span class="co">#&gt;   - level: 0.05 </span>
-<span class="co">#&gt;   - CI: [0.0424; 0.145]</span></code></pre></div>
+<span class="co">#&gt;   - CI: [0.0434; 0.147]</span></code></pre></div>
 <p>We could also compute this indirect effect for participants who score one standard deviation above the mean in terms of SDO.</p>
 <div class="sourceCode" id="cb11"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="fu"><a href="../reference/compute_indirect_effect_for.html">compute_indirect_effect_for</a></span><span class="op">(</span><span class="va">moderated_mediation_fit</span>, Mod <span class="op">=</span> <span class="fl">1</span><span class="op">)</span>
@@ -330,7 +334,7 @@ c \times Mod = c' \times Mod + (a \times Mod) \times b + a \times (b \times Mod)
 <span class="co">#&gt; - confidence interval:</span>
 <span class="co">#&gt;   - method: Monte Carlo (5000 iterations)</span>
 <span class="co">#&gt;   - level: 0.05 </span>
-<span class="co">#&gt;   - CI: [-0.0073; 0.0729]</span></code></pre></div>
+<span class="co">#&gt;   - CI: [-0.00659; 0.0742]</span></code></pre></div>
 <p>As we can see, the indirect effect estimate decreases when the SDO increases. This result is consistent with the negative value of the moderated mediation index.</p>
 </div>
 <div id="references" class="section level1 unnumbered">

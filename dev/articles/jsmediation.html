@@ -5,7 +5,7 @@
 <meta charset="utf-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Mediation analysis with JSmediation • JSmediation</title>
+<title>Introduction to mediation analysis with JSmediation • JSmediation</title>
 <!-- favicons --><link rel="icon" type="image/png" sizes="16x16" href="../favicon-16x16.png">
 <link rel="icon" type="image/png" sizes="32x32" href="../favicon-32x32.png">
 <link rel="apple-touch-icon" type="image/png" sizes="180x180" href="../apple-touch-icon.png">
@@ -20,7 +20,7 @@
 <script src="../pkgdown.js"></script><!-- docsearch --><script src="../docsearch.js"></script><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/docsearch.js/2.6.3/docsearch.min.css" integrity="sha256-QOSRU/ra9ActyXkIBbiIB144aDBdtvXBcNc3OTNuX/Q=" crossorigin="anonymous">
 <link href="../docsearch.css" rel="stylesheet">
 <script src="https://cdnjs.cloudflare.com/ajax/libs/mark.js/8.11.1/jquery.mark.min.js" integrity="sha256-4HLtjeVgH0eIB3aZ9mLYF6E8oU5chNdjU6p6rrXpl9U=" crossorigin="anonymous"></script><link href="../extra.css" rel="stylesheet">
-<meta property="og:title" content="Mediation analysis with JSmediation">
+<meta property="og:title" content="Introduction to mediation analysis with JSmediation">
 <meta property="og:description" content="JSmediation">
 <meta property="og:image" content="https://jsmediation.cedricbatailler.me/logo.png">
 <meta name="robots" content="noindex">
@@ -72,7 +72,7 @@
   </a>
   <ul class="dropdown-menu" role="menu">
 <li>
-      <a href="../articles/jsmediation.html">Mediation analysis with JSmediation</a>
+      <a href="../articles/jsmediation.html">Introduction to mediation analysis with JSmediation</a>
     </li>
     <li>
       <a href="../articles/moderated_mediation_analysis.html">Conducting a moderated mediation analysis</a>
@@ -107,10 +107,10 @@
       </header><script src="jsmediation_files/accessible-code-block-0.0.1/empty-anchor.js"></script><div class="row">
   <div class="col-md-9 contents">
     <div class="page-header toc-ignore">
-      <h1 data-toc-skip>Mediation analysis with JSmediation</h1>
+      <h1 data-toc-skip>Introduction to mediation analysis with JSmediation</h1>
                         <h4 class="author">Cédric Batailler</h4>
             
-            <h4 class="date">2021-08-30</h4>
+            <h4 class="date">2021-08-31</h4>
       
       <small class="dont-index">Source: <a href="https://github.com/cedricbatailler/JSmediation/blob/master/vignettes/jsmediation.Rmd"><code>vignettes/jsmediation.Rmd</code></a></small>
       <div class="hidden name"><code>jsmediation.Rmd</code></div>
@@ -119,18 +119,39 @@
 
     
     
-<div id="simple-mediation" class="section level1">
-<h1 class="hasAnchor">
-<a href="#simple-mediation" class="anchor"></a>Simple mediation</h1>
-<p><code>JSmediation</code> offers helpers to conduct a joint significant mediation test. With this package, you can type a mediation model the way you think it, <code>JSmediation</code> dealing with fitting underlying models.</p>
-<p>In this vignette, we will conduct a joint-significant test for a simple mediation scenario.</p>
-<p>We will use a data set from Ho, Kteily and Chen (2017). In this experiment, authors hypothesized that presenting a text stating that Black-White biracials were discriminated would lead Black participants to associate Black-White biracials more with their lower status parent group than their higher status parent group, according to the rule of hypodescent. In this experiment, the authors tested if this effect was mediated by the sense of linked fate between discriminated Black-White participants and Black participants. This data set is shipped with the <code>JSmediation</code> and is called <code>ho_et_al</code>.</p>
-<p>First, we will load the <code>JSmediation</code> package in our environnement so we can use its functions.</p>
+<div id="overview" class="section level2">
+<h2 class="hasAnchor">
+<a href="#overview" class="anchor"></a>Overview</h2>
+<p>The <em>JSmediation</em> package was designed to help intuitively typing the code to test mediations. In this vignette, we will use it to assess a simple mediation.</p>
+</div>
+<div id="conducting-a-simple-mediation" class="section level2">
+<h2 class="hasAnchor">
+<a href="#conducting-a-simple-mediation" class="anchor"></a>Conducting a Simple Mediation</h2>
+<p>Simple mediation analysis refers to the analysis testing whether the effect of an independent variable on a dependent variable goes through a third variable (the mediator). The <code>ho_et_al</code> data set, shipped with the <em>JSmediation</em> package, contains data illustrating a case of simple mediation. This data set contains the data collected by Ho et al. in a paper focusing on hypodescent <span class="citation">(2017)</span>, a rule sometimes use when people have to perform multiracial categorization and where a percievers associate a biracial person more easily to their lowest status group.</p>
+<p>In this experiment, Ho et al. <span class="citation">(2017)</span> made the hypothesis that a Black American participants exposed to the discrimination of Black-White biracials would be more likely to associate Black-White biracials with Black Americans rather than with White Americans. In other words, participants of their experiment would be more likely to use the hypodescent rule when exposed to high discrimination content compared to low discrimination content. In the experiment that we will investigate, the authors went further and tested whether the effect of the discrimination condition on the use of hypodescent was mediated by a feeling of linked fate between the participants (Black Americans) and Black-White biracials <span class="citation">(Ho et al., 2017)</span>.</p>
+<p>In this vignette, we will use the <code>ho_et_al</code> data set to test whether <strong>feeling of linked fate mediates the relationship between the exposition to a high discrimination content and the use of hypodescent</strong> among Black Africans.</p>
+<div id="formalization-of-simple-mediation" class="section level3">
+<h3 class="hasAnchor">
+<a href="#formalization-of-simple-mediation" class="anchor"></a>Formalization of Simple Mediation</h3>
+<p>Simple mediation is often times summarized with one equation <span class="citation">(Baron &amp; Kenny, 1986; Cohen &amp; Cohen, 1983)</span>:</p>
+<p><span class="math display">\[
+c = c' + a \times b
+\]</span></p>
+<p>with <span class="math inline">\(c\)</span> the total effect of the independent variable (<span class="math inline">\(X\)</span>) on the dependent variable (<span class="math inline">\(Y\)</span>), <span class="math inline">\(c'\)</span> the direct of <span class="math inline">\(X\)</span> on <span class="math inline">\(Y\)</span>, and <span class="math inline">\(a \times b\)</span> the indirect effect of <span class="math inline">\(X\)</span> on <span class="math inline">\(Y\)</span> through the mediator variable (<span class="math inline">\(M\)</span>; see Models section of the <code>mdt_simple</code> help page).</p>
+<p>To assess whether the indirect effect is different from the null, one has to assess the significance against of both <span class="math inline">\(a\)</span> (the effect of <span class="math inline">\(X\)</span> on <span class="math inline">\(M\)</span>) and <span class="math inline">\(b\)</span> (effect of <span class="math inline">\(M\)</span> on <span class="math inline">\(Y\)</span> controlling for the effect of <span class="math inline">\(X\)</span>). Both <span class="math inline">\(a\)</span> and <span class="math inline">\(b\)</span> need to be simultaneously significant for an indirect effect to be claimed <span class="citation">(Yzerbyt et al., 2018)</span>.</p>
+<p>Because we want to test whether the feeling of linked fate is mediating the effect of the discrimination condition on the use of hypodescent, we must test whether the discrimination condition predicts the feeling of linked fate and whether feeling of link fate predicts the use of hypodescent (when controlling for the effect of the discrimination condition). The <em>JSmediation</em> package will help us in that regard.</p>
+<p>Our first step will be to attach the <em>JSmediation</em> package to our environment. This will allow us to use the functions and data sets shipped with the package.</p>
 <div class="sourceCode" id="cb1"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://jsmediation.cedricbatailler.me/">JSmediation</a></span><span class="op">)</span></code></pre></div>
-<p>Now that <code>JSmediation</code> is attached, we can load its function, including the <code>ho_et_al</code> data set.</p>
+</div>
+<div id="data-preparation" class="section level3">
+<h3 class="hasAnchor">
+<a href="#data-preparation" class="anchor"></a>Data Preparation</h3>
+<p>To begin with the analysis, we will take a look at the <code>ho_et_al</code> data set.</p>
 <div class="sourceCode" id="cb2"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="fu"><a href="https://rdrr.io/r/utils/head.html">head</a></span><span class="op">(</span><span class="va">ho_et_al</span><span class="op">)</span>
+<code class="sourceCode R"><span class="fu"><a href="https://rdrr.io/r/utils/data.html">data</a></span><span class="op">(</span><span class="va">ho_et_al</span><span class="op">)</span>
+
+<span class="fu"><a href="https://rdrr.io/r/utils/head.html">head</a></span><span class="op">(</span><span class="va">ho_et_al</span><span class="op">)</span>
 <span class="co">#&gt;   id           condition    sdo linkedfate hypodescent</span>
 <span class="co">#&gt; 1  2  Low discrimination 1.8125      6.000    2.333333</span>
 <span class="co">#&gt; 2  3 High discrimination 1.5625      5.875    6.000000</span>
@@ -138,7 +159,9 @@
 <span class="co">#&gt; 4  5  Low discrimination 4.2500      5.125    5.666667</span>
 <span class="co">#&gt; 5  6  Low discrimination 1.9375      4.375    4.000000</span>
 <span class="co">#&gt; 6  9 High discrimination 2.8750      3.750    4.000000</span></code></pre></div>
-<p>The first thing we can see in this data set is that the <code>condition</code> variable is coded as text something that JSmediation doesn’t support. The first step will be to build a new variable which will represent the discrimination condition with a contrast code. To do so, we will use the <code>build_contrast</code> function.</p>
+<p>This data set contains 5 columns: * <code>ìd</code>: a unique identifier for each participant, * <code>condition</code>: the discrimination condition of the participants (either “Low discrimination” or “High discrimination”), * <code>sdo</code>: a measure of Social Dominance Orientation (SDO) of the participant which is extensively used in our example of [moderated mediation]((moderated_mediation_analysis.html), * <code>linkedfate</code>: the feeling of linked fate between the participants and Black-White biracials, * <code>hypodescent</code>: the tendency to use the hypodescent rules in multiracial categorization (see, Ho et al. 2017).</p>
+<p>This data set is almost ready for our analysis. The only thing that we need is a data frame (or a <code>tibble</code>) with the value of our different variables for each participant (i.e., the independent variable, the dependent variable, and the mediator). Our data, however, must be properly formatted for the analysis. In particular, every variable must be coded as a numeric variable.</p>
+<p>Because the <code>condition</code> variable is coded as a character (and not as a numeric)—a format which is not supported by <em>JSmediation</em>, we will need to pre-process our data set. Thanks to the <code>build_contrast</code> function, we will create a new variable in <code>ho_et_al</code> (<code>condition_c</code>) representing the discrimination condition as a numeric variable.</p>
 <div class="sourceCode" id="cb3"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="va">ho_et_al</span><span class="op">$</span><span class="va">condition_c</span> <span class="op">&lt;-</span> <span class="fu"><a href="../reference/build_contrast.html">build_contrast</a></span><span class="op">(</span><span class="va">ho_et_al</span><span class="op">$</span><span class="va">condition</span>,
                                          <span class="st">"Low discrimination"</span>,
@@ -152,37 +175,49 @@
 <span class="co">#&gt; 4  5  Low discrimination 4.2500      5.125    5.666667        -0.5</span>
 <span class="co">#&gt; 5  6  Low discrimination 1.9375      4.375    4.000000        -0.5</span>
 <span class="co">#&gt; 6  9 High discrimination 2.8750      3.750    4.000000         0.5</span></code></pre></div>
-<p>Now that we have a data frame we can use for the analysis, we will use the <code>mdt_simple</code> function to fit a simple mediation model. Note that any model <code>JSmediation</code> support is implemented in a <code>mdt_*</code> function.</p>
+</div>
+<div id="using-mdt_fit" class="section level3">
+<h3 class="hasAnchor">
+<a href="#using-mdt_fit" class="anchor"></a>Using <code>mdt_fit</code>
+</h3>
+<p>Now that we have a data frame ready for analysis, we will use the <code>mdt_simple</code> function to fit a simple mediation model. Any mediation model supported by <em>JSmediation</em> comes with a <code>mdt_*</code> function. These functions need the users to indicate the data set used for the analysis as well as the variable relevant for the analysis thanks to the function argument. Once done, it will run the relevant linear regression in order to test the conditions necessary for mediation.</p>
 <div class="sourceCode" id="cb4"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="va">my_model</span> <span class="op">&lt;-</span> 
+<code class="sourceCode R"><span class="va">mediation_fit</span> <span class="op">&lt;-</span> 
   <span class="fu"><a href="../reference/mdt_simple.html">mdt_simple</a></span><span class="op">(</span><span class="va">ho_et_al</span>,
              IV <span class="op">=</span> <span class="va">condition_c</span>,
              DV <span class="op">=</span> <span class="va">hypodescent</span>,
              M  <span class="op">=</span> <span class="va">linkedfate</span><span class="op">)</span></code></pre></div>
-<p>We now have an object of class <code>mediation_model</code>, we can now whether our data support a simple mediation.</p>
-<p>Before looking into the results, we will check for OLS assumptions because underlying models used in a joint significant test are actually linear models.</p>
-<p>We will extract one model and plot diagnostic plots using the <code>plot</code> method for object of class <code>lm</code>. To do so, we will use the <code>extract_model</code> method. To use this function, we will use the <code>step</code> argument which allow us to ask for a specific model. Note that <code>step</code> allow name of model as well as integer value to be requested.</p>
+<p>The <code>mediation_fit</code> model that we just created contains every bit of information necessary to use a joint-significance approach to assess simple mediation <span class="citation">(Yzerbyt et al., 2018)</span>.</p>
+</div>
+<div id="working-with-mediation_model-objects" class="section level3">
+<h3 class="hasAnchor">
+<a href="#working-with-mediation_model-objects" class="anchor"></a>Working with <code>mediation_model</code> Objects</h3>
+<p>Before diving into the results, because the joint-significance approach runs linear regression under the hood, we will test the assumptions of ordinary least square for each of the regression used by <code>mdt_simple</code> <span class="citation">(Judd et al., 2017)</span>. To do so, we will use the <code>check_model</code> from the <em>performance</em> package function which prints several diagnostic plots <span class="citation">(<span class="citeproc-not-found" data-reference-id="ludecke_performance_2021"><strong>???</strong></span>)</span>.</p>
+<p>We will first extract the models used by <code>mdt_simple</code>, and then run the <code>check_model</code> function. The <code>extract_model</code> function will be helpful to that regard. This function uses a mediation model as a first argument, and the model name (or model index) as a second argument. It then returns a linear model object (i.e., an <code>lm</code> object).</p>
 <div class="sourceCode" id="cb5"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="va">model_1</span> <span class="op">&lt;-</span> <span class="fu"><a href="../reference/extract_model.html">extract_model</a></span><span class="op">(</span><span class="va">my_model</span>, step <span class="op">=</span> <span class="st">"X -&gt; M"</span><span class="op">)</span>
-
-<span class="fu"><a href="https://rdrr.io/r/graphics/plot.default.html">plot</a></span><span class="op">(</span><span class="va">model_1</span>, ask <span class="op">=</span> <span class="cn">FALSE</span><span class="op">)</span></code></pre></div>
-<p><img src="jsmediation_files/figure-html/unnamed-chunk-5-1.png" width="700"><img src="jsmediation_files/figure-html/unnamed-chunk-5-2.png" width="700"><img src="jsmediation_files/figure-html/unnamed-chunk-5-3.png" width="700"><img src="jsmediation_files/figure-html/unnamed-chunk-5-4.png" width="700"></p>
+<code class="sourceCode R"><span class="va">first_model</span> <span class="op">&lt;-</span> <span class="fu"><a href="../reference/extract_model.html">extract_model</a></span><span class="op">(</span><span class="va">mediation_fit</span>, step <span class="op">=</span> <span class="st">"X -&gt; M"</span><span class="op">)</span>
+<span class="fu">performance</span><span class="fu">::</span><span class="fu"><a href="https://easystats.github.io/performance/reference/check_model.html">check_model</a></span><span class="op">(</span><span class="va">first_model</span><span class="op">)</span>
+<span class="co">#&gt; Registered S3 method overwritten by 'see':</span>
+<span class="co">#&gt;   method                    from      </span>
+<span class="co">#&gt;   plot.visualisation_recipe datawizard</span></code></pre></div>
+<p><img src="jsmediation_files/figure-html/unnamed-chunk-5-1.png" width="100%"></p>
 <p>We will do the same thing for the two other models mdt_simple has fitted.</p>
 <div class="sourceCode" id="cb6"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="va">model_2</span> <span class="op">&lt;-</span> <span class="fu"><a href="../reference/extract_model.html">extract_model</a></span><span class="op">(</span><span class="va">my_model</span>, step <span class="op">=</span> <span class="fl">2</span><span class="op">)</span>
-
-<span class="fu"><a href="https://rdrr.io/r/graphics/plot.default.html">plot</a></span><span class="op">(</span><span class="va">model_2</span>, ask <span class="op">=</span> <span class="cn">FALSE</span><span class="op">)</span></code></pre></div>
-<p><img src="jsmediation_files/figure-html/unnamed-chunk-6-1.png" width="700"><img src="jsmediation_files/figure-html/unnamed-chunk-6-2.png" width="700"><img src="jsmediation_files/figure-html/unnamed-chunk-6-3.png" width="700"><img src="jsmediation_files/figure-html/unnamed-chunk-6-4.png" width="700"></p>
+<code class="sourceCode R"><span class="va">second_model</span> <span class="op">&lt;-</span> <span class="fu"><a href="../reference/extract_model.html">extract_model</a></span><span class="op">(</span><span class="va">mediation_fit</span>, step <span class="op">=</span> <span class="fl">2</span><span class="op">)</span>
+<span class="fu">performance</span><span class="fu">::</span><span class="fu"><a href="https://easystats.github.io/performance/reference/check_model.html">check_model</a></span><span class="op">(</span><span class="va">second_model</span><span class="op">)</span></code></pre></div>
+<p><img src="jsmediation_files/figure-html/unnamed-chunk-6-1.png" width="100%"></p>
 <div class="sourceCode" id="cb7"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="va">model_3</span> <span class="op">&lt;-</span> <span class="fu"><a href="../reference/extract_model.html">extract_model</a></span><span class="op">(</span><span class="va">my_model</span>, step <span class="op">=</span> <span class="fl">3</span><span class="op">)</span>
-
-<span class="fu"><a href="https://rdrr.io/r/graphics/plot.default.html">plot</a></span><span class="op">(</span><span class="va">model_3</span>, ask <span class="op">=</span> <span class="cn">FALSE</span><span class="op">)</span></code></pre></div>
-<p><img src="jsmediation_files/figure-html/unnamed-chunk-7-1.png" width="700"><img src="jsmediation_files/figure-html/unnamed-chunk-7-2.png" width="700"><img src="jsmediation_files/figure-html/unnamed-chunk-7-3.png" width="700"><img src="jsmediation_files/figure-html/unnamed-chunk-7-4.png" width="700"></p>
-<p>It appears that none of the fitted models violate OLS assumptions.</p>
-<p>Note that, alternatively, we could have used <code>extract_models</code> method to get back a list of <code>lm</code> objects instead of multiple single <code>lm</code> objects.</p>
-<p>Now that we check for our assumptions, we can interpret our model. To do so, we just have to call for <code>my_model</code>. The structure of objects of class <code>mediation_model</code> is rather complex but there is a <code>print</code> method for these objects. The <code>print</code> method is implicitly called one called for the <code>my_model</code> object.</p>
+<code class="sourceCode R"><span class="va">third_model</span> <span class="op">&lt;-</span> <span class="fu"><a href="../reference/extract_model.html">extract_model</a></span><span class="op">(</span><span class="va">mediation_fit</span>, step <span class="op">=</span> <span class="fl">3</span><span class="op">)</span>
+<span class="fu">performance</span><span class="fu">::</span><span class="fu"><a href="https://easystats.github.io/performance/reference/check_model.html">check_model</a></span><span class="op">(</span><span class="va">third_model</span><span class="op">)</span></code></pre></div>
+<p><img src="jsmediation_files/figure-html/unnamed-chunk-7-1.png" width="100%"></p>
+<p>Thanks to these plots, we can now interpret the results of the mediation knowing whether their data suffer from any violation <span class="citation">(Judd et al., 2017)</span>.</p>
+</div>
+<div id="interpreting-the-resuts-of-a-mediation-model" class="section level3">
+<h3 class="hasAnchor">
+<a href="#interpreting-the-resuts-of-a-mediation-model" class="anchor"></a>Interpreting the Resuts of a Mediation Model</h3>
+<p>Now that we check for our assumptions, we can interpret our model. To do so, we simply have to call <code>model_fit</code>.</p>
 <div class="sourceCode" id="cb8"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="va">my_model</span>
+<code class="sourceCode R"><span class="va">mediation_fit</span>
 <span class="co">#&gt; Test of mediation (simple mediation)</span>
 <span class="co">#&gt; ==============================================</span>
 <span class="co">#&gt; </span>
@@ -213,10 +248,15 @@
 <span class="co">#&gt; - X -&gt; Y </span>
 <span class="co">#&gt; - X -&gt; M </span>
 <span class="co">#&gt; - X + M -&gt; Y</span></code></pre></div>
-<p>In this summary, both a and b paths are significant, we could conclude that the indirect effect of discrimination on hypodescent by linked fate is significant according to the joint significant test.</p>
-<p>We could choose to compute the Monte Carlo moderation index using <code>add_index</code> function. This functions adds the indirect effect to the <code>mediation_model</code> object which is print directly.</p>
+<p>In this summary, we can see that both <span class="math inline">\(a\)</span> and <span class="math inline">\(b\)</span> paths are significant, and we can therefore conclude that the indirect effect of the discrimination condition on hypodescent used passing through the feeling of linked fate is significant <span class="citation">(Yzerbyt et al., 2018)</span>.</p>
+</div>
+<div id="reporting-a-simple-mediation" class="section level3">
+<h3 class="hasAnchor">
+<a href="#reporting-a-simple-mediation" class="anchor"></a>Reporting a Simple Mediation</h3>
+<p>Thanks to the <code>mdt_simple</code> function, we almost have every information to report our joint-significance test <span class="citation">(Yzerbyt et al., 2018)</span>. Besides reporting the significance of <span class="math inline">\(a\)</span> and <span class="math inline">\(b\)</span>, it is sometimes recommended to report the index of indirect effect, a single value accounting for <span class="math inline">\(a \times b\)</span>. Wa can compute this index thanks to Monte Carlo methods thanks to the <code>add_index</code> function. This functions adds the indirect effect to the model summary object.</p>
 <div class="sourceCode" id="cb9"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="fu"><a href="../reference/add_index.html">add_index</a></span><span class="op">(</span><span class="va">my_model</span><span class="op">)</span>
+<code class="sourceCode R"><span class="va">model_fit_with_index</span> <span class="op">&lt;-</span> <span class="fu"><a href="../reference/add_index.html">add_index</a></span><span class="op">(</span><span class="va">mediation_fit</span><span class="op">)</span>
+<span class="va">model_fit_with_index</span>
 <span class="co">#&gt; Test of mediation (simple mediation)</span>
 <span class="co">#&gt; ==============================================</span>
 <span class="co">#&gt; </span>
@@ -244,101 +284,57 @@
 <span class="co">#&gt; - confidence interval:</span>
 <span class="co">#&gt;   - method: Monte Carlo (5000 iterations)</span>
 <span class="co">#&gt;   - level: 0.05 </span>
-<span class="co">#&gt;   - CI: [0.0884; 0.205]</span>
+<span class="co">#&gt;   - CI: [0.0894; 0.206]</span>
 <span class="co">#&gt; </span>
 <span class="co">#&gt; Fitted models:</span>
 <span class="co">#&gt; </span>
 <span class="co">#&gt; - X -&gt; Y </span>
 <span class="co">#&gt; - X -&gt; M </span>
 <span class="co">#&gt; - X + M -&gt; Y</span></code></pre></div>
-<p>Following this mediation analysis, one could write the following to report the joint significant mediation test:</p>
+<p>The only thing left to do is to report the mediation analysis:</p>
 <blockquote>
-<p>First, we tested examined if discrimination condition (low vs. high) had an effect on hypodescent. This analysis revealed a significant effect, <em>t</em>(822) = 2.13, <em>p</em> = .034.</p>
-<p>We then examined our hypothesis of interest, namely, that linked fate mediated the effect of discrimination on hypodescent. To do so, we conducted a joint significant test (Yzerbyt et al., 2018). This analysis revealed a significant effect of discrimination condition on linked fate, <em>t</em>(822) = 9.10, <em>p</em> &lt; .001, and a significant effect of linked fate on hypodescent while controlling for discrimination condition, <em>t</em>(821) = 5.75, <em>p</em> &lt; .001. The effect of discrimination condition on hypodescent after controlling for linked fate was no longer significant, <em>t</em>(821) = 0.33, <em>p</em> = .742. Consistently with this analysis, the Monte Carlo confidence interval for the indirect effect did not contain 0, CI<sub>95%</sub> [0.0889; 0.208].</p>
+<p>First, we examined the effect of the discrimination condition (low vs. high) on hypodescent use. This analysis revealed a significant effect, <em>t</em>(822) = 2.13, <em>p</em> = .034. &gt; &gt; We then tested our hypothesis of interest, namely, we tested whether the sentiment of linked fate between Black Americans and Black-White biracials mediated the effect of the discrimination condition on hypodescent. To do so, we conducted a joint significant test <span class="citation">(Yzerbyt et al., 2018)</span>. This analysis revealed a significant effect of discrimination condition on linked fate, <em>t</em>(822) = 9.10, <em>p</em> &lt; .001, and a significant effect of linked fate on hypodescent, controlling for thediscrimination condition, <em>t</em>(821) = 5.75, <em>p</em> &lt; .001. The effect of discrimination condition on hypodescent after controlling for the feeling of linked fate was no longer significant, <em>t</em>(821) = 0.33, <em>p</em> = .742. Consistently with this analysis, the Monte Carlo confidence interval for the indirect effect did not contain 0, CI<sub>95%</sub> [0.0889; 0.208]. This analysis reveals that the feeling of linked fate mediates the effect of the discrimination condition on hypodescent.</p>
 </blockquote>
 </div>
-<div id="miscellaneous" class="section level1">
-<h1 class="hasAnchor">
-<a href="#miscellaneous" class="anchor"></a>Miscellaneous</h1>
-<p>Note that <code>JSmediation</code> contains some helper function to ease mediation analysis.</p>
-<p><code>display_models</code> print a summary of each <code>lm</code> object fitted during the joint significant test.</p>
-<div class="sourceCode" id="cb10"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="fu"><a href="../reference/display_models.html">display_models</a></span><span class="op">(</span><span class="va">my_model</span><span class="op">)</span>
-<span class="co">#&gt; $`X -&gt; Y`</span>
-<span class="co">#&gt; </span>
-<span class="co">#&gt; Call:</span>
-<span class="co">#&gt; lm(formula = .x, data = data)</span>
-<span class="co">#&gt; </span>
-<span class="co">#&gt; Residuals:</span>
-<span class="co">#&gt;     Min      1Q  Median      3Q     Max </span>
-<span class="co">#&gt; -3.6533 -0.6533 -0.4818  0.5182  2.5182 </span>
-<span class="co">#&gt; </span>
-<span class="co">#&gt; Coefficients:</span>
-<span class="co">#&gt;             Estimate Std. Error t value Pr(&gt;|t|)    </span>
-<span class="co">#&gt; (Intercept)  4.56755    0.04026 113.442   &lt;2e-16 ***</span>
-<span class="co">#&gt; condition_c  0.17145    0.08053   2.129   0.0335 *  </span>
-<span class="co">#&gt; ---</span>
-<span class="co">#&gt; Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1</span>
-<span class="co">#&gt; </span>
-<span class="co">#&gt; Residual standard error: 1.151 on 822 degrees of freedom</span>
-<span class="co">#&gt; Multiple R-squared:  0.005484,   Adjusted R-squared:  0.004274 </span>
-<span class="co">#&gt; F-statistic: 4.533 on 1 and 822 DF,  p-value: 0.03354</span>
-<span class="co">#&gt; </span>
-<span class="co">#&gt; </span>
-<span class="co">#&gt; $`X -&gt; M`</span>
-<span class="co">#&gt; </span>
-<span class="co">#&gt; Call:</span>
-<span class="co">#&gt; lm(formula = .x, data = data)</span>
-<span class="co">#&gt; </span>
-<span class="co">#&gt; Residuals:</span>
-<span class="co">#&gt;     Min      1Q  Median      3Q     Max </span>
-<span class="co">#&gt; -4.5438 -0.7938  0.1029  0.9562  2.2279 </span>
-<span class="co">#&gt; </span>
-<span class="co">#&gt; Coefficients:</span>
-<span class="co">#&gt;             Estimate Std. Error t value Pr(&gt;|t|)    </span>
-<span class="co">#&gt; (Intercept)  5.15797    0.04239 121.690   &lt;2e-16 ***</span>
-<span class="co">#&gt; condition_c  0.77167    0.08477   9.103   &lt;2e-16 ***</span>
-<span class="co">#&gt; ---</span>
-<span class="co">#&gt; Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1</span>
-<span class="co">#&gt; </span>
-<span class="co">#&gt; Residual standard error: 1.212 on 822 degrees of freedom</span>
-<span class="co">#&gt; Multiple R-squared:  0.09158,    Adjusted R-squared:  0.09047 </span>
-<span class="co">#&gt; F-statistic: 82.86 on 1 and 822 DF,  p-value: &lt; 2.2e-16</span>
-<span class="co">#&gt; </span>
-<span class="co">#&gt; </span>
-<span class="co">#&gt; $`X + M -&gt; Y`</span>
-<span class="co">#&gt; </span>
-<span class="co">#&gt; Call:</span>
-<span class="co">#&gt; lm(formula = .x, data = data)</span>
-<span class="co">#&gt; </span>
-<span class="co">#&gt; Residuals:</span>
-<span class="co">#&gt;     Min      1Q  Median      3Q     Max </span>
-<span class="co">#&gt; -3.7852 -0.7152 -0.3648  0.5719  2.9427 </span>
-<span class="co">#&gt; </span>
-<span class="co">#&gt; Coefficients:</span>
-<span class="co">#&gt;             Estimate Std. Error t value Pr(&gt;|t|)    </span>
-<span class="co">#&gt; (Intercept)  3.60373    0.17225  20.922  &lt; 2e-16 ***</span>
-<span class="co">#&gt; condition_c  0.02725    0.08289   0.329    0.742    </span>
-<span class="co">#&gt; linkedfate   0.18686    0.03250   5.749 1.27e-08 ***</span>
-<span class="co">#&gt; ---</span>
-<span class="co">#&gt; Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1</span>
-<span class="co">#&gt; </span>
-<span class="co">#&gt; Residual standard error: 1.13 on 821 degrees of freedom</span>
-<span class="co">#&gt; Multiple R-squared:  0.04397,    Adjusted R-squared:  0.04164 </span>
-<span class="co">#&gt; F-statistic: 18.88 on 2 and 821 DF,  p-value: 9.638e-09</span></code></pre></div>
-<p><code>extract_tidy_models</code> returns a data frame containing models summary information.</p>
-<div class="sourceCode" id="cb11"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="fu"><a href="../reference/extract_tidy_models.html">extract_tidy_models</a></span><span class="op">(</span><span class="va">my_model</span><span class="op">)</span>
-<span class="co">#&gt; # A tibble: 7 × 6</span>
-<span class="co">#&gt;   model      term        estimate std.error statistic  p.value</span>
-<span class="co">#&gt;   &lt;chr&gt;      &lt;chr&gt;          &lt;dbl&gt;     &lt;dbl&gt;     &lt;dbl&gt;    &lt;dbl&gt;</span>
-<span class="co">#&gt; 1 X -&gt; Y     (Intercept)   4.57      0.0403   113.    0       </span>
-<span class="co">#&gt; 2 X -&gt; Y     condition_c   0.171     0.0805     2.13  3.35e- 2</span>
-<span class="co">#&gt; 3 X -&gt; M     (Intercept)   5.16      0.0424   122.    0       </span>
-<span class="co">#&gt; 4 X -&gt; M     condition_c   0.772     0.0848     9.10  6.53e-19</span>
-<span class="co">#&gt; 5 X + M -&gt; Y (Intercept)   3.60      0.172     20.9   3.09e-78</span>
-<span class="co">#&gt; 6 X + M -&gt; Y condition_c   0.0273    0.0829     0.329 7.42e- 1</span>
-<span class="co">#&gt; 7 X + M -&gt; Y linkedfate    0.187     0.0325     5.75  1.27e- 8</span></code></pre></div>
+</div>
+<div id="miscellaneous" class="section level2">
+<h2 class="hasAnchor">
+<a href="#miscellaneous" class="anchor"></a>Miscellaneous</h2>
+<p><code>JSmediation</code> makes conducting a mediation analysis easy with the <code>mdt_*</code> functions, but they are not the only function in the package. Some functions will help with the linear regression models fitted during the analysis.</p>
+<ul>
+<li>
+<code>extract_model</code> returns one of the model used (as an <code>lm</code> object).</li>
+<li>
+<code>extract_models</code> returns a named list of the models used.</li>
+<li>
+<code>extract_tidy_models</code> returns a data frame containing models summary information à la <em>broom</em> <span class="citation">(Robinson et al., 2021)</span>.</li>
+<li>
+<code>display_models</code> print a summary of each <code>lm</code> model.</li>
+</ul>
+</div>
+<div id="references" class="section level2 unnumbered">
+<h2 class="hasAnchor">
+<a href="#references" class="anchor"></a>References</h2>
+<div id="refs" class="references">
+<div id="ref-baron_moderator-mediator_1986">
+<p>Baron, R. M., &amp; Kenny, D. A. (1986). The moderator-mediator variable distinction in social psychological research: Conceptual, strategic, and statistical considerations. <em>Journal of Personality and Social Psychology</em>, <em>51</em>(6), 1173–1182. <a href="https://doi.org/10.1037//0022-3514.51.6.1173">https://doi.org/10.1037//0022-3514.51.6.1173</a></p>
+</div>
+<div id="ref-cohen_applied_1983">
+<p>Cohen, J., &amp; Cohen, P. (1983). <em>Applied multiple regression/correlation analysis for the behavioral sciences</em> (2nd ed). L. Erlbaum Associates.</p>
+</div>
+<div id="ref-ho_youre_2017">
+<p>Ho, A. K., Kteily, N. S., &amp; Chen, J. M. (2017). “You’re one of us”: Black Americans’ use of hypodescent and its association with egalitarianism. <em>Journal of Personality and Social Psychology</em>, <em>113</em>(5), 753–768. <a href="https://doi.org/10.1037/pspi0000107">https://doi.org/10.1037/pspi0000107</a></p>
+</div>
+<div id="ref-judd_data_2017">
+<p>Judd, C. M., McClelland, G. H., &amp; Ryan, C. S. (2017). <em>Data analysis: A model comparison approach to regression, ANOVA, and beyond</em> (Third Edition). Routledge, Taylor &amp; Francis Group.</p>
+</div>
+<div id="ref-robinson_broom_2021">
+<p>Robinson, D., Hayes, A., &amp; Couch, S. (2021). <em>Broom: Convert statistical objects into tidy tibbles</em> [Manual].</p>
+</div>
+<div id="ref-yzerbyt_new_2018">
+<p>Yzerbyt, V., Muller, D., Batailler, C., &amp; Judd, C. M. (2018). New recommendations for testing indirect effects in mediational models: The need to report and test component paths. <em>Journal of Personality and Social Psychology</em>, <em>115</em>(6), 929–943. <a href="https://doi.org/10.1037/pspa0000132">https://doi.org/10.1037/pspa0000132</a></p>
+</div>
+</div>
 </div>
   </div>
 
