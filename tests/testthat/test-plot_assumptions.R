@@ -17,6 +17,8 @@ test_that("check_assumptions_plot", {
     plot_assumptions(x)
   }
 
+  skip_on_ci() # Test locally
+
   # HELP WANTED:
   # Uses vdiffr to check the result of `plot_assumptions`. Because
   # `plot_assumptions` produces three plot automatically and because vdiffr
