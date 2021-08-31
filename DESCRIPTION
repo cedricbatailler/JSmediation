@@ -61,13 +61,12 @@ Suggests:
     performance,
     rmarkdown,
     roxygen2,
+    see (>= 0.6.5),
     stringr,
     testthat (>= 3.0.2),
     withr
 VignetteBuilder: 
     knitr
-Remotes:
-    easystats/see
 ByteCompile: true
 Config/testthat/edition: 3
 Encoding: UTF-8
