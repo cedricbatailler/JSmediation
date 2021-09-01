@@ -11,7 +11,7 @@
 #'   This data set is in a wide format, see [`mdt_within_wide`] to
 #'   conduct a within-participant mediation analysis with this dataset.
 #'
-#'@format A data frame with 22 rows and 5 variables: 
+#'@format A data frame with 22 rows and 5 variables:
 #'\describe{
 #'  \item{participant}{Participant number.}
 #'  \item{hazardousness_c}{Hazardousness for complex drug name.}

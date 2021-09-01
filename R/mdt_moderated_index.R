@@ -42,29 +42,30 @@
 #' add_index(moderated_model, stage = 1)
 #'
 #' @references Muller, D., Judd, C. M., & Yzerbyt, V. Y. (2005). When moderation
-#'   is mediated and mediation is moderated. *Journal of Personality and
-#'   Social Psychology*, 89(6), 852-863. doi: 10.1037/0022-3514.89.6.852
+#'   is mediated and mediation is moderated. *Journal of Personality and Social
+#'   Psychology*, 89(6), 852-863. doi: 10.1037/0022-3514.89.6.852
 #'
 #' @export
-add_index.moderated_mediation <- function(mediation_model, times = 5000, level = .05, stage = NULL, ...) {
+add_index.moderated_mediation <-
+  function(mediation_model, times = 5000, level = .05, stage = NULL, ...) {
 
-  if(is.null(stage))
-    stop(
-      "Warning:\n You have to explicite the stage on which you want to compute the moderated indirect effect index with the stage argument."
-    )
+    if (is.null(stage)) {
+      stop(
+        "Warning:\n You have to explicite the stage on which you want to compute the moderated indirect effect index with the stage argument."
+      )
+    }
 
-  stage <- as.character(stage)
+    stage <- as.character(stage)
 
-
-  if(stage %in% c("1", "first", "2", "second")) {
-    if(stage %in% c("1", "first")) {
+  if (stage %in% c("1", "first", "2", "second")) {
+    if (stage %in% c("1", "first")) {
       a   <- purrr::pluck(mediation_model, "paths", "a * Mod", "point_estimate")
       sea <- purrr::pluck(mediation_model, "paths", "a * Mod", "se")
       b   <- purrr::pluck(mediation_model, "paths", "b", "point_estimate")
       seb <- purrr::pluck(mediation_model, "paths", "b", "se")
 
       type <- "Mediated moderation index (First stage)"
-    } else if(stage %in% c("2", "second")) {
+    } else if (stage %in% c("2", "second")) {
       a   <- purrr::pluck(mediation_model, "paths", "a", "point_estimate")
       sea <- purrr::pluck(mediation_model,  "paths", "a", "se")
       b   <- purrr::pluck(mediation_model,  "paths", "b * Mod", "point_estimate")
@@ -83,7 +84,7 @@ add_index.moderated_mediation <- function(mediation_model, times = 5000, level =
                         nrow = 2
                       ))
 
-    indirect_sampling <- ab_sampling[ , 1] * ab_sampling[ , 2]
+    indirect_sampling <- ab_sampling[, 1] * ab_sampling[, 2]
     CI <- stats::quantile(indirect_sampling, c(level / 2, 1 - level / 2))
     contains_zero <- (CI[[1]] < 0 & CI[[2]] > 0)
 
@@ -95,7 +96,7 @@ add_index.moderated_mediation <- function(mediation_model, times = 5000, level =
                       sampling   = indirect_sampling)
   }
 
-  else if(stage %in% c("total")) {
+  else if (stage %in% c("total")) {
 
     a1   <- purrr::pluck(mediation_model, "paths", "a * Mod", "point_estimate")
     sea1 <- purrr::pluck(mediation_model, "paths", "a * Mod", "se")
@@ -121,8 +122,9 @@ add_index.moderated_mediation <- function(mediation_model, times = 5000, level =
                         nrow = 4
                       ))
 
-    indirect_sampling <- ab_sampling[ , 1] * ab_sampling[ , 2] +
-      ab_sampling[ , 3] * ab_sampling[ , 4]
+    indirect_sampling <-
+      ab_sampling[, 1] * ab_sampling[, 2] +
+      ab_sampling[, 3] * ab_sampling[, 4]
 
     indirect_index_infos <-
       indirect_effect(

@@ -79,13 +79,13 @@ plot_assumptions.mediation_model <-
     # Build test list ---------------------------------------------------------
     tests_to_perform <- vector(mode = "character")
 
-    if("normality" %in% tests ) {
+    if ("normality" %in% tests) {
       tests_to_perform <- append(tests_to_perform, c("qq", "normality"))
     }
-    if("heteroscedasticity" %in% tests) {
+    if ("heteroscedasticity" %in% tests) {
       tests_to_perform <- append(tests_to_perform, "homogeneity")
     }
-    if("outliers" %in% tests) {
+    if ("outliers" %in% tests) {
       tests_to_perform <- append(tests_to_perform, "outliers")
     }
 

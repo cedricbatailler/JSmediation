@@ -31,7 +31,8 @@
 #' add_index(simple_model)
 #'
 #' @export
-add_index.simple_mediation <- function(mediation_model, times = 5000, level = .05, ...) {
+add_index.simple_mediation <-
+  function(mediation_model, times = 5000, level = .05, ...) {
 
   a   <- purrr::pluck(mediation_model, "paths", "a", "point_estimate")
   sea <- purrr::pluck(mediation_model, "paths", "a", "se")
@@ -48,7 +49,7 @@ add_index.simple_mediation <- function(mediation_model, times = 5000, level = .0
                       nrow = 2
                     ))
 
-  indirect_sampling <- ab_sampling[ , 1] * ab_sampling[ , 2]
+  indirect_sampling <- ab_sampling[, 1] * ab_sampling[, 2]
   CI <- stats::quantile(indirect_sampling, c(level / 2, 1 - level / 2))
   contains_zero <- (CI[[1]] < 0 & CI[[2]] > 0)
 

@@ -72,12 +72,12 @@ mdt_within_wide.data.frame <- function(data, DV_A, DV_B, M_A, M_B) {
   M_A_name        <- rlang::quo_name(M_A_var)
   M_B_name        <- rlang::quo_name(M_B_var)
 
-  DV_A_data       <- data %>% dplyr::pull( !! DV_A_var )
-  DV_B_data       <- data %>% dplyr::pull( !! DV_B_var )
-  M_A_data        <- data %>% dplyr::pull( !! M_A_var )
-  M_B_data        <- data %>% dplyr::pull( !! M_B_var )
+  DV_A_data       <- data %>% dplyr::pull(!!DV_A_var)
+  DV_B_data       <- data %>% dplyr::pull(!!DV_B_var)
+  M_A_data        <- data %>% dplyr::pull(!!M_A_var)
+  M_B_data        <- data %>% dplyr::pull(!!M_B_var)
 
-  # type check ----------------------------------------------------------------
+  # type check ---------------------------------------------------------------
 
   Var_n <-
     list(
@@ -112,9 +112,11 @@ mdt_within_wide.data.frame <- function(data, DV_A, DV_B, M_A, M_B) {
   # data wrangling ------------------------------------------------------------
   dataset <-
     data %>%
-    dplyr::mutate(M_diff  = !!M_A_var - !!M_B_var ,
+    dplyr::mutate(M_diff  = !!M_A_var - !!M_B_var,
                   M_mean  = (!!M_A_var + !!M_B_var) / 2,
-                  M_mean_center = scale((!!M_A_var + !!M_B_var) / 2, scale = FALSE),
+                  M_mean_center =
+                    scale((!!M_A_var + !!M_B_var) / 2,
+                          scale = FALSE),
                   DV_diff = !!DV_A_var - !!DV_B_var)
 
   # bulding models ------------------------------------------------------------
@@ -136,10 +138,12 @@ mdt_within_wide.data.frame <- function(data, DV_A, DV_B, M_A, M_B) {
 
   # paths ---------------------------------------------------------------------
   paths <-
-    list("a"  = create_path(js_models, "1 -> M_diff", "(Intercept)"),
-         "b"  = create_path(js_models, "1 + M_diff + M_mean -> DV_diff", "M_diff"),
-         "c"  = create_path(js_models, "1 -> DV_diff", "(Intercept)"),
-         "c'" = create_path(js_models, "1 + M_diff + M_mean -> DV_diff", "(Intercept)"))
+    list(
+      "a"  = create_path(js_models, "1 -> M_diff", "(Intercept)"),
+      "b"  = create_path(js_models, "1 + M_diff + M_mean -> DV_diff", "M_diff"),
+      "c"  = create_path(js_models, "1 -> DV_diff", "(Intercept)"),
+      "c'" = create_path(js_models, "1 + M_diff + M_mean -> DV_diff", "(Intercept)")
+    )
 
   # bulding mediation model object --------------------------------------------
   mediation_model(

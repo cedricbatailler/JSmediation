@@ -7,24 +7,24 @@ test_that("mdt_within does not throw error", {
 })
 
 test_that("add_index method for mdt_within does not throw error", {
-  model <- 
+  model <-
     mdt_within(dohle_siegrist,
                name,
                willingness,
                hazardousness,
                participant)
-  
+
   expect_silent(add_index(model))
 })
 
 test_that("print method for mdt_within does not throw error", {
-  model <- 
+  model <-
     mdt_within(dohle_siegrist,
                name,
                willingness,
                hazardousness,
                participant)
-  
+
   expect_output(print(model))
   expect_output(print(add_index(model)))
 })
@@ -42,7 +42,7 @@ test_that("Type checks work as intended in mdt_within", {
                participant)
   )
 
-  expect_error( 
+  expect_error(
     mdt_within(dohle_siegrist,
                name,
                foo,
@@ -62,30 +62,30 @@ test_that("Type checks work as intended in mdt_within", {
 test_that("mdt_within reverse the coding when it is needed", {
   data("dohle_siegrist")
   dohle_siegrist$willingness_reversed <- (- dohle_siegrist$willingness)
-  
+
   expect_error(mdt_within(dohle_siegrist,
                           name,
                           willingness_reversed,
                           hazardousness,
-                          participant), 
+                          participant),
                NA) # code produces no error
 
-  mediation_coding_1 <- 
+  mediation_coding_1 <-
     mdt_within(dohle_siegrist,
                name,
                willingness_reversed,
                hazardousness,
                participant) %>%
-    purrr::chuck("params", "IV") %>% 
+    purrr::chuck("params", "IV") %>%
     as.character()
-  
+
   mediation_coding_2 <-
     mdt_within(dohle_siegrist,
                name,
                willingness,
                hazardousness,
                participant) %>%
-    purrr::chuck("params", "IV") %>% 
+    purrr::chuck("params", "IV") %>%
     as.character()
 
   expect_equal(mediation_coding_1, "name (difference: complex - simple)")

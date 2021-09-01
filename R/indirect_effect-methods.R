@@ -10,7 +10,7 @@
 #' @export
 print.indirect_index <- function(x, digits = 3, ...) {
   cat("- type:", x$type, "\n")
-  cat("- point estimate:", format(x$estimate, digits = digits), "\n" )
+  cat("- point estimate:", format(x$estimate, digits = digits), "\n")
   cat("- confidence interval:\n")
   cat("  - method: ", x$method, " (", x$times, " iterations)\n", sep = "")
   cat("  - level:", x$level, "\n")

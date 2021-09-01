@@ -7,7 +7,8 @@
 #'   not allow accessing the indirect effect for a specific moderator values.
 #'   `compute_indirect_effect_for` fills this gap.
 #'
-#' @param mediation_model A moderated mediation model fitted with `mdt_moderated`.
+#' @param mediation_model A moderated mediation model fitted with
+#'   `mdt_moderated`.
 #' @param Mod The moderator value for which to compute the indirect effect. Must
 #'   be a numeric value, defaults to `0`.
 #' @param times Number of simulations to use to compute the Monte Carlo indirect
@@ -118,10 +119,11 @@ compute_indirect_effect_for.moderated_mediation <-
     # run a new moderated mediation model
     mediation_model_at_Mod <-
       mdt_moderated(data = mediation_dataset,
-                    IV  = !! sym(purrr::chuck(mediation_model, "params", "IV")),
-                    M   = !! sym(purrr::chuck(mediation_model, "params", "M")),
-                    DV  = !! sym(purrr::chuck(mediation_model, "params", "DV")),
-                    Mod = !! sym(purrr::chuck(mediation_model, "params", "Mod")))
+                    IV  = !!sym(purrr::chuck(mediation_model, "params", "IV")),
+                    M   = !!sym(purrr::chuck(mediation_model, "params", "M")),
+                    DV  = !!sym(purrr::chuck(mediation_model, "params", "DV")),
+                    Mod = !!sym(purrr::chuck(mediation_model, "params", "Mod"))
+                    )
 
     # extract effects of IV, which now reads as the effects of IV when Mod = Mod
 
@@ -143,7 +145,7 @@ compute_indirect_effect_for.moderated_mediation <-
                       )
       )
 
-    indirect_sampling <- param_sampling[ , 1] * param_sampling[ , 2]
+    indirect_sampling <- param_sampling[, 1] * param_sampling[, 2]
 
     indirect_effect(
       type          = glue("Conditional simple mediation index (Mod = {Mod})"),
