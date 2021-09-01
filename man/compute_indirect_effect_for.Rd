@@ -12,7 +12,8 @@ compute_indirect_effect_for(
 )
 }
 \arguments{
-\item{mediation_model}{A moderated mediation model fitted with \code{mdt_moderated}.}
+\item{mediation_model}{A moderated mediation model fitted with
+\code{mdt_moderated}.}
 
 \item{Mod}{The moderator value for which to compute the indirect effect. Must
 be a numeric value, defaults to \code{0}.}

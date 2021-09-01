@@ -22,8 +22,8 @@ variable. It is useful when one needs to recode a two-category character
 variable to a numeric one.
 }
 \details{
-The \code{\link{lm}} method supports factor and character variables
-by dummy coding them. Dummy coding can make the interpretation of regression
+The \code{\link{lm}} method supports factor and character variables by dummy
+coding them. Dummy coding can make the interpretation of regression
 coefficient difficult or at least more difficult than contrast coding.
 Contrast-coded-variable coefficients interpretation is particularly useful
 when conducting a joint-significance test.
