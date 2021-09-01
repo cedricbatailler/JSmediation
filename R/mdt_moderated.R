@@ -92,7 +92,7 @@
 #'   recommendations for testing indirect effects in mediational models: The
 #'   need to report and test component paths. *Journal of Personality and
 #'   Social Psychology*, *115*(6), 929–943. doi: 10.1037/pspa0000132
-#'   
+#'
 #' @export
 
 mdt_moderated <- function(data, IV, DV, M, Mod) {
@@ -115,29 +115,32 @@ mdt_moderated.data.frame <- function(data, IV, DV, M, Mod) {
   IVMod_name <- glue("{IV_name}:{Mod_name}")
   MMod_name  <- glue("{M_name}:{Mod_name}")
 
-  IV_data  <- data %>% dplyr::pull( !! IV_var )
-  M_data   <- data %>% dplyr::pull( !! M_var )
-  DV_data  <- data %>% dplyr::pull( !! DV_var )
-  Mod_data <- data %>% dplyr::pull( !! Mod_var )
-
+  IV_data  <- data %>% dplyr::pull(!!IV_var)
+  M_data   <- data %>% dplyr::pull(!!M_var)
+  DV_data  <- data %>% dplyr::pull(!!DV_var)
+  Mod_data <- data %>% dplyr::pull(!!Mod_var)
 
   # type check ----------------------------------------------------------------
-  if(!is.numeric(IV_data))
+  if (!is.numeric(IV_data)) {
     stop(glue("Warning:
                IV ({IV_name}) must be numeric (see build_contrast() to
                convert a character vector to a contrast code)."))
+  }
 
-  if(!is.numeric(M_data))
+  if(!is.numeric(M_data)) {
     stop(glue("Warning:
                Mediator ({M_name}) must be numeric."))
+  }
 
-  if(!is.numeric(DV_data))
+  if(!is.numeric(DV_data)) {
     stop(glue("Warning:
                DV ({DV_name}) must be numeric."))
+}
 
-  if(!is.numeric(Mod_data))
+  if(!is.numeric(Mod_data)) {
     stop(glue("Warning:
               Moderator ({DV_name}) must be numeric."))
+  }
 
   # building models -----------------------------------------------------------
   model1 <-
@@ -168,14 +171,14 @@ mdt_moderated.data.frame <- function(data, IV, DV, M, Mod) {
 
   # paths ---------------------------------------------------------------------
   paths <-
-    list("a"       = create_path(js_models, "X * Mod -> M", IV_name),
-         "a * Mod" = create_path(js_models, "X * Mod -> M", IVMod_name),
-         "b"       = create_path(js_models, "(X + M) * Mod -> Y", M_name),
-         "b * Mod" = create_path(js_models, "(X + M) * Mod -> Y", MMod_name),
-         "c"       = create_path(js_models, "X * Mod -> Y", IV_name),
-         "c * Mod" = create_path(js_models, "X * Mod -> Y", IVMod_name),
-         "c'"      = create_path(js_models, "(X + M) * Mod -> Y", IV_name),
-         "c' * Mod"= create_path(js_models, "(X + M) * Mod -> Y", IVMod_name))
+    list("a"        = create_path(js_models, "X * Mod -> M", IV_name),
+         "a * Mod"  = create_path(js_models, "X * Mod -> M", IVMod_name),
+         "b"        = create_path(js_models, "(X + M) * Mod -> Y", M_name),
+         "b * Mod"  = create_path(js_models, "(X + M) * Mod -> Y", MMod_name),
+         "c"        = create_path(js_models, "X * Mod -> Y", IV_name),
+         "c * Mod"  = create_path(js_models, "X * Mod -> Y", IVMod_name),
+         "c'"       = create_path(js_models, "(X + M) * Mod -> Y", IV_name),
+         "c' * Mod" = create_path(js_models, "(X + M) * Mod -> Y", IVMod_name))
 
 
   # bulding mediation model object --------------------------------------------

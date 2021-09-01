@@ -11,7 +11,7 @@
 #'   This data set is in a long-format, see [`mdt_within`] to conduct
 #'   a within-participant mediation analysis with this data set.
 #'
-#' @format A data frame with 44 rows and 4 variables: 
+#' @format A data frame with 44 rows and 4 variables:
 #' \describe{
 #'   \item{participant}{Participant number.}
 #'   \item{name}{Name of the drugs ("simple" vs. "complex").}

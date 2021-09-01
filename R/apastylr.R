@@ -25,10 +25,10 @@ apastylr.lm <- function(model, term) {
   summary_statistics <-
     broom::tidy(model)
 
-  if(nrow(summary_statistics[summary_statistics$term == term, ]) == 0)
-     stop(glue("Could not find \"{term}\" term in the model."),
-          call. = FALSE)
-
+  if (nrow(summary_statistics[summary_statistics$term == term, ]) == 0) {
+    stop(glue("Could not find \"{term}\" term in the model."),
+         call. = FALSE)
+  }
   summary_statistics <- summary_statistics[summary_statistics$term == term, ]
 
   t <-
@@ -36,10 +36,10 @@ apastylr.lm <- function(model, term) {
 
   df <-
     model$df.residual
-  
+
   pvalue <-
     summary_statistics$p.value[1]
-  
+
   as.character(
     glue("t({df}) = {t}, p {p}",
          p = ifelse(
@@ -55,5 +55,5 @@ apastylr.lm <- function(model, term) {
          )
     )
   )
-  
+
 }

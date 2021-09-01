@@ -1,7 +1,7 @@
 #' @title Joint-significance test for simple mediation
 #'
 #' @description Given a data frame, a predictor (`IV`), an outcome
-#'   (`DV`), and a mediator (`M`), conducts a joint-significant test 
+#'   (`DV`), and a mediator (`M`), conducts a joint-significant test
 #'   for simple mediation (see Yzerbyt, Muller, Batailler, & Judd, 2018).
 #'
 #' @param data A data frame containing the variables to be used in the model.
@@ -39,8 +39,8 @@
 #'
 #' @section Models: In a simple mediation model, three models will be fitted:
 #'
-#'   - \eqn{Y_i = b_{10} + \mathbf{c_{11}} X_i}{Yi = b_10 + c_11*Xi} 
-#'   - \eqn{M_i = b_{20} + \mathbf{a_{21}} X_i}{Mi = b_20 + a_21*Xi} 
+#'   - \eqn{Y_i = b_{10} + \mathbf{c_{11}} X_i}{Yi = b_10 + c_11*Xi}
+#'   - \eqn{M_i = b_{20} + \mathbf{a_{21}} X_i}{Mi = b_20 + a_21*Xi}
 #'   - \eqn{Y_i = b_{30} + \mathbf{c'_{31}} X_i + \mathbf{b_{32}} M_i}{Yi =
 #'     b_30 + c'_31*Xi + b_32*Mi}
 #'
@@ -48,11 +48,11 @@
 #'   \eqn{X_i}{Xi}, the predictor value for the *i*th observation, and
 #'   \eqn{M_i}{Mi}, the mediator value for the *i*th observation (Cohen &
 #'   Cohen, 1983; Yzerbyt, Muller, Batailler, & Judd, 2018).
-#'   
+#'
 #'   Coefficients associated with \eqn{a}, \eqn{b}, \eqn{c}, and \eqn{c'} paths
 #'   are respectively \eqn{a_{21}}{a_21}, \eqn{b_{32}}{b_32},
 #'   \eqn{c_{11}}{c_11}, and \eqn{c'_{31}}{c'_31}.
-#'   
+#'
 #' @section Variable coding: Because joint-significance tests uses linear models
 #'   behind the scenes, variables involved in the model have to be numeric.
 #'   `mdt_simple` will give an error if non-numeric variables are
@@ -69,7 +69,7 @@
 #'   recommendations for testing indirect effects in mediational models: The
 #'   need to report and test component paths. *Journal of Personality and
 #'   Social Psychology*, *115*(6), 929–943. doi: 10.1037/pspa0000132
-#' 
+#'
 #' @examples
 #' ## fit a simple mediation model
 #' data(ho_et_al)
@@ -99,23 +99,26 @@ mdt_simple.data.frame <- function(data, IV, DV, M) {
   DV_name <- rlang::quo_name(DV_var)
   M_name  <- rlang::quo_name(M_var)
 
-  IV_data <- data %>% dplyr::pull( !! IV_var )
-  DV_data <- data %>% dplyr::pull( !! DV_var )
-  M_data  <- data %>% dplyr::pull( !! M_var )
+  IV_data <- data %>% dplyr::pull(!!IV_var)
+  DV_data <- data %>% dplyr::pull(!!DV_var)
+  M_data  <- data %>% dplyr::pull(!!M_var)
 
   # type check ----------------------------------------------------------------
-  if(!is.numeric(IV_data))
+  if (!is.numeric(IV_data)) {
     stop(glue("Warning:
                IV ({IV_name}) must be numeric (see build_contrast() to
                convert a character vector to a contrast code)."))
+  }
 
-  if(!is.numeric(M_data))
+  if (!is.numeric(M_data)) {
     stop(glue("Warning:
                Mediator ({M_name}) must be numeric."))
+  }
 
-  if(!is.numeric(DV_data))
+  if (!is.numeric(DV_data)) {
     stop(glue("Warning:
                DV ({DV_name}) must be numeric."))
+  }
 
   # building models -----------------------------------------------------------
   model1 <-
@@ -143,10 +146,10 @@ mdt_simple.data.frame <- function(data, IV, DV, M) {
 
   # paths ---------------------------------------------------------------------
   paths <-
-    list("a" = create_path(js_models, "X -> M", IV_name),
-         "b" = create_path(js_models, "X + M -> Y", M_name),
-         "c" = create_path(js_models, "X -> Y", IV_name),
-         "c'"= create_path(js_models, "X + M -> Y", IV_name))
+    list("a"  = create_path(js_models, "X -> M", IV_name),
+         "b"  = create_path(js_models, "X + M -> Y", M_name),
+         "c"  = create_path(js_models, "X -> Y", IV_name),
+         "c'" = create_path(js_models, "X + M -> Y", IV_name))
 
   # bulding mediation model object --------------------------------------------
   mediation_model(
@@ -160,4 +163,3 @@ mdt_simple.data.frame <- function(data, IV, DV, M) {
     subclass  = "simple_mediation"
   )
 }
-

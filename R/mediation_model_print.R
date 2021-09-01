@@ -44,12 +44,13 @@ print.mediation_model <- function(x, digits = 3, ...) {
     print()
 
   cat("\nIndirect effect index:\n\n")
-  if(! x$indirect_index)
+  if (! x$indirect_index) {
     cat("Indirect effect index is not computed by default.",
         "Please use add_index() to compute it.",
         sep = "\n")
-  else
+  } else {
     print(x$indirect_index_infos, digits = digits)
+  }
 
   cat("\nFitted models:\n\n")
   names(models) %>%

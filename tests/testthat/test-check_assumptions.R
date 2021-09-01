@@ -44,5 +44,11 @@ test_that("check_assumptions's `tests` argument ", {
   expect_error(check_assumptions(my_model, tests = c(1L, 2L)))
   expect_warning(check_assumptions(my_model, tests = c("foo", "bar")))
   expect_warning(check_assumptions(my_model, tests = c("normality", "foo")))
-  expect_output(check_assumptions(my_model, c("normality", "heteroscedasticity", "outliers")))
+  expect_output(
+    check_assumptions(my_model,
+                      tests = c("normality",
+                                "heteroscedasticity",
+                                "outliers"))
+  )
+
 })

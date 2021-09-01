@@ -7,7 +7,7 @@
 #'   model. For example, with a model fitted with [`mdt_simple`],
 #'   [`add_index`] will invoke
 #'   [`add_index.simple_mediation`].
-#'   
+#'
 #' @param mediation_model A mediation model fitted with an `mdt_*` family
 #'   function.
 #' @param times Number of simulations to use to compute the Monte Carlo index's

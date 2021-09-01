@@ -87,26 +87,30 @@ mdt_within.data.frame <- function(data, IV, DV, M, grouping, default_coding = TR
   M_name        <- rlang::quo_name(M_var)
   grouping_name <- rlang::quo_name(grouping_var)
 
-  IV_data <- data %>% dplyr::pull( !! IV_var )
-  DV_data <- data %>% dplyr::pull( !! DV_var )
-  M_data  <- data %>% dplyr::pull( !! M_var )
+  IV_data <- data %>% dplyr::pull(!!IV_var)
+  DV_data <- data %>% dplyr::pull(!!DV_var)
+  M_data  <- data %>% dplyr::pull(!!M_var)
 
   # type check ----------------------------------------------------------------
-  if(!is.character(IV_data))
+  if (!is.character(IV_data)) {
     stop(glue("Warning:
                IV ({IV_name}) must be character."))
-
-  if(!is.numeric(DV_data))
+  }
+  if (!is.numeric(DV_data)) {
     stop(glue("Warning:
               DV ({DV_name}) must be numeric."))
+  }
 
-  if(!is.numeric(M_data))
+  if (!is.numeric(M_data)) {
     stop(glue("Warning:
               Mediator ({M_name}) must be numeric."))
+  }
 
   # data wrangling ------------------------------------------------------------
   # naming
-  IV_cond <- data %>% dplyr::pull( !! IV_var ) %>% unique()
+  IV_cond <- data %>%
+    dplyr::pull(!!IV_var) %>%
+    unique()
 
   M_cond_1_name <-
     as.character(glue("{M_name}_mean_{IV_cond[[1]]}"))
@@ -144,7 +148,7 @@ mdt_within.data.frame <- function(data, IV, DV, M, grouping, default_coding = TR
   # if A > B and default_coding is true, set A - B, if
   # B < A and defaults coding is false, set A - B,
   # else, set B - A.
-  if(DV_A_sup_B == default_coding) {
+  if (DV_A_sup_B == default_coding) {
     DV_diff_name <-
       as.character(glue("DV_{IV_cond[[1]]}_{IV_cond[[2]]}"))
     M_diff_name <-
@@ -152,8 +156,8 @@ mdt_within.data.frame <- function(data, IV, DV, M, grouping, default_coding = TR
 
     data_long <-
       data_long %>%
-      dplyr::mutate( !! sym(DV_diff_name) := !! sym(DV_cond_1_name) - !! sym(DV_cond_2_name),
-                     !! sym(M_diff_name)  := !! sym(M_cond_1_name)  - !! sym(M_cond_2_name))
+      dplyr::mutate(!!sym(DV_diff_name) := !!sym(DV_cond_1_name) - !!sym(DV_cond_2_name),
+                    !!sym(M_diff_name)  := !!sym(M_cond_1_name)  - !!sym(M_cond_2_name))
   } else {
     DV_diff_name <-
       as.character(glue("DV_{IV_cond[[2]]}_{IV_cond[[1]]}"))
@@ -163,14 +167,15 @@ mdt_within.data.frame <- function(data, IV, DV, M, grouping, default_coding = TR
 
     data_long <-
       data_long %>%
-      dplyr::mutate( !! sym(DV_diff_name) := !! sym(DV_cond_2_name) - !! sym(DV_cond_1_name),
-                     !! sym(M_diff_name)  := !! sym(M_cond_2_name)  - !! sym(M_cond_1_name))
+      dplyr::mutate(!!sym(DV_diff_name) := !!sym(DV_cond_2_name) - !!sym(DV_cond_1_name),
+                    !!sym(M_diff_name)  := !!sym(M_cond_2_name)  - !!sym(M_cond_1_name))
   }
 
   data_long <-
     data_long %>%
-    dplyr::mutate(!! M_mean_name :=
-                    scale((!! sym(M_cond_1_name) + !! sym(M_cond_2_name))/2, scale = FALSE))
+    dplyr::mutate(!!M_mean_name :=
+                    scale((!!sym(M_cond_1_name) + !!sym(M_cond_2_name)) / 2,
+                          scale = FALSE))
 
   # bulding models ------------------------------------------------------------
   model1 <-

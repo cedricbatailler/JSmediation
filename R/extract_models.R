@@ -7,7 +7,7 @@
 #' @param mediation_model An object of class `mediation_model`.
 #'
 #' @return A list of `lm` objects.
-#' 
+#'
 #' @family extract functions
 #'
 #' @examples
@@ -50,7 +50,7 @@ extract_models.mediation_model <- function(mediation_model) {
 #' @return An `lm` object.
 #'
 #' @family extract functions
-#' 
+#'
 #' @examples
 #' data(ho_et_al)
 #' ho_et_al$condition_c <- build_contrast(ho_et_al$condition,
@@ -109,7 +109,7 @@ extract_model.mediation_model <- function(mediation_model, step = NULL) {
 #'              M = linkedfate)
 #'
 #' extract_tidy_models(my_model)
-#' 
+#'
 #' @export
 
 extract_tidy_models <- function(mediation_model) {

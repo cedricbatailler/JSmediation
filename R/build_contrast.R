@@ -10,8 +10,8 @@
 #'
 #' @return A numeric vector.
 #'
-#' @details The [`lm`] method supports factor and character variables
-#'   by dummy coding them. Dummy coding can make the interpretation of regression
+#' @details The [`lm`] method supports factor and character variables by dummy
+#'   coding them. Dummy coding can make the interpretation of regression
 #'   coefficient difficult or at least more difficult than contrast coding.
 #'   Contrast-coded-variable coefficients interpretation is particularly useful
 #'   when conducting a joint-significance test.

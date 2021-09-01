@@ -15,21 +15,21 @@
 #'
 #'   See [`mdt_simple`] and [`mdt_moderated`] to conduct a
 #'   simple mediation or a moderated mediation analysis with this dataset.
-#'   
-#' @format A data frame with 824 rows and 5 variables: 
-#' \describe{ 
-#'   \item{id}{An incremental index.} 
+#'
+#' @format A data frame with 824 rows and 5 variables:
+#' \describe{
+#'   \item{id}{An incremental index.}
 #'   \item{condition}{Experimental condition (High discrimination vs. Low
-#'   discrimination).} 
+#'   discrimination).}
 #'   \item{sdo}{Score at an SDO scale.}
 #'   \item{linkedfate}{Score at an 8-item linked fate measure.}
-#'   \item{hypodescent}{Score at a 3-item measure of hypodescent.} 
+#'   \item{hypodescent}{Score at a 3-item measure of hypodescent.}
 #'   }
 #'
 #' @references Ho, A. K., Kteily, N. S., & Chen, J. M. (2017). “You’re one of
 #'   us”: Black Americans’ use of hypodescent and its association with
 #'   egalitarianism. *Journal of Personality and Social Psychology*,
 #'   *113*(5), 753-768. doi: 10.1037/pspi0000107
-#'   
+#'
 #' @usage data("ho_et_al")
 "ho_et_al"

@@ -22,4 +22,3 @@ create_path <- function(model_list, model_name, term_name) {
     APA = apastylr(model, term_name)
   )
 }
-
