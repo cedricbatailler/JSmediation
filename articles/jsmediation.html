@@ -74,7 +74,7 @@
       <a href="../articles/jsmediation.html">Introduction to mediation analysis with JSmediation</a>
     </li>
     <li>
-      <a href="../articles/moderated_mediation_analysis.html">Conducting a moderated mediation analysis</a>
+      <a href="../articles/moderated-mediation.html">Conducting a moderated mediation analysis</a>
     </li>
   </ul>
 </li>
@@ -126,7 +126,7 @@
 <div id="conducting-a-simple-mediation" class="section level2">
 <h2 class="hasAnchor">
 <a href="#conducting-a-simple-mediation" class="anchor"></a>Conducting a Simple Mediation</h2>
-<p>Simple mediation analysis refers to the analysis testing whether the effect of an independent variable on a dependent variable goes through a third variable (the mediator). The <code>ho_et_al</code> data set, shipped with the <em>JSmediation</em> package, contains data illustrating a case of simple mediation. This data set contains the data collected by Ho et al. in a paper focusing on hypodescent <span class="citation">(2017)</span>, a rule sometimes use when people have to perform multiracial categorization and where a percievers associate a biracial person more easily to their lowest status group.</p>
+<p>Simple mediation analysis refers to the analysis testing whether the effect of an independent variable on a dependent variable goes through a third variable (the mediator). The <code>ho_et_al</code> data set, shipped with the <em>JSmediation</em> package, contains data illustrating a case of simple mediation. This data set contains the data collected by Ho et al. in a paper focusing on hypodescent <span class="citation">(2017)</span>, a rule sometimes use when people have to perform multiracial categorization and where a perceivers associate a biracial person more easily to their lowest status group.</p>
 <p>In this experiment, Ho et al. <span class="citation">(2017)</span> made the hypothesis that a Black American participants exposed to the discrimination of Black-White biracials would be more likely to associate Black-White biracials with Black Americans rather than with White Americans. In other words, participants of their experiment would be more likely to use the hypodescent rule when exposed to high discrimination content compared to low discrimination content. In the experiment that we will investigate, the authors went further and tested whether the effect of the discrimination condition on the use of hypodescent was mediated by a feeling of linked fate between the participants (Black Americans) and Black-White biracials <span class="citation">(Ho et al., 2017)</span>.</p>
 <p>In this vignette, we will use the <code>ho_et_al</code> data set to test whether <strong>feeling of linked fate mediates the relationship between the exposition to a high discrimination content and the use of hypodescent</strong> among Black Africans.</p>
 <div id="formalization-of-simple-mediation" class="section level3">
@@ -211,9 +211,9 @@ c = c' + a \times b
 <p><img src="jsmediation_files/figure-html/unnamed-chunk-7-1.png" width="100%"></p>
 <p>Thanks to these plots, we can now interpret the results of the mediation knowing whether their data suffer from any violation <span class="citation">(Judd et al., 2017)</span>.</p>
 </div>
-<div id="interpreting-the-resuts-of-a-mediation-model" class="section level3">
+<div id="interpreting-the-results-of-a-mediation-model" class="section level3">
 <h3 class="hasAnchor">
-<a href="#interpreting-the-resuts-of-a-mediation-model" class="anchor"></a>Interpreting the Resuts of a Mediation Model</h3>
+<a href="#interpreting-the-results-of-a-mediation-model" class="anchor"></a>Interpreting the Results of a Mediation Model</h3>
 <p>Now that we check for our assumptions, we can interpret our model. To do so, we simply have to call <code>model_fit</code>.</p>
 <div class="sourceCode" id="cb8"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="va">mediation_fit</span>
@@ -283,7 +283,7 @@ c = c' + a \times b
 <span class="co">#&gt; - confidence interval:</span>
 <span class="co">#&gt;   - method: Monte Carlo (5000 iterations)</span>
 <span class="co">#&gt;   - level: 0.05 </span>
-<span class="co">#&gt;   - CI: [0.0894; 0.206]</span>
+<span class="co">#&gt;   - CI: [0.0922; 0.205]</span>
 <span class="co">#&gt; </span>
 <span class="co">#&gt; Fitted models:</span>
 <span class="co">#&gt; </span>
@@ -292,7 +292,7 @@ c = c' + a \times b
 <span class="co">#&gt; - X + M -&gt; Y</span></code></pre></div>
 <p>The only thing left to do is to report the mediation analysis:</p>
 <blockquote>
-<p>First, we examined the effect of the discrimination condition (low vs. high) on hypodescent use. This analysis revealed a significant effect, <em>t</em>(822) = 2.13, <em>p</em> = .034. &gt; &gt; We then tested our hypothesis of interest, namely, we tested whether the sentiment of linked fate between Black Americans and Black-White biracials mediated the effect of the discrimination condition on hypodescent. To do so, we conducted a joint significant test <span class="citation">(Yzerbyt et al., 2018)</span>. This analysis revealed a significant effect of discrimination condition on linked fate, <em>t</em>(822) = 9.10, <em>p</em> &lt; .001, and a significant effect of linked fate on hypodescent, controlling for thediscrimination condition, <em>t</em>(821) = 5.75, <em>p</em> &lt; .001. The effect of discrimination condition on hypodescent after controlling for the feeling of linked fate was no longer significant, <em>t</em>(821) = 0.33, <em>p</em> = .742. Consistently with this analysis, the Monte Carlo confidence interval for the indirect effect did not contain 0, CI<sub>95%</sub> [0.0889; 0.208]. This analysis reveals that the feeling of linked fate mediates the effect of the discrimination condition on hypodescent.</p>
+<p>First, we examined the effect of the discrimination condition (low vs. high) on hypodescent use. This analysis revealed a significant effect, <em>t</em>(822) = 2.13, <em>p</em> = .034. &gt; &gt; We then tested our hypothesis of interest, namely, we tested whether the sentiment of linked fate between Black Americans and Black-White biracials mediated the effect of the discrimination condition on hypodescent. To do so, we conducted a joint significant test <span class="citation">(Yzerbyt et al., 2018)</span>. This analysis revealed a significant effect of discrimination condition on linked fate, <em>t</em>(822) = 9.10, <em>p</em> &lt; .001, and a significant effect of linked fate on hypodescent, controlling for the discrimination condition, <em>t</em>(821) = 5.75, <em>p</em> &lt; .001. The effect of discrimination condition on hypodescent after controlling for the feeling of linked fate was no longer significant, <em>t</em>(821) = 0.33, <em>p</em> = .742. Consistently with this analysis, the Monte Carlo confidence interval for the indirect effect did not contain 0, CI<sub>95%</sub> [0.0889; 0.208]. This analysis reveals that the feeling of linked fate mediates the effect of the discrimination condition on hypodescent.</p>
 </blockquote>
 </div>
 </div>
