@@ -31,7 +31,7 @@ an independent variable on a dependent variable goes through a third variable
 contains data illustrating a case of simple mediation. This data set contains
 the data collected by Ho et al. in a paper focusing on hypodescent
 [-@ho_youre_2017], a rule sometimes use when people have to perform multiracial
-categorization and where a percievers associate a biracial person more easily to
+categorization and where a perceivers associate a biracial person more easily to
 their lowest status group.
 
 In this experiment, Ho et al. [-@ho_youre_2017] made the hypothesis that a Black
@@ -182,7 +182,7 @@ performance::check_model(third_model)
 Thanks to these plots, we can now interpret the results of the mediation
 knowing whether their data suffer from any violation [@judd_data_2017].
 
-### Interpreting the Resuts of a Mediation Model 
+### Interpreting the Results of a Mediation Model 
 
 Now that we check for our assumptions, we can interpret our model. To do
 so, we simply have to call `model_fit`. 
@@ -221,7 +221,7 @@ hypodescent. To do so, we conducted a joint significant test
 [@yzerbyt_new_2018]. This analysis revealed a significant effect of
 discrimination condition on linked fate, _t_(822) = 9.10, _p_ < .001, and a
 significant effect of linked fate on hypodescent, controlling for
-thediscrimination condition, _t_(821) = 5.75, _p_ < .001. The effect of
+the discrimination condition, _t_(821) = 5.75, _p_ < .001. The effect of
 discrimination condition on hypodescent after controlling for the feeling of
 linked fate was no longer significant, _t_(821) = 0.33, _p_ = .742. Consistently
 with this analysis, the Monte Carlo confidence interval for the indirect effect

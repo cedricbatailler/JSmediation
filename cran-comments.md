@@ -1,18 +1,13 @@
-## Resubmission
-
-This is a resbmission. In this resbmission I have:
-* follow moved content as appropriate in urls
-* Fix a header in NEWS.md (Dev version -> 0.1.2)
-
 ## Release summary
 
-This is a patch release.
+This is a minor release. 
 
-Minor changes include an update of testhat to edition 3, new tests, and we now
-publicize the pkgdown website within change.
+This release introduces new functions (`standardize_variable`,
+`compute_indirect_effect_for`, `check_assumptions`, `plot_assumptions`) and a
+new vignette (`"moderated-mediation"`).
 
-We also fix a problem with how the `add_index` behavior when the model was a
-`modertated_mediation` and `stage = "total"`.
+We also rewrote an old vignette (`"jsmediation"`) to account for the changes,
+added new tests, and improved the package coverage.
 
 ## Test environments
 * local macOS R install, R 4.1.0
