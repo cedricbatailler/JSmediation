@@ -192,12 +192,12 @@ have been used in an object of class <code>mediation_model</code>.</p>
 <span class='va'>ho_et_al</span><span class='op'>$</span><span class='va'>condition_c</span> <span class='op'>&lt;-</span> <span class='fu'><a href='build_contrast.html'>build_contrast</a></span><span class='op'>(</span><span class='va'>ho_et_al</span><span class='op'>$</span><span class='va'>condition</span>,
                                        <span class='st'>"Low discrimination"</span>,
                                        <span class='st'>"High discrimination"</span><span class='op'>)</span>
-<span class='va'>my_model</span> <span class='op'>&lt;-</span> 
+<span class='va'>my_model</span> <span class='op'>&lt;-</span>
   <span class='fu'><a href='mdt_simple.html'>mdt_simple</a></span><span class='op'>(</span>data <span class='op'>=</span> <span class='va'>ho_et_al</span>,
              IV <span class='op'>=</span> <span class='va'>condition_c</span>,
              DV <span class='op'>=</span> <span class='va'>hypodescent</span>,
              M <span class='op'>=</span> <span class='va'>linkedfate</span><span class='op'>)</span>
-           
+
 <span class='fu'>display_models</span><span class='op'>(</span><span class='va'>my_model</span><span class='op'>)</span>
 </div><div class='output co'>#&gt; $`X -&gt; Y`
 #&gt; 
