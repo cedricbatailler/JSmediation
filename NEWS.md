@@ -1,4 +1,4 @@
-# JSmediation (development version)
+# JSmediation (0.2.0)
 
 ## New features
 
