@@ -19,7 +19,7 @@
 <!-- jquery -->
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js" integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
 <!-- Bootstrap -->
-<link href="https://cdnjs.cloudflare.com/ajax/libs/bootswatch/3.4.0/cosmo/bootstrap.min.css" rel="stylesheet" crossorigin="anonymous" />
+<link href="https://cdnjs.cloudflare.com/ajax/libs/bootswatch/3.4.0/paper/bootstrap.min.css" rel="stylesheet" crossorigin="anonymous" />
 
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.4.1/js/bootstrap.min.js" integrity="sha256-nuL8/2cJ5NDSSwnKD8VqreErSWHtnEP9E7AySL+1ev4=" crossorigin="anonymous"></script>
@@ -51,12 +51,14 @@
 <script src="https://cdnjs.cloudflare.com/ajax/libs/mark.js/8.11.1/jquery.mark.min.js" integrity="sha256-4HLtjeVgH0eIB3aZ9mLYF6E8oU5chNdjU6p6rrXpl9U=" crossorigin="anonymous"></script>
 
 
+  <link href="../extra.css" rel="stylesheet">
+  
 
 <meta property="og:title" content="Fits a moderated mediation model — mdt_moderated" />
-<meta property="og:description" content="Given a data frame, a predictor (IV), an outcome
-(DV), a mediator (M), and a moderator (Mod) conducts a
-joint-significant test for moderated mediation (see Yzerbyt, Muller,
-Batailler, &amp;amp; Judd, 2018).
+<meta property="og:description" content="Given a data frame, a predictor (IV), an outcome (DV), a
+mediator (M), and a moderator (Mod) conducts a joint-significant test
+for moderated mediation (see Yzerbyt, Muller, Batailler, &amp;amp; Judd, 2018).You
+can learn about moderated mediation in vignette(&quot;moderated-mediation&quot;)
 add_index.moderated_mediation computes the moderated mediation index.
 compute_indirect_effect_for is used to compute the indirect effect
 index for a specific value of the moderator." />
@@ -102,12 +104,15 @@ index for a specific value of the moderator." />
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="../index.html">JSmediation</a>
-        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">0.1.2.9000</span>
+        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">0.2.0</span>
       </span>
     </div>
 
     <div id="navbar" class="navbar-collapse collapse">
       <ul class="nav navbar-nav">
+        
+      </ul>
+      <ul class="nav navbar-nav navbar-right">
         <li>
   <a href="../index.html">
     <span class="fas fa-home fa-lg"></span>
@@ -125,16 +130,17 @@ index for a specific value of the moderator." />
   </a>
   <ul class="dropdown-menu" role="menu">
     <li>
-      <a href="../articles/jsmediation.html">Mediation analysis with JSmediation</a>
+      <a href="../articles/jsmediation.html">Introduction to mediation analysis with JSmediation</a>
+    </li>
+    <li>
+      <a href="../articles/moderated_mediation_analysis.html">Conducting a moderated mediation analysis</a>
     </li>
   </ul>
 </li>
 <li>
   <a href="../news/index.html">Changelog</a>
 </li>
-      </ul>
-      <ul class="nav navbar-nav navbar-right">
-        <li>
+<li>
   <a href="https://github.com/cedricbatailler/JSmediation/">
     <span class="fab fa-github fa-lg"></span>
      
@@ -165,10 +171,10 @@ index for a specific value of the moderator." />
     </div>
 
     <div class="ref-description">
-    <p>Given a data frame, a predictor (<code>IV</code>), an outcome
-(<code>DV</code>), a mediator (<code>M</code>), and a moderator (<code>Mod</code>) conducts a
-joint-significant test for moderated mediation (see Yzerbyt, Muller,
-Batailler, &amp; Judd, 2018).</p>
+    <p>Given a data frame, a predictor (<code>IV</code>), an outcome (<code>DV</code>), a
+mediator (<code>M</code>), and a moderator (<code>Mod</code>) conducts a joint-significant test
+for moderated mediation (see Yzerbyt, Muller, Batailler, &amp; Judd, 2018).You
+can learn about moderated mediation in <code>vignette("moderated-mediation")</code></p>
 <p><code><a href='add_index.moderated_mediation.html'>add_index.moderated_mediation</a></code> computes the moderated mediation index.
 <code><a href='compute_indirect_effect_for.html'>compute_indirect_effect_for</a></code> is used to compute the indirect effect
 index for a specific value of the moderator.</p>

@@ -3,7 +3,8 @@ pkgdown: 1.6.1
 pkgdown_sha: ~
 articles:
   jsmediation: jsmediation.html
-last_built: 2021-07-21T13:30Z
+  moderated_mediation_analysis: moderated_mediation_analysis.html
+last_built: 2021-09-01T12:42Z
 urls:
   reference: https://jsmediation.cedricbatailler.me/reference
   article: https://jsmediation.cedricbatailler.me/articles

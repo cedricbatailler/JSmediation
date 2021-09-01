@@ -6,7 +6,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>JSmediation — JSmediation-package • JSmediation</title>
+<title>Returns diagnostic plots for the linear model used in a mediation — plot_assumptions • JSmediation</title>
 
 <!-- favicons -->
 <link rel="icon" type="image/png" sizes="16x16" href="../favicon-16x16.png">
@@ -54,9 +54,13 @@
   <link href="../extra.css" rel="stylesheet">
   
 
-<meta property="og:title" content="JSmediation — JSmediation-package" />
-<meta property="og:description" content="A set of functions to conduct joint-significance tests for
-mediation analysis." />
+<meta property="og:title" content="Returns diagnostic plots for the linear model used in a mediation — plot_assumptions" />
+<meta property="og:description" content="When conducting a joint-significant test, different models are
+fitted to the data. This function returns diagnostic plots for each of the
+model used in the mediation model. check_assumptions_plot uses the
+performance and see packages behind the scenes to provide the different
+plots.
+This function is best used in an interactive context." />
 <meta property="og:image" content="https://jsmediation.cedricbatailler.me/logo.png" />
 
 
@@ -160,51 +164,64 @@ mediation analysis." />
 <div class="row">
   <div class="col-md-9 contents">
     <div class="page-header">
-    <h1>JSmediation</h1>
-    <small class="dont-index">Source: <a href='https://github.com/cedricbatailler/JSmediation/blob/master/R/JSmediation.R'><code>R/JSmediation.R</code></a></small>
-    <div class="hidden name"><code>JSmediation-package.Rd</code></div>
+    <h1>Returns diagnostic plots for the linear model used in a mediation</h1>
+    <small class="dont-index">Source: <a href='https://github.com/cedricbatailler/JSmediation/blob/master/R/plot_assumptions.R'><code>R/plot_assumptions.R</code></a></small>
+    <div class="hidden name"><code>plot_assumptions.Rd</code></div>
     </div>
 
     <div class="ref-description">
-    <p>A set of functions to conduct joint-significance tests for
-mediation analysis.</p>
+    <p>When conducting a joint-significant test, different models are
+fitted to the data. This function returns diagnostic plots for each of the
+model used in the mediation model. <code>check_assumptions_plot</code> uses the
+<code>performance</code> and <code>see</code> packages behind the scenes to provide the different
+plots.</p>
+<p>This function is best used in an interactive context.</p>
     </div>
 
+    <pre class="usage"><span class='fu'>plot_assumptions</span><span class='op'>(</span>
+  <span class='va'>mediation_model</span>,
+  tests <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span><span class='st'>"normality"</span>, <span class='st'>"heteroscedasticity"</span>, <span class='st'>"outliers"</span><span class='op'>)</span>
+<span class='op'>)</span></pre>
 
+    <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a>Arguments</h2>
+    <table class="ref-arguments">
+    <colgroup><col class="name" /><col class="desc" /></colgroup>
+    <tr>
+      <th>mediation_model</th>
+      <td><p>An object of class <code>mediation_model</code>.</p></td>
+    </tr>
+    <tr>
+      <th>tests</th>
+      <td><p>A character vector indicating which test to run. Supported test
+includes <code>"normality"</code>, <code>"heteroscedasticity"</code>, and
+<code>"outliers"</code></p></td>
+    </tr>
+    </table>
 
-    <h2 class="hasAnchor" id="details"><a class="anchor" href="#details"></a>Details</h2>
+    <h2 class="hasAnchor" id="value"><a class="anchor" href="#value"></a>Value</h2>
 
-    <p>The main functions of the JSmediation package follow an
-<code>mdt_*</code> pattern. <code>mdt_*</code> family functions allow you to conduct
-joint-significance tests for various mediation models (see Judd, Yzerbyt, &amp;
-Muller, 2014; Muller, Judd, &amp; Yzerbyt, 2005; Yzerbyt, Muller, Batailler, &amp;
-Judd, 2018).</p>
-<p>The syntax for <code>mdt_*</code> family functions is usually the same. The first
-argument is always a data frame (<code>data</code>) which is followed by the
-variable names involved in the model (e.g., DV, IV). Because <code>mdt_*</code>
-family functions use non-standard evaluation, these variable names must
-generally be specified unquoted.</p>
-<p><code>mdt_*</code> family functions allow you to create an object of class
-<code>"mediation_model"</code> for which various methods are implemented. The
-<code><a href='add_index.html'>add_index</a></code> method computes the (moderated) indirect effect
-index using Monte Carlo for the different mediation models
-JSmediation offers.</p>
-<p>See <code><a href='../articles/jsmediation.html'>vignette("jsmediation")</a></code> for a general introduction and overview
-of JSmediation.</p>
-    <h2 class="hasAnchor" id="references"><a class="anchor" href="#references"></a>References</h2>
+    <p>Invisibly returns an object of class <code>mediation_model</code>.</p>
+    <h2 class="hasAnchor" id="see-also"><a class="anchor" href="#see-also"></a>See also</h2>
 
-    <p>Muller, D., Judd, C. M., &amp; Yzerbyt, V. Y. (2005). When moderation
-is mediated and mediation is moderated. <em>Journal of Personality and
-Social Psychology</em>, <em>89</em>(6), 852–863. doi: 10.1037/0022-3514.89.6.852</p>
-<p>Judd, C. M., Yzerbyt, V. Y., &amp; Muller, D. (2014). <em>Mediation and
-Moderation</em>. In H. T. Reis &amp; C. M. Judd (Eds.), Handbook of Research
-Methods in Social and Personality Psychology (2nd ed., pp. 653–676). New
-York: Cambridge University Press.</p>
-<p>Yzerbyt, V., Muller, D., Batailler, C., &amp; Judd, C. M. (2018). New
-recommendations for testing indirect effects in mediational models: The
-need to report and test component paths. <em>Journal of Personality and
-Social Psychology</em>, <em>115</em>(6), 929–943. doi: 10.1037/pspa0000132</p>
+    <div class='dont-index'><p>Other assumption checks: 
+<code><a href='check_assumptions.html'>check_assumptions</a>()</code></p></div>
 
+    <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
+    <pre class="examples"><div class='input'><span class='fu'><a href='https://rdrr.io/r/utils/data.html'>data</a></span><span class='op'>(</span><span class='va'>ho_et_al</span><span class='op'>)</span>
+<span class='va'>ho_et_al</span><span class='op'>$</span><span class='va'>condition_c</span> <span class='op'>&lt;-</span> <span class='fu'><a href='build_contrast.html'>build_contrast</a></span><span class='op'>(</span><span class='va'>ho_et_al</span><span class='op'>$</span><span class='va'>condition</span>,
+                                       <span class='st'>"Low discrimination"</span>,
+                                       <span class='st'>"High discrimination"</span><span class='op'>)</span>
+<span class='va'>my_model</span> <span class='op'>&lt;-</span>
+  <span class='fu'><a href='mdt_simple.html'>mdt_simple</a></span><span class='op'>(</span>data <span class='op'>=</span> <span class='va'>ho_et_al</span>,
+             IV <span class='op'>=</span> <span class='va'>condition_c</span>,
+             DV <span class='op'>=</span> <span class='va'>hypodescent</span>,
+             M <span class='op'>=</span> <span class='va'>linkedfate</span><span class='op'>)</span>
+
+<span class='fu'>plot_assumptions</span><span class='op'>(</span><span class='va'>my_model</span><span class='op'>)</span>
+</div><div class='output co'>#&gt; <span class='message'>Registered S3 method overwritten by 'datawizard':</span>
+#&gt; <span class='message'>  method                    from</span>
+#&gt; <span class='message'>  plot.visualisation_recipe see </span></div><div class='output co'>#&gt; <span class='message'>For confidence bands, please install `qqplotr`.</span></div><div class='output co'>#&gt; <span class='warning'>Warning: pseudoinverse used at 4.481</span></div><div class='output co'>#&gt; <span class='warning'>Warning: neighborhood radius 0.1723</span></div><div class='output co'>#&gt; <span class='warning'>Warning: reciprocal condition number  2.2957e-15</span></div><div class='output co'>#&gt; <span class='warning'>Warning: There are other near singularities as well. 0.029689</span></div><div class='output co'>#&gt; <span class='warning'>Warning: pseudoinverse used at 4.481</span></div><div class='output co'>#&gt; <span class='warning'>Warning: neighborhood radius 0.1723</span></div><div class='output co'>#&gt; <span class='warning'>Warning: reciprocal condition number  2.2957e-15</span></div><div class='output co'>#&gt; <span class='warning'>Warning: There are other near singularities as well. 0.029689</span></div><div class='output co'>#&gt; <span class='warning'>Warning: pseudoinverse used at 0.00223</span></div><div class='output co'>#&gt; <span class='warning'>Warning: neighborhood radius 0.00042957</span></div><div class='output co'>#&gt; <span class='warning'>Warning: reciprocal condition number  2.1406e-15</span></div><div class='output co'>#&gt; <span class='warning'>Warning: There are other near singularities as well. 1.8453e-07</span></div><div class='output co'>#&gt; <span class='message'>For confidence bands, please install `qqplotr`.</span></div><div class='img'><img src='plot_assumptions-1.png' alt='' width='700' height='433' /></div><div class='output co'>#&gt; <span class='warning'>Warning: pseudoinverse used at 4.7683</span></div><div class='output co'>#&gt; <span class='warning'>Warning: neighborhood radius 0.77553</span></div><div class='output co'>#&gt; <span class='warning'>Warning: reciprocal condition number  1.6875e-15</span></div><div class='output co'>#&gt; <span class='warning'>Warning: There are other near singularities as well. 0.60145</span></div><div class='output co'>#&gt; <span class='warning'>Warning: pseudoinverse used at 4.7683</span></div><div class='output co'>#&gt; <span class='warning'>Warning: neighborhood radius 0.77553</span></div><div class='output co'>#&gt; <span class='warning'>Warning: reciprocal condition number  1.6875e-15</span></div><div class='output co'>#&gt; <span class='warning'>Warning: There are other near singularities as well. 0.60145</span></div><div class='output co'>#&gt; <span class='warning'>Warning: pseudoinverse used at 0.00223</span></div><div class='output co'>#&gt; <span class='warning'>Warning: neighborhood radius 0.00042957</span></div><div class='output co'>#&gt; <span class='warning'>Warning: reciprocal condition number  2.1406e-15</span></div><div class='output co'>#&gt; <span class='warning'>Warning: There are other near singularities as well. 1.8453e-07</span></div><div class='output co'>#&gt; <span class='message'>For confidence bands, please install `qqplotr`.</span></div><div class='img'><img src='plot_assumptions-2.png' alt='' width='700' height='433' /></div><div class='img'><img src='plot_assumptions-3.png' alt='' width='700' height='433' /></div><div class='input'>
+</div></pre>
   </div>
   <div class="col-md-3 hidden-xs hidden-sm" id="pkgdown-sidebar">
     <nav id="toc" data-toggle="toc" class="sticky-top">

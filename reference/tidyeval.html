@@ -19,7 +19,7 @@
 <!-- jquery -->
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js" integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
 <!-- Bootstrap -->
-<link href="https://cdnjs.cloudflare.com/ajax/libs/bootswatch/3.4.0/cosmo/bootstrap.min.css" rel="stylesheet" crossorigin="anonymous" />
+<link href="https://cdnjs.cloudflare.com/ajax/libs/bootswatch/3.4.0/paper/bootstrap.min.css" rel="stylesheet" crossorigin="anonymous" />
 
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.4.1/js/bootstrap.min.js" integrity="sha256-nuL8/2cJ5NDSSwnKD8VqreErSWHtnEP9E7AySL+1ev4=" crossorigin="anonymous"></script>
@@ -51,22 +51,24 @@
 <script src="https://cdnjs.cloudflare.com/ajax/libs/mark.js/8.11.1/jquery.mark.min.js" integrity="sha256-4HLtjeVgH0eIB3aZ9mLYF6E8oU5chNdjU6p6rrXpl9U=" crossorigin="anonymous"></script>
 
 
+  <link href="../extra.css" rel="stylesheet">
+  
 
 <meta property="og:title" content="Tidy eval helpers — tidyeval" />
 <meta property="og:description" content="
 
-sym() creates a symbol from a string and
-syms() creates a list of symbols from a
+rlang::sym() creates a symbol from a string and
+rlang::syms() creates a list of symbols from a
 character vector.
-expr() and quo() quote
+rlang::expr() and rlang::quo() quote
 one expression. quo() wraps the quoted expression in a quosure.
 The plural variants rlang::exprs() and
-quos() return a list of quoted expressions or
+rlang::quos() return a list of quoted expressions or
 quosures.
-enexpr() and enquo()
+rlang::enexpr() and rlang::enquo()
 capture the expression supplied as argument by the user of the
 current function (enquo() wraps this expression in a quosure).
-enexprs() and enquos()
+rlang::enexprs() and rlang::enquos()
 capture multiple expressions supplied as arguments, including
 ....
 
@@ -117,12 +119,15 @@ https://rlang.r-lib.org/ and the Metaprogramming section of Advanced R." />
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="../index.html">JSmediation</a>
-        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">0.1.2.9000</span>
+        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">0.2.0</span>
       </span>
     </div>
 
     <div id="navbar" class="navbar-collapse collapse">
       <ul class="nav navbar-nav">
+        
+      </ul>
+      <ul class="nav navbar-nav navbar-right">
         <li>
   <a href="../index.html">
     <span class="fas fa-home fa-lg"></span>
@@ -140,16 +145,17 @@ https://rlang.r-lib.org/ and the Metaprogramming section of Advanced R." />
   </a>
   <ul class="dropdown-menu" role="menu">
     <li>
-      <a href="../articles/jsmediation.html">Mediation analysis with JSmediation</a>
+      <a href="../articles/jsmediation.html">Introduction to mediation analysis with JSmediation</a>
+    </li>
+    <li>
+      <a href="../articles/moderated_mediation_analysis.html">Conducting a moderated mediation analysis</a>
     </li>
   </ul>
 </li>
 <li>
   <a href="../news/index.html">Changelog</a>
 </li>
-      </ul>
-      <ul class="nav navbar-nav navbar-right">
-        <li>
+<li>
   <a href="https://github.com/cedricbatailler/JSmediation/">
     <span class="fab fa-github fa-lg"></span>
      
@@ -182,18 +188,18 @@ https://rlang.r-lib.org/ and the Metaprogramming section of Advanced R." />
     <div class="ref-description">
     
 <ul>
-<li><p><code><a href='https://rlang.r-lib.org/reference/sym.html'>sym</a>()</code> creates a symbol from a string and
-<code><a href='https://rlang.r-lib.org/reference/sym.html'>syms</a>()</code> creates a list of symbols from a
+<li><p><code><a href='https://rlang.r-lib.org/reference/sym.html'>rlang::sym()</a></code> creates a symbol from a string and
+<code><a href='https://rlang.r-lib.org/reference/sym.html'>rlang::syms()</a></code> creates a list of symbols from a
 character vector.</p></li>
-<li><p><code><a href='https://rlang.r-lib.org/reference/nse-defuse.html'>expr</a>()</code> and <code><a href='https://rlang.r-lib.org/reference/nse-defuse.html'>quo</a>()</code> quote
+<li><p><code><a href='https://rlang.r-lib.org/reference/nse-defuse.html'>rlang::expr()</a></code> and <code><a href='https://rlang.r-lib.org/reference/nse-defuse.html'>rlang::quo()</a></code> quote
 one expression. <code>quo()</code> wraps the quoted expression in a quosure.</p>
 <p>The plural variants <code><a href='https://rlang.r-lib.org/reference/nse-defuse.html'>rlang::exprs()</a></code> and
-<code><a href='https://rlang.r-lib.org/reference/nse-defuse.html'>quos</a>()</code> return a list of quoted expressions or
+<code><a href='https://rlang.r-lib.org/reference/nse-defuse.html'>rlang::quos()</a></code> return a list of quoted expressions or
 quosures.</p></li>
-<li><p><code><a href='https://rlang.r-lib.org/reference/nse-defuse.html'>enexpr</a>()</code> and <code><a href='https://rlang.r-lib.org/reference/nse-defuse.html'>enquo</a>()</code>
+<li><p><code><a href='https://rlang.r-lib.org/reference/nse-defuse.html'>rlang::enexpr()</a></code> and <code><a href='https://rlang.r-lib.org/reference/nse-defuse.html'>rlang::enquo()</a></code>
 capture the expression supplied as argument by the user of the
 current function (<code>enquo()</code> wraps this expression in a quosure).</p>
-<p><code><a href='https://rlang.r-lib.org/reference/nse-defuse.html'>enexprs</a>()</code> and <code><a href='https://rlang.r-lib.org/reference/nse-defuse.html'>enquos</a>()</code>
+<p><code><a href='https://rlang.r-lib.org/reference/nse-defuse.html'>rlang::enexprs()</a></code> and <code><a href='https://rlang.r-lib.org/reference/nse-defuse.html'>rlang::enquos()</a></code>
 capture multiple expressions supplied as arguments, including
 <code>...</code>.</p></li>
 </ul>

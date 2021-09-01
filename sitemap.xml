@@ -25,6 +25,9 @@
     <loc>https://jsmediation.cedricbatailler.me/reference/build_contrast.html</loc>
   </url>
   <url>
+    <loc>https://jsmediation.cedricbatailler.me/reference/check_assumptions.html</loc>
+  </url>
+  <url>
     <loc>https://jsmediation.cedricbatailler.me/reference/compute_indirect_effect_for.html</loc>
   </url>
   <url>
@@ -64,18 +67,24 @@
     <loc>https://jsmediation.cedricbatailler.me/reference/pipe.html</loc>
   </url>
   <url>
+    <loc>https://jsmediation.cedricbatailler.me/reference/plot_assumptions.html</loc>
+  </url>
+  <url>
     <loc>https://jsmediation.cedricbatailler.me/reference/print.indirect_index.html</loc>
   </url>
   <url>
     <loc>https://jsmediation.cedricbatailler.me/reference/print.mediation_model.html</loc>
   </url>
   <url>
-    <loc>https://jsmediation.cedricbatailler.me/reference/standardize_variables.html</loc>
+    <loc>https://jsmediation.cedricbatailler.me/reference/standardize_variable.html</loc>
   </url>
   <url>
     <loc>https://jsmediation.cedricbatailler.me/reference/tidyeval.html</loc>
   </url>
   <url>
     <loc>https://jsmediation.cedricbatailler.me/articles/jsmediation.html</loc>
+  </url>
+  <url>
+    <loc>https://jsmediation.cedricbatailler.me/articles/moderated_mediation_analysis.html</loc>
   </url>
 </urlset>
