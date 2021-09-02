@@ -2,7 +2,8 @@
 
 This is a resubmission.
 
-We fixed a broken link in a vignette.
+We fixed a broken link in a vignette. We also added a reminder to run
+`urlchecker::url_check()` when calling `devtools::release()`.
 
 ## Release summary
 

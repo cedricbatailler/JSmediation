@@ -24,3 +24,9 @@ access_data <- function(mediation_model, variable) {
   purrr::pluck(mediation_model, "data") %>%
     dplyr::pull(!! variable_q)
 }
+
+release_questions <- function() {
+  c(
+    "Have run `urlchecker::url_check()`?"
+    )
+}
