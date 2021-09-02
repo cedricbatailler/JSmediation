@@ -1,3 +1,9 @@
+## Resubmission
+
+This is a resubmission.
+
+We fixed a broken link in a vignette.
+
 ## Release summary
 
 This is a minor release. 
