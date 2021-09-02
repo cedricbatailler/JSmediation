@@ -168,7 +168,7 @@
 <span class="co">#&gt; 5 6     Low discri…  1.94       4.38        4    -0.351      -0.643         -0.5</span>
 <span class="co">#&gt; 6 9     High discr…  2.88       3.75        4     0.538      -1.13           0.5</span></code></pre></div>
 <p>The first function we used, <code>standardize_variable</code>, allows us to center and reduce (to standardize) a set of variables (here: <code>sdo</code> and <code>linkedfate</code>). The <code>suffix</code> argument of this function is used to name the standardized variables. Here, because we set <code>suffix = "c"</code>, the new variables are named <code>sdo_c</code> and <code>linkedfate_c</code>. When the suffix argument is blank, original variables are overwritten. Because <em>JSmediation</em> was designed to fit within the tidyverse, <code>standardize_variable</code> is especially useful in a <em>dplyr</em> <a href="https://dplyr.tidyverse.org/articles/dplyr.html#combining-functions-with-%20%22Combining%20functions%20with%20%60%%3E%%60%22">chain</a>.</p>
-<p>Here, we also used a second function from <em>JSmediation</em>: <code>build_contrast</code>. This function takes a character vector as a first argument and, then, returns a contrast-coded variables. It is designed for variables with two conditions, which is the case of <code>condition</code>. Because we want to include the transformed variable in <code>ho_et_al</code>, we can use the <code><a href="https://dplyr.tidyverse.org/reference/mutate.html">dplyr::mutate</a></code> function which <a href="https://dplyr.tidyverse.org/reference/mutate.html%20%22Create,%20modify,%20and%20delete%20columns%22">create (or modify) variables</a>. With this method, we contrast-coded the <code>condition</code> variable.</p>
+<p>Here, we also used a second function from <em>JSmediation</em>: <code>build_contrast</code>. This function takes a character vector as a first argument and, then, returns a contrast-coded variables. It is designed for variables with two conditions, which is the case of <code>condition</code>. Because we want to include the transformed variable in <code>ho_et_al</code>, we can use the <code><a href="https://dplyr.tidyverse.org/reference/mutate.html">dplyr::mutate</a></code> function which <a href="https://dplyr.tidyverse.org/reference/mutate.html" title="Create, modify, and delete columns">creates (or modify) variables</a>. With this method, we contrast-coded the <code>condition</code> variable.</p>
 <div class="sourceCode" id="cb5"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="va">ho_et_al</span> <span class="op">%&gt;%</span> 
   <span class="fu">dplyr</span><span class="fu">::</span><span class="fu"><a href="https://dplyr.tidyverse.org/reference/select.html">select</a></span><span class="op">(</span><span class="fu">dplyr</span><span class="fu">::</span><span class="fu"><a href="https://tidyselect.r-lib.org/reference/starts_with.html">starts_with</a></span><span class="op">(</span><span class="st">"condition"</span><span class="op">)</span><span class="op">)</span>
@@ -215,7 +215,7 @@ c \times Mod = c' \times Mod + (a \times Mod) \times b + a \times (b \times Mod)
                 DV   <span class="op">=</span> <span class="va">hypodescent</span>, 
                 M    <span class="op">=</span> <span class="va">linkedfate_c</span>,
                 Mod  <span class="op">=</span> <span class="va">sdo_c</span><span class="op">)</span></code></pre></div>
-<p>Most of the math occurs when <code>mdt_moderated</code> is evaluated. The <code>moderated_mediation_fit</code> that we just computed contains every linear model useful to assess moderated mediation, as described in Muller et al. <span class="citation">(2005)</span>.</p>
+<p>Most of the math occurs when <code>mdt_moderated</code> is evaluated. The <code>moderated_mediation_fit</code> that we just computed contains every linear model useful to assess moderated mediation, as described in Muller et al. <span class="citation">(2005)</span>.</p>
 <p>As we can see, it is possible to see <span class="math inline">\(a\)</span>, <span class="math inline">\(a \times Mod\)</span>, <span class="math inline">\(b\)</span>, and <span class="math inline">\(b \times Mod\)</span> in the <code>mdt_moderated</code> output.</p>
 <div class="sourceCode" id="cb7"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="va">moderated_mediation_fit</span>
@@ -254,7 +254,7 @@ c \times Mod = c' \times Mod + (a \times Mod) \times b + a \times (b \times Mod)
 <span class="co">#&gt; - X * Mod -&gt; Y </span>
 <span class="co">#&gt; - X * Mod -&gt; M </span>
 <span class="co">#&gt; - (X + M) * Mod -&gt; Y</span></code></pre></div>
-<p>If a moderated mediation model is significant, Yzerbyt et al. <span class="citation">(2018)</span> recommend reporting the moderated mediation index. To compute this index, <em>JSmediation</em> offers the <code>add_index</code>method. In the case of moderated mediation, we will have to specify whether we are in a scenario where we assume that the moderator impacts the relation between or IV and the mediator (i.e., both <span class="math inline">\(a \times Mod\)</span> and <span class="math inline">\(b\)</span> are significant), the relation between the moderator and the DV (i.e., both <span class="math inline">\(a\)</span> and <span class="math inline">\(b \times Mod\)</span> are significant), or both. To do so, we must use the <code>stage</code> argument.</p>
+<p>If a moderated mediation model is significant, Yzerbyt et al. <span class="citation">(2018)</span> recommend reporting the moderated mediation index. To compute this index, <em>JSmediation</em> offers the <code>add_index</code>method. In the case of moderated mediation, we will have to specify whether we are in a scenario where we assume that the moderator impacts the relation between or IV and the mediator (i.e., both <span class="math inline">\(a \times Mod\)</span> and <span class="math inline">\(b\)</span> are significant), the relation between the moderator and the DV (i.e., both <span class="math inline">\(a\)</span> and <span class="math inline">\(b \times Mod\)</span> are significant), or both. To do so, we must use the <code>stage</code> argument.</p>
 <div class="sourceCode" id="cb8"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="va">moderated_mediation_fit_w_index</span> <span class="op">&lt;-</span> <span class="va">moderated_mediation_fit</span> <span class="op">%&gt;%</span>
   <span class="fu"><a href="../reference/add_index.html">add_index</a></span><span class="op">(</span>stage <span class="op">=</span> <span class="st">"first"</span><span class="op">)</span></code></pre></div>
@@ -293,7 +293,7 @@ c \times Mod = c' \times Mod + (a \times Mod) \times b + a \times (b \times Mod)
 <span class="co">#&gt; - confidence interval:</span>
 <span class="co">#&gt;   - method: Monte Carlo (5000 iterations)</span>
 <span class="co">#&gt;   - level: 0.05 </span>
-<span class="co">#&gt;   - CI: [-0.0771; -0.0167]</span>
+<span class="co">#&gt;   - CI: [-0.0784; -0.0171]</span>
 <span class="co">#&gt; </span>
 <span class="co">#&gt; Fitted models:</span>
 <span class="co">#&gt; </span>
@@ -324,7 +324,7 @@ c \times Mod = c' \times Mod + (a \times Mod) \times b + a \times (b \times Mod)
 <span class="co">#&gt; - confidence interval:</span>
 <span class="co">#&gt;   - method: Monte Carlo (5000 iterations)</span>
 <span class="co">#&gt;   - level: 0.05 </span>
-<span class="co">#&gt;   - CI: [0.0424; 0.146]</span></code></pre></div>
+<span class="co">#&gt;   - CI: [0.0419; 0.147]</span></code></pre></div>
 <p>We could also compute this indirect effect for participants who score one standard deviation above the mean in terms of SDO.</p>
 <div class="sourceCode" id="cb11"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="fu"><a href="../reference/compute_indirect_effect_for.html">compute_indirect_effect_for</a></span><span class="op">(</span><span class="va">moderated_mediation_fit</span>, Mod <span class="op">=</span> <span class="fl">1</span><span class="op">)</span>
@@ -333,7 +333,7 @@ c \times Mod = c' \times Mod + (a \times Mod) \times b + a \times (b \times Mod)
 <span class="co">#&gt; - confidence interval:</span>
 <span class="co">#&gt;   - method: Monte Carlo (5000 iterations)</span>
 <span class="co">#&gt;   - level: 0.05 </span>
-<span class="co">#&gt;   - CI: [-0.00656; 0.0744]</span></code></pre></div>
+<span class="co">#&gt;   - CI: [-0.0064; 0.0762]</span></code></pre></div>
 <p>As we can see, the indirect effect estimate decreases when the SDO increases. This result is consistent with the negative value of the moderated mediation index.</p>
 </div>
 <div id="references" class="section level1 unnumbered">
