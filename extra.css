@@ -19,6 +19,17 @@ body {
   color: #e51c23;
 }
 
+.label-default {
+  font-size: small;
+  font-weight: 300;
+  background: transparent;
+  color: #444;
+}
+
+.navbar-default .navbar-link {
+  color: #444;
+}
+
 .navbar {
   border: none;
   box-shadow: 0 3px 15px 0 rgba(0, 0, 0, 0.1);
