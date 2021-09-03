@@ -2,11 +2,11 @@
 
 ## New features
 
-* New functions `check_assumptions` and `plot_assimptions` which helps testing
+* New functions `check_assumptions` and `plot_assumptions` which helps testing
   the OLS assumptions of the regressions models underlying the mediation test.
-* New function `compute_indirect_effect_for()`which computes the indirect effect
-  confidence interval for a specific value of the moderator in a moderated
-  mediation model.
+* New function `compute_indirect_effect_for()` which computes the indirect
+  effect confidence interval for a specific value of the moderator in a 
+  moderated mediation model.
 * New function `standardize_variable` which helps centering and reducing numeric
   variables.
   
@@ -16,8 +16,6 @@
   analyses.
 * `vignette("jsmediation")` has been rewritten to account for the recent
   changes.
-
-was updated  of the vignette illustrating simple mediation have been rewritten.
 
 # JSmediation 0.1.2
 
