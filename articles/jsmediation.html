@@ -109,7 +109,7 @@
       <h1 data-toc-skip>Introduction to mediation analysis with JSmediation</h1>
                         <h4 class="author">Cédric Batailler</h4>
             
-            <h4 class="date">2021-09-02</h4>
+            <h4 class="date">2021-09-03</h4>
       
       <small class="dont-index">Source: <a href="https://github.com/cedricbatailler/JSmediation/blob/master/vignettes/jsmediation.Rmd"><code>vignettes/jsmediation.Rmd</code></a></small>
       <div class="hidden name"><code>jsmediation.Rmd</code></div>
@@ -195,10 +195,7 @@ c = c' + a \times b
 <p>We will first extract the models used by <code>mdt_simple</code>, and then run the <code>check_model</code> function. The <code>extract_model</code> function will be helpful to that regard. This function uses a mediation model as a first argument, and the model name (or model index) as a second argument. It then returns a linear model object (i.e., an <code>lm</code> object).</p>
 <div class="sourceCode" id="cb5"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="va">first_model</span> <span class="op">&lt;-</span> <span class="fu"><a href="../reference/extract_model.html">extract_model</a></span><span class="op">(</span><span class="va">mediation_fit</span>, step <span class="op">=</span> <span class="st">"X -&gt; M"</span><span class="op">)</span>
-<span class="fu">performance</span><span class="fu">::</span><span class="fu"><a href="https://easystats.github.io/performance/reference/check_model.html">check_model</a></span><span class="op">(</span><span class="va">first_model</span><span class="op">)</span>
-<span class="co">#&gt; Registered S3 method overwritten by 'see':</span>
-<span class="co">#&gt;   method                    from      </span>
-<span class="co">#&gt;   plot.visualisation_recipe datawizard</span></code></pre></div>
+<span class="fu">performance</span><span class="fu">::</span><span class="fu"><a href="https://easystats.github.io/performance/reference/check_model.html">check_model</a></span><span class="op">(</span><span class="va">first_model</span><span class="op">)</span></code></pre></div>
 <p><img src="jsmediation_files/figure-html/unnamed-chunk-5-1.png" width="100%"></p>
 <p>We will do the same thing for the two other models mdt_simple has fitted.</p>
 <div class="sourceCode" id="cb6"><pre class="downlit sourceCode r">
@@ -283,7 +280,7 @@ c = c' + a \times b
 <span class="co">#&gt; - confidence interval:</span>
 <span class="co">#&gt;   - method: Monte Carlo (5000 iterations)</span>
 <span class="co">#&gt;   - level: 0.05 </span>
-<span class="co">#&gt;   - CI: [0.0897; 0.205]</span>
+<span class="co">#&gt;   - CI: [0.0901; 0.206]</span>
 <span class="co">#&gt; </span>
 <span class="co">#&gt; Fitted models:</span>
 <span class="co">#&gt; </span>
