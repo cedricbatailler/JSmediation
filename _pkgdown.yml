@@ -38,8 +38,11 @@ reference:
 
 - title: "Mediation model helper functions"
   desc: >
-    A collection of function to help people manipulate `mediation_model`.
+    A collection of function to help people manipulate and enhance
+    `mediation_model`.
 - contents:
+  - check_assumptions
+  - plot_assumptions
   - add_index
   - compute_indirect_effect_for
   - extract_model
@@ -58,6 +61,6 @@ reference:
 - title: "Misc."
   desc: >
 - contents:
-  - apastylr
   - build_contrast
   - standardize_variable
+  - apastylr
