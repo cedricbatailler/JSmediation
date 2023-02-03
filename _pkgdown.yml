@@ -7,7 +7,7 @@ home:
 
 template:
   params:
-    bootstrap: 4
+    bootstrap: 5
     bootswatch: paper
     ganalytics: G-CSC1TRYSDL
     docsearch:
