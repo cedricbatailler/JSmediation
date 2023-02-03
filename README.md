@@ -5,7 +5,7 @@
 
 [![CRAN
 status](https://www.r-pkg.org/badges/version/JSmediation)](https://cran.r-project.org/package=JSmediation)
-[![R-CMD-check](https://github.com/cedricbatailler/JSmediation/workflows/R-CMD-check/badge.svg)](https://github.com/cedricbatailler/JSmediation/actions)
+[![R-CMD-check](https://github.com/cedricbatailler/JSmediation/workflows/R-CMD-check/badge.svg)](https://github.com/cedricbatailler/JSmediation/actions/workflows/R-CMD-check.yaml)
 [![Coverage
 status](https://codecov.io/gh/cedricbatailler/JSmediation/branch/master/graph/badge.svg)](https://codecov.io/github/cedricbatailler/JSmediation?branch=master)
 
@@ -24,10 +24,10 @@ different mediation analysis.
 
 Current implemented models are:
 
--   simple mediation (`mdt_simple`)
--   within-participant mediation (`mdt_within`, but see also
-    `mdt_within_wide`)
--   moderated mediation (`mdt_moderated`)
+- simple mediation (`mdt_simple`)
+- within-participant mediation (`mdt_within`, but see also
+  `mdt_within_wide`)
+- moderated mediation (`mdt_moderated`)
 
 Every `mdt_*` functions take at least four arguments: `data` (the data
 frame containing the data to be used),`IV` (the unquoted column name of
