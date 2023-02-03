@@ -1,3 +1,9 @@
+# JSmediation (0.2.1)
+
+## Minor improvements and bug fixes
+
+* Internal tests relying on external packages (e.g., "processR") are now conditional
+
 # JSmediation (0.2.0)
 
 ## New features
