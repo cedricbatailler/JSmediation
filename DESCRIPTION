@@ -64,7 +64,6 @@ Suggests:
     mediation,
     patchwork,
     performance,
-    processR,
     rmarkdown,
     roxygen2,
     see (>= 0.6.5),
