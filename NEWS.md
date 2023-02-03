@@ -3,6 +3,7 @@
 ## Minor improvements and bug fixes
 
 * Internal tests relying on external packages (e.g., "processR") are now conditional
+* Update the documentation website associated with JSmediation (https://jsmediation.cedricbatailler.me/)
 
 # JSmediation (0.2.0)
 
