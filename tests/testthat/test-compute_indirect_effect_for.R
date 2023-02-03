@@ -28,12 +28,16 @@ test_that("Mod arg accepts single numeric value", {
     moderated_mediation_model %>% compute_indirect_effect_for(Mod = 0),
     NA
   )
-
 })
 
 test_that("JSmediation approach is consistent with the {mediation} approach (Mod = 1)", {
+
+  skip_if(! requireNamespace("mediation", quietly = TRUE))
+
   # note that because the mediation::mediate is computationnaly intensive, we
   # compute the conditionnal indirect effect for a single moderator value.
+
+
 
   # set seed
   withr::local_seed(123)
@@ -77,6 +81,8 @@ test_that("JSmediation approach is consistent with the {mediation} approach (Mod
 test_that("JSmediation approach is consistent with the {processR} approach (Mod = -1, 0, 1)", {
   # set seed
   withr::local_seed("123")
+
+  skip_if(! requireNamespace("processR", quietly = TRUE))
 
   # data set
   dataset <-
