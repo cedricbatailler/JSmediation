@@ -9,6 +9,8 @@ Tests depending on Suggests package are now conditional.
 Some parts of the documentation have also been reworked to account for a the new
 {pkgdown} version.
 
+We also remove a dependency that was not used.
+
 ## Test environments
 * local win R install, R 4.2.2
 * GitHub Actions (macOS-latest): release
