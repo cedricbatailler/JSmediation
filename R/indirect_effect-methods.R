@@ -7,6 +7,8 @@
 #' @param digits How many significant digits are to be used for numerics.
 #' @param ...    Further arguments.
 #'
+#' @keywords internal
+#'
 #' @export
 print.indirect_index <- function(x, digits = 3, ...) {
   cat("- type:", x$type, "\n")
