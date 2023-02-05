@@ -1,3 +1,11 @@
+# JSmediation (0.2.1)
+
+## Minor improvements and bug fixes
+
+* Internal tests relying on external packages (e.g., "mediation") are now conditional
+* Internal test relying on the processR package has been removed as this package is no longer on CRAN
+* Update the documentation website associated with JSmediation (https://jsmediation.cedricbatailler.me/)
+
 # JSmediation (0.2.0)
 
 ## New features

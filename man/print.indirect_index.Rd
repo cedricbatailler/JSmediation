@@ -17,3 +17,4 @@
 Print a summary for an indirect effect index created with
 \code{add_index()} method.
 }
+\keyword{internal}
