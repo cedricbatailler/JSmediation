@@ -40,5 +40,5 @@
 #'   recommendations for testing indirect effects in mediational models: The
 #'   need to report and test component paths. *Journal of Personality and
 #'   Social Psychology*, *115*(6), 929–943. doi: 10.1037/pspa0000132
-
-NULL
+#' @keywords internal
+"_PACKAGE"
