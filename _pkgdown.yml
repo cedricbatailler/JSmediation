@@ -44,11 +44,15 @@ reference:
   - check_assumptions
   - plot_assumptions
   - add_index
+  - add_index.simple_mediation
+  - add_index.within_participant_mediation
+  - add_index.moderated_mediation
   - compute_indirect_effect_for
   - extract_model
   - extract_models
   - extract_tidy_models
   - display_models
+  - print.mediation_model
 
 - title: "Data sets"
   desc: >
