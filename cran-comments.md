@@ -1,23 +1,16 @@
-## Resubmission
-
-This is a resubmission.
-
-We fixed a broken link in a vignette. We also added a reminder to run
-`urlchecker::url_check()` when calling `devtools::release()`.
-
 ## Release summary
 
-This is a minor release. 
+This is a patch release. 
 
-This release introduces new functions (`standardize_variable`,
-`compute_indirect_effect_for`, `check_assumptions`, `plot_assumptions`) and a
-new vignette (`"moderated-mediation"`).
+This release removes a test depending on a package that have been archived by
+CRAN ({processR}). It also fixes how test relying on external package are ran.
+Tests depending on Suggests package are now conditional.
 
-We also rewrote an old vignette (`"jsmediation"`) to account for the changes,
-added new tests, and improved the package coverage.
+Some parts of the documentation have also been reworked to account for a the new
+{pkgdown} version.
 
 ## Test environments
-* local macOS R install, R 4.1.0
+* local win R install, R 4.2.2
 * GitHub Actions (macOS-latest): release
 * GitHub Actions (windows-latest): relaese
 * GitHub Actions (ubuntu-20.04): release, devel
@@ -26,6 +19,10 @@ added new tests, and improved the package coverage.
 
 0 ERRORs | 0 WARNINGs | 0 NOTE
 
-## Downstream dependencies
+## revdepcheck results
 
-There are currently no downstream dependencies for this package.
+We checked 0 reverse dependencies, comparing R CMD check results across CRAN and
+dev versions of this package.
+
+ * We saw 0 new problems
+ * We failed to check 0 packages
