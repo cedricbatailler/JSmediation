@@ -22,6 +22,7 @@ development:
 
 navbar:
   structure:
+    left: []
     right: [home, reference, articles, news, github]
 
 authors:
