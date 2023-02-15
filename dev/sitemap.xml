@@ -1,7 +1,31 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
+    <loc>https://jsmediation.cedricbatailler.me/CODE_OF_CONDUCT.html</loc>
+  </url>
+  <url>
+    <loc>https://jsmediation.cedricbatailler.me/LICENSE-text.html</loc>
+  </url>
+  <url>
+    <loc>https://jsmediation.cedricbatailler.me/LICENSE.html</loc>
+  </url>
+  <url>
+    <loc>https://jsmediation.cedricbatailler.me/articles/index.html</loc>
+  </url>
+  <url>
+    <loc>https://jsmediation.cedricbatailler.me/articles/jsmediation.html</loc>
+  </url>
+  <url>
+    <loc>https://jsmediation.cedricbatailler.me/articles/moderated-mediation.html</loc>
+  </url>
+  <url>
+    <loc>https://jsmediation.cedricbatailler.me/authors.html</loc>
+  </url>
+  <url>
     <loc>https://jsmediation.cedricbatailler.me/index.html</loc>
+  </url>
+  <url>
+    <loc>https://jsmediation.cedricbatailler.me/news/index.html</loc>
   </url>
   <url>
     <loc>https://jsmediation.cedricbatailler.me/reference/JSmediation-package.html</loc>
@@ -52,6 +76,9 @@
     <loc>https://jsmediation.cedricbatailler.me/reference/ho_et_al.html</loc>
   </url>
   <url>
+    <loc>https://jsmediation.cedricbatailler.me/reference/index.html</loc>
+  </url>
+  <url>
     <loc>https://jsmediation.cedricbatailler.me/reference/mdt_moderated.html</loc>
   </url>
   <url>
@@ -80,11 +107,5 @@
   </url>
   <url>
     <loc>https://jsmediation.cedricbatailler.me/reference/tidyeval.html</loc>
-  </url>
-  <url>
-    <loc>https://jsmediation.cedricbatailler.me/articles/jsmediation.html</loc>
-  </url>
-  <url>
-    <loc>https://jsmediation.cedricbatailler.me/articles/moderated_mediation_analysis.html</loc>
   </url>
 </urlset>

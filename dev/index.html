@@ -36,6 +36,8 @@
 </script>
 </head>
 <body data-spy="scroll" data-target="#toc">
+    
+
     <div class="container template-home">
       <header><div class="navbar navbar-default navbar-fixed-top" role="navigation">
   <div class="container">
@@ -48,24 +50,17 @@
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="index.html">JSmediation</a>
-        <span class="version label label-danger" data-toggle="tooltip" data-placement="bottom" title="In-development version">0.1.2.9000</span>
+        <span class="version label label-danger" data-toggle="tooltip" data-placement="bottom" title="In-development version">0.2.1.9000</span>
       </span>
     </div>
 
     <div id="navbar" class="navbar-collapse collapse">
-      <ul class="nav navbar-nav"></ul>
-<ul class="nav navbar-nav navbar-right">
-<li>
-  <a href="index.html">
-    <span class="fas fa-home fa-lg"></span>
-     
-  </a>
-</li>
+      <ul class="nav navbar-nav">
 <li>
   <a href="reference/index.html">Reference</a>
 </li>
 <li class="dropdown">
-  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
+  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
     Articles
      
     <span class="caret"></span>
@@ -75,7 +70,30 @@
       <a href="articles/jsmediation.html">Introduction to mediation analysis with JSmediation</a>
     </li>
     <li>
-      <a href="articles/moderated_mediation_analysis.html">Conducting a moderated mediation analysis</a>
+      <a href="articles/moderated-mediation.html">Conducting a moderated mediation analysis</a>
+    </li>
+  </ul>
+</li>
+<li>
+  <a href="news/index.html">Changelog</a>
+</li>
+      </ul>
+<ul class="nav navbar-nav navbar-right">
+<li>
+  <a href="reference/index.html">Reference</a>
+</li>
+<li class="dropdown">
+  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+    Articles
+     
+    <span class="caret"></span>
+  </a>
+  <ul class="dropdown-menu" role="menu">
+<li>
+      <a href="articles/jsmediation.html">Introduction to mediation analysis with JSmediation</a>
+    </li>
+    <li>
+      <a href="articles/moderated-mediation.html">Conducting a moderated mediation analysis</a>
     </li>
   </ul>
 </li>
@@ -83,7 +101,7 @@
   <a href="news/index.html">Changelog</a>
 </li>
 <li>
-  <a href="https://github.com/cedricbatailler/JSmediation/">
+  <a href="https://github.com/cedricbatailler/JSmediation/" class="external-link">
     <span class="fab fa-github fa-lg"></span>
      
   </a>
@@ -106,12 +124,12 @@
 
       </header><div class="row">
   <div class="contents col-md-9">
-<div id="jsmediation-" class="section level1">
+<div class="section level1">
 
-
-<div id="overview" class="section level2">
-<h2 class="hasAnchor">
-<a href="#overview" class="anchor"></a>Overview</h2>
+<p><a href="https://cran.r-project.org/package=JSmediation" class="external-link"><img src="https://www.r-pkg.org/badges/version/JSmediation" alt="CRAN status"></a> <a href="https://github.com/cedricbatailler/JSmediation/actions/workflows/R-CMD-check.yaml" class="external-link"><img src="https://github.com/cedricbatailler/JSmediation/workflows/R-CMD-check/badge.svg" alt="R-CMD-check"></a> <a href="https://codecov.io/github/cedricbatailler/JSmediation?branch=master" class="external-link"><img src="https://codecov.io/gh/cedricbatailler/JSmediation/branch/master/graph/badge.svg" alt="Coverage status"></a></p>
+<div class="section level2">
+<h2 id="overview">Overview<a class="anchor" aria-label="anchor" href="#overview"></a>
+</h2>
 <p><code>JSmediation</code> is an R package aiming to provide a set of functions to conduct mediation analysis joint-significance tests. The goal of <code>JSmediation</code> is to provide a consistent syntax to conduct joint-significance tests.</p>
 <p>This is motivated by the fact that joint-significance tests perform better in terms of false positive rate control than other tests like bootstrap-based methods (Yzerbyt, Muller, Batailler, &amp; Judd, 2018). To do so, it provides a family of <code>mdt_*</code> functions helping one conducting different mediation analysis.</p>
 <p>Current implemented models are:</p>
@@ -122,94 +140,94 @@
 </ul>
 <p>Every <code>mdt_*</code> functions take at least four arguments: <code>data</code> (the data frame containing the data to be used),<code>IV</code> (the unquoted column name of the independent variable in the data frame), <code>DV</code> (the unquoted column name of the dependent variable in the data frame), and <code>M</code> (the unquoted column name of the mediator in the data frame).</p>
 </div>
-<div id="installation" class="section level2">
-<h2 class="hasAnchor">
-<a href="#installation" class="anchor"></a>Installation</h2>
-<p>You can install the released version of JSmediation from <a href="https://CRAN.R-project.org">CRAN</a> with:</p>
+<div class="section level2">
+<h2 id="installation">Installation<a class="anchor" aria-label="anchor" href="#installation"></a>
+</h2>
+<p>You can install the released version of JSmediation from <a href="https://CRAN.R-project.org" class="external-link">CRAN</a> with:</p>
 <div class="sourceCode" id="cb1"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="fu"><a href="https://rdrr.io/r/utils/install.packages.html">install.packages</a></span><span class="op">(</span><span class="st">"JSmediation"</span><span class="op">)</span></code></pre></div>
-<p>You can install the development version from <a href="https://github.com/">GitHub</a> with:</p>
+<code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/utils/install.packages.html" class="external-link">install.packages</a></span><span class="op">(</span><span class="st">"JSmediation"</span><span class="op">)</span></span></code></pre></div>
+<p>You can install the development version from <a href="https://github.com/" class="external-link">GitHub</a> with:</p>
 <div class="sourceCode" id="cb2"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="co"># install.packages("devtools")</span>
-<span class="fu">devtools</span><span class="fu">::</span><span class="fu">install_github</span><span class="op">(</span><span class="st">"cedricbatailler/JSmediation"</span>, build_vignettes <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span></code></pre></div>
+<code class="sourceCode R"><span><span class="co"># install.packages("devtools")</span></span>
+<span><span class="fu">devtools</span><span class="fu">::</span><span class="fu">install_github</span><span class="op">(</span><span class="st">"cedricbatailler/JSmediation"</span>, build_vignettes <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span></span></code></pre></div>
 </div>
-<div id="how-to-use-jsmediation" class="section level2">
-<h2 class="hasAnchor">
-<a href="#how-to-use-jsmediation" class="anchor"></a>How to use JSmediation</h2>
+<div class="section level2">
+<h2 id="how-to-use-jsmediation">How to use JSmediation<a class="anchor" aria-label="anchor" href="#how-to-use-jsmediation"></a>
+</h2>
 <div class="sourceCode" id="cb3"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://jsmediation.cedricbatailler.me/">JSmediation</a></span><span class="op">)</span></code></pre></div>
+<code class="sourceCode R"><span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://jsmediation.cedricbatailler.me/">JSmediation</a></span><span class="op">)</span></span></code></pre></div>
 <p>The <code>JSmediation</code> package contains several functions as well as example data sets that can be used as an example. The <code>ho_et_al</code> data set comes from Ho et al. (2017; Exp. 3) and contains variables to test a simple mediation. As a simple example, we will conduct a joint-significance test of the indirect effect of discrimination on hypodescent passing by linked fate.</p>
 <p>We will first recode <code>condition</code> variable which is a character to a contrast code using the <code>build_contrast</code> function.</p>
 <div class="sourceCode" id="cb4"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="fu"><a href="https://rdrr.io/r/utils/data.html">data</a></span><span class="op">(</span><span class="st">"ho_et_al"</span><span class="op">)</span>
-
-<span class="va">ho_et_al</span><span class="op">$</span><span class="va">condition_c</span> <span class="op">&lt;-</span> <span class="fu"><a href="reference/build_contrast.html">build_contrast</a></span><span class="op">(</span><span class="va">ho_et_al</span><span class="op">$</span><span class="va">condition</span>, 
-                                       <span class="st">"High discrimination"</span>,
-                                       <span class="st">"Low discrimination"</span><span class="op">)</span>
-
-<span class="fu"><a href="https://rdrr.io/r/utils/head.html">head</a></span><span class="op">(</span><span class="va">ho_et_al</span><span class="op">)</span>
-<span class="co">#&gt;   id           condition    sdo linkedfate hypodescent condition_c</span>
-<span class="co">#&gt; 1  2  Low discrimination 1.8125      6.000    2.333333         0.5</span>
-<span class="co">#&gt; 2  3 High discrimination 1.5625      5.875    6.000000        -0.5</span>
-<span class="co">#&gt; 3  4 High discrimination 1.7500      6.625    6.000000        -0.5</span>
-<span class="co">#&gt; 4  5  Low discrimination 4.2500      5.125    5.666667         0.5</span>
-<span class="co">#&gt; 5  6  Low discrimination 1.9375      4.375    4.000000         0.5</span>
-<span class="co">#&gt; 6  9 High discrimination 2.8750      3.750    4.000000        -0.5</span></code></pre></div>
+<code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/utils/data.html" class="external-link">data</a></span><span class="op">(</span><span class="st">"ho_et_al"</span><span class="op">)</span></span>
+<span></span>
+<span><span class="va">ho_et_al</span><span class="op">$</span><span class="va">condition_c</span> <span class="op">&lt;-</span> <span class="fu"><a href="reference/build_contrast.html">build_contrast</a></span><span class="op">(</span><span class="va">ho_et_al</span><span class="op">$</span><span class="va">condition</span>, </span>
+<span>                                       <span class="st">"High discrimination"</span>,</span>
+<span>                                       <span class="st">"Low discrimination"</span><span class="op">)</span></span>
+<span></span>
+<span><span class="fu"><a href="https://rdrr.io/r/utils/head.html" class="external-link">head</a></span><span class="op">(</span><span class="va">ho_et_al</span><span class="op">)</span></span>
+<span><span class="co">#&gt;   id           condition    sdo linkedfate hypodescent condition_c</span></span>
+<span><span class="co">#&gt; 1  2  Low discrimination 1.8125      6.000    2.333333         0.5</span></span>
+<span><span class="co">#&gt; 2  3 High discrimination 1.5625      5.875    6.000000        -0.5</span></span>
+<span><span class="co">#&gt; 3  4 High discrimination 1.7500      6.625    6.000000        -0.5</span></span>
+<span><span class="co">#&gt; 4  5  Low discrimination 4.2500      5.125    5.666667         0.5</span></span>
+<span><span class="co">#&gt; 5  6  Low discrimination 1.9375      4.375    4.000000         0.5</span></span>
+<span><span class="co">#&gt; 6  9 High discrimination 2.8750      3.750    4.000000        -0.5</span></span></code></pre></div>
 <p>Now, we can conduct a joint significant test using the <code>mdt_simple</code> function.</p>
 <div class="sourceCode" id="cb5"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="va">JS_model</span> <span class="op">&lt;-</span> <span class="fu"><a href="reference/mdt_simple.html">mdt_simple</a></span><span class="op">(</span><span class="va">ho_et_al</span>, 
-                       DV <span class="op">=</span> <span class="va">hypodescent</span>, 
-                       IV <span class="op">=</span> <span class="va">condition_c</span>, 
-                       M  <span class="op">=</span> <span class="va">linkedfate</span><span class="op">)</span>
-
-<span class="va">JS_model</span>
-<span class="co">#&gt; Test of mediation (simple mediation)</span>
-<span class="co">#&gt; ==============================================</span>
-<span class="co">#&gt; </span>
-<span class="co">#&gt; Variables:</span>
-<span class="co">#&gt; </span>
-<span class="co">#&gt; - IV: condition_c </span>
-<span class="co">#&gt; - DV: hypodescent </span>
-<span class="co">#&gt; - M: linkedfate </span>
-<span class="co">#&gt; </span>
-<span class="co">#&gt; Paths:</span>
-<span class="co">#&gt; </span>
-<span class="co">#&gt; ====  ==============  =====  =======================</span>
-<span class="co">#&gt; Path  Point estimate     SE  APA                    </span>
-<span class="co">#&gt; ====  ==============  =====  =======================</span>
-<span class="co">#&gt; a             -0.772  0.085  t(822) = 9.10, p &lt; .001</span>
-<span class="co">#&gt; b              0.187  0.033  t(821) = 5.75, p &lt; .001</span>
-<span class="co">#&gt; c             -0.171  0.081  t(822) = 2.13, p = .034</span>
-<span class="co">#&gt; c'            -0.027  0.083  t(821) = 0.33, p = .742</span>
-<span class="co">#&gt; ====  ==============  =====  =======================</span>
-<span class="co">#&gt; </span>
-<span class="co">#&gt; Indirect effect index:</span>
-<span class="co">#&gt; </span>
-<span class="co">#&gt; Indirect effect index is not computed by default.</span>
-<span class="co">#&gt; Please use add_index() to compute it.</span>
-<span class="co">#&gt; </span>
-<span class="co">#&gt; Fitted models:</span>
-<span class="co">#&gt; </span>
-<span class="co">#&gt; - X -&gt; Y </span>
-<span class="co">#&gt; - X -&gt; M </span>
-<span class="co">#&gt; - X + M -&gt; Y</span></code></pre></div>
+<code class="sourceCode R"><span><span class="va">JS_model</span> <span class="op">&lt;-</span> <span class="fu"><a href="reference/mdt_simple.html">mdt_simple</a></span><span class="op">(</span><span class="va">ho_et_al</span>, </span>
+<span>                       DV <span class="op">=</span> <span class="va">hypodescent</span>, </span>
+<span>                       IV <span class="op">=</span> <span class="va">condition_c</span>, </span>
+<span>                       M  <span class="op">=</span> <span class="va">linkedfate</span><span class="op">)</span></span>
+<span></span>
+<span><span class="va">JS_model</span></span>
+<span><span class="co">#&gt; Test of mediation (simple mediation)</span></span>
+<span><span class="co">#&gt; ==============================================</span></span>
+<span><span class="co">#&gt; </span></span>
+<span><span class="co">#&gt; Variables:</span></span>
+<span><span class="co">#&gt; </span></span>
+<span><span class="co">#&gt; - IV: condition_c </span></span>
+<span><span class="co">#&gt; - DV: hypodescent </span></span>
+<span><span class="co">#&gt; - M: linkedfate </span></span>
+<span><span class="co">#&gt; </span></span>
+<span><span class="co">#&gt; Paths:</span></span>
+<span><span class="co">#&gt; </span></span>
+<span><span class="co">#&gt; ====  ==============  =====  =======================</span></span>
+<span><span class="co">#&gt; Path  Point estimate     SE  APA                    </span></span>
+<span><span class="co">#&gt; ====  ==============  =====  =======================</span></span>
+<span><span class="co">#&gt; a             -0.772  0.085  t(822) = 9.10, p &lt; .001</span></span>
+<span><span class="co">#&gt; b              0.187  0.033  t(821) = 5.75, p &lt; .001</span></span>
+<span><span class="co">#&gt; c             -0.171  0.081  t(822) = 2.13, p = .034</span></span>
+<span><span class="co">#&gt; c'            -0.027  0.083  t(821) = 0.33, p = .742</span></span>
+<span><span class="co">#&gt; ====  ==============  =====  =======================</span></span>
+<span><span class="co">#&gt; </span></span>
+<span><span class="co">#&gt; Indirect effect index:</span></span>
+<span><span class="co">#&gt; </span></span>
+<span><span class="co">#&gt; Indirect effect index is not computed by default.</span></span>
+<span><span class="co">#&gt; Please use add_index() to compute it.</span></span>
+<span><span class="co">#&gt; </span></span>
+<span><span class="co">#&gt; Fitted models:</span></span>
+<span><span class="co">#&gt; </span></span>
+<span><span class="co">#&gt; - X -&gt; Y </span></span>
+<span><span class="co">#&gt; - X -&gt; M </span></span>
+<span><span class="co">#&gt; - X + M -&gt; Y</span></span></code></pre></div>
 <p>One will have to make sure that both <em>a</em> and <em>b</em> are significant to conclude that there is a mediation pattern.</p>
-<div id="references" class="section level3">
-<h3 class="hasAnchor">
-<a href="#references" class="anchor"></a>References</h3>
-<p>Yzerbyt, V., Muller, D., Batailler, C., &amp; Judd, C. M. (2018). New recommendations for testing indirect effects in mediational models: The need to report and test component paths. <em>Journal of Personality and Social Psychology</em>, <em>115</em>(6), 929–943. doi: <a href="https://dx.doi.org/10.1037/pspa0000132">10.1037/pspa0000132</a></p>
-<p>Ho, A. K., Kteily, N. S., &amp; Chen, J. M. (2017). “You’re one of us”: Black Americans’ use of hypodescent and its association with egalitarianism. <em>Journal of Personality and Social Psychology</em>, <em>113</em>(5), 753-768. doi: <a href="https://dx.doi.org/10.1037/pspi0000107">10.1037/pspi0000107</a></p>
+<div class="section level3">
+<h3 id="references">References<a class="anchor" aria-label="anchor" href="#references"></a>
+</h3>
+<p>Yzerbyt, V., Muller, D., Batailler, C., &amp; Judd, C. M. (2018). New recommendations for testing indirect effects in mediational models: The need to report and test component paths. <em>Journal of Personality and Social Psychology</em>, <em>115</em>(6), 929–943. doi: <a href="https://dx.doi.org/10.1037/pspa0000132" class="external-link">10.1037/pspa0000132</a></p>
+<p>Ho, A. K., Kteily, N. S., &amp; Chen, J. M. (2017). “You’re one of us”: Black Americans’ use of hypodescent and its association with egalitarianism. <em>Journal of Personality and Social Psychology</em>, <em>113</em>(5), 753-768. doi: <a href="https://dx.doi.org/10.1037/pspi0000107" class="external-link">10.1037/pspi0000107</a></p>
 </div>
 </div>
-<div id="getting-help" class="section level2">
-<h2 class="hasAnchor">
-<a href="#getting-help" class="anchor"></a>Getting help</h2>
-<p>If you encounter a clear bug or have a question please file an issue with a minimal reproducible example on <a href="https://github.com/cedricbatailler/JSmediation/issues">GitHub</a>.</p>
+<div class="section level2">
+<h2 id="getting-help">Getting help<a class="anchor" aria-label="anchor" href="#getting-help"></a>
+</h2>
+<p>If you encounter a clear bug or have a question please file an issue with a minimal reproducible example on <a href="https://github.com/cedricbatailler/JSmediation/issues" class="external-link">GitHub</a>.</p>
 </div>
-<div id="contributing" class="section level2">
-<h2 class="hasAnchor">
-<a href="#contributing" class="anchor"></a>Contributing</h2>
-<p>Contributions are absolutely welcome. Please note that this project is released with a <a href="https://github.com/cedricbatailler/JSmediation/blob/master/CODE_OF_CONDUCT.md">Contributor Code of Conduct</a>.</p>
+<div class="section level2">
+<h2 id="contributing">Contributing<a class="anchor" aria-label="anchor" href="#contributing"></a>
+</h2>
+<p>Contributions are absolutely welcome. Please note that this project is released with a <a href="https://github.com/cedricbatailler/JSmediation/blob/master/CODE_OF_CONDUCT.md" class="external-link">Contributor Code of Conduct</a>.</p>
 <p>By participating in this project you agree to abide by its terms.</p>
 </div>
 </div>
@@ -217,60 +235,63 @@
 
   <div class="col-md-3 hidden-xs hidden-sm" id="pkgdown-sidebar">
     <div class="links">
-<h2>Links</h2>
+<h2 data-toc-skip>Links</h2>
 <ul class="list-unstyled">
-<li>Download from CRAN at <br><a href="https://cloud.r-project.org/package=JSmediation">https://​cloud.r-project.org/​package=JSmediation</a>
-</li>
-<li>Browse source code at <br><a href="https://github.com/cedricbatailler/JSmediation/">https://​github.com/​cedricbatailler/​JSmediation/​</a>
-</li>
-<li>Report a bug at <br><a href="https://github.com/cedricbatailler/JSmediation/issues">https://​github.com/​cedricbatailler/​JSmediation/​issues</a>
-</li>
+<li><a href="https://cloud.r-project.org/package=JSmediation" class="external-link">View on CRAN</a></li>
+<li><a href="https://github.com/cedricbatailler/JSmediation/" class="external-link">Browse source code</a></li>
+<li><a href="https://github.com/cedricbatailler/JSmediation/issues" class="external-link">Report a bug</a></li>
 </ul>
 </div>
+
 <div class="license">
-<h2>License</h2>
+<h2 data-toc-skip>License</h2>
 <ul class="list-unstyled">
 <li><a href="LICENSE.html">Full license</a></li>
-<li><small><a href="https://opensource.org/licenses/mit-license.php">MIT</a> + file <a href="LICENSE-text.html">LICENSE</a></small></li>
+<li><small><a href="https://opensource.org/licenses/mit-license.php" class="external-link">MIT</a> + file <a href="LICENSE-text.html">LICENSE</a></small></li>
 </ul>
 </div>
+
 <div class="community">
-<h2>Community</h2>
+<h2 data-toc-skip>Community</h2>
 <ul class="list-unstyled">
 <li><a href="CODE_OF_CONDUCT.html">Code of conduct</a></li>
 </ul>
 </div>
-<div class="developers">
-<h2>Developers</h2>
+
+<div class="citation">
+<h2 data-toc-skip>Citation</h2>
 <ul class="list-unstyled">
-<li>
-<a href="https://cedricbatailler.me">Cédric Batailler</a> <br><small class="roles"> Author, maintainer </small> <a href="https://orcid.org/0000-0003-0553-6827" target="orcid.widget" aria-label="ORCID"><span class="fab fa-orcid orcid" aria-hidden="true"></span></a> </li>
-<li>
-<a href="https://www.dominique.muller.lippc2s.fr/">Dominique Muller</a> <br><small class="roles"> Author </small> <a href="https://orcid.org/0000-0001-9544-5317" target="orcid.widget" aria-label="ORCID"><span class="fab fa-orcid orcid" aria-hidden="true"></span></a> </li>
-<li>Vincent Yzerbyt <br><small class="roles"> Author </small>  </li>
-<li>Charles Judd <br><small class="roles"> Author </small>  </li>
-<li><a href="authors.html">All authors...</a></li>
+<li><a href="authors.html#citation">Citing JSmediation</a></li>
 </ul>
 </div>
 
-  <div class="dev-status">
-<h2>Dev status</h2>
+<div class="developers">
+<h2 data-toc-skip>Developers</h2>
 <ul class="list-unstyled">
-<li><a href="https://cran.r-project.org/package=JSmediation"><img src="https://www.r-pkg.org/badges/version/JSmediation" alt="CRAN status"></a></li>
-<li><a href="https://github.com/cedricbatailler/JSmediation/actions"><img src="https://github.com/cedricbatailler/JSmediation/workflows/R-CMD-check/badge.svg" alt="R-CMD-check"></a></li>
-<li><a href="https://codecov.io/github/cedricbatailler/JSmediation?branch=master"><img src="https://codecov.io/gh/cedricbatailler/JSmediation/branch/master/graph/badge.svg" alt="Coverage status"></a></li>
+<li>
+<a href="https://cedricbatailler.me" class="external-link">Cédric Batailler</a> <br><small class="roles"> Author, maintainer </small> <a href="https://orcid.org/0000-0003-0553-6827" target="orcid.widget" aria-label="ORCID" class="external-link"><span class="fab fa-orcid orcid" aria-hidden="true"></span></a> </li>
+<li>
+<a href="https://www.dominique.muller.lippc2s.fr/" class="external-link">Dominique Muller</a> <br><small class="roles"> Author </small> <a href="https://orcid.org/0000-0001-9544-5317" target="orcid.widget" aria-label="ORCID" class="external-link"><span class="fab fa-orcid orcid" aria-hidden="true"></span></a> </li>
+<li>Vincent Yzerbyt <br><small class="roles"> Author </small>  </li>
+<li>Charles Judd <br><small class="roles"> Author </small>  </li>
+<li><a href="authors.html">More about authors...</a></li>
 </ul>
 </div>
-</div>
+
+
+
+  </div>
 </div>
 
 
       <footer><div class="copyright">
-  <p>Developed by <a href="https://cedricbatailler.me">Cédric Batailler</a>, <a href="https://www.dominique.muller.lippc2s.fr/">Dominique Muller</a>, Vincent Yzerbyt, Charles Judd.</p>
+  <p></p>
+<p>Developed by <a href="https://cedricbatailler.me" class="external-link">Cédric Batailler</a>, <a href="https://www.dominique.muller.lippc2s.fr/" class="external-link">Dominique Muller</a>, Vincent Yzerbyt, Charles Judd.</p>
 </div>
 
 <div class="pkgdown">
-  <p>Site built with <a href="https://pkgdown.r-lib.org/">pkgdown</a> 1.6.1.</p>
+  <p></p>
+<p>Site built with <a href="https://pkgdown.r-lib.org/" class="external-link">pkgdown</a> 2.0.7.</p>
 </div>
 
       </footer>
