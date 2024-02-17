@@ -56,7 +56,8 @@ Imports:
     purrr,
     rlang (>= 0.4.9),
     stats,
-    tibble
+    tibble,
+    tidyselect
 Suggests: 
     covr,
     lavaan,
