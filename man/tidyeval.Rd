@@ -15,7 +15,6 @@
 \alias{exprs}
 \alias{enexpr}
 \alias{enexprs}
-\alias{.data}
 \alias{:=}
 \title{Tidy eval helpers}
 \description{

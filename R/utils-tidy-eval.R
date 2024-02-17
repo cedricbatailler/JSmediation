@@ -36,5 +36,5 @@
 #' @aliases  quo quos enquo enquos quo_name
 #'           sym ensym syms ensyms
 #'           expr exprs enexpr enexprs
-#'           .data :=
+#'           :=
 NULL
