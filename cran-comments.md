@@ -2,20 +2,15 @@
 
 This is a patch release. 
 
-This release removes a test depending on a package that have been archived by
-CRAN ({processR}). It also fixes how test relying on external package are ran.
-Tests depending on Suggests package are now conditional.
-
-Some parts of the documentation have also been reworked to account for a the new
-{pkgdown} version.
-
-We also remove a dependency that was not used.
+This release fixes an issue raised because of a recent {see} update. It also
+removes some internal {dplyr} code that had been deprecated.
 
 ## Test environments
 * local win R install, R 4.2.2
 * GitHub Actions (macOS-latest): release
 * GitHub Actions (windows-latest): relaese
 * GitHub Actions (ubuntu-20.04): release, devel
+* `devtools::check_win_devel()`
 
 ## R CMD check results
 
