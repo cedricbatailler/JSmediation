@@ -82,10 +82,10 @@ check_assumptions.mediation_model <-
 check_model <- function(model_name, model, tests) {
   cat(model_name, sep = "\n")
   if ("normality" %in% tests) {
-    performance::check_normality(model)
+    print(performance::check_normality(model))
     }
   if ("heteroscedasticity" %in% tests) {
-    performance::check_heteroscedasticity(model)
+    print(performance::check_heteroscedasticity(model))
     }
   if ("outliers" %in% tests) {
     print(performance::check_outliers(model)) # without print, check_outliers
