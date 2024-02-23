@@ -120,12 +120,11 @@ check_model_plot <- function(model, title, tests_to_perform) {
     format()
 
   # plot the assumptions
-  assumption_plot <-
-    plot(performance::check_model(model, check = tests_to_perform))
+  assumption_plots <-
+    performance::check_model(model, check = tests_to_perform, panel = FALSE)
 
-  assumption_plot +
-    patchwork::plot_annotation(title = title,
-                               subtitle =
-                                 glue::glue("Model formula: {model_formula}"),
-    )
+  see::plots(
+    plot(assumption_plots),
+    title = glue::glue("Model formula: {model_formula}")
+  )
 }
