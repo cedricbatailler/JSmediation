@@ -1,4 +1,9 @@
-# JSmediation (development)
+# JSmediation (0.2.2)
+
+## Minor improvements and bug fixes
+
+* Fix issues related to assumption check functions
+* Small maintenance task
 
 # JSmediation (0.2.1)
 

@@ -3,7 +3,6 @@
 \docType{package}
 \name{JSmediation-package}
 \alias{JSmediation-package}
-\alias{_PACKAGE}
 \alias{JSmediation}
 \title{JSmediation}
 \description{

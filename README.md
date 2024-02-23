@@ -7,7 +7,7 @@
 status](https://www.r-pkg.org/badges/version/JSmediation)](https://cran.r-project.org/package=JSmediation)
 [![R-CMD-check](https://github.com/cedricbatailler/JSmediation/workflows/R-CMD-check/badge.svg)](https://github.com/cedricbatailler/JSmediation/actions/workflows/R-CMD-check.yaml)
 [![Coverage
-status](https://codecov.io/gh/cedricbatailler/JSmediation/branch/master/graph/badge.svg)](https://codecov.io/github/cedricbatailler/JSmediation?branch=master)
+status](https://codecov.io/gh/cedricbatailler/JSmediation/branch/master/graph/badge.svg)](https://app.codecov.io/github/cedricbatailler/JSmediation/tree/main)
 
 ## Overview
 
