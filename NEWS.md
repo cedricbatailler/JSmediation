@@ -3,7 +3,8 @@
 ## Minor improvements and bug fixes
 
 * Fix issues related to assumption check functions
-* Small maintenance task
+* Fix some typos in documentation
+* Small maintenance tasks
 
 # JSmediation (0.2.1)
 
