@@ -2,6 +2,7 @@
 
 ## Minor improvements and bug fixes
 
+* Some tests, examples, and parts of the vignettes are now conditionnal
 * Fix issues related to assumption check functions
 * Fix some typos in documentation
 * Small maintenance tasks

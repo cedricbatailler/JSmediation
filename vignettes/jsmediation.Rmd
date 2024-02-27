@@ -162,19 +162,19 @@ regard. This function uses a mediation model as a first argument, and the model
 name (or model index) as a second argument. It then returns a linear model
 object (i.e., an `lm` object).
 
-```{r fig.height=8, fig.width=7, out.width="100%"}
+```{r eval=rlang::is_installed("performance"), fig.height=8, fig.width=7, out.width="100%"}
 first_model <- extract_model(mediation_fit, step = "X -> M")
 performance::check_model(first_model)
 ```
 
 We will do the same thing for the two other models mdt_simple has fitted.
 
-```{r fig.height=8, fig.width=7, out.width="100%"}
+```{r eval=rlang::is_installed("performance"), fig.height=8, fig.width=7, out.width="100%"}
 second_model <- extract_model(mediation_fit, step = 2)
 performance::check_model(second_model)
 ```
 
-```{r fig.height=8, fig.width=7, out.width="100%"}
+```{r eval=rlang::is_installed("performance"), fig.height=8, fig.width=7, out.width="100%"}
 third_model <- extract_model(mediation_fit, step = 3)
 performance::check_model(third_model)
 ```
