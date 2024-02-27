@@ -1,3 +1,5 @@
+skip_if_not_installed("see")
+
 test_that("check_assumptions_plot", {
   # it seems that check models produce some error which are not relevent for
   # the test.
