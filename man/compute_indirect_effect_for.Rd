@@ -44,11 +44,11 @@ set. Because of the new coding, and because of how one interprets
 coefficients in a linear regression, \eqn{a \times b}{a * b} is now the
 indirect effect we wanted to compute (see the Models section).
 
-Thanks to the returned values of \eqn{a}{a} and {b}{b} (\eqn{b_51}{b_51}
-and \eqn{b_64}{b_64}, see the Models section), it is now easy to compute
-\eqn{a \times b}{a * b}. \code{compute_indirect_effect_for} uses the same
-approach than the \code{\link{add_index}} function. A Monte Carlo simulation is used
-to compute the indirect effect index (MacKinnon et al., 2004).
+Thanks to the returned values of \eqn{a}{a} and \eqn{b}{b}
+(\eqn{b_51}{b_51} and \eqn{b_64}{b_64}, see the Models section), it is now
+easy to compute \eqn{a \times b}{a * b}. \code{compute_indirect_effect_for} uses
+the same approach than the \code{\link{add_index}} function. A Monte Carlo simulation
+is used to compute the indirect effect index (MacKinnon et al., 2004).
 }
 \section{Models}{
  In a moderated mediation model, three models are used.

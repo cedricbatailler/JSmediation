@@ -61,7 +61,7 @@ The total effect of \eqn{X} on \eqn{Y} can be described as follows:
 
 with \eqn{c} the total effect of \eqn{X} on \eqn{Y}, \eqn{c'} the direct of
 \eqn{X} on \eqn{Y}, and \eqn{ab} the indirect effect of \eqn{X} on \eqn{Y}
-through {M} (see Models section).
+through \eqn{M} (see Models section).
 
 To assess whether the indirect effect is different from the null, one has
 to assess the significance against the null for both \eqn{a} (the effect of
