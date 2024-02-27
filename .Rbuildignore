@@ -12,3 +12,5 @@ man-roxygen
 ^_pkgdown\.yml$
 ^docs$
 ^pkgdown$
+^revdep$
+^CRAN-SUBMISSION$
