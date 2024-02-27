@@ -32,10 +32,14 @@ The assumptions test are performed using
 Note that \code{check_assumptions} returns a \code{mediation_model} object.
 }
 \examples{
+\dontshow{if (rlang::is_installed("performance")) (if (getRversion() >= "3.4") withAutoprint else force)(\{ # examplesIf}
+
 data(ho_et_al)
+
 ho_et_al$condition_c <- build_contrast(ho_et_al$condition,
                                        "Low discrimination",
                                        "High discrimination")
+
 my_model <-
   mdt_simple(data = ho_et_al,
              IV = condition_c,
@@ -43,7 +47,7 @@ my_model <-
              M = linkedfate)
 
 check_assumptions(my_model)
-
+\dontshow{\}) # examplesIf}
 }
 \seealso{
 Other assumption checks: 
