@@ -1,6 +1,9 @@
 ## Release summary
 
-This is a patch release. 
+This is the resubmission of a patch release. 
+
+This resubmission fixes missing tags in documentation raising NOTES on CRAN 
+systems. It also adds the revdep/ folder in .Rbuildignore.
 
 This release fixes an issue raised because of a recent {see} update. It also
 removes some internal {dplyr} code that had been deprecated.
