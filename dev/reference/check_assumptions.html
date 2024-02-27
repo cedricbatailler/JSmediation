@@ -123,10 +123,13 @@ includes <code>"normality"</code>, <code>"heteroscedasticity"</code>, and
 
     <div id="ref-examples">
     <h2>Examples</h2>
-    <div class="sourceCode"><pre class="sourceCode r"><code><span class="r-in"><span><span class="fu"><a href="https://rdrr.io/r/utils/data.html" class="external-link">data</a></span><span class="op">(</span><span class="va">ho_et_al</span><span class="op">)</span></span></span>
+    <div class="sourceCode"><pre class="sourceCode r"><code><span class="r-in"><span></span></span>
+<span class="r-in"><span><span class="fu"><a href="https://rdrr.io/r/utils/data.html" class="external-link">data</a></span><span class="op">(</span><span class="va">ho_et_al</span><span class="op">)</span></span></span>
+<span class="r-in"><span></span></span>
 <span class="r-in"><span><span class="va">ho_et_al</span><span class="op">$</span><span class="va">condition_c</span> <span class="op">&lt;-</span> <span class="fu"><a href="build_contrast.html">build_contrast</a></span><span class="op">(</span><span class="va">ho_et_al</span><span class="op">$</span><span class="va">condition</span>,</span></span>
 <span class="r-in"><span>                                       <span class="st">"Low discrimination"</span>,</span></span>
 <span class="r-in"><span>                                       <span class="st">"High discrimination"</span><span class="op">)</span></span></span>
+<span class="r-in"><span></span></span>
 <span class="r-in"><span><span class="va">my_model</span> <span class="op">&lt;-</span></span></span>
 <span class="r-in"><span>  <span class="fu"><a href="mdt_simple.html">mdt_simple</a></span><span class="op">(</span>data <span class="op">=</span> <span class="va">ho_et_al</span>,</span></span>
 <span class="r-in"><span>             IV <span class="op">=</span> <span class="va">condition_c</span>,</span></span>
@@ -143,7 +146,6 @@ includes <code>"normality"</code>, <code>"heteroscedasticity"</code>, and
 <span class="r-out co"><span class="r-pr">#&gt;</span> X + M -&gt; Y</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> Warning: Non-normality of residuals detected (p &lt; .001).</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> Warning: Heteroscedasticity (non-constant error variance) detected (p &lt; .001).</span>
-<span class="r-in"><span></span></span>
 </code></pre></div>
     </div>
   </div>
