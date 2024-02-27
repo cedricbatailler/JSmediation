@@ -2,8 +2,10 @@
 
 ## Minor improvements and bug fixes
 
+* Some tests, examples, and parts of the vignettes are now conditionnal
 * Fix issues related to assumption check functions
-* Small maintenance task
+* Fix some typos in documentation
+* Small maintenance tasks
 
 # JSmediation (0.2.1)
 

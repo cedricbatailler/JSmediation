@@ -29,10 +29,14 @@ plots.
 This function is best used in an interactive context.
 }
 \examples{
+\dontshow{if (rlang::is_installed("see")) (if (getRversion() >= "3.4") withAutoprint else force)(\{ # examplesIf}
+
 data(ho_et_al)
+
 ho_et_al$condition_c <- build_contrast(ho_et_al$condition,
                                        "Low discrimination",
                                        "High discrimination")
+
 my_model <-
   mdt_simple(data = ho_et_al,
              IV = condition_c,
@@ -40,7 +44,7 @@ my_model <-
              M = linkedfate)
 
 plot_assumptions(my_model)
-
+\dontshow{\}) # examplesIf}
 }
 \seealso{
 Other assumption checks: 
