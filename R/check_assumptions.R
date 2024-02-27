@@ -18,7 +18,7 @@
 #'
 #' @return Invisibly returns an object of class \code{mediation_model}.
 #'
-#' @examples
+#' @examplesIf rlang::is_installed("performance")
 #' data(ho_et_al)
 #' ho_et_al$condition_c <- build_contrast(ho_et_al$condition,
 #'                                        "Low discrimination",
