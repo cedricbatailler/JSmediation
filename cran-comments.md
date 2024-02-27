@@ -2,7 +2,6 @@
 
 This is the second resubmission of a patch release.
 
-
 This resubmission makes some test, vignette and example conditionnal. It fixes
 problems highlighted by a CRAN NoSuggests check. It also fixes missing tags in
 documentation raising NOTES on CRAN systems. It also adds the revdep/ folder in

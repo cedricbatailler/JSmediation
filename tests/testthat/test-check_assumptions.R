@@ -1,3 +1,5 @@
+skip_if_not_installed("performance")
+
 test_that("check_assumptions run without error", {
   ho_et_al$condition_c <- build_contrast(ho_et_al$condition,
                                          "Low discrimination",
