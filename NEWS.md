@@ -1,3 +1,5 @@
+# JSmediation (development version)
+
 # JSmediation (0.2.2)
 
 ## Minor improvements and bug fixes
