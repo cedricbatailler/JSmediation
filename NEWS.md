@@ -1,5 +1,6 @@
 # JSmediation (development version)
 
+* Improve cross-refs in documentation
 * Update authors info
 
 # JSmediation (0.2.2)
