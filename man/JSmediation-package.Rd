@@ -61,7 +61,7 @@ Useful links:
 Authors:
 \itemize{
   \item Dominique Muller (\href{https://orcid.org/0000-0001-9544-5317}{ORCID})
-  \item Vincent Yzerbyt
+  \item Vincent Yzerbyt (\href{https://orcid.org/0000-0003-1185-4733}{ORCID})
   \item Charles Judd
 }
 
