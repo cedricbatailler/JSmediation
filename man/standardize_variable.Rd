@@ -12,7 +12,7 @@ standardise_variable(data, cols = dplyr::everything(), suffix = NULL)
 \arguments{
 \item{data}{A data frame containing the variables to standardize.}
 
-\item{cols}{<\code{\link[=dplyr_tidy_select]{tidy-select}}> Columns to standardize.
+\item{cols}{<\code{\link[dplyr:dplyr_tidy_select]{tidy-select}}> Columns to standardize.
 Defaults to \code{\link[dplyr:reexports]{dplyr::everything()}}.}
 
 \item{suffix}{A character suffix to be added to the scaled variables names.

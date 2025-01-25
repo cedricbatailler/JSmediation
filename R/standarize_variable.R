@@ -8,7 +8,7 @@
 #'   `standardize_variable()` and `standardise_variable()` are synonyms.
 #'
 #' @param data A data frame containing the variables to standardize.
-#' @param cols <[`tidy-select`][dplyr_tidy_select]> Columns to standardize.
+#' @param cols <[`tidy-select`][`dplyr::dplyr_tidy_select`]> Columns to standardize.
 #'   Defaults to [`dplyr::everything()`].
 #' @param suffix A character suffix to be added to the scaled variables names.
 #'   When suffix is set to`NULL`, the  `standardize_variable()` function will
