@@ -1,114 +1,40 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
-  <url>
-    <loc>https://jsmediation.cedricbatailler.me/404.html</loc>
-  </url>
-  <url>
-    <loc>https://jsmediation.cedricbatailler.me/CODE_OF_CONDUCT.html</loc>
-  </url>
-  <url>
-    <loc>https://jsmediation.cedricbatailler.me/LICENSE-text.html</loc>
-  </url>
-  <url>
-    <loc>https://jsmediation.cedricbatailler.me/LICENSE.html</loc>
-  </url>
-  <url>
-    <loc>https://jsmediation.cedricbatailler.me/articles/index.html</loc>
-  </url>
-  <url>
-    <loc>https://jsmediation.cedricbatailler.me/articles/jsmediation.html</loc>
-  </url>
-  <url>
-    <loc>https://jsmediation.cedricbatailler.me/articles/moderated-mediation.html</loc>
-  </url>
-  <url>
-    <loc>https://jsmediation.cedricbatailler.me/authors.html</loc>
-  </url>
-  <url>
-    <loc>https://jsmediation.cedricbatailler.me/index.html</loc>
-  </url>
-  <url>
-    <loc>https://jsmediation.cedricbatailler.me/news/index.html</loc>
-  </url>
-  <url>
-    <loc>https://jsmediation.cedricbatailler.me/reference/JSmediation-package.html</loc>
-  </url>
-  <url>
-    <loc>https://jsmediation.cedricbatailler.me/reference/add_index.html</loc>
-  </url>
-  <url>
-    <loc>https://jsmediation.cedricbatailler.me/reference/add_index.moderated_mediation.html</loc>
-  </url>
-  <url>
-    <loc>https://jsmediation.cedricbatailler.me/reference/add_index.simple_mediation.html</loc>
-  </url>
-  <url>
-    <loc>https://jsmediation.cedricbatailler.me/reference/add_index.within_participant_mediation.html</loc>
-  </url>
-  <url>
-    <loc>https://jsmediation.cedricbatailler.me/reference/apastylr.html</loc>
-  </url>
-  <url>
-    <loc>https://jsmediation.cedricbatailler.me/reference/build_contrast.html</loc>
-  </url>
-  <url>
-    <loc>https://jsmediation.cedricbatailler.me/reference/check_assumptions.html</loc>
-  </url>
-  <url>
-    <loc>https://jsmediation.cedricbatailler.me/reference/compute_indirect_effect_for.html</loc>
-  </url>
-  <url>
-    <loc>https://jsmediation.cedricbatailler.me/reference/display_models.html</loc>
-  </url>
-  <url>
-    <loc>https://jsmediation.cedricbatailler.me/reference/dohle_siegrist.html</loc>
-  </url>
-  <url>
-    <loc>https://jsmediation.cedricbatailler.me/reference/dohle_siegrist_wide.html</loc>
-  </url>
-  <url>
-    <loc>https://jsmediation.cedricbatailler.me/reference/extract_model.html</loc>
-  </url>
-  <url>
-    <loc>https://jsmediation.cedricbatailler.me/reference/extract_models.html</loc>
-  </url>
-  <url>
-    <loc>https://jsmediation.cedricbatailler.me/reference/extract_tidy_models.html</loc>
-  </url>
-  <url>
-    <loc>https://jsmediation.cedricbatailler.me/reference/ho_et_al.html</loc>
-  </url>
-  <url>
-    <loc>https://jsmediation.cedricbatailler.me/reference/index.html</loc>
-  </url>
-  <url>
-    <loc>https://jsmediation.cedricbatailler.me/reference/mdt_moderated.html</loc>
-  </url>
-  <url>
-    <loc>https://jsmediation.cedricbatailler.me/reference/mdt_simple.html</loc>
-  </url>
-  <url>
-    <loc>https://jsmediation.cedricbatailler.me/reference/mdt_within.html</loc>
-  </url>
-  <url>
-    <loc>https://jsmediation.cedricbatailler.me/reference/mdt_within_wide.html</loc>
-  </url>
-  <url>
-    <loc>https://jsmediation.cedricbatailler.me/reference/pipe.html</loc>
-  </url>
-  <url>
-    <loc>https://jsmediation.cedricbatailler.me/reference/plot_assumptions.html</loc>
-  </url>
-  <url>
-    <loc>https://jsmediation.cedricbatailler.me/reference/print.indirect_index.html</loc>
-  </url>
-  <url>
-    <loc>https://jsmediation.cedricbatailler.me/reference/print.mediation_model.html</loc>
-  </url>
-  <url>
-    <loc>https://jsmediation.cedricbatailler.me/reference/standardize_variable.html</loc>
-  </url>
-  <url>
-    <loc>https://jsmediation.cedricbatailler.me/reference/tidyeval.html</loc>
-  </url>
+<urlset xmlns = 'http://www.sitemaps.org/schemas/sitemap/0.9'>
+<url><loc>https://jsmediation.cedricbatailler.me/404.html</loc></url>
+<url><loc>https://jsmediation.cedricbatailler.me/CODE_OF_CONDUCT.html</loc></url>
+<url><loc>https://jsmediation.cedricbatailler.me/LICENSE-text.html</loc></url>
+<url><loc>https://jsmediation.cedricbatailler.me/LICENSE.html</loc></url>
+<url><loc>https://jsmediation.cedricbatailler.me/articles/index.html</loc></url>
+<url><loc>https://jsmediation.cedricbatailler.me/articles/jsmediation.html</loc></url>
+<url><loc>https://jsmediation.cedricbatailler.me/articles/moderated-mediation.html</loc></url>
+<url><loc>https://jsmediation.cedricbatailler.me/authors.html</loc></url>
+<url><loc>https://jsmediation.cedricbatailler.me/index.html</loc></url>
+<url><loc>https://jsmediation.cedricbatailler.me/news/index.html</loc></url>
+<url><loc>https://jsmediation.cedricbatailler.me/reference/JSmediation-package.html</loc></url>
+<url><loc>https://jsmediation.cedricbatailler.me/reference/add_index.html</loc></url>
+<url><loc>https://jsmediation.cedricbatailler.me/reference/add_index.moderated_mediation.html</loc></url>
+<url><loc>https://jsmediation.cedricbatailler.me/reference/add_index.simple_mediation.html</loc></url>
+<url><loc>https://jsmediation.cedricbatailler.me/reference/add_index.within_participant_mediation.html</loc></url>
+<url><loc>https://jsmediation.cedricbatailler.me/reference/apastylr.html</loc></url>
+<url><loc>https://jsmediation.cedricbatailler.me/reference/build_contrast.html</loc></url>
+<url><loc>https://jsmediation.cedricbatailler.me/reference/check_assumptions.html</loc></url>
+<url><loc>https://jsmediation.cedricbatailler.me/reference/compute_indirect_effect_for.html</loc></url>
+<url><loc>https://jsmediation.cedricbatailler.me/reference/display_models.html</loc></url>
+<url><loc>https://jsmediation.cedricbatailler.me/reference/dohle_siegrist.html</loc></url>
+<url><loc>https://jsmediation.cedricbatailler.me/reference/dohle_siegrist_wide.html</loc></url>
+<url><loc>https://jsmediation.cedricbatailler.me/reference/extract_model.html</loc></url>
+<url><loc>https://jsmediation.cedricbatailler.me/reference/extract_models.html</loc></url>
+<url><loc>https://jsmediation.cedricbatailler.me/reference/extract_tidy_models.html</loc></url>
+<url><loc>https://jsmediation.cedricbatailler.me/reference/ho_et_al.html</loc></url>
+<url><loc>https://jsmediation.cedricbatailler.me/reference/index.html</loc></url>
+<url><loc>https://jsmediation.cedricbatailler.me/reference/mdt_moderated.html</loc></url>
+<url><loc>https://jsmediation.cedricbatailler.me/reference/mdt_simple.html</loc></url>
+<url><loc>https://jsmediation.cedricbatailler.me/reference/mdt_within.html</loc></url>
+<url><loc>https://jsmediation.cedricbatailler.me/reference/mdt_within_wide.html</loc></url>
+<url><loc>https://jsmediation.cedricbatailler.me/reference/pipe.html</loc></url>
+<url><loc>https://jsmediation.cedricbatailler.me/reference/plot_assumptions.html</loc></url>
+<url><loc>https://jsmediation.cedricbatailler.me/reference/print.indirect_index.html</loc></url>
+<url><loc>https://jsmediation.cedricbatailler.me/reference/print.mediation_model.html</loc></url>
+<url><loc>https://jsmediation.cedricbatailler.me/reference/standardize_variable.html</loc></url>
+<url><loc>https://jsmediation.cedricbatailler.me/reference/tidyeval.html</loc></url>
 </urlset>
+
